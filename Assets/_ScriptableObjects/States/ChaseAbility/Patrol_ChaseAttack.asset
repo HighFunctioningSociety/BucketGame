@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25e53e4dee9eaa40b3a3b4179903693, type: 3}
+  m_Name: Patrol_ChaseAttack
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 7cb30e87fad216144952143dd5827fb6, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 98f743e561fe95d4ba4fff94bbaeee1f, type: 2}
+    trueState: {fileID: 11400000, guid: d5dd176ee8dcd784ea110bbe124507c2, type: 2}
+    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+  - decision: {fileID: 11400000, guid: e834ec62183d04b439f2dd23ad272e86, type: 2}
+    trueState: {fileID: 11400000, guid: 6f39f64c444456f43b623b41fe67c977, type: 2}
+    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+  uninterruptable: 0
+  hurtboxDisabled: 0
+  isNeutralState: 0
+  sceneGizmoColor: {r: 0, g: 1, b: 0.5, a: 1}

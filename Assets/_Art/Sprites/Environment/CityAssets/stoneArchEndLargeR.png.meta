@@ -1,0 +1,424 @@
+fileFormatVersion: 2
+guid: 3c7fea60d1b140a4a8a778afc8d7004a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1396790555522841419
+    second: stoneArchEndLargeR_0
+  - first:
+      213: 5251565084080440558
+    second: stoneArchEndLargeR_1
+  - first:
+      213: -7751938014494305233
+    second: stoneArchEndLargeR_2
+  - first:
+      213: 1967089756121067038
+    second: stoneArchEndLargeR_3
+  - first:
+      213: -8113778072984050794
+    second: stoneArchEndLargeR_4
+  - first:
+      213: 3279574274125006302
+    second: stoneArchEndLargeR_5
+  - first:
+      213: 8873329406662418517
+    second: stoneArchEndLargeR_6
+  - first:
+      213: -4294886911148802505
+    second: stoneArchEndLargeR_7
+  - first:
+      213: -8554883665508257826
+    second: stoneArchEndLargeR_8
+  - first:
+      213: 2451408349756568897
+    second: stoneArchEndLargeR_9
+  - first:
+      213: 430685573796167607
+    second: stoneArchEndLargeR_10
+  - first:
+      213: -8482624467799364379
+    second: stoneArchEndLargeR_11
+  - first:
+      213: -2405829514170968838
+    second: stoneArchEndLargeR_12
+  - first:
+      213: 7492488702054948416
+    second: stoneArchEndLargeR_13
+  - first:
+      213: 6050816600537788227
+    second: stoneArchEndLargeR_14
+  - first:
+      213: 5650037327120945474
+    second: stoneArchEndLargeR_15
+  - first:
+      213: 2166589981435749361
+    second: stoneArchEndLargeR_16
+  - first:
+      213: -3208759336165250473
+    second: stoneArchEndLargeR_17
+  - first:
+      213: 2140066592054884556
+    second: stoneArchEndLargeR_18
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: stoneArchEndLargeR_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b3f871c95626310800000000000000
+      internalID: 1396790555522841419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stoneArchEndLargeR_1
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee48577be9e41e840800000000000000
+      internalID: 5251565084080440558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stoneArchEndLargeR_2
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f24583582759b6490800000000000000
+      internalID: -7751938014494305233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stoneArchEndLargeR_3
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ee7ea06b18c4b10800000000000000
+      internalID: 1967089756121067038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stoneArchEndLargeR_4
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 693ae6dc4d1166f80800000000000000
+      internalID: -8113778072984050794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stoneArchEndLargeR_5
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed50bb72d63638d20800000000000000
+      internalID: 3279574274125006302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stoneArchEndLargeR_6
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 550242b1516642b70800000000000000
+      internalID: 8873329406662418517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stoneArchEndLargeR_8
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edfa696c1a2f64980800000000000000
+      internalID: -8554883665508257826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stoneArchEndLargeR_9
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 145baaee7e6250220800000000000000
+      internalID: 2451408349756568897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stoneArchEndLargeR_10
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bf710c5f3a1af500800000000000000
+      internalID: 430685573796167607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stoneArchEndLargeR_11
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ec28c94df9a74a80800000000000000
+      internalID: -8482624467799364379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stoneArchEndLargeR_15
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 0
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 241ddba8307f86e40800000000000000
+      internalID: 5650037327120945474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

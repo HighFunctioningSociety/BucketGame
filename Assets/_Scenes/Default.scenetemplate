@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 13966, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  templateScene: {fileID: 102900000, guid: 66c9e3842f1430649a8f8ef1f7bfd2ad, type: 3}
+  templateName: Default Scene
+  description: 
+  preview: {fileID: 0}
+  dependencies:
+  - dependency: {fileID: 8300000, guid: 39b71274a451b9443a4a1152e7a1d1b0, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 7543944458645577510, guid: cd83ca8d30e38094fac2797d353ec859,
+      type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 8023014367084222404, guid: 872653847e3857045b95d6ef902dfa0b,
+      type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 6200000, guid: d7d56d97b161c9448b687e300af37960, type: 2}
+    instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: 724ba9ad278706a479e64ac88b10f67a, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 24100000, guid: 24884f7db119e784b8fe18bdfb80bf29, type: 2}
+    instantiationMode: 1
+  - dependency: {fileID: 8553158558994013763, guid: 97f137c92f5ea2a4c99d620f15863609,
+      type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 11400000, guid: e07c9da73831b314fa5f3cfbc47f59fd, type: 2}
+    instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: e2982c616799cd5468354fc97962dd11, type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 24100000, guid: 2629859064b12874a8dc302cd9a90d58, type: 2}
+    instantiationMode: 1
+  - dependency: {fileID: 7442068905940715707, guid: 2887775f5ae39174f8cf55d291e3a6c4,
+      type: 3}
+    instantiationMode: 1
+  - dependency: {fileID: 11400000, guid: f8eebfd5442a3be45aa4eb3ef9812e5e, type: 2}
+    instantiationMode: 1
+  - dependency: {fileID: 2800000, guid: 28bb1b67384dee845ab4e9b838b096af, type: 3}
+    instantiationMode: 1
+  templatePipeline: {fileID: 0}
+  addToDefaults: 0

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe1fdf80950b6c4b890e23dcbf84337, type: 3}
+  m_Name: ScampLordStats
+  m_EditorClassIdentifier: 
+  maxHealth: 8500
+  damage: 1
+  armor: 1
+  speed: 10
+  defaultGravity: 10
+  isHeavy: 1
+  idleTime: 0.5
+  fullscreenTimingMin: 0
+  fullscreenTimingMax: 3.5
+  repositionMinDistance: 8
+  repositionMaxDistance: 18
+  repositionCooldown: 5
+  aggroRangeX: 0
+  aggroRangeY: 0
+  aggroTime: 0
+  hurtStunTime: 0.25
+  stateSphereRadius: 3
+  currencyDroppedMin: 44
+  currencyDroppedMax: 54

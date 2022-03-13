@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98620a90ea0c5b4bae191b888f795f9, type: 3}
+  m_Name: plunge
+  m_EditorClassIdentifier: 
+  aName: plunge
+  aBaseCoolDown: 0
+  triggerName: Plunge
+  damage: 60
+  rumbleDurration: 0.1
+  rumbleLow: 0.3
+  rumbleHigh: 0.3
+  meterProgression: 30
+  knockBackY: 60
+  moveForceY: 80
+  bounce: 150
+  hitStop: 0.01

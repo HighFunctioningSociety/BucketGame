@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25e53e4dee9eaa40b3a3b4179903693, type: 3}
+  m_Name: Idle_Boss
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 61a305094402d7441830bf40a0600300, type: 2}
+  - {fileID: 11400000, guid: e5e0a0131ef6e6a47b93cb4b15a2a8ef, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 4258120392569d546a21f3b0a1dacd75, type: 2}
+    trueState: {fileID: 11400000, guid: 4d6970c59cea51945b3b57309fdb8e3e, type: 2}
+    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+  - decision: {fileID: 11400000, guid: 8dadc5a6fa1d3a940924ea82be0c6797, type: 2}
+    trueState: {fileID: 11400000, guid: 4d6970c59cea51945b3b57309fdb8e3e, type: 2}
+    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+  - decision: {fileID: 11400000, guid: 2dc73d69df2eb994da6cf312be68a232, type: 2}
+    trueState: {fileID: 11400000, guid: 0b8d5f17c4562aa44b6165dfd3ea78c3, type: 2}
+    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+  - decision: {fileID: 11400000, guid: f96869f494eb8374db298fb135f37193, type: 2}
+    trueState: {fileID: 11400000, guid: 6edba2084d09fa0429de70fda83038f4, type: 2}
+    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+  - decision: {fileID: 11400000, guid: c1dbcd149abfd4242b001527841ee65c, type: 2}
+    trueState: {fileID: 11400000, guid: 364fded0f3616ed47a34d33c560d11e4, type: 2}
+    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+  - decision: {fileID: 11400000, guid: 83f92d42d71d58f4db9725ad8cb535c2, type: 2}
+    trueState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+  uninterruptable: 0
+  hurtboxDisabled: 0
+  isNeutralState: 1
+  sceneGizmoColor: {r: 0, g: 1, b: 0.9166665, a: 1}

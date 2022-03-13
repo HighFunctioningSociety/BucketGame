@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25e53e4dee9eaa40b3a3b4179903693, type: 3}
+  m_Name: Hurt_ChaserFlyer
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 091fc3508828c084cb8f28efe236ea77, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 9fd92896269c4f14f866e53fbb09a1bb, type: 2}
+    trueState: {fileID: 11400000, guid: cc18372dcc56fcb4da17447fc79afd09, type: 2}
+    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+  uninterruptable: 0
+  hurtboxDisabled: 1
+  isNeutralState: 0
+  sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

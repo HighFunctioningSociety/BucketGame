@@ -1,0 +1,2089 @@
+fileFormatVersion: 2
+guid: dcdf67c471e86394282592892e86b236
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7959882414240303415
+    second: ArchesLeft_0
+  - first:
+      213: 5407737713988129070
+    second: ArchesLeft_1
+  - first:
+      213: 1374748348984553818
+    second: ArchesLeft_2
+  - first:
+      213: -3597563309140652040
+    second: ArchesLeft_3
+  - first:
+      213: 263034680040498095
+    second: ArchesLeft_4
+  - first:
+      213: -898242559194120747
+    second: ArchesLeft_5
+  - first:
+      213: -259174236879677747
+    second: ArchesLeft_6
+  - first:
+      213: 3273683779204066940
+    second: ArchesLeft_7
+  - first:
+      213: 7981783088123006625
+    second: ArchesLeft_8
+  - first:
+      213: 1598516957792906870
+    second: ArchesLeft_9
+  - first:
+      213: -2619698713303750083
+    second: ArchesLeft_10
+  - first:
+      213: 2931736057986044333
+    second: ArchesLeft_11
+  - first:
+      213: -863401286158505663
+    second: ArchesLeft_12
+  - first:
+      213: -5697649927418607896
+    second: ArchesLeft_13
+  - first:
+      213: -5030498250300373919
+    second: ArchesLeft_14
+  - first:
+      213: -1948129059189351383
+    second: ArchesLeft_15
+  - first:
+      213: -5591053653010724152
+    second: ArchesLeft_16
+  - first:
+      213: 3974609404211462288
+    second: ArchesLeft_17
+  - first:
+      213: -3734446365556323016
+    second: ArchesLeft_18
+  - first:
+      213: -2664058812162935903
+    second: ArchesLeft_19
+  - first:
+      213: -5081837937114344877
+    second: ArchesLeft_20
+  - first:
+      213: -7519829716108768036
+    second: ArchesLeft_21
+  - first:
+      213: -7334384719379746762
+    second: ArchesLeft_22
+  - first:
+      213: 4290163356902741950
+    second: ArchesLeft_23
+  - first:
+      213: 7901682760322540960
+    second: ArchesLeft_24
+  - first:
+      213: -7214870393357781675
+    second: ArchesLeft_25
+  - first:
+      213: 2128311128531850191
+    second: ArchesLeft_26
+  - first:
+      213: 3572228870763937537
+    second: ArchesLeft_27
+  - first:
+      213: 1139710709800798637
+    second: ArchesLeft_28
+  - first:
+      213: -7740228235770683837
+    second: ArchesLeft_29
+  - first:
+      213: 4022957041976527339
+    second: ArchesLeft_30
+  - first:
+      213: 3096797694486741658
+    second: ArchesLeft_0
+  - first:
+      213: 6615516698400678074
+    second: ArchesLeft_1
+  - first:
+      213: -9161857636952680674
+    second: ArchesLeft_2
+  - first:
+      213: -700546975537771181
+    second: ArchesLeft_3
+  - first:
+      213: -2553140290391988377
+    second: ArchesLeft_4
+  - first:
+      213: 4448248734358153710
+    second: ArchesLeft_5
+  - first:
+      213: -5410834216783856241
+    second: ArchesLeft_6
+  - first:
+      213: 4934244795111856004
+    second: ArchesLeft_7
+  - first:
+      213: 8344227047292989169
+    second: ArchesLeft_8
+  - first:
+      213: 7358342471741723139
+    second: ArchesLeft_13
+  - first:
+      213: -2943344619046561706
+    second: ArchesLeft_14
+  - first:
+      213: -7300921500638885805
+    second: ArchesLeft_15
+  - first:
+      213: 2743372778811356072
+    second: ArchesLeft_16
+  - first:
+      213: 4161248626598851364
+    second: ArchesLeft_17
+  - first:
+      213: -5597091712511986764
+    second: ArchesLeft_18
+  - first:
+      213: 4082772109582533705
+    second: ArchesLeft_23
+  - first:
+      213: 2975666977395862649
+    second: ArchesLeft_28
+  - first:
+      213: 9147191189541631294
+    second: ArchesLeft_31
+  - first:
+      213: -2441313555116606757
+    second: ArchesLeft_32
+  - first:
+      213: -1226001899554247466
+    second: ArchesLeft_33
+  - first:
+      213: 1791520707435224640
+    second: ArchesLeft_34
+  - first:
+      213: 6935164693178757681
+    second: ArchesLeft_35
+  - first:
+      213: -3969032826974226359
+    second: ArchesLeft_36
+  - first:
+      213: -9164749459567004893
+    second: ArchesLeft_37
+  - first:
+      213: 5758622291469108152
+    second: ArchesLeft_38
+  - first:
+      213: -5538929860879355935
+    second: ArchesLeft_39
+  - first:
+      213: -1753940612792076681
+    second: ArchesLeft_40
+  - first:
+      213: 616673493628635686
+    second: ArchesLeft_41
+  - first:
+      213: 2141402694647517532
+    second: ArchesLeft_42
+  - first:
+      213: -2126984575695803677
+    second: ArchesLeft_43
+  - first:
+      213: 5736042712772909722
+    second: ArchesLeft_44
+  - first:
+      213: 6933773514411064280
+    second: ArchesLeft_45
+  - first:
+      213: -1150640990854563821
+    second: ArchesLeft_46
+  - first:
+      213: -5730247397089489088
+    second: ArchesLeft_47
+  - first:
+      213: -4076537537034568929
+    second: ArchesLeft_9
+  - first:
+      213: 8797564844061244786
+    second: ArchesLeft_10
+  - first:
+      213: -8013095935010401108
+    second: ArchesLeft_11
+  - first:
+      213: -4571445932331591242
+    second: ArchesLeft_12
+  - first:
+      213: 3049966311624388713
+    second: ArchesLeft_19
+  - first:
+      213: -1048506121830724448
+    second: ArchesLeft_20
+  - first:
+      213: 3754591655536450150
+    second: ArchesLeft_21
+  - first:
+      213: 7330011744423399911
+    second: ArchesLeft_22
+  - first:
+      213: -5960333385886557203
+    second: ArchesLeft_24
+  - first:
+      213: 9142064933513514833
+    second: ArchesLeft_25
+  - first:
+      213: -2747400063943781038
+    second: ArchesLeft_26
+  - first:
+      213: 4271979772658264065
+    second: ArchesLeft_27
+  - first:
+      213: 8987501293965042522
+    second: ArchesLeft_29
+  - first:
+      213: 4746959986136392700
+    second: ArchesLeft_33
+  - first:
+      213: 7466173629729917687
+    second: ArchesLeft_38
+  - first:
+      213: -4842644321576892315
+    second: ArchesLeft_39
+  - first:
+      213: 7696282400655872026
+    second: ArchesLeft_44
+  - first:
+      213: 9012188561700100266
+    second: ArchesLeft_48
+  - first:
+      213: 7718360650056626087
+    second: ArchesLeft_49
+  - first:
+      213: -4924273879938705115
+    second: ArchesLeft_50
+  - first:
+      213: 1904457763374164648
+    second: ArchesLeft_51
+  - first:
+      213: 7666176072747558064
+    second: ArchesLeft_52
+  - first:
+      213: -8930132066048594088
+    second: ArchesLeft_53
+  - first:
+      213: 1021036641094886671
+    second: ArchesLeft_54
+  - first:
+      213: -4415141405790188174
+    second: ArchesLeft_55
+  - first:
+      213: -8568777792219220728
+    second: ArchesLeft_56
+  - first:
+      213: -6578919664233088137
+    second: ArchesLeft_57
+  - first:
+      213: 7448480040395184663
+    second: ArchesLeft_58
+  - first:
+      213: -6192479000609678284
+    second: ArchesLeft_59
+  - first:
+      213: -2013847797891593121
+    second: ArchesLeft_60
+  - first:
+      213: 4229545440548705889
+    second: ArchesLeft_61
+  - first:
+      213: -6953001035138212115
+    second: ArchesLeft_62
+  - first:
+      213: -6654303577523644639
+    second: ArchesLeft_63
+  - first:
+      213: -6578901911091460065
+    second: ArchesLeft_64
+  - first:
+      213: 1933241579268844311
+    second: ArchesLeft_65
+  - first:
+      213: -4921590033045485509
+    second: ArchesLeft_66
+  - first:
+      213: -3568986057296496840
+    second: ArchesLeft_67
+  - first:
+      213: 8448558316413566923
+    second: ArchesLeft_68
+  - first:
+      213: 6784464585681570792
+    second: ArchesLeft_69
+  - first:
+      213: 6884991455058625266
+    second: ArchesLeft_70
+  - first:
+      213: -5436771720958851468
+    second: ArchesLeft_71
+  - first:
+      213: 3973810756493260286
+    second: ArchesLeft_72
+  - first:
+      213: 851079058482495570
+    second: ArchesLeft_73
+  - first:
+      213: 3238349889195947743
+    second: ArchesLeft_74
+  - first:
+      213: 8675469364881654837
+    second: ArchesLeft_75
+  - first:
+      213: -1723057697344984292
+    second: ArchesLeft_76
+  - first:
+      213: 5672312786606075211
+    second: ArchesLeft_77
+  - first:
+      213: 106607939574713980
+    second: ArchesLeft_78
+  - first:
+      213: -9015951467834987711
+    second: ArchesLeft_79
+  - first:
+      213: 1979201074866997883
+    second: ArchesLeft_80
+  - first:
+      213: -1042070257719820458
+    second: ArchesLeft_81
+  - first:
+      213: 3303791449037303189
+    second: ArchesLeft_82
+  - first:
+      213: -2264289796475878799
+    second: ArchesLeft_83
+  - first:
+      213: -2138518077050853705
+    second: ArchesLeft_84
+  - first:
+      213: 5572234012549887348
+    second: ArchesLeft_85
+  - first:
+      213: -272173993799547467
+    second: ArchesLeft_86
+  - first:
+      213: -1942427540173348421
+    second: ArchesLeft_87
+  - first:
+      213: -6380971609246726746
+    second: ArchesLeft_88
+  - first:
+      213: 2644189852947793028
+    second: ArchesLeft_89
+  - first:
+      213: 524214338732687353
+    second: ArchesLeft_90
+  - first:
+      213: -8723047589344147324
+    second: ArchesLeft_91
+  - first:
+      213: -7703570750314150806
+    second: ArchesLeft_92
+  - first:
+      213: -4358519650105225612
+    second: ArchesLeft_93
+  - first:
+      213: 1739180683828877132
+    second: ArchesLeft_94
+  - first:
+      213: 176216811036971812
+    second: ArchesLeft_95
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ArchesLeft_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -172.24738}
+        - {x: 172.5, y: -171.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92812978190afa20800000000000000
+      internalID: 3096797694486741658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_1
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -171.99463, y: 172.5}
+        - {x: -171.99463, y: 15.658919}
+        - {x: 172.5, y: -66.17124}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab066ddf2690fcb50800000000000000
+      internalID: 6615516698400678074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_2
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -66.17124}
+        - {x: -18.024899, y: -172.24738}
+        - {x: 172.5, y: -172.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e175cb2550b8ad080800000000000000
+      internalID: -9161857636952680674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_3
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -172.5}
+        - {x: 172.5, y: -172.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35dc896cc382746f0800000000000000
+      internalID: -700546975537771181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_4
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -172.5}
+        - {x: 16.5, y: -172.5}
+        - {x: 172.5, y: -66.17124}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767a279de6c619cd0800000000000000
+      internalID: -2553140290391988377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_5
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -171.65782, y: 172.5}
+        - {x: -171.65782, y: -66.17124}
+        - {x: 172.5, y: 18.689665}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee9aff3f7aa5bbd30800000000000000
+      internalID: 4448248734358153710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_6
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.33167, y: 172.5}
+        - {x: -172.33167, y: 15.658919}
+        - {x: 172.5, y: -66.17124}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8db11a92fad8e4b0800000000000000
+      internalID: -5410834216783856241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_7
+      rect:
+        serializedVersion: 2
+        x: 2415
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -69.20199}
+        - {x: -20.5, y: -172.5}
+        - {x: 172.5, y: -172.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48756779f75f97440800000000000000
+      internalID: 4934244795111856004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_8
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.16307, y: 172.5}
+        - {x: -172.5, y: -172.5}
+        - {x: 172.5, y: -172.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1feea173a46acc370800000000000000
+      internalID: 8344227047292989169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_13
+      rect:
+        serializedVersion: 2
+        x: 4485
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -69.20199}
+        - {x: -15.5, y: -172.5}
+        - {x: 172.5, y: -172.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 302d5dbed751e1660800000000000000
+      internalID: 7358342471741723139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_14
+      rect:
+        serializedVersion: 2
+        x: 4830
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -172.5}
+        - {x: 172.5, y: -172.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6581c2ad9a32727d0800000000000000
+      internalID: -2943344619046561706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_15
+      rect:
+        serializedVersion: 2
+        x: 5175
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.33167, y: 172.5}
+        - {x: -172.5, y: -172.5}
+        - {x: 20.5, y: -172.5}
+        - {x: 172.5, y: -66.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 358486db39aedaa90800000000000000
+      internalID: -7300921500638885805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_16
+      rect:
+        serializedVersion: 2
+        x: 5520
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -66.5}
+        - {x: 172.5, y: 14.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a3f68fd10b621620800000000000000
+      internalID: 2743372778811356072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_17
+      rect:
+        serializedVersion: 2
+        x: 5865
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.16325, y: 172.5}
+        - {x: -172.16325, y: -157.09364}
+        - {x: -160.03435, y: -172.24738}
+        - {x: 172.5, y: -172.24738}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423b1822499bfb930800000000000000
+      internalID: 4161248626598851364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1380
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -133.5, y: 70.5}
+        - {x: -84.5, y: 17.5}
+        - {x: 90.9668, y: 17.679386}
+        - {x: 133.5, y: 62.5}
+        - {x: 164.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b3b07cfdb22352b0800000000000000
+      internalID: -5597091712511986764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_23
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 1380
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.16307, y: 172.5}
+        - {x: -172.16307, y: -145.98093}
+        - {x: -160.03416, y: -172.5}
+        - {x: 172.5, y: -172.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9440a8a2a9be8a830800000000000000
+      internalID: 4082772109582533705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_28
+      rect:
+        serializedVersion: 2
+        x: 5175
+        y: 1380
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.33167, y: 172.5}
+        - {x: -172.33167, y: -109.61197}
+        - {x: 18.698608, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97c6a85a951bb4920800000000000000
+      internalID: 2975666977395862649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_9
+      rect:
+        serializedVersion: 2
+        x: 3105
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -172.5}
+        - {x: 172.5, y: -172.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1b328f55ba3d67c0800000000000000
+      internalID: -4076537537034568929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_10
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -171.99484, y: 172.5}
+        - {x: -172.5, y: -172.5}
+        - {x: 16.5, y: -172.5}
+        - {x: 172.5, y: -63.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27d3cba3d9a371a70800000000000000
+      internalID: 8797564844061244786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_11
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -66.17124}
+        - {x: 172.5, y: 18.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4149ac3b3cbc090800000000000000
+      internalID: -8013095935010401108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_12
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 1725
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: 18.5}
+        - {x: 172.5, y: -66.17124}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b998752526fe80c0800000000000000
+      internalID: -4571445932331591242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_19
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 1380
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -14.992671, y: 172.5}
+        - {x: 172.5, y: -112.642715}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 960b7457338a35a20800000000000000
+      internalID: 3049966311624388713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_20
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 1380
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -133.85794}
+        - {x: -161.21344, y: -172.5}
+        - {x: 157.17035, y: -172.5}
+        - {x: 172.5, y: -130.8272}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ac0577cc35f271f0800000000000000
+      internalID: -1048506121830724448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_21
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 1380
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 15.498057, y: 172.5}
+        - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -100.51973}
+        - {x: 18.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66a55e0d73dfa1430800000000000000
+      internalID: 3754591655536450150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_22
+      rect:
+        serializedVersion: 2
+        x: 2415
+        y: 1380
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -15.329734, y: 172.5}
+        - {x: -15.5, y: 172.5}
+        - {x: 172.5, y: -112.642715}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e15cc178de69b560800000000000000
+      internalID: 7330011744423399911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_24
+      rect:
+        serializedVersion: 2
+        x: 3105
+        y: 1380
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deb945f5d54a84da0800000000000000
+      internalID: -5960333385886557203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_25
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 1380
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 19.035439, y: 172.5}
+        - {x: -171.99484, y: 172.5}
+        - {x: -171.99484, y: -109.61197}
+        - {x: 19.035439, y: 172.24747}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15fc0abce932fde70800000000000000
+      internalID: 9142064933513514833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_26
+      rect:
+        serializedVersion: 2
+        x: 4485
+        y: 1380
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8.5, y: 172.5}
+        - {x: 172.5, y: -103.550476}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 255debcb2364fd9d0800000000000000
+      internalID: -2747400063943781038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_27
+      rect:
+        serializedVersion: 2
+        x: 4830
+        y: 1380
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10823f428fe194b30800000000000000
+      internalID: 4271979772658264065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_29
+      rect:
+        serializedVersion: 2
+        x: 5865
+        y: 1380
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -163.06657, y: 172.5}
+        - {x: -111.51872, y: 17.679386}
+        - {x: 100.737144, y: 17.679386}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a53662d1fc40abc70800000000000000
+      internalID: 8987501293965042522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_33
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 1035
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf327a8f4f690e140800000000000000
+      internalID: 4746959986136392700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_38
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 1035
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -160.03416, y: 172.5}
+        - {x: -120.5, y: 18.5}
+        - {x: 119.5, y: 18.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fac077db5d2d9760800000000000000
+      internalID: 7466173629729917687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_39
+      rect:
+        serializedVersion: 2
+        x: 3105
+        y: 1035
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -119.5, y: 17.5}
+        - {x: 119.5, y: 18.5}
+        - {x: 160.70801, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 568c8de95a87bccb0800000000000000
+      internalID: -4842644321576892315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_44
+      rect:
+        serializedVersion: 2
+        x: 4830
+        y: 1035
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -156.49687, y: 172.5}
+        - {x: -117.5, y: 17.5}
+        - {x: 114.5, y: 16.5}
+        - {x: 164.91914, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a101f261110beca60800000000000000
+      internalID: 7696282400655872026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa819fc8fb9b11d70800000000000000
+      internalID: 9012188561700100266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_49
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7af6afa1e102d1b60800000000000000
+      internalID: 7718360650056626087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_50
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 529d4810ff679abb0800000000000000
+      internalID: -4924273879938705115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_51
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -172.5}
+        - {x: 172.5, y: -172.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aae6abde3efd6a10800000000000000
+      internalID: 1904457763374164648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_52
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b4a7b1658ab36a60800000000000000
+      internalID: 7666176072747558064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_53
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85f29d5233cc11480800000000000000
+      internalID: -8930132066048594088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_54
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f056e175a637b2e00800000000000000
+      internalID: 1021036641094886671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_55
+      rect:
+        serializedVersion: 2
+        x: 2415
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27dc1caa8444ab2c0800000000000000
+      internalID: -4415141405790188174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_56
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.16307, y: 172.5}
+        - {x: -172.5, y: -172.5}
+        - {x: 161.38187, y: -172.24742}
+        - {x: 161.38187, y: 172.5}
+        - {x: 158.34964, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805748f4ff5951980800000000000000
+      internalID: -8568777792219220728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_57
+      rect:
+        serializedVersion: 2
+        x: 3105
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -157.67578, y: 172.5}
+        - {x: -160.70801, y: 172.5}
+        - {x: -160.70801, y: -172.24742}
+        - {x: 172.5, y: -172.5}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77bfd870c6bf2b4a0800000000000000
+      internalID: -6578919664233088137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_58
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -172.5}
+        - {x: 20.5, y: -172.5}
+        - {x: 172.5, y: -63.140537}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a975c02215e5760800000000000000
+      internalID: 7448480040395184663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_59
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43c18997825ef0aa0800000000000000
+      internalID: -6192479000609678284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_60
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5c08fef8106d04e0800000000000000
+      internalID: -2013847797891593121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_61
+      rect:
+        serializedVersion: 2
+        x: 4485
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16657494b2d52ba30800000000000000
+      internalID: 4229545440548705889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_62
+      rect:
+        serializedVersion: 2
+        x: 4830
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deed9a9a56af18f90800000000000000
+      internalID: -6953001035138212115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_63
+      rect:
+        serializedVersion: 2
+        x: 5175
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 127971af62a27a3a0800000000000000
+      internalID: -6654303577523644639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_64
+      rect:
+        serializedVersion: 2
+        x: 5520
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -172.5, y: 172.5}
+        - {x: -172.5, y: -63.140537}
+        - {x: 172.5, y: 18.68962}
+        - {x: 172.5, y: 172.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f184141819b03b4a0800000000000000
+      internalID: -6578901911091460065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_65
+      rect:
+        serializedVersion: 2
+        x: 5865
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71ba55d39f044da10800000000000000
+      internalID: 1933241579268844311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b38883ec0fff2bbb0800000000000000
+      internalID: -4921590033045485509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_67
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8373586171a687ec0800000000000000
+      internalID: -3568986057296496840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_68
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcfb002c60f4f3570800000000000000
+      internalID: 8448558316413566923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_69
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eb84c45892472e50800000000000000
+      internalID: 6784464585681570792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_70
+      rect:
+        serializedVersion: 2
+        x: 2415
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f28e5800476c8f50800000000000000
+      internalID: 6884991455058625266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_71
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 476cb5fcce4bc84b0800000000000000
+      internalID: -5436771720958851468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_72
+      rect:
+        serializedVersion: 2
+        x: 3105
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef5386134dfc52730800000000000000
+      internalID: 3973810756493260286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_73
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2508f9cf4e3afcb00800000000000000
+      internalID: 851079058482495570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_74
+      rect:
+        serializedVersion: 2
+        x: 4485
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd633f3111ee0fc20800000000000000
+      internalID: 3238349889195947743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_75
+      rect:
+        serializedVersion: 2
+        x: 4830
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5340e893c65756870800000000000000
+      internalID: 8675469364881654837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_76
+      rect:
+        serializedVersion: 2
+        x: 5175
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1bef3647287618e0800000000000000
+      internalID: -1723057697344984292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_77
+      rect:
+        serializedVersion: 2
+        x: 5865
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4daf8c1d6a18be40800000000000000
+      internalID: 5672312786606075211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_81
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 0
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f3c992f92d981f0800000000000000
+      internalID: -1042070257719820458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_86
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 0
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b58a76d13b093cf0800000000000000
+      internalID: -272173993799547467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_87
+      rect:
+        serializedVersion: 2
+        x: 3105
+        y: 0
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb12802917c1b05e0800000000000000
+      internalID: -1942427540173348421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesLeft_92
+      rect:
+        serializedVersion: 2
+        x: 4830
+        y: 0
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a648f65c73b671590800000000000000
+      internalID: -7703570750314150806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

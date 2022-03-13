@@ -1,0 +1,33 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:7d17e43207e2f6dd63c4a827932e8c36:3a921c582956652dc1412674425cf9e7:0853976bd5ff0edc68120103a0f8712b$
+#
+:format=40300
+:texture=CaveTiles.png
+:size=2048x2048
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+
+caveTile1;0;1703;345;345; 0.5;0.5; 0;0;0;0
+caveTile2;345;1703;345;345; 0.5;0.5; 0;0;0;0
+CaveTile3;690;1703;345;345; 0.5;0.5; 0;0;0;0
+CaveTile4;1035;1703;345;345; 0.5;0.5; 0;0;0;0
+CaveTile5;1380;1703;345;345; 0.5;0.5; 0;0;0;0
+CaveTile6;0;1358;345;345; 0.5;0.5; 0;0;0;0
+CaveTile7;345;1358;345;345; 0.5;0.5; 0;0;0;0
+CaveTile8;690;1358;345;345; 0.5;0.5; 0;0;0;0
+CaveTile9;1035;1358;345;345; 0.5;0.5; 0;0;0;0
+CaveTile10;1380;1358;345;345; 0.5;0.5; 0;0;0;0
+CaveTile11;0;1013;345;345; 0.5;0.5; 0;0;0;0
+CaveTile12;345;1013;345;345; 0.5;0.5; 0;0;0;0
+CaveTile13;690;1013;345;345; 0.5;0.5; 0;0;0;0
+CaveTile14;1035;1013;345;345; 0.5;0.5; 0;0;0;0
+CaveTile15;1380;1013;345;345; 0.5;0.5; 0;0;0;0
+CaveTile16;0;668;345;345; 0.5;0.5; 0;0;0;0
+CaveTile17;345;668;345;345; 0.5;0.5; 0;0;0;0
+caveTile18;690;668;345;345; 0.5;0.5; 0;0;0;0

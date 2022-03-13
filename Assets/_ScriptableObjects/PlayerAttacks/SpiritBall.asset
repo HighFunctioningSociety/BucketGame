@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b7cc8e8dafbd564982d71f2192ec0dc, type: 3}
+  m_Name: SpiritBall
+  m_EditorClassIdentifier: 
+  aName: SpiritBall
+  aBaseCoolDown: 0.7
+  damage: 100
+  speed: 100
+  knockBack: 1
+  moveForceX: 120
+  moveForceY: 0
+  triggerName: Shoot
+  shakeLength: 0.1
+  shakeAmplitude: 0.2
+  rumbleDurration: 0.2
+  rumbleLow: 0.4
+  rumbleHigh: 0.4
+  projectilePrefab: {fileID: 6969248151503432430, guid: 46500f06272f1e9499e0758a0b69e1a5,
+    type: 3}

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad71c09576951c4b9ef271543e70b35, type: 3}
+  m_Name: slash_2
+  m_EditorClassIdentifier: 
+  aName: slash_2
+  aBaseCoolDown: 0.27
+  triggerName: Slash_2
+  damage: 110
+  rumbleDurration: 0.03
+  rumbleLow: 0.1
+  rumbleHigh: 0.1
+  meterProgression: 30
+  knockBackX: 20
+  knockBackY: 0
+  moveForceX: 10
+  moveForceY: 0
+  hitStop: 0.01

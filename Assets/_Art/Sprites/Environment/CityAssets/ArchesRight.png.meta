@@ -1,0 +1,565 @@
+fileFormatVersion: 2
+guid: a3276b86a44147e4bab8c5656b25be70
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8639769367284633459
+    second: ArchesRight_0
+  - first:
+      213: 4050968629530492275
+    second: ArchesRight_1
+  - first:
+      213: -4092365848282264656
+    second: ArchesRight_2
+  - first:
+      213: 2400716093420893668
+    second: ArchesRight_3
+  - first:
+      213: -692870044840855244
+    second: ArchesRight_4
+  - first:
+      213: -1183139097873686509
+    second: ArchesRight_5
+  - first:
+      213: 6573312058814603458
+    second: ArchesRight_6
+  - first:
+      213: -8388192021956293566
+    second: ArchesRight_7
+  - first:
+      213: -5365937768693502034
+    second: ArchesRight_8
+  - first:
+      213: -7815261249476426365
+    second: ArchesRight_9
+  - first:
+      213: 5013940015455488360
+    second: ArchesRight_10
+  - first:
+      213: 3642762334932592207
+    second: ArchesRight_11
+  - first:
+      213: -7800697018950536255
+    second: ArchesRight_12
+  - first:
+      213: -9213702129241596965
+    second: ArchesRight_13
+  - first:
+      213: 8516525882033675997
+    second: ArchesRight_14
+  - first:
+      213: 2123082200063731576
+    second: ArchesRight_15
+  - first:
+      213: -4620518345615051918
+    second: ArchesRight_16
+  - first:
+      213: 8221589674491347238
+    second: ArchesRight_17
+  - first:
+      213: -5241305826489525642
+    second: ArchesRight_18
+  - first:
+      213: -5260129163228193756
+    second: ArchesRight_19
+  - first:
+      213: -6621715155624170239
+    second: ArchesRight_20
+  - first:
+      213: -84805259384235053
+    second: ArchesRight_21
+  - first:
+      213: 395375581200185583
+    second: ArchesRight_22
+  - first:
+      213: 1264218652033823592
+    second: ArchesRight_23
+  - first:
+      213: 5786522210155256163
+    second: ArchesRight_24
+  - first:
+      213: -4468600451718084319
+    second: ArchesRight_25
+  - first:
+      213: -3417542609138065928
+    second: ArchesRight_26
+  - first:
+      213: 366233963530834858
+    second: ArchesRight_27
+  - first:
+      213: -1231681065463826908
+    second: ArchesRight_28
+  - first:
+      213: -7479592064126580138
+    second: ArchesRight_29
+  - first:
+      213: -955455231690779894
+    second: ArchesRight_30
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ArchesRight_4
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43970cd7d5e6266f0800000000000000
+      internalID: -692870044840855244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_5
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 310ec5f4245a49fe0800000000000000
+      internalID: -1183139097873686509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_6
+      rect:
+        serializedVersion: 2
+        x: 2415
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c0af679d78193b50800000000000000
+      internalID: 6573312058814603458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_7
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c878f6cc7279b80800000000000000
+      internalID: -8388192021956293566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_8
+      rect:
+        serializedVersion: 2
+        x: 3105
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eafeb22870c5885b0800000000000000
+      internalID: -5365937768693502034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_9
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3850516fc4d9a8390800000000000000
+      internalID: -7815261249476426365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_10
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 869475a01e7159540800000000000000
+      internalID: 5013940015455488360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_11
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4664de1b01bd8230800000000000000
+      internalID: 3642762334932592207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_12
+      rect:
+        serializedVersion: 2
+        x: 4485
+        y: 690
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c33101246b5eb390800000000000000
+      internalID: -7800697018950536255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_14
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde990fca27c03670800000000000000
+      internalID: 8516525882033675997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_15
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 877e0cb2304b67d10800000000000000
+      internalID: 2123082200063731576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_16
+      rect:
+        serializedVersion: 2
+        x: 3105
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27370739b0f90efb0800000000000000
+      internalID: -4620518345615051918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_17
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6218315cf34f81270800000000000000
+      internalID: 8221589674491347238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_18
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a18e4de142347b0800000000000000
+      internalID: -5241305826489525642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_19
+      rect:
+        serializedVersion: 2
+        x: 4485
+        y: 345
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42c5c1935644007b0800000000000000
+      internalID: -5260129163228193756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_22
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 0
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe8fc4e0ff7ac7500800000000000000
+      internalID: 395375581200185583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArchesRight_27
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 0
+        width: 345
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa350f479df151500800000000000000
+      internalID: 366233963530834858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

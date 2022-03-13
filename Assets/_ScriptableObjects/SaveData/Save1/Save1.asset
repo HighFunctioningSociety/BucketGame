@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfbaf15fd4a39c744b66333e74667880, type: 3}
+  m_Name: Save1
+  m_EditorClassIdentifier: 
+  station: 0
+  ScampLord: 0
+  money: 0
+  upgradeStates: {fileID: 11400000, guid: e74740ba74a630044b6a6bbe3d56c446, type: 2}
+  switchStates: {fileID: 11400000, guid: 42b1c977c557dee4bbcc94836896ad9e, type: 2}
+  chestStates: {fileID: 11400000, guid: 1118fc4fb9b332042a627619c0e4b700, type: 2}

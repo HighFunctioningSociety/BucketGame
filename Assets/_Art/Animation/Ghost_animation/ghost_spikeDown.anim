@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ghost_spikeDown
+  serializedVersion: 6
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves: []
+  m_FloatCurves: []
+  m_PPtrCurves:
+  - curve:
+    - time: 0
+      value: {fileID: 1262107462364471887, guid: 416de118978580848b2a438dfd3b4925,
+        type: 3}
+    - time: 0.083333336
+      value: {fileID: 1931622109320343044, guid: 416de118978580848b2a438dfd3b4925,
+        type: 3}
+    - time: 0.16666667
+      value: {fileID: 3944683645076567679, guid: 416de118978580848b2a438dfd3b4925,
+        type: 3}
+    - time: 0.25
+      value: {fileID: -6801646242660105569, guid: 416de118978580848b2a438dfd3b4925,
+        type: 3}
+    - time: 0.33333334
+      value: {fileID: -7093406012335192231, guid: 416de118978580848b2a438dfd3b4925,
+        type: 3}
+    - time: 0.41666666
+      value: {fileID: -3242970627715311641, guid: 416de118978580848b2a438dfd3b4925,
+        type: 3}
+    - time: 0.5
+      value: {fileID: 9152126395770202070, guid: 416de118978580848b2a438dfd3b4925,
+        type: 3}
+    - time: 0.5833333
+      value: {fileID: 2713082796611728532, guid: 416de118978580848b2a438dfd3b4925,
+        type: 3}
+    - time: 0.6666667
+      value: {fileID: -2422628779599204740, guid: 416de118978580848b2a438dfd3b4925,
+        type: 3}
+    - time: 0.75
+      value: {fileID: -8919038449795916890, guid: 416de118978580848b2a438dfd3b4925,
+        type: 3}
+    - time: 0.8333333
+      value: {fileID: 4884944096950199901, guid: 416de118978580848b2a438dfd3b4925,
+        type: 3}
+    - time: 0.9166667
+      value: {fileID: -1150035009318323650, guid: 416de118978580848b2a438dfd3b4925,
+        type: 3}
+    - time: 1
+      value: {fileID: -889264771643381409, guid: 416de118978580848b2a438dfd3b4925,
+        type: 3}
+    - time: 1.0833334
+      value: {fileID: -5844496777104571192, guid: 416de118978580848b2a438dfd3b4925,
+        type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
+  m_SampleRate: 12
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 1262107462364471887, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+    - {fileID: 1931622109320343044, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+    - {fileID: 3944683645076567679, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+    - {fileID: -6801646242660105569, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+    - {fileID: -7093406012335192231, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+    - {fileID: -3242970627715311641, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+    - {fileID: 9152126395770202070, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+    - {fileID: 2713082796611728532, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+    - {fileID: -2422628779599204740, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+    - {fileID: -8919038449795916890, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+    - {fileID: 4884944096950199901, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+    - {fileID: -1150035009318323650, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+    - {fileID: -889264771643381409, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+    - {fileID: -5844496777104571192, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 1.1666667
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 1
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_Events:
+  - time: 0.083333336
+    functionName: FlagOff
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.1666666
+    functionName: DestroyMe
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

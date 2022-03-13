@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25e53e4dee9eaa40b3a3b4179903693, type: 3}
+  m_Name: Chase_FlySwoop
+  m_EditorClassIdentifier: 
+  OnStateEnterAction: {fileID: 0}
+  actions:
+  - {fileID: 11400000, guid: a169f119c8b541243a51289da17e6791, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 2200d8d2fca37b74696ec84bac3fb0cc, type: 2}
+    trueState: {fileID: 11400000, guid: c2e52d07efb52794ab55a079b1ecc159, type: 2}
+    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+  - decision: {fileID: 11400000, guid: f96869f494eb8374db298fb135f37193, type: 2}
+    trueState: {fileID: 11400000, guid: d435e7babc7b3e648ab2c2bc86f87ecd, type: 2}
+    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+  uninterruptable: 0
+  hurtboxDisabled: 0
+  isNeutralState: 0
+  sceneGizmoColor: {r: 1, g: 0, b: 0, a: 1}
