@@ -8672,12 +8672,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dbabcc4c0aca5c42834ac10a36a6265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockOffsetZ: 0
-  lockRight: 1
-  lockLeft: 0
-  lockUp: 0
-  lockDown: 1
-  freezeLock: 0
+  LockOffsetZ: 0
+  LockRight: 1
+  LockLeft: 0
+  LockUp: 1
+  LockDown: 1
+  FreezeLock: 0
 --- !u!1 &1307501260
 GameObject:
   m_ObjectHideFlags: 0
@@ -44467,7 +44467,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8553158560787418080, guid: 97f137c92f5ea2a4c99d620f15863609,
         type: 3}
+      propertyPath: LockUp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553158560787418080, guid: 97f137c92f5ea2a4c99d620f15863609,
+        type: 3}
       propertyPath: lockUp
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553158560787418080, guid: 97f137c92f5ea2a4c99d620f15863609,
+        type: 3}
+      propertyPath: LockLeft
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8553158560787418080, guid: 97f137c92f5ea2a4c99d620f15863609,
@@ -44477,7 +44487,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8553158560787418080, guid: 97f137c92f5ea2a4c99d620f15863609,
         type: 3}
+      propertyPath: LockRight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553158560787418080, guid: 97f137c92f5ea2a4c99d620f15863609,
+        type: 3}
       propertyPath: lockRight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8553158560787418080, guid: 97f137c92f5ea2a4c99d620f15863609,
+        type: 3}
+      propertyPath: LockOffsetZ
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8553158560787418081, guid: 97f137c92f5ea2a4c99d620f15863609,
