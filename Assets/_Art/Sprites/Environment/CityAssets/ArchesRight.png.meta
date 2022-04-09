@@ -96,7 +96,7 @@ TextureImporter:
       213: -955455231690779894
     second: ArchesRight_30
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -116,6 +116,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -124,9 +126,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -147,9 +149,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -557,6 +563,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      ArchesRight_8: -5365937768693502034
+      ArchesRight_14: 8516525882033675997
+      ArchesRight_18: -5241305826489525642
+      ArchesRight_4: -692870044840855244
+      ArchesRight_9: -7815261249476426365
+      ArchesRight_6: 6573312058814603458
+      ArchesRight_7: -8388192021956293566
+      ArchesRight_17: 8221589674491347238
+      ArchesRight_27: 366233963530834858
+      ArchesRight_12: -7800697018950536255
+      ArchesRight_22: 395375581200185583
+      ArchesRight_5: -1183139097873686509
+      ArchesRight_10: 5013940015455488360
+      ArchesRight_15: 2123082200063731576
+      ArchesRight_16: -4620518345615051918
+      ArchesRight_11: 3642762334932592207
+      ArchesRight_19: -5260129163228193756
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

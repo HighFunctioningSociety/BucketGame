@@ -60,7 +60,7 @@ TextureImporter:
       213: 2140066592054884556
     second: stoneArchEndLargeR_18
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -80,6 +80,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -88,9 +90,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -111,9 +113,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -416,6 +422,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      stoneArchEndLargeR_8: -8554883665508257826
+      stoneArchEndLargeR_2: -7751938014494305233
+      stoneArchEndLargeR_11: -8482624467799364379
+      stoneArchEndLargeR_3: 1967089756121067038
+      stoneArchEndLargeR_6: 8873329406662418517
+      stoneArchEndLargeR_0: 1396790555522841419
+      stoneArchEndLargeR_5: 3279574274125006302
+      stoneArchEndLargeR_4: -8113778072984050794
+      stoneArchEndLargeR_10: 430685573796167607
+      stoneArchEndLargeR_9: 2451408349756568897
+      stoneArchEndLargeR_1: 5251565084080440558
+      stoneArchEndLargeR_15: 5650037327120945474
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
