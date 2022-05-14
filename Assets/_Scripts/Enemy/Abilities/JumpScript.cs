@@ -24,9 +24,9 @@ public class JumpScript : MonoBehaviour
     {
         float direction = Mathf.Sign(destination.x - transform.position.x);
         float xDifference = Mathf.Abs(destination.x - transform.position.x) / 10;
-        float mass = enemy.rb.mass;
+        float mass = enemy.RigidBody.mass;
 
-        enemy.rb.AddForce(new Vector2((horizontalForce * direction * xDifference) + noise, verticalForce) * mass, ForceMode2D.Impulse);
+        enemy.RigidBody.AddForce(new Vector2((horizontalForce * direction * xDifference) + noise, verticalForce) * mass, ForceMode2D.Impulse);
     }
 
     private void ShockWaveSpawn()
@@ -52,11 +52,11 @@ public class JumpScript : MonoBehaviour
 
     private void GetDestination()
     {
-        if (enemy.abilityManager.abilityToUse.scriptableAbility.aName == "ScampLord_Blast")
+        if (enemy.AbilityManager.abilityToUse.scriptableAbility.aName == "ScampLord_Blast")
         {
             SpecificDestination();
         }
-        else if (enemy.abilityManager.abilityToUse.scriptableAbility.aName == "ScampLord_Jump")
+        else if (enemy.AbilityManager.abilityToUse.scriptableAbility.aName == "ScampLord_Jump")
         {
             PlayerDestination();
         }
@@ -66,7 +66,7 @@ public class JumpScript : MonoBehaviour
     {
         spawnShockwave = true;
         noise = Random.Range(-20f, 20f);
-        destination = enemy.targetObject.position;
+        destination = enemy.TargetObject.position;
     }
 
     private void SpecificDestination()
@@ -89,16 +89,16 @@ public class JumpScript : MonoBehaviour
 
     private void ChangeDirection()
     {
-        enemy.dir = Mathf.Sign(enemy.transform.position.x - enemy.targetObject.position.x);
+        enemy.Direction = Mathf.Sign(enemy.transform.position.x - enemy.TargetObject.position.x);
     }
 
     private void ZeroOutDirection()
     {
-        enemy.dir = 0;
+        enemy.Direction = 0;
     }
 
     private void ZeroOutSpeed()
     {
-        enemy.speed = 0;
+        enemy.Speed = 0;
     }
 }

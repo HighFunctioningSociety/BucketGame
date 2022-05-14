@@ -12,6 +12,6 @@ public class TackleAction : Actions
 
     public void Tackle(EnemyContainer _enemy)
     {
-        _enemy.rb.velocity = new Vector2(70 * -1 * _enemy.dir, 0);
+        _enemy.RigidBody.velocity = new Vector2(70 * -1 * _enemy.Direction, 0);
     }
 }

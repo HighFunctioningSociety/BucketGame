@@ -16,9 +16,9 @@ public class SwoopAction : Actions
         float virticalOffset = 5f;
         float yDifference = Mathf.Abs(_enemy.targetPosition.y - _enemy.transform.position.y);
         float xDifference = Mathf.Sign(_enemy.transform.position.x - _enemy.targetPosition.x);
-        float yForceCalculation = xDifference * _enemy.dir * - (virticalOffset + Mathf.Pow(yDifference/3f, 2));
-        float xForceCalculation = _enemy.speed * _enemy.dir * -horizontalSwoopSpeed;
+        float yForceCalculation = xDifference * _enemy.Direction * - (virticalOffset + Mathf.Pow(yDifference/3f, 2));
+        float xForceCalculation = _enemy.Speed * _enemy.Direction * -horizontalSwoopSpeed;
 
-        _enemy.rb.velocity = new Vector2(xForceCalculation, yForceCalculation); 
+        _enemy.RigidBody.velocity = new Vector2(xForceCalculation, yForceCalculation); 
     }
 }

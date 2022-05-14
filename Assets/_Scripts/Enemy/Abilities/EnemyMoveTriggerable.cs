@@ -7,7 +7,7 @@ public class EnemyMoveTriggerable : EnemyTriggerable
     [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public EnemyContainer enemy;
     [HideInInspector] public Animator animator;
-    [HideInInspector] public string triggerName;
+    [HideInInspector] public string AnimationName;
     [HideInInspector] public float verticalForce;
     [HideInInspector] public float horizontalForce;
     [HideInInspector] public ForceMode2D forceMode;
@@ -32,7 +32,7 @@ public class EnemyMoveTriggerable : EnemyTriggerable
 
     public override void Trigger()
     {
-        animator.SetTrigger(triggerName);
+        animator.Play(AnimationName);
     }
 
     public void ApplyForceEvent()

@@ -124,7 +124,11 @@ public class SingleDrawTriggerable : MeleeAttackTriggerable
             ApplyHitstop(hitStop, enNum);
             ApplyControllerRumble();
 
-            _enemy.EnterHurtState();
+            if (_enemy.HurtController != null)
+            {
+                _enemy.HurtController.EnterHurtState();
+            }
+
             ApplyKnockBack(_enemy);
             _enemy.TakeDamage(damage, false);
             player.playerStats.curSpiritProgression += meterProgression;
@@ -149,7 +153,7 @@ public class SingleDrawTriggerable : MeleeAttackTriggerable
         float knockBackTotalX = knockBackX, knockBackTotalY = knockBackY;
         if (_enemy.groundCheck != null)
         {
-            if (!_enemy.groundCheck.grounded)
+            if (!_enemy.groundCheck.Grounded)
             {
                 knockBackTotalY += 42;
                 knockBackTotalX -= 10;

@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01af335ed107fd24d9ad695c0ea1e3df, type: 3}
   m_Name: Retreat
   m_EditorClassIdentifier: 
+  AnimationName: ScampLord_Retreat

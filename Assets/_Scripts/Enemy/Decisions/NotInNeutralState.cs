@@ -13,6 +13,6 @@ public class NotInNeutralState : Decision
 
     private bool CheckIfStateIsNeutral(EnemyContainer _enemy)
     {
-        return _enemy.inIdle == false;
+        return _enemy.InIdle == false;
     }
 }

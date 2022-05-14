@@ -13,6 +13,6 @@ public class GDCIncomplete : Decision
 
     private bool CheckGCD(EnemyContainer _enemy)
     {
-        return !_enemy.abilityManager.globalCooldownComplete;
+        return !_enemy.AbilityManager.globalCooldownComplete;
     }
 }

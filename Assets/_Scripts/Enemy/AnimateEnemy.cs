@@ -4,46 +4,46 @@ using UnityEngine;
 
 public class AnimateEnemy : MonoBehaviour   
 {
-    private Animator animator;
-    private EnemyContainer enemy;
-    private bool facingRight = true;
+    private Animator Animator;
+    private EnemyContainer Enemy;
+    private bool _facingRight = true;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        enemy = GetComponent<EnemyContainer>();
+        Animator = GetComponent<Animator>();
+        Enemy = GetComponent<EnemyContainer>();
     }
 
     void Update()
     {
-        if (enemy.dir > 0 && !facingRight)
+        if (Enemy.Direction > 0 && !_facingRight)
         {
             Flip();
         }
-        else if (enemy.dir < 0 && facingRight)
+        else if (Enemy.Direction < 0 && _facingRight)
         {
             Flip();
         }
 
-        animator.SetFloat("Speed", enemy.speed);
+        Animator.SetFloat("Speed", Enemy.Speed);
     }
 
     public void AddForceY(float force)
     {
-        enemy.rb.AddForce(Vector2.up * force * enemy.rb.mass * enemy.rb.gravityScale, ForceMode2D.Impulse);
+        Enemy.RigidBody.AddForce(Vector2.up * force * Enemy.RigidBody.mass * Enemy.RigidBody.gravityScale, ForceMode2D.Impulse);
     }
 
     public void FreezeConstraints()
     {
-        enemy.rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        Enemy.RigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     private void Flip()
     {
-        // Switch the way the player is labelled as facing.
-        facingRight = !facingRight;
+        // Switch the way the enemy is labelled as facing.
+        _facingRight = !_facingRight;
 
-        // Multiply the player's x local scale by -1.
+        // Multiply the enemy's x local scale by -1.
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;

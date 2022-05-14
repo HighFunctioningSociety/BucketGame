@@ -25,11 +25,11 @@ public class EnemySwoopTriggerable : EnemyProximityTriggerable
     }
     public override void Trigger()
     {
-        enemy.dir = Mathf.Sign(enemy.transform.position.x - enemy.targetObject.position.x);
-        enemy.speed = Mathf.Abs(enemy.dir);
-        enemy.startingPosition = enemy.transform.position;
-        enemy.targetPosition = new Vector2(enemy.targetObject.position.x, enemy.targetObject.position.y);
-        enemy.rb.velocity = Vector2.zero;
-        animator.SetTrigger(triggerName);
+        enemy.Direction = Mathf.Sign(enemy.transform.position.x - enemy.TargetObject.position.x);
+        enemy.Speed = Mathf.Abs(enemy.Direction);
+        enemy.StartingPosition = enemy.transform.position;
+        enemy.targetPosition = new Vector2(enemy.TargetObject.position.x, enemy.TargetObject.position.y);
+        enemy.RigidBody.velocity = Vector2.zero;
+        animator.SetTrigger(AnimationName);
     }
 }

@@ -12,19 +12,19 @@ public class ChaseAction : Actions
 
     private void Chase(EnemyContainer _enemy)
     {
-        if (_enemy.targetObject == null)
+        if (_enemy.TargetObject == null)
             return;
 
-        _enemy.dir = Mathf.Sign(_enemy.transform.position.x - _enemy.targetObject.position.x);
-        _enemy.speed = Mathf.Abs(_enemy.dir);
-        if ((_enemy.groundCheck.edgeRight && _enemy.dir < 0) || (_enemy.groundCheck.edgeLeft && _enemy.dir > 0))
+        _enemy.Direction = Mathf.Sign(_enemy.transform.position.x - _enemy.TargetObject.position.x);
+        _enemy.Speed = Mathf.Abs(_enemy.Direction);
+        if ((_enemy.groundCheck.EdgeRight && _enemy.Direction < 0) || (_enemy.groundCheck.EdgeLeft && _enemy.Direction > 0))
         {
-            _enemy.speed = 0;
+            _enemy.Speed = 0;
             return;
         }
 
 
-        Vector2 newTarget = new Vector2(_enemy.targetObject.position.x, _enemy.transform.position.y);
+        Vector2 newTarget = new Vector2(_enemy.TargetObject.position.x, _enemy.transform.position.y);
 
         if (Mathf.Abs(newTarget.x - _enemy.transform.position.x) > 3)
         { 
@@ -32,8 +32,8 @@ public class ChaseAction : Actions
         }
         else
         {
-            _enemy.dir = 0;
-            _enemy.speed = 0;
+            _enemy.Direction = 0;
+            _enemy.Speed = 0;
             return;
         }
     }

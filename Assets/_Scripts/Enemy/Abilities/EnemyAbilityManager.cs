@@ -98,9 +98,9 @@ public class EnemyAbilityManager : MonoBehaviour
     {
         if (globalCooldownComplete)
         {
-            enemy.attacksDoneInState++;
-            enemy.dir = 0;
-            enemy.speed = 0;
+            enemy.AttacksDoneInState++;
+            enemy.Direction = 0;
+            enemy.Speed = 0;
             ApplyCooldown(ability);
             Debug.Log(ability.scriptableAbility.aName);
             ability.enemyAbilityClone.TriggerAbility();
@@ -131,12 +131,12 @@ public class EnemyAbilityManager : MonoBehaviour
 
     public void _ZeroOutDirection()
     {
-        enemy.dir = 0;
+        enemy.Direction = 0;
     }
 
     public void _ZeroOutSpeed()
     {
-        enemy.speed = 0;
+        enemy.Speed = 0;
     }
 }
 

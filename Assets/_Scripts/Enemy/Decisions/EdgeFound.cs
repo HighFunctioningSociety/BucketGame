@@ -13,15 +13,15 @@ public class EdgeFound : Decision
 
     private bool CheckForEdge(EnemyContainer _enemy)
     {
-        if (_enemy.groundCheck.edgeLeft  && _enemy.patrolDirection == -1)
+        if (_enemy.groundCheck.EdgeLeft  && _enemy.patrolDirection == -1)
         {
-            _enemy.groundCheck.leftEdgeAlreadyFound = true;
+            _enemy.groundCheck.LeftEdgeAlreadyFound = true;
             _enemy.patrolDirection *= -1;
             return true;
         }
-        else if (_enemy.groundCheck.edgeRight && _enemy.patrolDirection == 1)
+        else if (_enemy.groundCheck.EdgeRight && _enemy.patrolDirection == 1)
         {
-            _enemy.groundCheck.rightEdgeAlreadyFound = true;
+            _enemy.groundCheck.RightEdgeAlreadyFound = true;
             _enemy.patrolDirection *= -1;
             return true;
         }

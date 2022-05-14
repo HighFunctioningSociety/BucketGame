@@ -66,11 +66,11 @@ public class HelmSplitterTriggerable : MeleeAttackTriggerable
                     return;
                 }
             }
-
-            _enemy.EnterHurtState();
+            if (_enemy.HurtController != null)
+                _enemy.HurtController.EnterHurtState();
             if (_enemy.enemyStats.armor != 1)
-                _enemy.rb.velocity = Vector2.down * 100;
-            if (_enemy.invul == false)
+                _enemy.RigidBody.velocity = Vector2.down * 100;
+            if (_enemy.Invul == false)
                 DrawHitEffect(enemy);
             _enemy.TakeDamage(subHitDamage, false);
         }
@@ -96,7 +96,7 @@ public class HelmSplitterTriggerable : MeleeAttackTriggerable
             if (CheckForNull(_enemy) == true)
                 return;
 
-            _enemy.EnterHurtState();
+            _enemy.HurtController.EnterHurtState();
             _enemy.KnockBack(knockBackX, knockBackY, player.rb.transform.position);
             _enemy.TakeDamage(damage, true);
             DrawHitEffect(enemy);

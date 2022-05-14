@@ -14,23 +14,23 @@ public class LandAction : Actions
 
     public void Land(EnemyContainer _enemy)
     {
-        if (_fallPrefab == null && _enemy.stateTimeElapsed < 1f)
+        if (_fallPrefab == null && _enemy.StateTimeElapsed < 1f)
         {
-            _fallPrefab = Instantiate(fallPrefab, new Vector2(_enemy.targetObject.position.x, -9.097368f), fallPrefab.transform.rotation);
+            _fallPrefab = Instantiate(fallPrefab, new Vector2(_enemy.TargetObject.position.x, -9.097368f), fallPrefab.transform.rotation);
         }
 
-        if(_enemy.stateTimeElapsed < 3f)
+        if(_enemy.StateTimeElapsed < 3f)
         {
-            _fallPrefab.transform.position = new Vector2(Mathf.Clamp(_enemy.targetObject.position.x, _enemy.boundLeft.transform.position.x, _enemy.boundRight.transform.position.x), _enemy.boundLeft.position.y);
+            _fallPrefab.transform.position = new Vector2(Mathf.Clamp(_enemy.TargetObject.position.x, _enemy.boundLeft.transform.position.x, _enemy.boundRight.transform.position.x), _enemy.boundLeft.position.y);
         }
 
-        if(_enemy.stateTimeElapsed > 2.7f)
+        if(_enemy.StateTimeElapsed > 2.7f)
         {
             if (_fallPrefab.gameObject != null)
                 _enemy.transform.position = new Vector3(_fallPrefab.transform.position.x, _enemy.transform.position.y, _enemy.transform.position.z);
-            _enemy.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            _enemy.rb.velocity = Vector2.down * 180;
-            _enemy.abilityManager.nextReadyTime = Time.time + 1f;
+            _enemy.RigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            _enemy.RigidBody.velocity = Vector2.down * 180;
+            _enemy.AbilityManager.nextReadyTime = Time.time + 1f;
         }
     }
 }

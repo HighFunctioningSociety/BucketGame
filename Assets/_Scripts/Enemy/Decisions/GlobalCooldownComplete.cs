@@ -13,6 +13,6 @@ public class GlobalCooldownComplete : Decision
 
     private bool CheckGlobalCooldown(EnemyContainer _enemy)
     {
-        return _enemy.abilityManager.globalCooldownComplete;
+        return _enemy.AbilityManager.globalCooldownComplete;
     }
 }

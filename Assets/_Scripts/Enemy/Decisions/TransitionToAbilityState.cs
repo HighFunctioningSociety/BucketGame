@@ -13,16 +13,16 @@ public class TransitionToAbilityState : Decision
 
     private bool CanUseAbility(EnemyContainer _enemy)
     {
-        if (_enemy.abilityManager.globalCooldownComplete)
+        if (_enemy.AbilityManager.globalCooldownComplete)
         {  
             CheckProximityAbilities(_enemy);
             CheckFullScreenAbilities(_enemy);
             CheckMovementAbilities(_enemy);
-            int abilityCount = _enemy.abilityManager.useableAbilities.Count;
+            int abilityCount = _enemy.AbilityManager.useableAbilities.Count;
             if (abilityCount != 0)
             {
                 int j = Random.Range(0, abilityCount);
-                _enemy.abilityManager.abilityToUse = _enemy.abilityManager.useableAbilities[j];
+                _enemy.AbilityManager.abilityToUse = _enemy.AbilityManager.useableAbilities[j];
                 return true;
             }
         }
@@ -31,24 +31,24 @@ public class TransitionToAbilityState : Decision
 
     private void CheckProximityAbilities(EnemyContainer _enemy)
     {
-        EnemyProximityTriggerable[] proximityAbilityList = _enemy.abilityManager.proximityAbilityList;
+        EnemyProximityTriggerable[] proximityAbilityList = _enemy.AbilityManager.proximityAbilityList;
         if (proximityAbilityList.Length == 0)
             return;
 
         foreach (EnemyProximityTriggerable ability in proximityAbilityList)
         {
             Vector2 range = new Vector2(ability.rangeX, ability.rangeY);
-            Collider2D checkForPlayer = Physics2D.OverlapBox(ability.transform.position, range, 0, _enemy.playerLayer);
+            Collider2D checkForPlayer = Physics2D.OverlapBox(ability.transform.position, range, 0, _enemy.PlayerLayer);
             if (checkForPlayer != null && ability.abilityCooldown)
             {
-                _enemy.abilityManager.useableAbilities.Add(ability);
+                _enemy.AbilityManager.useableAbilities.Add(ability);
             }
         }
     }
 
     private void CheckFullScreenAbilities(EnemyContainer _enemy)
     {
-        EnemyTriggerable[] fullscreenAbilityList = _enemy.abilityManager.fullscreenAbilityList;
+        EnemyTriggerable[] fullscreenAbilityList = _enemy.AbilityManager.fullscreenAbilityList;
         if (fullscreenAbilityList.Length == 0)
             return;
 
@@ -56,14 +56,14 @@ public class TransitionToAbilityState : Decision
         {
             if (ability.abilityCooldown)
             {
-                _enemy.abilityManager.useableAbilities.Add(ability);
+                _enemy.AbilityManager.useableAbilities.Add(ability);
             }
         }
     }
 
     private void CheckMovementAbilities(EnemyContainer _enemy)
     {
-        EnemyMoveTriggerable[] movementAbilityList = _enemy.abilityManager.movementAbilityList;
+        EnemyMoveTriggerable[] movementAbilityList = _enemy.AbilityManager.movementAbilityList;
         if (movementAbilityList.Length == 0)
             return;
 
@@ -71,7 +71,7 @@ public class TransitionToAbilityState : Decision
         {
             if (ability.abilityCooldown)
             {
-                _enemy.abilityManager.useableAbilities.Add(ability);
+                _enemy.AbilityManager.useableAbilities.Add(ability);
             }
         }
     }

@@ -100,7 +100,12 @@ public class PlungingMeleeTriggerable : MeleeAttackTriggerable
             {
                 Rumbler.RumbleConstant(rumbleLow, rumbleHigh, rumbleDurration);
             }
-            _enemy.EnterHurtState();
+
+            if (_enemy.HurtController != null)
+            {
+                _enemy.HurtController.EnterHurtState();
+            }
+
             _enemy.KnockBack(0f, -knockBackY, player.rb.transform.position);
             _enemy.TakeDamage(damage, false);
             

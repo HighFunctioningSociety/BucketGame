@@ -18,20 +18,20 @@ public class StopChasing : Decision
         Vector2 center = enemy.transform.position;
         Vector2 aggroRange = new Vector2(aggroX, aggroY);
 
-        Collider2D playerObj = Physics2D.OverlapBox(center, aggroRange, 0, enemy.playerLayer);
+        Collider2D playerObj = Physics2D.OverlapBox(center, aggroRange, 0, enemy.PlayerLayer);
 
-        if (enemy.aggroTimeRemaining <= 0)
+        if (enemy.AggroTimeRemaining <= 0)
         {
             return true;
         }
 
         if (playerObj == null)
         {
-            enemy.aggroTimeRemaining -= Time.deltaTime;
+            enemy.AggroTimeRemaining -= Time.deltaTime;
         }
         else
         {
-            enemy.aggroTimeRemaining = enemy.enemyStats.aggroTime;
+            enemy.AggroTimeRemaining = enemy.enemyStats.aggroTime;
         }
 
         return false;

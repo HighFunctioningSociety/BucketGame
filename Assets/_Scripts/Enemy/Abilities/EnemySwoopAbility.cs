@@ -12,7 +12,7 @@ public class EnemySwoopAbility : EnemyProximityAbility
 
         ability.rangeX = rangeX;
         ability.rangeY = rangeY;
-        ability.triggerName = triggerName;
+        ability.AnimationName = name;
     }
 
     public override void TriggerAbility()

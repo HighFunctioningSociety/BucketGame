@@ -13,6 +13,6 @@ public class StopLanding : Decision
 
     private bool CheckGroundAndIdle(EnemyContainer _enemy)
     {
-        return _enemy.groundCheck.grounded && _enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
+        return _enemy.groundCheck.Grounded && _enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
     }
 }

@@ -13,18 +13,18 @@ public class UseFullscreenAttack: Decision
 
     public bool CheckTimer(EnemyContainer _enemy)
     {
-        if (_enemy.abilityManager.fullscreenAbilityList.Length == 0)
+        if (_enemy.AbilityManager.fullscreenAbilityList.Length == 0)
         {
             return false;
         }
 
-        if (_enemy.abilityManager.globalCooldownComplete)
+        if (_enemy.AbilityManager.globalCooldownComplete)
         {
-            EnemyTriggerable[] fullscreenAbilityList = _enemy.abilityManager.fullscreenAbilityList;
+            EnemyTriggerable[] fullscreenAbilityList = _enemy.AbilityManager.fullscreenAbilityList;
             EnemyTriggerable[] useableAbilities = new EnemyTriggerable[fullscreenAbilityList.Length];
             int i = 0;
 
-            if (_enemy.idleTimeElapsed > _enemy.fullscreenAttackTiming)
+            if (_enemy.IdleTimeElapsed > _enemy.FullscreenAttackTiming)
             {
                 //abilities that can be used regardless of player distance
                 foreach (EnemyTriggerable ability in fullscreenAbilityList)
@@ -36,7 +36,7 @@ public class UseFullscreenAttack: Decision
             
                 int j = Random.Range(0, i);
 
-                _enemy.abilityManager.abilityToUse = useableAbilities[j];
+                _enemy.AbilityManager.abilityToUse = useableAbilities[j];
                 return true;
             }
         }

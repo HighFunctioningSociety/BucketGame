@@ -14,6 +14,6 @@ public class AnimationChangeDecision : Decision
 
     private bool CheckAnimationName(EnemyContainer _enemy)
     {
-        return (_enemy.animator.GetCurrentAnimatorStateInfo(0).IsName(animationName) == false) && _enemy.stateTimeElapsed > 0.5f;
+        return (_enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName(animationName) == false) && _enemy.StateTimeElapsed > 0.5f;
     }
 }

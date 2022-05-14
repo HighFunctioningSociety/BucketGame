@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class EnemyProximityAbility : EnemyAbility
 {
-    public string triggerName;
+    //public string triggerName;
     public float rangeX;
     public float rangeY;
 }

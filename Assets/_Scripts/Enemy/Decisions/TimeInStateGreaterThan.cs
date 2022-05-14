@@ -14,6 +14,6 @@ public class TimeInStateGreaterThan : Decision
 
     private bool CheckStateTime(EnemyContainer _enemy)
     {
-        return (_enemy.stateTimeElapsed > time);
+        return (_enemy.StateTimeElapsed > time);
     }
 }

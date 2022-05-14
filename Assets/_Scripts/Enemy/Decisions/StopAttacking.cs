@@ -13,7 +13,7 @@ public class StopAttacking : Decision
 
     private bool EnteredIdleAnimation(EnemyContainer _enemy)
     {
-        return _enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && _enemy.inIdle == false && _enemy.stateTimeElapsed > 0.1f;
+        return _enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && _enemy.InIdle == false && _enemy.StateTimeElapsed > 0.1f;
     }
 }
 

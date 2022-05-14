@@ -15,7 +15,7 @@ public class RepositionDecision : Decision
 
     private bool ShouldTriggerReposition(EnemyContainer _enemy)
     {
-        if (_enemy.abilityManager.repositionCooldownComplete)
+        if (_enemy.AbilityManager.repositionCooldownComplete)
         {
             _enemy.InitiateReposition();
             Debug.Log("reposition");

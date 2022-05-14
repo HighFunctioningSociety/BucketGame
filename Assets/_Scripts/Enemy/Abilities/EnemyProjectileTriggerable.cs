@@ -7,7 +7,7 @@ public class EnemyProjectileTriggerable : EnemyTriggerable
     [HideInInspector] public int damage;
     [HideInInspector] public float speed;
     [HideInInspector] public float knockBack;
-    [HideInInspector] public string triggerName;
+    [HideInInspector] public string AnimationName;
     [HideInInspector] public Animator animator;
     [HideInInspector] public EnemyContainer enemy;
     [HideInInspector] public GameObject projectilePrefab;
@@ -33,9 +33,9 @@ public class EnemyProjectileTriggerable : EnemyTriggerable
 
     public override void Trigger()
     {
-        enemy.dir = 0;
-        enemy.speed = 0;
-        animator.SetTrigger(triggerName);
+        enemy.Direction = 0;
+        enemy.Speed = 0;
+        animator.Play(AnimationName);
     }
 
     public void SpawnProjectileEvent()
@@ -51,7 +51,7 @@ public class EnemyProjectileTriggerable : EnemyTriggerable
         if (isTracking)
         {
             TrackingProjectile tracker = projectile.GetComponentInChildren<TrackingProjectile>();
-            tracker.target = enemy.targetObject;
+            tracker.target = enemy.TargetObject;
             tracker.speed = speed;
             tracker.projectileDir = projectileDir;
         }

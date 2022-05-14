@@ -12,67 +12,74 @@ public class EnemyContainer : MonoBehaviour
     public State currentState;
     public State defaultState;
     public State aggroState;
-    public State hurtState;
     public State remainState;
 
     [Space]
     [Header ("State information")]
-    public float stateTimeElapsed = 0;
-    public float idleTimeElapsed = 0;
-    public int attacksDoneInState = 0;
-    public Decision[] hurtDecisions;
-    [HideInInspector] public float hurtTimeRemaining;
-    [HideInInspector] public float aggroTimeRemaining;
-    public float fullscreenAttackTiming;
-    [HideInInspector] public bool wasHurt;
+    public float StateTimeElapsed = 0;
+    public float IdleTimeElapsed = 0;
+    public int AttacksDoneInState = 0;
     
     [Space]
     [Header ("Enemy Components/Variables")]
-    public LayerMask playerLayer;
-    public LayerMask obstacleLayer;
-    public Collider2D enemyCollider;
-    public EnemyAbilityManager abilityManager;
-    public Rigidbody2D rb;
+    public LayerMask PlayerLayer;
+    public LayerMask ObstacleLayer;
     public Transform enemyPrefabDead;
     public Transform enemyParticlesDead;
-    private Material matWhite;
-    private Material matDefault;
-    private SpriteRenderer spriteRenderer;
-    [HideInInspector] public bool inIdle;
-    [HideInInspector] public Animator animator;
+
 
     [Header("Other Values")]
     [Space]
-    public bool unfreezeConstraintsOnReset = false;
-    public bool aiNotActiveOnStart;
-    private int flashCount = 1;
+    public bool UnfreezeConstraintsOnReset = false;
+    public bool AINotActiveOnStart;
     public bool blockPointAttacked = false;
-    public float LOSLength;
-    public float LOSCount;
     public int patrolDirection;
     public GroundCheck groundCheck;
-    public BossTriggers triggers;
     public Transform boundLeft, boundRight;
-    public bool invul = false;
-    private int invulFrames = 5;
+    public bool Invul = false;
 
-    [HideInInspector] public float dir;
-    [HideInInspector] public float speed;
+    public BossTriggers Triggers;
 
-    [HideInInspector] public int currentPatrol;
-    public Transform targetObject;
-    [HideInInspector] public Vector3 spawnPosition;
-    public Vector3 startingPosition;
-    [HideInInspector] public Vector3 _targetPosition;
+    [HideInInspector] public float FullscreenAttackTiming;
+    [HideInInspector] public float HurtTimeRemaining;
+    [HideInInspector] public float AggroTimeRemaining;
+    [HideInInspector] public bool WasHurt;
+    [HideInInspector] public bool InIdle;
+
+    [HideInInspector] public Animator Animator;
+    [HideInInspector] public Rigidbody2D RigidBody;
+    [HideInInspector] public Collider2D EnemyCollider;
+
+    [HideInInspector] public EnemyAbilityManager AbilityManager;
+    [HideInInspector] public LOSComponenet LOSCaster;
+    [HideInInspector] public HurtComponent HurtController;
+
+    [HideInInspector] public float Direction;
+    [HideInInspector] public float Speed;
+    [HideInInspector] public int CurrentPatrol;
+    [HideInInspector] public Transform TargetObject;
+    [HideInInspector] public Vector3 SpawnPosition;
+    [HideInInspector] public Vector3 StartingPosition;
+    [HideInInspector] public Vector3 TargetPosition;
+    
+
+    private readonly int _flashCount = 1;
+    private readonly int _invulFrames = 5;
+    private Material _matWhite;
+    private Material _matDefault;
+    private SpriteRenderer _spriteRenderer;
 
     public Vector3 targetPosition
     {
-        get { return _targetPosition; }
+        get { return TargetPosition; }
         set {
             if (boundLeft != null && boundRight != null)
+            {
                 value.x = Mathf.Clamp(value.x, boundLeft.position.x, boundRight.position.x);
+            }
             value.z = 0;
-            _targetPosition = value; }
+            TargetPosition = value; 
+        }
     }
 
     private int _curHealth;
@@ -90,21 +97,27 @@ public class EnemyContainer : MonoBehaviour
 
     private void Awake()
     {
-        spawnPosition = transform.position;
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
-        if (spriteRenderer != null)
+        RigidBody = GetComponent<Rigidbody2D>();
+        EnemyCollider = GetComponent<Collider2D>();
+        Animator = GetComponent<Animator>();
+        LOSCaster = GetComponent<LOSComponenet>();
+        AbilityManager = GetComponent<EnemyAbilityManager>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (_spriteRenderer != null)
         {
-            matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
-            matDefault = spriteRenderer.material;
+            _matWhite = Resources.Load("WhiteFlash", typeof(Material)) as Material;
+            _matDefault = _spriteRenderer.material;
         }
+
         SetUpAI();
     }
+
     private void FixedUpdate()
     {
         if (!aiActive)
             return;
-        if (targetObject == null)
+        if (TargetObject == null)
         {
             FindPlayer();
         }
@@ -115,38 +128,40 @@ public class EnemyContainer : MonoBehaviour
     
     private void IncrementStateTime()
     {
-        stateTimeElapsed += Time.fixedDeltaTime;
+        StateTimeElapsed += Time.fixedDeltaTime;
     }
 
     private void IncrementIdleTime()
     {
         if (currentState.isNeutralState)
         {
-            inIdle = true;
-            idleTimeElapsed += Time.fixedDeltaTime;
+            InIdle = true;
+            IdleTimeElapsed += Time.fixedDeltaTime;
         }
         else
         {
-            inIdle = false;
+            InIdle = false;
         }
     }
 
     public void SetUpAI()
     {
-        currentPatrol = 0;
+        CurrentPatrol = 0;
         int[] patrolDirectionValues = new int[] { -1, 1 };
         patrolDirection = patrolDirectionValues[Random.Range(0, 1)];
+        HurtController = GetComponent<HurtComponent>();
+        SpawnPosition = transform.position;
         currentState = defaultState;
         curHealth = enemyStats.maxHealth;
         curArmor = enemyStats.armor;
-        invul = false;
-        rb.velocity = Vector2.zero;
-        if (spriteRenderer != null)
-            spriteRenderer.material = matDefault;
-        if (triggers != null)
-            triggers.ResetTriggers();
+        Invul = false;
+        RigidBody.velocity = Vector2.zero;
+        if (_spriteRenderer != null)
+            _spriteRenderer.material = _matDefault;
+        if (Triggers != null)
+            Triggers.ResetTriggers();
 
-        aiActive = (aiNotActiveOnStart ?  false : true);
+        aiActive = (AINotActiveOnStart ?  false : true);
     }
 
     public void TransitionToState(State nextState)
@@ -161,16 +176,16 @@ public class EnemyContainer : MonoBehaviour
 
         if (nextState == aggroState)
         {
-            aggroTimeRemaining = enemyStats.aggroTime;
+            AggroTimeRemaining = enemyStats.aggroTime;
         }
     }
 
     private void ResetStateTimers()
     {
         if (!currentState.isNeutralState)
-            idleTimeElapsed = 0;
-        attacksDoneInState = 0;
-        stateTimeElapsed = 0;
+            IdleTimeElapsed = 0;
+        AttacksDoneInState = 0;
+        StateTimeElapsed = 0;
     }
 
     private void ActivateStateEnterAction()
@@ -183,17 +198,17 @@ public class EnemyContainer : MonoBehaviour
     {
         if (enemyStats.fullscreenTimingMax == 0) 
         {
-            fullscreenAttackTiming = 0;
+            FullscreenAttackTiming = 0;
         }
         else 
         {
-            fullscreenAttackTiming = Random.Range(enemyStats.fullscreenTimingMin, enemyStats.fullscreenTimingMax); 
+            FullscreenAttackTiming = Random.Range(enemyStats.fullscreenTimingMin, enemyStats.fullscreenTimingMax); 
         }
     }
 
     public void InitiateReposition()
     {
-        abilityManager.nextRepositionTime = enemyStats.repositionCooldown + Time.time;
+        AbilityManager.nextRepositionTime = enemyStats.repositionCooldown + Time.time;
         targetPosition = GenerateTargetPosition();
     }
 
@@ -214,66 +229,9 @@ public class EnemyContainer : MonoBehaviour
         return (randNum == 0 ? -1 : 0);
     }
 
-    public bool CheckForObstacleContacts()
-    {
-        return enemyCollider.IsTouchingLayers(obstacleLayer);
-    }
-
-    public bool CheckLineOfSight()
-    {
-        RaycastHit2D raycastLOS = GenerateLOSRaycast();
-        if (raycastLOS.collider != null)
-        {
-            LOSCount++;
-            return true;
-        }
-        else
-        {
-            LOSCount = 0;
-            return false;
-        }
-    }
-
-    public bool CheckRaycastObstacleCollision()
-    {
-        RaycastHit2D raycastLOS = GenerateLOSRaycast();
-        return raycastLOS.collider != null;
-    }
-
-    public RaycastHit2D GenerateLOSRaycast()
-    {
-        Vector3 xBoundsExtents = (dir == 1 ? -new Vector3(enemyCollider.bounds.extents.x, 0) : new Vector3(enemyCollider.bounds.extents.x, 0));
-        Vector2 directionalVector = (dir == 1 ? Vector2.left : Vector2.right);
-        return Physics2D.Raycast(enemyCollider.bounds.center + xBoundsExtents, directionalVector, 1f, obstacleLayer);
-    }
-
-    public void DrawLineOfSight()
-    {
-        if (LOSLength != 0)
-        {
-            Color raycastColor = Color.cyan;
-            Vector3 xBoundsExtents = (dir == 1 ? -new Vector3(enemyCollider.bounds.extents.x, 0) : new Vector3(enemyCollider.bounds.extents.x, 0));
-            Vector2 directionalVector = (dir == 1 ? Vector2.left : Vector2.right);
-            Debug.DrawRay(enemyCollider.bounds.center + xBoundsExtents,  directionalVector * LOSLength, raycastColor);
-        }
-    }
-
-    public void EnterHurtState()
-    {
-        if (CheckHurtConditions() && !currentState.uninterruptable)
-        {
-            currentState = hurtState;
-            StopMomentum();
-            LOSCount = 0;
-            ResetAnimationTriggers();
-            UnfreezeConstraints();
-            SetHurtAnimation();
-        }
-    }
-
     public void TakeDamage(int _damage, bool bypassInvul)
     {
-        if (invul != true || bypassInvul == true)
+        if (Invul != true || bypassInvul == true)
         {
             curHealth -= _damage;
             StopAllCoroutines();
@@ -288,59 +246,37 @@ public class EnemyContainer : MonoBehaviour
         }
     }
 
-    private bool CheckHurtConditions()
-    {
-        if (hurtDecisions.Length == 0)
-            return false;
-        
-        bool meetsConditions = true;
-        foreach (Decision condition in hurtDecisions)
-        {
-            if (condition.Decide(this) == false)
-                meetsConditions = false;
-        }
-        return meetsConditions;
-    }
-
     private IEnumerator DamageFlash()
     {
-        spriteRenderer.material = matWhite;
-        for (int i = 0; i < flashCount; i++)
+        _spriteRenderer.material = _matWhite;
+        for (int i = 0; i < _flashCount; i++)
         {
             yield return new WaitForEndOfFrame();   
         }
-        if (spriteRenderer != null)
-            spriteRenderer.material = matDefault;
+        if (_spriteRenderer != null)
+            _spriteRenderer.material = _matDefault;
     }
 
-    private void SetHurtAnimation()
+    public void ResetAnimationTriggers()
     {
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Hurt"))
-        {
-            animator.SetTrigger("Hurt");
-        }
-    }
-
-    private void ResetAnimationTriggers()
-    {
-        foreach (var parameter in animator.parameters)
+        foreach (var parameter in Animator.parameters)
         {
             if (parameter.type == AnimatorControllerParameterType.Trigger)
-                animator.ResetTrigger(parameter.name);
+                Animator.ResetTrigger(parameter.name);
         }
     }
 
     public void KnockBack(float _knockBackX, float _knockBackY, Vector3 _playerPosition)
     {
         // reduce current velocity based on armor
-        rb.velocity *= curArmor;
+        RigidBody.velocity *= curArmor;
 
         // Calculate Knockback
-        float knockBackX = _knockBackX * rb.mass * (1 - curArmor) * Mathf.Sign(this.transform.position.x - _playerPosition.x);
-        float knockBackY = -_knockBackY * rb.mass * (1 - curArmor);
+        float knockBackX = _knockBackX * RigidBody.mass * (1 - curArmor) * Mathf.Sign(EnemyCollider.bounds.center.x - _playerPosition.x);
+        float knockBackY = -_knockBackY * RigidBody.mass * (1 - curArmor);
 
         // Apply knockback
-        rb.AddForce(new Vector2(knockBackX, -knockBackY), ForceMode2D.Impulse);
+        RigidBody.AddForce(new Vector2(knockBackX, -knockBackY), ForceMode2D.Impulse);
     }
 
     public void ActivateBlockReaction()
@@ -350,34 +286,39 @@ public class EnemyContainer : MonoBehaviour
 
     IEnumerator Invulnerability()
     {
-        invul = true;
-        for (int i = 0; i < invulFrames; i++)
+        Invul = true;
+
+        for (int i = 0; i < _invulFrames; i++)
+        {
             yield return new WaitForEndOfFrame();
-        invul = false;
+        }
+
+        Invul = false;
     }
 
     public void StopMomentum()
     {
-        rb.velocity = Vector3.zero;
+        RigidBody.velocity = Vector3.zero;
     }
 
     public void FreezeConstraints()
     {
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        RigidBody.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     public void FreezeXConstraint()
     {
-        rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        RigidBody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
     }
+
     public void FreezeYConstraint()
     {
-        rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+        RigidBody.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
     }
 
     public void UnfreezeConstraints()
     {
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        RigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     void FindPlayer()
@@ -385,17 +326,17 @@ public class EnemyContainer : MonoBehaviour
         GameObject searchResult = GameObject.FindGameObjectWithTag("Player");
         if (searchResult != null)
         {
-            targetObject = searchResult.transform;
+            TargetObject = searchResult.transform;
         }
     }
 
-    public void _RespawnEnemy()
+    public void RespawnEnemy()
     {
         gameObject.SetActive(true);
-        animator.SetTrigger("Reset");
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        Animator.SetTrigger("Reset");
+        RigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         SetUpAI();
-        transform.position = spawnPosition;
+        transform.position = SpawnPosition;
     }
 
     private void OnDrawGizmos()
@@ -404,17 +345,11 @@ public class EnemyContainer : MonoBehaviour
         {
             //State Color
             Gizmos.color = currentState.sceneGizmoColor;
-            Gizmos.DrawWireSphere(this.transform.position, enemyStats.stateSphereRadius);
-        }
-
-        if (LOSLength != 0)
-        {
-            Color raycastColor = Color.cyan;
-            Debug.DrawRay(enemyCollider.bounds.center - new Vector3(enemyCollider.bounds.extents.x, 0), Vector2.left * LOSLength, raycastColor);
+            Gizmos.DrawWireSphere(GetComponent<Collider2D>().bounds.center, enemyStats.stateSphereRadius);
         }
 
         //Aggro Range
         Gizmos.color = Color.white;
-        Gizmos.DrawWireCube(this.transform.position, new Vector3(enemyStats.aggroRangeX, enemyStats.aggroRangeY, 0));
+        Gizmos.DrawWireCube(GetComponent<Collider2D>().bounds.center, new Vector3(enemyStats.aggroRangeX, enemyStats.aggroRangeY, 0));
     }
 }

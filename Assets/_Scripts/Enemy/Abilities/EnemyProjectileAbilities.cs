@@ -10,7 +10,7 @@ public class EnemyProjectileAbilities : EnemyAbility
     public int damage;
     public float speed;
     public float knockBack;
-    public string triggerName;
+    //public string AnimationName;
     public bool isTracking;
     public GameObject projectilePrefab;
 
@@ -22,7 +22,7 @@ public class EnemyProjectileAbilities : EnemyAbility
         attack.damage = damage;
         attack.speed = speed;
         attack.knockBack = knockBack;
-        attack.triggerName = triggerName;
+        attack.AnimationName = aName;
         attack.projectilePrefab = projectilePrefab;
         attack.isTracking = isTracking;
     }

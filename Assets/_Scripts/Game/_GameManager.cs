@@ -262,7 +262,7 @@ public class _GameManager : MonoBehaviour
         _enemy.gameObject.SetActive(false);
         Transform deathPrefab = Instantiate(_enemy.enemyPrefabDead, _enemy.transform.position, _enemy.transform.rotation);
         Transform deathParticles = Instantiate(_enemy.enemyParticlesDead, _enemy.transform.position, _enemy.transform.rotation);
-        deathPrefab.GetComponent<Rigidbody2D>().AddForce(_enemy.rb.velocity * 2, ForceMode2D.Impulse); // right now applying the enemies walk velocity instead of knockback (possibly fixed)
+        deathPrefab.GetComponent<Rigidbody2D>().AddForce(_enemy.RigidBody.velocity * 2, ForceMode2D.Impulse); // right now applying the enemies walk velocity instead of knockback (possibly fixed)
         GameObject.Destroy(deathPrefab.gameObject, 50f);
         GameObject.Destroy(deathParticles.gameObject, 10f);
     }

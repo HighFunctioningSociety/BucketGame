@@ -10,7 +10,7 @@ public class EnemyForceAbility : EnemyAbility
     public float verticalForce;
     public float horizontalForce;
     public ForceMode2D forceMode;
-    public string triggerName;
+    //public string AnimationName;
 
     public override void Initialize(GameObject obj)
     {
@@ -19,7 +19,7 @@ public class EnemyForceAbility : EnemyAbility
         movement.verticalForce = verticalForce;
         movement.horizontalForce = horizontalForce;
         movement.forceMode = forceMode;
-        movement.triggerName = triggerName;
+        movement.AnimationName = aName;
     }
 
     public override void TriggerAbility()

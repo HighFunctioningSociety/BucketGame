@@ -19,14 +19,14 @@ public class EnemyMeleeAbility : EnemyProximityAbility
         attack = obj.GetComponent<EnemyMeleeTriggerable>();
 
         // overwrite melee attack values with the values for this attack
-        attack.damage = damage;
+        attack.Damage = damage;
         attack.rangeX = rangeX;
         attack.rangeY = rangeY;
-        attack.moveForceX = moveForceX;
+        attack.MoveForceX = moveForceX;
         attack.moveForceY = moveForceY;
-        attack.knockBackX = knockBackX;
-        attack.knockBackY = knockBackY;
-        attack.triggerName = triggerName;
+        attack.KnockBackX = knockBackX;
+        attack.KnockBackY = knockBackY;
+        attack.AnimationName = aName;
     }
 
     public override void TriggerAbility()
