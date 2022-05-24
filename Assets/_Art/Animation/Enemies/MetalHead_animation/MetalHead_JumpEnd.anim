@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MetalHead_JumpEnd
-  serializedVersion: 6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -43,6 +43,7 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+      isIntCurve: 0
     pptrCurveMapping:
     - {fileID: 21300000, guid: c97fb4b1dc2006b4586967038152b870, type: 3}
     - {fileID: 21300000, guid: 81a61778b64dc224d8cfd24a7de1e30b, type: 3}
@@ -73,7 +74,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: _ZeroOutSpeed
+    functionName: ZeroOutSpeed
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

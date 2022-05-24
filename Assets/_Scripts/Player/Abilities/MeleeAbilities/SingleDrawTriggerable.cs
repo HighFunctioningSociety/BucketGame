@@ -124,9 +124,9 @@ public class SingleDrawTriggerable : MeleeAttackTriggerable
             ApplyHitstop(hitStop, enNum);
             ApplyControllerRumble();
 
-            if (_enemy.HurtController != null)
+            if (_enemy.Hurt != null)
             {
-                _enemy.HurtController.EnterHurtState();
+                _enemy.Hurt.EnterHurtState();
             }
 
             ApplyKnockBack(_enemy);

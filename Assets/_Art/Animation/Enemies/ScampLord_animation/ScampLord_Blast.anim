@@ -203,14 +203,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.9166667
-    functionName: _SpawnProjectileEvent
+    functionName: SpawnProjectileEvent
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.25
-    functionName: _ZeroOutDirection
+    functionName: ZeroOutDirection
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

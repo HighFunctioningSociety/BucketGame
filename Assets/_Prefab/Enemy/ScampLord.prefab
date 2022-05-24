@@ -610,6 +610,7 @@ GameObject:
   - component: {fileID: 4385362428432962816}
   - component: {fileID: -2897070449880274818}
   - component: {fileID: 3395129151947771257}
+  - component: {fileID: 731283425957144530}
   - component: {fileID: 7181318859116583455}
   - component: {fileID: 3076082258744023669}
   - component: {fileID: 5161299096958713229}
@@ -641,7 +642,7 @@ Transform:
   - {fileID: 5469108084628264928}
   - {fileID: 1070939145725321597}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1099564898074766182
 SpriteRenderer:
@@ -743,9 +744,6 @@ MonoBehaviour:
   Animator: {fileID: 0}
   RigidBody: {fileID: 0}
   EnemyCollider: {fileID: 0}
-  AbilityManager: {fileID: 0}
-  LOSCaster: {fileID: 0}
-  HurtController: {fileID: 0}
   Direction: 0
   Speed: 0
   CurrentPatrol: 0
@@ -753,6 +751,10 @@ MonoBehaviour:
   SpawnPosition: {x: 0, y: 0, z: 0}
   StartingPosition: {x: 0, y: 0, z: 0}
   TargetPosition: {x: 0, y: 0, z: 0}
+  AbilityManager: {fileID: 0}
+  LOS: {fileID: 0}
+  Hurt: {fileID: 0}
+  Reposition: {fileID: 0}
 --- !u!114 &4385362428432962816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,6 +823,19 @@ MonoBehaviour:
   specificDestination:
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &731283425957144530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168634798898153016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a11ee7787328bb4eb3a3a372fd92359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 1718304561740417175}
 --- !u!114 &7181318859116583455
 MonoBehaviour:
   m_ObjectHideFlags: 0

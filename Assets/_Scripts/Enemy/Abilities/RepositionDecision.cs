@@ -17,7 +17,7 @@ public class RepositionDecision : Decision
     {
         if (_enemy.AbilityManager.repositionCooldownComplete)
         {
-            _enemy.InitiateReposition();
+            _enemy.Reposition.InitiateReposition();
             Debug.Log("reposition");
             return true;
         }

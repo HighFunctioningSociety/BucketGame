@@ -53,13 +53,13 @@ MonoBehaviour:
   AnimationName: 
   rangeX: 0
   rangeY: 0
-  rb: {fileID: 0}
-  enemy: {fileID: 0}
-  animator: {fileID: 0}
-  damage: 0
-  knockBackX: 0
-  knockBackY: 0
-  moveForceX: 0
+  RB: {fileID: 0}
+  Enemy: {fileID: 0}
+  Animator: {fileID: 0}
+  Damage: 0
+  KnockBackX: 0
+  KnockBackY: 0
+  MoveForceX: 0
   moveForceY: 0
   attackCollider: {fileID: 2104214547}
   hitPlayer: []
@@ -161,13 +161,13 @@ MonoBehaviour:
   AnimationName: 
   rangeX: 0
   rangeY: 0
-  rb: {fileID: 0}
-  enemy: {fileID: 0}
-  animator: {fileID: 0}
-  damage: 0
-  knockBackX: 0
-  knockBackY: 0
-  moveForceX: 0
+  RB: {fileID: 0}
+  Enemy: {fileID: 0}
+  Animator: {fileID: 0}
+  Damage: 0
+  KnockBackX: 0
+  KnockBackY: 0
+  MoveForceX: 0
   moveForceY: 0
   attackCollider: {fileID: 1862658349770848096}
   hitPlayer: []
@@ -478,6 +478,7 @@ GameObject:
   - component: {fileID: 8437925996628023036}
   - component: {fileID: 7891252586870256909}
   - component: {fileID: 9136199269924066522}
+  - component: {fileID: 1088283934972038362}
   - component: {fileID: 5830903719887218671}
   - component: {fileID: 5799973937917135895}
   - component: {fileID: 4466276296186691607}
@@ -608,9 +609,6 @@ MonoBehaviour:
   Animator: {fileID: 0}
   RigidBody: {fileID: 0}
   EnemyCollider: {fileID: 0}
-  AbilityManager: {fileID: 0}
-  LOSCaster: {fileID: 0}
-  HurtController: {fileID: 0}
   Direction: 0
   Speed: 0
   CurrentPatrol: 0
@@ -618,6 +616,10 @@ MonoBehaviour:
   SpawnPosition: {x: 0, y: 0, z: 0}
   StartingPosition: {x: 0, y: 0, z: 0}
   TargetPosition: {x: 0, y: 0, z: 0}
+  AbilityManager: {fileID: 0}
+  LOS: {fileID: 0}
+  Hurt: {fileID: 0}
+  Reposition: {fileID: 0}
 --- !u!114 &9136199269924066522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -646,6 +648,19 @@ MonoBehaviour:
   nextRepositionTime: 0
   animator: {fileID: 0}
   enemy: {fileID: 7891252586870256909}
+--- !u!114 &1088283934972038362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7668552259605380002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a11ee7787328bb4eb3a3a372fd92359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 7891252586870256909}
 --- !u!114 &5830903719887218671
 MonoBehaviour:
   m_ObjectHideFlags: 0

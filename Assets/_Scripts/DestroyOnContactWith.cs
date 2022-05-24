@@ -5,20 +5,20 @@ using UnityEngine;
 public class DestroyOnContactWith : MonoBehaviour
 {
     public LayerMask contact;
-    public int durability = 0;
-    private int durabilityLeft = 0;
+    public int Durability = 0;
+    private int DurabilityLeft = 0;
     public GameObject objectToDestroy;
     public GameObject prefabEffect;
 
     public void Awake()
     {
-        durabilityLeft = durability;
+        DurabilityLeft = Durability;
     }
 
     private void OnTriggerEnter2D(Collider2D _colInfo)
     {
         GameObject effect;
-        if (durabilityLeft <= 0)
+        if (DurabilityLeft <= 0)
         {
             if (((1 << _colInfo.gameObject.layer) & contact) != 0)
             {
@@ -33,7 +33,7 @@ public class DestroyOnContactWith : MonoBehaviour
             }
         }
        else
-            durabilityLeft--;
+            DurabilityLeft--;
     }
 
     private IEnumerator DestroyAtEndOfFrame()

@@ -265,7 +265,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.75
-    functionName: _ZeroOutDirection
+    functionName: ZeroOutDirection
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

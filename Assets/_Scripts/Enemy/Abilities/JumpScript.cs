@@ -52,11 +52,11 @@ public class JumpScript : MonoBehaviour
 
     private void GetDestination()
     {
-        if (enemy.AbilityManager.abilityToUse.scriptableAbility.aName == "ScampLord_Blast")
+        if (enemy.AbilityManager.abilityToUse.scriptableAbility.aName == "ScampLord_JumpStartBlast")
         {
             SpecificDestination();
         }
-        else if (enemy.AbilityManager.abilityToUse.scriptableAbility.aName == "ScampLord_Jump")
+        else if (enemy.AbilityManager.abilityToUse.scriptableAbility.aName == "ScampLord_JumpStart")
         {
             PlayerDestination();
         }
@@ -64,6 +64,7 @@ public class JumpScript : MonoBehaviour
 
     private void PlayerDestination()
     {
+        Debug.LogWarning("<color=green> you </color>");
         spawnShockwave = true;
         noise = Random.Range(-20f, 20f);
         destination = enemy.TargetObject.position;
@@ -71,6 +72,7 @@ public class JumpScript : MonoBehaviour
 
     private void SpecificDestination()
     {
+        Debug.LogWarning("<color=green> fuck </color>");
         noise = 0;
         int index = 0;
         float maxDistance = 0;

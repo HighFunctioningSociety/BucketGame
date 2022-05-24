@@ -29,9 +29,9 @@ public class ProjectileCollision : MonoBehaviour
 
         if (_enemy != null)
         {
-            if (shouldHurtEnemy && _enemy.HurtController != null)
+            if (shouldHurtEnemy && _enemy.Hurt != null)
             {
-                _enemy.HurtController.EnterHurtState();
+                _enemy.Hurt.EnterHurtState();
             }
 
             if (createHitEffect)

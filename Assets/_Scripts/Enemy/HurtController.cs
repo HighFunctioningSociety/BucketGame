@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HurtComponent : MonoBehaviour
+public class HurtController : MonoBehaviour
 {
     public EnemyContainer Enemy;
     public State HurtState;
@@ -35,9 +35,9 @@ public class HurtComponent : MonoBehaviour
 
             TriggerHurtAnimation();
 
-            if (Enemy.LOSCaster != null)
+            if (Enemy.LOS != null)
             {
-                Enemy.LOSCaster.LOSCount = 0;
+                Enemy.LOS.LOSCount = 0;
             }
         }
     }

@@ -13,7 +13,7 @@ public class StartSwoop : Decision
 
     private bool TargetInLineOfSight(EnemyContainer _enemy)
     {
-        if (_enemy.LOSCaster.CheckLineOfSight() == true && _enemy.LOSCaster.LOSCount >= 25 && _enemy.AbilityManager.globalCooldownComplete) 
+        if (_enemy.LOS.CheckLineOfSight() == true && _enemy.LOS.LOSCount >= 25 && _enemy.AbilityManager.globalCooldownComplete) 
         {
             _enemy.Direction = Mathf.Sign(_enemy.transform.position.x - _enemy.TargetObject.position.x);
             _enemy.Speed = Mathf.Abs(_enemy.Direction);

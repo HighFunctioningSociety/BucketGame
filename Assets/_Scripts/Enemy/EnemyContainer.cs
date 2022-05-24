@@ -19,26 +19,22 @@ public class EnemyContainer : MonoBehaviour
     public float StateTimeElapsed = 0;
     public float IdleTimeElapsed = 0;
     public int AttacksDoneInState = 0;
-    
+
     [Space]
-    [Header ("Enemy Components/Variables")]
-    public LayerMask PlayerLayer;
-    public LayerMask ObstacleLayer;
+    [Header("Enemy Prefabs")]
     public Transform enemyPrefabDead;
     public Transform enemyParticlesDead;
-
 
     [Header("Other Values")]
     [Space]
     public bool UnfreezeConstraintsOnReset = false;
     public bool AINotActiveOnStart;
-    public bool blockPointAttacked = false;
-    public int patrolDirection;
     public GroundCheck groundCheck;
     public Transform boundLeft, boundRight;
     public bool Invul = false;
 
-    public BossTriggers Triggers;
+    [HideInInspector] public LayerMask PlayerLayer = Constants.Layers.Player;
+    [HideInInspector] public LayerMask ObstacleLayer = Constants.Layers.Obstacles;
 
     [HideInInspector] public float FullscreenAttackTiming;
     [HideInInspector] public float HurtTimeRemaining;
@@ -50,10 +46,7 @@ public class EnemyContainer : MonoBehaviour
     [HideInInspector] public Rigidbody2D RigidBody;
     [HideInInspector] public Collider2D EnemyCollider;
 
-    [HideInInspector] public EnemyAbilityManager AbilityManager;
-    [HideInInspector] public LOSComponenet LOSCaster;
-    [HideInInspector] public HurtComponent HurtController;
-
+    [HideInInspector] public int PatrolDirection;
     [HideInInspector] public float Direction;
     [HideInInspector] public float Speed;
     [HideInInspector] public int CurrentPatrol;
@@ -61,7 +54,14 @@ public class EnemyContainer : MonoBehaviour
     [HideInInspector] public Vector3 SpawnPosition;
     [HideInInspector] public Vector3 StartingPosition;
     [HideInInspector] public Vector3 TargetPosition;
-    
+    [HideInInspector] public bool blockPointAttacked = false;
+
+    // Optional Components
+    [HideInInspector] public EnemyAbilityManager AbilityManager;
+    [HideInInspector] public LOSController LOS;
+    [HideInInspector] public HurtController Hurt;
+    [HideInInspector] public RepositionController Reposition;
+    [HideInInspector] public BossTriggers Triggers;
 
     private readonly int _flashCount = 1;
     private readonly int _invulFrames = 5;
@@ -100,7 +100,9 @@ public class EnemyContainer : MonoBehaviour
         RigidBody = GetComponent<Rigidbody2D>();
         EnemyCollider = GetComponent<Collider2D>();
         Animator = GetComponent<Animator>();
-        LOSCaster = GetComponent<LOSComponenet>();
+        LOS = GetComponent<LOSController>();
+        Triggers = GetComponent<BossTriggers>();
+        Reposition = GetComponent<RepositionController>();
         AbilityManager = GetComponent<EnemyAbilityManager>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -148,8 +150,8 @@ public class EnemyContainer : MonoBehaviour
     {
         CurrentPatrol = 0;
         int[] patrolDirectionValues = new int[] { -1, 1 };
-        patrolDirection = patrolDirectionValues[Random.Range(0, 1)];
-        HurtController = GetComponent<HurtComponent>();
+        PatrolDirection = patrolDirectionValues[Random.Range(0, 1)];
+        Hurt = GetComponent<HurtController>();
         SpawnPosition = transform.position;
         currentState = defaultState;
         curHealth = enemyStats.maxHealth;
@@ -206,29 +208,6 @@ public class EnemyContainer : MonoBehaviour
         }
     }
 
-    public void InitiateReposition()
-    {
-        AbilityManager.nextRepositionTime = enemyStats.repositionCooldown + Time.time;
-        targetPosition = GenerateTargetPosition();
-    }
-
-    private Vector2 GenerateTargetPosition()
-    {
-        float randRangeX = Random.Range(enemyStats.repositionMinDistance, enemyStats.repositionMaxDistance);
-        int randSign = RandomSignGenerator();
-        Debug.Log(randSign + "reposition sign");
-        randRangeX *= randSign;
-        randRangeX += transform.position.x;
-        Vector2 newTargetPosition = new Vector2(randRangeX, transform.position.y);
-        return newTargetPosition;
-    }
-
-    private int RandomSignGenerator()
-    {
-        int randNum = Random.Range(0, 2);
-        return (randNum == 0 ? -1 : 0);
-    }
-
     public void TakeDamage(int _damage, bool bypassInvul)
     {
         if (Invul != true || bypassInvul == true)
@@ -255,15 +234,6 @@ public class EnemyContainer : MonoBehaviour
         }
         if (_spriteRenderer != null)
             _spriteRenderer.material = _matDefault;
-    }
-
-    public void ResetAnimationTriggers()
-    {
-        foreach (var parameter in Animator.parameters)
-        {
-            if (parameter.type == AnimatorControllerParameterType.Trigger)
-                Animator.ResetTrigger(parameter.name);
-        }
     }
 
     public void KnockBack(float _knockBackX, float _knockBackY, Vector3 _playerPosition)
@@ -296,6 +266,24 @@ public class EnemyContainer : MonoBehaviour
         Invul = false;
     }
 
+    void FindPlayer()
+    {
+        GameObject searchResult = GameObject.FindGameObjectWithTag("Player");
+        if (searchResult != null)
+        {
+            TargetObject = searchResult.transform;
+        }
+    }
+
+    public void RespawnEnemy()
+    {
+        gameObject.SetActive(true);
+        Animator.SetTrigger("Reset");
+        RigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        SetUpAI();
+        transform.position = SpawnPosition;
+    }
+
     public void StopMomentum()
     {
         RigidBody.velocity = Vector3.zero;
@@ -321,22 +309,13 @@ public class EnemyContainer : MonoBehaviour
         RigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
-    void FindPlayer()
+    public void ResetAnimationTriggers()
     {
-        GameObject searchResult = GameObject.FindGameObjectWithTag("Player");
-        if (searchResult != null)
+        foreach (var parameter in Animator.parameters)
         {
-            TargetObject = searchResult.transform;
+            if (parameter.type == AnimatorControllerParameterType.Trigger)
+                Animator.ResetTrigger(parameter.name);
         }
-    }
-
-    public void RespawnEnemy()
-    {
-        gameObject.SetActive(true);
-        Animator.SetTrigger("Reset");
-        RigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-        SetUpAI();
-        transform.position = SpawnPosition;
     }
 
     private void OnDrawGizmos()

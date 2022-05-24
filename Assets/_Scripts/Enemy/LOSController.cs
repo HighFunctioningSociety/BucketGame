@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LOSComponenet : MonoBehaviour
+public class LOSController : MonoBehaviour
 {
 
     public float LOSLength;

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class DestroyTimer : MonoBehaviour
 {
-    public float timeToDestroy;
-    public float timer = 0;
+    public float TimeToDestroy;
+    public float Timer = 0;
+
+    public Transform PrefabEffect;
 
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= timeToDestroy)
+        Timer += Time.deltaTime;
+        if (Timer >= TimeToDestroy)
             Destroy(this.gameObject);
     }
 }

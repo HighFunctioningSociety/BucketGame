@@ -11,11 +11,11 @@ public class GroundCheck : MonoBehaviour
     public bool Grounded;
     public bool EdgeLeft = false;
     public bool EdgeRight = false;
-    public bool RightEdgeAlreadyFound = false;
-    public bool LeftEdgeAlreadyFound = false;
+    [HideInInspector] public bool RightEdgeAlreadyFound = false;
+    [HideInInspector] public bool LeftEdgeAlreadyFound = false;
 
-    private float _extraLength = 0.5f;
-    private float _extraWidth = 0.5f;
+    public float _extraLength = 0.4f;
+    public float _extraWidth = 0.05f;
 
     private Animator _animator;
     private EnemyContainer _enemy;
@@ -51,8 +51,6 @@ public class GroundCheck : MonoBehaviour
     {
         RaycastHit2D raycastLeft = Physics2D.Raycast(new Vector3(enemyCollider.bounds.center.x, enemyCollider.bounds.min.y) - new Vector3(enemyCollider.bounds.extents.x + _extraWidth, 0), Vector2.down, _extraLength, whatIsGround);
         RaycastHit2D raycastRight = Physics2D.Raycast(new Vector3(enemyCollider.bounds.center.x, enemyCollider.bounds.min.y) + new Vector3(enemyCollider.bounds.extents.x + _extraWidth, 0), Vector2.down, _extraLength, whatIsGround);
-        Color rayColorLeft = Color.green;
-        Color rayColorRight = Color.green;
 
         if ((raycastLeft.collider != null || raycastRight.collider != null) && (_enemy.RigidBody.velocity.y < 0.01))
         {
@@ -71,8 +69,7 @@ public class GroundCheck : MonoBehaviour
 
         EdgeLeft = CheckLeftRaycast(raycastLeft);
         EdgeRight = CheckRightRaycast(raycastRight);
-        SetRaycastColors(rayColorLeft, rayColorRight);
-        DrawRaycasts(rayColorLeft, rayColorRight);
+        DrawRaycasts(GetRaycastColor(EdgeLeft), GetRaycastColor(EdgeRight));
     }
 
     public void OnLanding()
@@ -97,13 +94,16 @@ public class GroundCheck : MonoBehaviour
             return true;
     }
     
-    private void SetRaycastColors(Color leftColor, Color rightColor)
+    private Color GetRaycastColor(bool edgeFound)
     {
-        if (EdgeLeft == false)
-            leftColor = Color.red;
+        Color color = Color.green;
 
-         if (EdgeRight == true)
-            rightColor = Color.red;
+        if (edgeFound == true)
+        {
+            color = Color.red;
+        }
+
+        return color;
     }
 
     private void DrawRaycasts(Color leftColor, Color rightColor)

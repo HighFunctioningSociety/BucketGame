@@ -69,9 +69,9 @@ public class UpSlashTriggerable : MeleeAttackTriggerable
                 }
             }
 
-            if (_enemy.HurtController != null)
+            if (_enemy.Hurt != null)
             {
-                _enemy.HurtController.EnterHurtState();
+                _enemy.Hurt.EnterHurtState();
             }
 
             _enemy.KnockBack(knockBackTotalX, knockBackTotalY, player.rb.transform.position);
