@@ -330,9 +330,9 @@ public class AbilityManager : MonoBehaviour
 
     private IEnumerator VaultGravity()
     {
-        player.rb.gravityScale = player.playerStats.defaultGravity / 2;
+        //player.rb.gravityScale = player.playerStats.defaultGravity * 1.5f;
         yield return new WaitForSeconds(0.5f);
-        player.rb.gravityScale = player.playerStats.defaultGravity;
+        //player.rb.gravityScale = player.playerStats.defaultGravity;
     }
 
     public void ExecuteStingerSpecial()

@@ -77,7 +77,7 @@ public class HitStop : MonoBehaviour
 
     IEnumerator SimpleStop(float delay)
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
         yield return new WaitForSecondsRealtime(delay);
         Time.timeScale = 1f;
         hitStopActive = false;

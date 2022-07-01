@@ -30,6 +30,6 @@ public class EnemySwoopTriggerable : EnemyProximityTriggerable
         enemy.StartingPosition = enemy.transform.position;
         enemy.targetPosition = new Vector2(enemy.TargetObject.position.x, enemy.TargetObject.position.y);
         enemy.RigidBody.velocity = Vector2.zero;
-        animator.SetTrigger(AnimationName);
+        animator.Play(AnimationName);
     }
 }

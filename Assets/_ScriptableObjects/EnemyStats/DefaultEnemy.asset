@@ -15,16 +15,19 @@ MonoBehaviour:
   maxHealth: 300
   damage: 1
   armor: 0
-  knockback: 1
-  attackRate: 1
-  speed: 1
-  jumpHeight: 0
+  speed: 4
   defaultGravity: 10
+  isHeavy: 0
   idleTime: 0
+  fullscreenTimingMin: 0
+  fullscreenTimingMax: 0
+  repositionMinDistance: 0
+  repositionMaxDistance: 0
+  repositionCooldown: 0
   aggroRangeX: 50
   aggroRangeY: 40
   aggroTime: 10
   hurtStunTime: 0.1
-  fullscreenTimingMin: 0
-  fullscreenTimingMax: 0
   stateSphereRadius: 3
+  currencyDroppedMin: 0
+  currencyDroppedMax: 0

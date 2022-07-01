@@ -52,7 +52,7 @@ public class DashAbility : MonoBehaviour
         if (dashTime > 0)
         {
             dashTime -= Time.fixedDeltaTime;
-            StartDashing(direction);
+            SetVelocity(direction);
             StingerScan();
         }
         else
@@ -61,9 +61,9 @@ public class DashAbility : MonoBehaviour
         }
     }
 
-    private void StartDashing(float direction)
+    private void SetVelocity(float direction)
     {
-        abilityManager.UnfreezeXConstraint();
+        //abilityManager.UnfreezeXConstraint();
         player.rb.velocity = new Vector2 (direction, 0) * dashSpeed;
     }
 

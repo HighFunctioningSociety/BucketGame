@@ -10,7 +10,7 @@ public class PlatformAttach : MonoBehaviour
         if (_colInfo.gameObject.GetComponent<PlayerContainer>() != null)
         {
             PlayerContainer _player = _colInfo.gameObject.GetComponent<PlayerContainer>();
-            _player.rb.interpolation = RigidbodyInterpolation2D.None;
+            //_player.rb.interpolation = RigidbodyInterpolation2D.None;
             _player.transform.parent = parentObject.transform;
         }
     }
@@ -21,7 +21,7 @@ public class PlatformAttach : MonoBehaviour
         {
             PlayerContainer _player = _colInfo.gameObject.GetComponent<PlayerContainer>();
             _player.transform.parent = null;
-            _player.rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+            //  _player.rb.interpolation = RigidbodyInterpolation2D.Interpolate;
             DontDestroyOnLoad(_player);
         }
     }

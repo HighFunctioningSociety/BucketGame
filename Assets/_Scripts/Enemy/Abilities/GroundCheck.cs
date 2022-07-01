@@ -7,6 +7,7 @@ public class GroundCheck : MonoBehaviour
 {
     public Collider2D enemyCollider;
     public LayerMask whatIsGround;
+    public LayerMask whatIsSlope;
     public bool WasGrounded;
     public bool Grounded;
     public bool EdgeLeft = false;
@@ -70,6 +71,11 @@ public class GroundCheck : MonoBehaviour
         EdgeLeft = CheckLeftRaycast(raycastLeft);
         EdgeRight = CheckRightRaycast(raycastRight);
         DrawRaycasts(GetRaycastColor(EdgeLeft), GetRaycastColor(EdgeRight));
+    }
+
+    public void IsOnSlope()
+    {
+        Vector2 checkPos = transform.position - new Vector3(0.0f, enemyCollider.bounds.size.y /2);
     }
 
     public void OnLanding()

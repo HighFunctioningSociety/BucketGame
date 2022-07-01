@@ -16,7 +16,7 @@ public class PlayerTriggeredMovingPlatform : MonoBehaviour
         targetPosition = position1;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         MoveToAlternateSide();
     }
