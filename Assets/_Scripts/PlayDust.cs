@@ -9,7 +9,7 @@ public class PlayDust : MonoBehaviour
 
     private void Update()
     {
-        if (gc.grounded && !gc.wasGrounded)
+        if (gc.Grounded && !gc.WasGrounded)
         {
             dust.Play();
         }

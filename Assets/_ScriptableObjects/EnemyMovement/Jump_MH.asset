@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1730ae5bbca841b429674bbe17cd06e3, type: 3}
   m_Name: Jump_MH
   m_EditorClassIdentifier: 
-  aName: Jump_MH
+  aName: MetalHead_JumpStart
   aSound: {fileID: 0}
-  globalCooldown: 4
+  globalCooldown: 1.6
   abilityCooldownTime: 6
   movement: {fileID: 0}
   verticalForce: 95
   horizontalForce: 30
   forceMode: 1
-  triggerName: Jump

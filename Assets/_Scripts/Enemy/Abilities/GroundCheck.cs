@@ -7,16 +7,18 @@ public class GroundCheck : MonoBehaviour
 {
     public Collider2D enemyCollider;
     public LayerMask whatIsGround;
-    public float extraLength;
-    public float extraWidth;
-    public bool wasGrounded;
-    public bool grounded;
-    private Animator animator;
-    private EnemyContainer enemy;
-    public bool edgeLeft = false;
-    public bool edgeRight = false;
-    public bool rightEdgeAlreadyFound = false;
-    public bool leftEdgeAlreadyFound = false;
+    public bool WasGrounded;
+    public bool Grounded;
+    public bool EdgeLeft = false;
+    public bool EdgeRight = false;
+    [HideInInspector] public bool RightEdgeAlreadyFound = false;
+    [HideInInspector] public bool LeftEdgeAlreadyFound = false;
+
+    public float _extraLength = 0.4f;
+    public float _extraWidth = 0.05f;
+
+    private Animator _animator;
+    private EnemyContainer _enemy;
 
     [Header("Events")]
     [Space]
@@ -25,8 +27,9 @@ public class GroundCheck : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponentInParent<Animator>();
-        enemy = GetComponentInParent<EnemyContainer>();
+        _animator = GetComponentInParent<Animator>();
+        _enemy = GetComponentInParent<EnemyContainer>();
+
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
     }
@@ -34,48 +37,45 @@ public class GroundCheck : MonoBehaviour
     {
         CheckIfEdgeLeftAlreadyFound();
         CheckIfEdgeRightAlreadyFound();
-        if (edgeLeft == false && edgeRight == false)
+        if (EdgeLeft == false && EdgeRight == false)
         {
-            rightEdgeAlreadyFound = false;
-            leftEdgeAlreadyFound = false;
+            RightEdgeAlreadyFound = false;
+            LeftEdgeAlreadyFound = false;
         }
-        wasGrounded = grounded;
-        grounded = false;
+        WasGrounded = Grounded;
+        Grounded = false;
         IsGrounded();
     }
 
     public void IsGrounded()
     {
-        RaycastHit2D raycastLeft = Physics2D.Raycast(new Vector3(enemyCollider.bounds.center.x, enemyCollider.bounds.min.y) - new Vector3(enemyCollider.bounds.extents.x + extraWidth, 0), Vector2.down, extraLength, whatIsGround);
-        RaycastHit2D raycastRight = Physics2D.Raycast(new Vector3(enemyCollider.bounds.center.x, enemyCollider.bounds.min.y) + new Vector3(enemyCollider.bounds.extents.x + extraWidth, 0), Vector2.down, extraLength, whatIsGround);
-        Color rayColorLeft = Color.green;
-        Color rayColorRight = Color.green;
+        RaycastHit2D raycastLeft = Physics2D.Raycast(new Vector3(enemyCollider.bounds.center.x, enemyCollider.bounds.min.y) - new Vector3(enemyCollider.bounds.extents.x + _extraWidth, 0), Vector2.down, _extraLength, whatIsGround);
+        RaycastHit2D raycastRight = Physics2D.Raycast(new Vector3(enemyCollider.bounds.center.x, enemyCollider.bounds.min.y) + new Vector3(enemyCollider.bounds.extents.x + _extraWidth, 0), Vector2.down, _extraLength, whatIsGround);
 
-        if ((raycastLeft.collider != null || raycastRight.collider != null) && (enemy.rb.velocity.y < 0.01))
+        if ((raycastLeft.collider != null || raycastRight.collider != null) && (_enemy.RigidBody.velocity.y < 0.01))
         {
-            grounded = true;
-            animator.SetBool("Grounded", true);
-            if (!wasGrounded)
+            Grounded = true;
+            _animator.SetBool("Grounded", true);
+            if (!WasGrounded)
             {
                 HasBecomeGrounded();
             }
         }
         else
         {
-            animator.ResetTrigger("Hurt");
-            animator.SetBool("Grounded", false);
+            _animator.ResetTrigger("Hurt");
+            _animator.SetBool("Grounded", false);
         }
 
-        edgeLeft = CheckLeftRaycast(raycastLeft);
-        edgeRight = CheckRightRaycast(raycastRight);
-        SetRaycastColors(rayColorLeft, rayColorRight);
-        DrawRaycasts(rayColorLeft, rayColorRight);
+        EdgeLeft = CheckLeftRaycast(raycastLeft);
+        EdgeRight = CheckRightRaycast(raycastRight);
+        DrawRaycasts(GetRaycastColor(EdgeLeft), GetRaycastColor(EdgeRight));
     }
 
     public void OnLanding()
     {
-        enemy.rb.gravityScale = enemy.enemyStats.defaultGravity;
-        enemy.StopMomentum();
+        _enemy.RigidBody.gravityScale = _enemy.enemyStats.defaultGravity;
+        _enemy.StopMomentum();
     }
 
     private bool CheckLeftRaycast(RaycastHit2D _raycastLeft)
@@ -94,25 +94,28 @@ public class GroundCheck : MonoBehaviour
             return true;
     }
     
-    private void SetRaycastColors(Color leftColor, Color rightColor)
+    private Color GetRaycastColor(bool edgeFound)
     {
-        if (edgeLeft == false)
-            leftColor = Color.red;
+        Color color = Color.green;
 
-         if (edgeRight == true)
-            rightColor = Color.red;
+        if (edgeFound == true)
+        {
+            color = Color.red;
+        }
+
+        return color;
     }
 
     private void DrawRaycasts(Color leftColor, Color rightColor)
     {
-        Debug.DrawRay(new Vector3(enemyCollider.bounds.center.x, enemyCollider.bounds.min.y) - new Vector3(enemyCollider.bounds.extents.x + extraWidth, 0), Vector2.down * (extraLength), leftColor);
-        Debug.DrawRay(new Vector3(enemyCollider.bounds.center.x, enemyCollider.bounds.min.y) + new Vector3(enemyCollider.bounds.extents.x + extraWidth, 0), Vector2.down * (extraLength), rightColor);
+        Debug.DrawRay(new Vector3(enemyCollider.bounds.center.x, enemyCollider.bounds.min.y) - new Vector3(enemyCollider.bounds.extents.x + _extraWidth, 0), Vector2.down * (_extraLength), leftColor);
+        Debug.DrawRay(new Vector3(enemyCollider.bounds.center.x, enemyCollider.bounds.min.y) + new Vector3(enemyCollider.bounds.extents.x + _extraWidth, 0), Vector2.down * (_extraLength), rightColor);
     }
 
     private void HasBecomeGrounded()
     {
         OnLandEvent.Invoke();
-        if (enemy.enemyStats.isHeavy)
+        if (_enemy.enemyStats.isHeavy)
         {
             SimpleCameraShake._CameraShake(0.3f, 0.2f);
         }
@@ -120,17 +123,17 @@ public class GroundCheck : MonoBehaviour
 
     private void CheckIfEdgeLeftAlreadyFound()
     {
-        if (edgeRight == true && !rightEdgeAlreadyFound)
+        if (EdgeRight == true && !RightEdgeAlreadyFound)
         {
-            rightEdgeAlreadyFound = true;
+            RightEdgeAlreadyFound = true;
         }
     }
 
     private void CheckIfEdgeRightAlreadyFound()
     {
-        if (edgeLeft == true && !leftEdgeAlreadyFound)
+        if (EdgeLeft == true && !LeftEdgeAlreadyFound)
         {
-            leftEdgeAlreadyFound = true;
+            LeftEdgeAlreadyFound = true;
         }
     }
 }

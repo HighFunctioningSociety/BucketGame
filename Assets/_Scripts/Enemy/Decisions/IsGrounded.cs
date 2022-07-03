@@ -13,6 +13,6 @@ public class IsGrounded : Decision
 
     private bool CheckForGround(EnemyContainer enemy)
     {
-        return enemy.groundCheck.grounded;
+        return enemy.groundCheck.Grounded;
     }
 }

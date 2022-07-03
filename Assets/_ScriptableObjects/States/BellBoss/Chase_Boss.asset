@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25e53e4dee9eaa40b3a3b4179903693, type: 3}
   m_Name: Chase_Boss
   m_EditorClassIdentifier: 
+  OnStateEnterAction: {fileID: 0}
   actions:
   - {fileID: 11400000, guid: 4cd54b0c276311846ba21b4be2cda828, type: 2}
   transitions:
@@ -26,9 +27,6 @@ MonoBehaviour:
     falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
   - decision: {fileID: 11400000, guid: f96869f494eb8374db298fb135f37193, type: 2}
     trueState: {fileID: 11400000, guid: 6edba2084d09fa0429de70fda83038f4, type: 2}
-    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
-  - decision: {fileID: 11400000, guid: 83f92d42d71d58f4db9725ad8cb535c2, type: 2}
-    trueState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
     falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
   uninterruptable: 0
   hurtboxDisabled: 0

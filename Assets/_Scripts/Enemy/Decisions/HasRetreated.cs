@@ -11,8 +11,8 @@ public class HasRetreated : Decision
 
     private bool RetreatFinished(EnemyContainer _enemy)
     {
-        bool gcdComplete = _enemy.abilityManager.globalCooldownComplete;
-        bool hasRetreated = _enemy.triggers.retreated;
+        bool gcdComplete = _enemy.AbilityManager.globalCooldownComplete;
+        bool hasRetreated = _enemy.Triggers.retreated;
         return gcdComplete && hasRetreated;
     }
 }

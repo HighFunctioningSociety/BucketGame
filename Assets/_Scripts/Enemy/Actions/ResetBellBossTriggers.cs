@@ -12,13 +12,13 @@ public class ResetBellBossTriggers : Actions
 
     private void ResetAnimationTriggers(EnemyContainer _enemy)
     {
-        if (_enemy.stateTimeElapsed < 0.05f)
+        if (_enemy.StateTimeElapsed < 0.05f)
         {
-            _enemy.animator.ResetTrigger("Blast");
-            _enemy.animator.ResetTrigger("Jump");
-            _enemy.animator.ResetTrigger("LowPunch");
-            _enemy.animator.ResetTrigger("HighPunch");
-            _enemy.animator.ResetTrigger("Hurt");
+            _enemy.Animator.ResetTrigger("Blast");
+            _enemy.Animator.ResetTrigger("Jump");
+            _enemy.Animator.ResetTrigger("LowPunch");
+            _enemy.Animator.ResetTrigger("HighPunch");
+            _enemy.Animator.ResetTrigger("Hurt");
         }
     }
 }

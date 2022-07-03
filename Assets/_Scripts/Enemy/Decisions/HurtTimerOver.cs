@@ -13,6 +13,6 @@ public class HurtTimerOver : Decision
 
     private bool CheckHurtTime(EnemyContainer _enemy)
     {
-        return (_enemy.hurtTimeRemaining <= 0);
+        return (_enemy.HurtTimeRemaining <= 0);
     }
 }

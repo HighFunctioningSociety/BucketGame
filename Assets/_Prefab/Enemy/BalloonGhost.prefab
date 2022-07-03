@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3092607778641459387}
   - component: {fileID: 3092607778641459384}
   - component: {fileID: 3092607778641459385}
+  - component: {fileID: 3972042546058568539}
   - component: {fileID: 3092607778641459366}
   - component: {fileID: 3092607778641459367}
   - component: {fileID: 1988202522339152493}
@@ -32,6 +33,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3092607779322013623}
   - {fileID: 5155931755320373986}
@@ -49,6 +51,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -108,47 +111,61 @@ MonoBehaviour:
   aggroState: {fileID: 11400000, guid: cc18372dcc56fcb4da17447fc79afd09, type: 2}
   hurtState: {fileID: 11400000, guid: 92b259b8d878e2f4d84ec7a8276f747f, type: 2}
   remainState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
-  stateTimeElapsed: 0
-  idleTimeElapsed: 0
-  attacksDoneInState: 0
-  hurtDecisions:
-  - {fileID: 11400000, guid: c9ef5ff5e0d47c0499f717357e3294f2, type: 2}
-  hurtTimeRemaining: 0
-  aggroTimeRemaining: 0
-  fullscreenAttackTiming: 0
-  wasHurt: 0
-  playerLayer:
+  StateTimeElapsed: 0
+  IdleTimeElapsed: 0
+  AttacksDoneInState: 0
+  PlayerLayer:
     serializedVersion: 2
     m_Bits: 256
-  obstacleLayer:
+  ObstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
-  enemyCollider: {fileID: 0}
-  abilityManager: {fileID: 0}
-  rb: {fileID: 3092607778641459367}
+    m_Bits: 1024
   enemyPrefabDead: {fileID: 7012221780441401678, guid: 033ad7930181c564785ba61ba536c188,
     type: 3}
   enemyParticlesDead: {fileID: 1468090071482942586, guid: 0be59bf9033eecf46a0daf9dc941bef2,
     type: 3}
-  inIdle: 0
-  animator: {fileID: 0}
-  unfreezeConstraintsOnReset: 1
-  aiNotActiveOnStart: 0
+  UnfreezeConstraintsOnReset: 0
+  AINotActiveOnStart: 0
   blockPointAttacked: 0
-  LOSLength: 0
-  LOSCount: 0
   patrolDirection: 1
   groundCheck: {fileID: 0}
-  triggers: {fileID: 0}
   boundLeft: {fileID: 0}
   boundRight: {fileID: 0}
-  dir: 1
-  speed: 0
-  currentPatrol: 0
-  targetObject: {fileID: 0}
-  spawnPosition: {x: 0, y: 0, z: 0}
-  startingPosition: {x: 0, y: 0, z: 0}
-  _targetPosition: {x: 0, y: 0, z: 0}
+  Invul: 0
+  Triggers: {fileID: 0}
+  FullscreenAttackTiming: 0
+  HurtTimeRemaining: 0
+  AggroTimeRemaining: 0
+  WasHurt: 0
+  InIdle: 0
+  Animator: {fileID: 0}
+  RigidBody: {fileID: 0}
+  EnemyCollider: {fileID: 0}
+  AbilityManager: {fileID: 0}
+  LOSCaster: {fileID: 0}
+  HurtController: {fileID: 0}
+  Direction: 0
+  Speed: 0
+  CurrentPatrol: 0
+  TargetObject: {fileID: 0}
+  SpawnPosition: {x: 0, y: 0, z: 0}
+  StartingPosition: {x: 0, y: 0, z: 0}
+  TargetPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &3972042546058568539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3092607778641459364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31917e8b15d88443986aed4fc473cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 3092607778641459385}
+  HurtState: {fileID: 11400000, guid: 92b259b8d878e2f4d84ec7a8276f747f, type: 2}
+  HurtDecisions: []
 --- !u!61 &3092607778641459366
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -210,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!95 &4936898296810236530
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -223,6 +240,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -253,6 +271,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.24, y: 0.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3092607778641459387}
   m_RootOrder: 0
@@ -284,6 +303,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3092607778641459387}
   m_RootOrder: 1

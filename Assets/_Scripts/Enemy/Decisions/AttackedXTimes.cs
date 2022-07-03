@@ -15,7 +15,7 @@ public class AttackedXTimes : Decision
 
     private bool HasAttackedXTimes(EnemyContainer _enemy)
     {
-        if (_enemy.attacksDoneInState < numberOfAttacks)
+        if (_enemy.AttacksDoneInState < numberOfAttacks)
         {
             return false;
         }

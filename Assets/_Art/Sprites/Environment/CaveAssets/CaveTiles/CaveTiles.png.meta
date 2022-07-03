@@ -126,6 +126,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -134,9 +135,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -640,6 +641,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      CaveTile13: -1149326126912573582
+      CaveTile15: -4716777281084286335
+      CaveTile8: -3319237031746960598
+      CaveTile5: -7782919318706508310
+      caveTile1: 8380733675323961221
+      caveTile2: 780130983722078461
+      CaveTile16: 3981867635512569021
+      CaveTile3: 1964002444684085872
+      CaveTile9: 4600014697530604124
+      caveTile18: 111248445010106512
+      CaveTile6: -5170953784913333879
+      CaveTile10: 3428222216896340478
+      CaveTile4: 5020822539988013298
+      CaveTile12: 4610306685207751862
+      CaveTile17: 6465061363369929887
+      CaveTile14: -4218141426673054370
+      CaveTile7: 5003992773684364287
+      CaveTile11: 8664497273255208311
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

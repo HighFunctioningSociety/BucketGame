@@ -1,9 +1,39 @@
 version: 2
 importPivots: 1
 tpsheetFileNames:
+- Assets/_Art/Animation/Enemies/SilverBug_animation/bugWalk.tpsheet
+- Assets/_Art/Sprites/Characters/Ghost/Bubble.tpsheet
+- Assets/_Art/Sprites/Characters/Ghost/GhostBody.tpsheet
+- Assets/_Art/Sprites/Characters/Ghost/GhostEyes.tpsheet
+- Assets/_Art/Sprites/Characters/Ghost/GhostWalk.tpsheet
+- Assets/_Art/Sprites/Characters/Ghost/Spike.tpsheet
+- Assets/_Art/Sprites/Characters/Player/darkerWalk.tpsheet
+- Assets/_Art/Sprites/Characters/SilverBug/BugWalk.tpsheet
+- Assets/_Art/Sprites/Environment/CaveAssets/CaveTiles/CaveTiles.tpsheet
+- Assets/_Materials/Textures/TwinkleMaterials/TwinkleSheet.tpsheet
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
 textureFileNames:
+- Assets/_Art/Animation/Enemies/SilverBug_animation/bugWalk.png
+- Assets/_Art/Sprites/Characters/Ghost/Bubble.png
+- Assets/_Art/Sprites/Characters/Ghost/GhostBody.png
+- Assets/_Art/Sprites/Characters/Ghost/GhostEyes.png
+- Assets/_Art/Sprites/Characters/Ghost/GhostWalk.png
+- Assets/_Art/Sprites/Characters/Ghost/Spike.png
+- Assets/_Art/Sprites/Characters/Player/darkerWalk.png
+- Assets/_Art/Sprites/Characters/SilverBug/BugWalk.png
+- Assets/_Art/Sprites/Environment/CaveAssets/CaveTiles/CaveTiles.png
+- Assets/_Materials/Textures/TwinkleMaterials/TwinkleSheet.png
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
 normalmapFileNames:
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
 enableDebugOutput: 0

@@ -13,6 +13,6 @@ public class IdleTimerEnd : Decision
     
     private bool CheckTimer(EnemyContainer enemy)
     {
-        return enemy.idleTimeElapsed >= enemy.enemyStats.idleTime;
+        return enemy.IdleTimeElapsed >= enemy.enemyStats.idleTime;
     }
 }

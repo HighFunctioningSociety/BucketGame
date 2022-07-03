@@ -62,14 +62,18 @@ public class UpSlashTriggerable : MeleeAttackTriggerable
             float knockBackTotalX = knockBackX, knockBackTotalY = knockBackY;
             if (_enemy.groundCheck != null)
             {
-                if (!_enemy.groundCheck.grounded == false)
+                if (!_enemy.groundCheck.Grounded == false)
                 {
                     knockBackTotalY += 25;
                     knockBackTotalX -= 5;
                 }
             }
 
-            _enemy.EnterHurtState();
+            if (_enemy.Hurt != null)
+            {
+                _enemy.Hurt.EnterHurtState();
+            }
+
             _enemy.KnockBack(knockBackTotalX, knockBackTotalY, player.rb.transform.position);
             _enemy.TakeDamage(damage, false);
             DrawHitEffect(enemy);

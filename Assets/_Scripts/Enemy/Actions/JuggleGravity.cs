@@ -11,14 +11,14 @@ public class JuggleGravity : Actions
     }
 
     private void ChangeGravity(EnemyContainer enemy)
-    {   if (enemy.rb.velocity.y < 0)
+    {   if (enemy.RigidBody.velocity.y < 0)
         {
-            float newGravity = Mathf.Clamp(enemy.enemyStats.defaultGravity - 7 + enemy.stateTimeElapsed, 1, enemy.enemyStats.defaultGravity);
-            enemy.rb.gravityScale = newGravity;
+            float newGravity = Mathf.Clamp(enemy.enemyStats.defaultGravity - 7 + enemy.StateTimeElapsed, 1, enemy.enemyStats.defaultGravity);
+            enemy.RigidBody.gravityScale = newGravity;
         }
         else
         {
-            enemy.rb.gravityScale = enemy.enemyStats.defaultGravity;
+            enemy.RigidBody.gravityScale = enemy.enemyStats.defaultGravity;
         }
     }
 }

@@ -12,11 +12,11 @@ public class Reposition : Actions
 
     private void MoveToTargetPosition(EnemyContainer _enemy)
     {
-        if (_enemy.targetObject == null)
+        if (_enemy.TargetObject == null)
             return;
 
-        _enemy.dir = Mathf.Sign(_enemy.transform.position.x - _enemy.targetPosition.x);
-        _enemy.speed = Mathf.Abs(_enemy.dir);
+        _enemy.Direction = Mathf.Sign(_enemy.transform.position.x - _enemy.targetPosition.x);
+        _enemy.Speed = Mathf.Abs(_enemy.Direction);
         _enemy.transform.position = Vector2.MoveTowards(_enemy.transform.position, _enemy.targetPosition, _enemy.enemyStats.speed * 1f * Time.fixedDeltaTime);
     }
 }

@@ -18,16 +18,16 @@ public class CheckForPlayer : Decision
         Vector2 center = enemy.transform.position;
         Vector2 aggroRange = new Vector2(aggroX, aggroY);
 
-        Collider2D playerObj = Physics2D.OverlapBox(center, aggroRange, 0, enemy.playerLayer);
+        Collider2D playerObj = Physics2D.OverlapBox(center, aggroRange, 0, enemy.PlayerLayer);
 
         if (playerObj != null)
         {
-            enemy.targetObject = playerObj.GetComponent<Transform>();
+            enemy.TargetObject = playerObj.GetComponent<Transform>();
             return true;
         }
         else
         {
-            enemy.targetObject = null;
+            enemy.TargetObject = null;
             return false;
         }
     }

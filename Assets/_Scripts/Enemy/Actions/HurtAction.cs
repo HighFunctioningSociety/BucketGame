@@ -12,7 +12,7 @@ public class HurtAction : Actions
 
     private void Hurt(EnemyContainer _enemy)
     {
-        _enemy.dir = 0;
-        _enemy.speed = 0;
+        _enemy.Direction = 0;
+        _enemy.Speed = 0;
     }
 }

@@ -13,6 +13,6 @@ public class InIdleAnimation : Decision
     }
     private bool IsIdlePlaying(EnemyContainer _enemy)
     {
-        return _enemy.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
+        return _enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
     }
 }

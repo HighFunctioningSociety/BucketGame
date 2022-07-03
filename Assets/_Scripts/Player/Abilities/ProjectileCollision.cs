@@ -29,8 +29,11 @@ public class ProjectileCollision : MonoBehaviour
 
         if (_enemy != null)
         {
-            if (shouldHurtEnemy)
-                _enemy.EnterHurtState();
+            if (shouldHurtEnemy && _enemy.Hurt != null)
+            {
+                _enemy.Hurt.EnterHurtState();
+            }
+
             if (createHitEffect)
                 DrawHitEffect(_colInfo);
             _enemy.KnockBack(knockBackX, knockBackY, projectileCollider.bounds.center); ;

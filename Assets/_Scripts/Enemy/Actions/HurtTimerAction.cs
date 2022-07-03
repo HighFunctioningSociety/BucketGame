@@ -12,6 +12,6 @@ public class HurtTimerAction : Actions
 
     private void HurtTimeDecrement(EnemyContainer _enemy)
     {
-        _enemy.hurtTimeRemaining -= Time.fixedDeltaTime;
+        _enemy.HurtTimeRemaining -= Time.fixedDeltaTime;
     }
 }

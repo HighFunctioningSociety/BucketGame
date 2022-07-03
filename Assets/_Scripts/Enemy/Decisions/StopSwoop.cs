@@ -13,11 +13,11 @@ public class StopSwoop : Decision
 
     private bool CheckTackleTarget(EnemyContainer _enemy)
     {
-        if (_enemy.stateTimeElapsed > 3f || (_enemy.transform.position.y >= _enemy.startingPosition.y && _enemy.stateTimeElapsed > 0.1f) || _enemy.CheckRaycastObstacleCollision())
+        if (_enemy.StateTimeElapsed > 3f || (_enemy.transform.position.y >= _enemy.StartingPosition.y && _enemy.StateTimeElapsed > 0.1f) || _enemy.LOS.CheckRaycastObstacleCollision())
         {
             _enemy.StopMomentum();
-            _enemy.abilityManager.SetCooldown(1f);
-            _enemy.animator.SetTrigger("DiveEnd");
+            _enemy.AbilityManager.SetCooldown(1f);
+            _enemy.Animator.SetTrigger("DiveEnd");
             return true;
         }
         return false;

@@ -14,10 +14,10 @@ public class DirectlyCallAbility : Actions
 
     private void UseAbility(EnemyContainer _enemy)
     {
-        if (!_enemy.abilityManager.abilityAlreadyActivated)
+        if (!_enemy.AbilityManager.abilityAlreadyActivated)
         {
-            _enemy.abilityManager.abilityAlreadyActivated = true;
-            _enemy.abilityManager.UseAbility(_enemy.abilityManager.directCallAbilityList[directCallIndex]);
+            _enemy.AbilityManager.abilityAlreadyActivated = true;
+            _enemy.AbilityManager.UseAbility(_enemy.AbilityManager.directCallAbilityList[directCallIndex]);
         }
     }
 }

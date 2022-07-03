@@ -124,7 +124,7 @@ public class _SceneManager : MonoBehaviour
     {
         foreach(EnemyContainer enemy in enemyList)
         {
-            enemy._RespawnEnemy();
+            enemy.RespawnEnemy();
         }
     }
 

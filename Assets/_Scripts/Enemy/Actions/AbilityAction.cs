@@ -12,11 +12,11 @@ public class AbilityAction : Actions
 
     private void UseAbility(EnemyContainer _enemy)
     {
-        if (!_enemy.abilityManager.abilityAlreadyActivated)
+        if (!_enemy.AbilityManager.abilityAlreadyActivated)
         {
-            EnemyTriggerable abilityToUse = _enemy.abilityManager.abilityToUse;
-            _enemy.abilityManager.abilityAlreadyActivated = true;            
-            _enemy.abilityManager.UseAbility(abilityToUse);
+            EnemyTriggerable abilityToUse = _enemy.AbilityManager.abilityToUse;
+            _enemy.AbilityManager.abilityAlreadyActivated = true;            
+            _enemy.AbilityManager.UseAbility(abilityToUse);
         }
     }
 }

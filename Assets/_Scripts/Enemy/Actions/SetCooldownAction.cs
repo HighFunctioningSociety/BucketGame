@@ -13,6 +13,6 @@ public class SetCooldownAction : Actions
 
     private void ApplyCooldown(EnemyContainer _enemy)
     {
-        _enemy.abilityManager.SetCooldown(cooldownValue);
+        _enemy.AbilityManager.SetCooldown(cooldownValue);
     }
 }

@@ -84,7 +84,7 @@ public class EnemyAbilityManager : MonoBehaviour
         }
     }
 
-    public void _SpawnProjectileEvent()
+    public void SpawnProjectileEvent()
     {
         EnemyProjectileTriggerable projectileToUse;
         if (abilityToUse is EnemyProjectileTriggerable)
@@ -98,9 +98,9 @@ public class EnemyAbilityManager : MonoBehaviour
     {
         if (globalCooldownComplete)
         {
-            enemy.attacksDoneInState++;
-            enemy.dir = 0;
-            enemy.speed = 0;
+            enemy.AttacksDoneInState++;
+            enemy.Direction = 0;
+            enemy.Speed = 0;
             ApplyCooldown(ability);
             Debug.Log(ability.scriptableAbility.aName);
             ability.enemyAbilityClone.TriggerAbility();
@@ -119,6 +119,16 @@ public class EnemyAbilityManager : MonoBehaviour
         nextReadyTime = Time.time + cooldownValue;
     }
 
+    public void ZeroOutDirection()
+    {
+        enemy.Direction = 0;
+    }
+
+    public void ZeroOutSpeed()
+    {
+        enemy.Speed = 0;
+    }
+
     private void OnDrawGizmos()
     {
         foreach (EnemyProximityTriggerable proximityAbility in proximityAbilityList)
@@ -127,16 +137,6 @@ public class EnemyAbilityManager : MonoBehaviour
             EnemyProximityAbility enemyAbility = (EnemyProximityAbility)proximityAbility.scriptableAbility;
             Gizmos.DrawWireCube(proximityAbility.transform.position, new Vector2(enemyAbility.rangeX, enemyAbility.rangeY));
         }
-    }
-
-    public void _ZeroOutDirection()
-    {
-        enemy.dir = 0;
-    }
-
-    public void _ZeroOutSpeed()
-    {
-        enemy.speed = 0;
     }
 }
 
