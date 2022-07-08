@@ -42,7 +42,7 @@ public class PlungingMeleeTriggerable : MeleeAttackTriggerable
 
     public override void DrawHurtBox()
     {
-        if (player.controller.grounded){
+        if (player.controller.GetGrounded()){
             PlungingLandReaction();
         }
 
@@ -129,7 +129,7 @@ public class PlungingMeleeTriggerable : MeleeAttackTriggerable
     {
         DisableCollider();
         animator.SetTrigger("PlungeLand");
-        player.abilityManager.freezeMovement = true;
+        player.PlayerAbilityController.freezeMovement = true;
         player.coolDownManager.waitForFlag = true;
     }
 

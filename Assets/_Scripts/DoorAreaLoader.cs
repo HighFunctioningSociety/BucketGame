@@ -56,7 +56,7 @@ public class DoorAreaLoader : AreaLoader
     private void InteractWithDoor()
     {
         PlayerContainer _player = playerCollider.GetComponent<PlayerContainer>();
-        if (Inputs.Vertical == 1 && !buttonDown && _player.controller.grounded)
+        if (Inputs.Vertical == 1 && !buttonDown && _player.controller.GetGrounded())
         {
             buttonDown = true;
             if (VerifyNextScene())

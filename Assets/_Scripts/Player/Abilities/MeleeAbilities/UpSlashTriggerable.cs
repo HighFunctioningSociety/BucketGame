@@ -25,7 +25,7 @@ public class UpSlashTriggerable : MeleeAttackTriggerable
     {
         animator.SetTrigger(triggerName);
         //audioSource.Play();
-        if (!player.controller.grounded)
+        if (!player.controller.GetGrounded())
         {
             player.rb.AddForce(Vector2.up * moveForceY, ForceMode2D.Impulse);
         }

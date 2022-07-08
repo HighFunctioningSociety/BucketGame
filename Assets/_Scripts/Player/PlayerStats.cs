@@ -11,7 +11,7 @@ public class PlayerStats : ScriptableObject
     public float maxSpiritProgression = 100;
     public float spiritDecayRate = 0.9f;
     public float maxSpeed = 140f;
-    public float jumpForce = 65f;
+    public float jumpForce = 98f;
     public float defaultGravity = 5;
     public float defaultDrag = 0;
     //public int fallBoundary = -999;

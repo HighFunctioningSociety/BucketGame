@@ -18,7 +18,7 @@ MonoBehaviour:
   maxSpiritProgression: 100
   spiritDecayRate: 0.9
   maxSpeed: 150
-  jumpForce: 85
+  jumpForce: 90
   defaultGravity: 5
   defaultDrag: 0
   fallMultiplier: 1.2
@@ -28,4 +28,4 @@ MonoBehaviour:
   movementSmoothing: 0.08
   movementDivider: 5
   _curHealth: 5
-  _curSpirit: 0
+  _curSpirit: 2

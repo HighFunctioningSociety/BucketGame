@@ -11,13 +11,11 @@ public class PlayerContainer : MonoBehaviour
     public CONTROLSTATE currentControlType;
     public bool invul;
 
-    [HideInInspector] public bool transitioningLeft;
-    [HideInInspector] public bool transitioningRight;
-    public AbilityManager abilityManager;
+    public AbilityController PlayerAbilityController;
     public EquipmentManager equipmentManager;
     public CoolDownManager coolDownManager;
     public DashAbility dashAbility;
-    public AnimatePlayer animatePlayer;
+    public PlayerAnimator PlayerAnimationController;
     public Rigidbody2D rb;
     public CharacterController2D controller;
     public PlayerRenderer pr;
@@ -26,12 +24,12 @@ public class PlayerContainer : MonoBehaviour
     public float GameTime;
     public bool JumpCancelBoolMonitor;
     private Color stateColor = Color.grey;
-    private bool isYVelocityFrozen = false;
 
 
     public enum PSTATE
     {
         NORMAL,
+        DASH,
         ATTACK,
         HURT,
         REST,
@@ -72,16 +70,36 @@ public class PlayerContainer : MonoBehaviour
             dashAbility = GetComponent<DashAbility>();
         }
 
-        if (abilityManager == null)
+        if (PlayerAbilityController == null)
         {
             Debug.LogError("abilityManager not plugged in");
-            abilityManager = GetComponent<AbilityManager>();
+            PlayerAbilityController = GetComponent<AbilityController>();
         }
 
         invul = false;
     }
 
     private void FixedUpdate()
+    {
+        PlayerUpdateLoop();
+    }
+
+    /// <summary>
+    /// The singular update loop used for the player character
+    /// </summary>
+    public void PlayerUpdateLoop()
+    {
+        // Handles all of the players animation, in desperate need of refactoring
+        PlayerAnimationController.PlayerAnimationLoop();
+
+        // Handles all attacks and abilities
+        PlayerAbilityController.AbilityUpdateLoop();
+
+        // Handles player input
+        PlayerStateLoop();
+    }
+
+    public void PlayerStateLoop()
     {
         switch (currentControlType)
         {
@@ -93,7 +111,6 @@ public class PlayerContainer : MonoBehaviour
                 RelinquishInput();
                 break;
         }
-
     }
 
     private void AcceptInput()
@@ -102,6 +119,10 @@ public class PlayerContainer : MonoBehaviour
         {
             case PSTATE.NORMAL:
                 PStateNormal();
+                break;
+
+            case PSTATE.DASH:
+                PStateDash();
                 break;
 
             case PSTATE.ATTACK:
@@ -120,126 +141,138 @@ public class PlayerContainer : MonoBehaviour
 
     private void RelinquishInput()
     {
-        if (transitioningLeft)
-        {
-            controller.Move(-0.7f * Time.fixedDeltaTime, false, false);
-        }
-        else if (transitioningRight)
-        {
-            controller.Move(0.7f * Time.fixedDeltaTime, false, false);
-        }
         Inputs.DisableInput();  
     }
 
     private void PStateNormal()
     {
+        float horizontalMove = Inputs.Horizontal;
+        bool jump = Inputs.jump;
+        bool jumpHeld = Inputs.jumpHeld;
+
         if (Inputs.dash == true)
         {
-            dashAbility.CallDash(Inputs.dash);
+            currentState = PSTATE.DASH;
+            dashAbility.StartDashing(Inputs.dash);
+        }
+
+        controller.Move(horizontalMove * Time.fixedDeltaTime);
+        controller.Jump(jump, jumpHeld);
+
+        Inputs.jump = false;
+    }
+
+    private void PStateDash()
+    {
+        bool jump = Inputs.jump;
+        bool jumpHeld = Inputs.jumpHeld;
+     
+        if (dashAbility.dashTime < dashAbility.startDashTime * 0.4f && Inputs.jump && controller.GetGrounded())
+        {
+            currentState = PSTATE.NORMAL;
+            PlayerAbilityController.UnfreezeConstraints();
+            dashAbility.dashTime = 0;
+        }
+        else if (dashAbility.dashTime > 0)
+        {
+            jump = false;
+            jumpHeld = false;
         }
         else if (dashAbility.dashTime <= 0)
         {
-            controller.Move(Inputs.Horizontal * Time.fixedDeltaTime, Inputs.jump, Inputs.jumpHeld);
+            currentState = PSTATE.NORMAL;
         }
-        else if (dashAbility.dashTime < dashAbility.startDashTime * 0.4 && Inputs.jump && controller.GetGrounded())
-        {
-            abilityManager.UnfreezeConstraints();
-            dashAbility.dashTime = 0;
-            controller.Move(Inputs.Horizontal * Time.fixedDeltaTime, Inputs.jump, Inputs.jumpHeld);
-        }
+
+        controller.Jump(jump, jumpHeld);
         Inputs.jump = false;
     }
 
 
     private void PStateAttack()
     {
-        if (Inputs.jump && controller.grounded && JumpCancelTime() && !abilityManager.wasJumpCanceled && abilityManager.canJumpCancelAttack)
+        if (Inputs.jump && controller.GetGrounded() && JumpCancelTime() && !PlayerAbilityController.wasJumpCanceled && PlayerAbilityController.canJumpCancelAttack)
         {
             Inputs.SetAttackInputBufferTime(0.15f);
-            abilityManager._TurnOffMovementModifier();
-            abilityManager._ActivateJumpCancel();
+            PlayerAbilityController._TurnOffMovementModifier();
+            PlayerAbilityController._ActivateJumpCancel();
             coolDownManager.ResetCoolDown();
-            animatePlayer.JumpCancelTrigger();
+            PlayerAnimationController.JumpCancelTrigger();
             Inputs.DisableAttack();
-            controller.Move(Inputs.Horizontal * Time.fixedDeltaTime, Inputs.jump, Inputs.jumpHeld);
+            controller.Move(Inputs.Horizontal * Time.fixedDeltaTime);
+            controller.Jump(Inputs.jump, Inputs.jumpHeld);
         } 
-        else if (!abilityManager.freezeMovement)
+        else if (!PlayerAbilityController.freezeMovement)
         {
             UnfrozenJumpCancelManager();
         }
-        else if (abilityManager.freezeMovement)
+        else if (PlayerAbilityController.freezeMovement)
         {
             FrozenJumpCancelManager();
         }
         else
         {
-            controller.Move(Inputs.Horizontal * Time.fixedDeltaTime, false, false);
-        }
-
-        if (isYVelocityFrozen)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
+            controller.Move(Inputs.Horizontal * Time.fixedDeltaTime);
         }
     }
 
     private bool JumpCancelTime()
     {
-        if (abilityManager.currentMeleeAttack == null)
+        if (PlayerAbilityController.currentMeleeAttack == null)
             return false;
         float jumpCancelBuffer = 0.15f;
-        return Time.time > ((coolDownManager.nextReadyTime - abilityManager.currentMeleeAttack.ability.aBaseCoolDown) + jumpCancelBuffer);
+        return Time.time > ((coolDownManager.nextReadyTime - PlayerAbilityController.currentMeleeAttack.ability.aBaseCoolDown) + jumpCancelBuffer);
     }
 
     private void FrozenJumpCancelManager()
     {
-        if (abilityManager.canJumpCancelAttack && controller.GetGrounded() == false)
+        float horizontalMove = 0;
+        bool jumpHeld = false;
+        bool jump = false;
+
+        if (PlayerAbilityController.wasJumpCanceled)
         {
-            controller.Move(Inputs.Horizontal * Time.fixedDeltaTime, Inputs.jump, Inputs.jumpHeld);
+            jump = Inputs.jump;
+            jumpHeld = Inputs.jumpHeld;
         }
-        else if (abilityManager.canJumpCancelAttack && controller.GetGrounded() && abilityManager.wasJumpCanceled)
+
+        if (!controller.GetGrounded())
         {
-            controller.Move(0, Inputs.jump, Inputs.jumpHeld);
+            horizontalMove = Inputs.Horizontal;
         }
-        else if (abilityManager.canJumpCancelAttack && controller.GetGrounded() && !abilityManager.wasJumpCanceled)
-        {
-            controller.Move(0, false, false);
-        }
-        else if (controller.GetGrounded())
-        {
-            controller.Move(0, false, false);
-        }
-        else
-        {
-            controller.Move(Inputs.Horizontal * Time.fixedDeltaTime, false, false);
-        }
+
+        controller.Move(horizontalMove * Time.fixedDeltaTime);
+        controller.Jump(jump, jumpHeld);
     }
 
     private void UnfrozenJumpCancelManager()
     {
-        if (abilityManager.slowMovement)
+        float horizontalMove = Inputs.Horizontal;
+        bool jumpHeld = false;
+        bool jump = false;
+
+        if (PlayerAbilityController.slowMovement)
         {
-            controller.Move(Inputs.Horizontal / 8 * Time.fixedDeltaTime, false, false);
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y / playerStats.curMovementDivider, 0);
+            horizontalMove /= 8;
+            jump = false;
+            jumpHeld = false;
         }
-        else if (abilityManager.canJumpCancelAttack && abilityManager.wasJumpCanceled)
+
+        if (PlayerAbilityController.wasJumpCanceled)
         {
-            controller.Move(Inputs.Horizontal * Time.fixedDeltaTime, Inputs.jump, Inputs.jumpHeld);
+            jump = Inputs.jump; 
+            jumpHeld = Inputs.jumpHeld;
         }
-        else if (abilityManager.canJumpCancelAttack && !abilityManager.wasJumpCanceled)
-        {
-            controller.Move(Inputs.Horizontal * Time.fixedDeltaTime, false, false);
-        }
-        else
-        {
-            controller.Move(Inputs.Horizontal * Time.fixedDeltaTime, false, false);
-        }
+
+        controller.Move(horizontalMove * Time.fixedDeltaTime);
+        controller.Jump(jump, jumpHeld);
     }
 
 
     private void PStateHurt()
     {
-        abilityManager.UnfreezeConstraints();
-        abilityManager.CancelAbilities();
+        PlayerAbilityController.UnfreezeConstraints();
+        PlayerAbilityController.CancelAbilities();
         Inputs.attack = false;
         Inputs.specialAttack = false;
         StunTimeCountdown();
@@ -259,18 +292,17 @@ public class PlayerContainer : MonoBehaviour
             Rumbler.RumbleConstant(30, 30, 0.3f);
             stunTimeLeft = playerStats.stunTime;
             currentState = PSTATE.HURT;
-            isYVelocityFrozen = false;
             SubtractFromHealth(_damage);
-            abilityManager.CancelAbilities();
+            PlayerAbilityController.CancelAbilities();
             StartCoroutine(PlayDamageEffect(0.025f));
             StartCoroutine(Invulnerability());
         }
 
-        // If player health is equal to zero call the GameMaster to kill the player object
+        // If player runs out of health call the GameMaster to kill the player object
         if (playerStats.curHealth <= 0)
         {
             currentState = PSTATE.RESPAWNING;
-            abilityManager.CancelAbilities();
+            PlayerAbilityController.CancelAbilities();
             _GameManager.KillPlayer(this);
         }
     }
@@ -279,8 +311,8 @@ public class PlayerContainer : MonoBehaviour
     {
         if (invul != true)
         {
-            abilityManager.CancelAbilities();
-            abilityManager.UnfreezeConstraints();
+            PlayerAbilityController.CancelAbilities();
+            PlayerAbilityController.UnfreezeConstraints();
 
             // Set velocity equal to zero so it doesnt mess with knockback
             rb.velocity = new Vector2(0f, 0f);
@@ -341,16 +373,6 @@ public class PlayerContainer : MonoBehaviour
         _UIManager.UIManager._SetHealth(playerStats.curHealth, playerStats.maxHealth);
     }
 
-    public void FreezeYVelocity()
-    {
-        isYVelocityFrozen = true;
-    }
-    public void UnfreezeYVelocity()
-    {
-        isYVelocityFrozen = false;
-    }
-
-
     IEnumerator LowG()
     {
         rb.drag = 15f;
@@ -396,12 +418,12 @@ public class PlayerContainer : MonoBehaviour
 
     public void KillHorizontalInput()
     {
-        controller.killHorizontalInput = true;
+        controller.KillHorizontalInput = true;
     }
 
     public void ActivateHorizontalInput()
     {
-        controller.killHorizontalInput = false;
+        controller.KillHorizontalInput = false;
     }
 
     public static void RelinquishControl()
@@ -441,14 +463,25 @@ public class PlayerContainer : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (currentState == PSTATE.NORMAL)
-            stateColor = Color.green;
-        if (currentState == PSTATE.ATTACK)
-            stateColor = Color.red;
-        if (currentState == PSTATE.HURT || invul == true)
-            stateColor = Color.cyan;
-        if (currentState == PSTATE.REST)
-            stateColor = Color.blue;
+        switch (currentState)
+        {
+            case PSTATE.NORMAL:
+                stateColor = Color.green;
+                break;
+            case PSTATE.DASH:
+                stateColor = Color.magenta;
+                break;
+            case PSTATE.ATTACK:
+                stateColor = Color.red;
+                break;
+            case PSTATE.HURT:
+                stateColor = Color.cyan;
+                break;
+            case PSTATE.REST:
+                stateColor = Color.blue;
+                break;
+        }
+
         Gizmos.color = stateColor;
         Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y + 4, 60), 5);
     }

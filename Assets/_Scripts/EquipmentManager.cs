@@ -7,7 +7,7 @@ public class EquipmentManager : MonoBehaviour
     public EquipmentTriggerable[] EquipmentList;
     [Space]
 
-    public AbilityManager abilityManager;
+    public AbilityController abilityManager;
     public float equipmentNextReadyTime;
     public float secondaryNextReadyTime;
     public bool equipmentCoolDownComplete = false;
