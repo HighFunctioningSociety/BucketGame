@@ -3,8 +3,10 @@ importPivots: 1
 tpsheetFileNames:
 - Assets/_Art/Animation/Enemies/SilverBug_animation/bugWalk.tpsheet
 - Assets/_Art/Sprites/Characters/Ghost/Bubble.tpsheet
+- Assets/_Art/Sprites/Characters/Ghost/bubble.tpsheet
 - Assets/_Art/Sprites/Characters/Ghost/GhostBody.tpsheet
 - Assets/_Art/Sprites/Characters/Ghost/GhostEyes.tpsheet
+- Assets/_Art/Sprites/Characters/Ghost/ghostWalk.tpsheet
 - Assets/_Art/Sprites/Characters/Ghost/GhostWalk.tpsheet
 - Assets/_Art/Sprites/Characters/Ghost/Spike.tpsheet
 - Assets/_Art/Sprites/Characters/Player/darkerWalk.tpsheet
@@ -15,8 +17,10 @@ tpsheetFileNames:
 textureFileNames:
 - Assets/_Art/Animation/Enemies/SilverBug_animation/bugWalk.png
 - Assets/_Art/Sprites/Characters/Ghost/Bubble.png
+- Assets/_Art/Sprites/Characters/Ghost/Bubble.png
 - Assets/_Art/Sprites/Characters/Ghost/GhostBody.png
 - Assets/_Art/Sprites/Characters/Ghost/GhostEyes.png
+- Assets/_Art/Sprites/Characters/Ghost/GhostWalk.png
 - Assets/_Art/Sprites/Characters/Ghost/GhostWalk.png
 - Assets/_Art/Sprites/Characters/Ghost/Spike.png
 - Assets/_Art/Sprites/Characters/Player/darkerWalk.png
@@ -25,6 +29,8 @@ textureFileNames:
 - Assets/_Materials/Textures/TwinkleMaterials/TwinkleSheet.png
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
 normalmapFileNames:
+- 
+- 
 - 
 - 
 - 

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,31 +14,30 @@ public class _SceneManager : MonoBehaviour
     private AreaLoader spawnEntrance;
     private PlayerContainer playerContainer;
 
-    private void OnEnable()
-    {
-        
-        if (_GameManager.gm != null)
-            _GameManager.gm.SceneLoadEvent.Invoke();
-    }
-
     private void Start()
     {
         _GameManager.GetSceneManager(this);
         BlankerAnimator.blanker.FadeIn();
+
+        if (!_GameManager.firstUpdate)
+        {
+            playerContainer = _GameManager.GivePlayer().GetComponent<PlayerContainer>();
+        }
+
         if (!_GameManager.respawningPlayer && !_GameManager.firstUpdate && !_GameManager.debugSceneChange)
         {
             FindCorrectEntrance();
             MoveToEntrance();
+            playerContainer.PlayerAnimationController.SetForcedLeftMovement(false);
+            playerContainer.PlayerAnimationController.SetForcedRightMovement(false);
         }
 
         if (_GameManager.debugSceneChange)
         {
-            playerContainer = _GameManager.GivePlayer().GetComponent<PlayerContainer>();
             playerContainer.transform.position = spawnPoints[0].transform.position;
             _GameManager.debugSceneChange = false;
         }
     }
-
 
     private void FindCorrectEntrance()
     {
@@ -59,9 +59,8 @@ public class _SceneManager : MonoBehaviour
 
     public void _MoveToEntrance(Transform _player)
     {
-        ResetPlayerTransitions();
-
         playerContainer = _player.GetComponent<PlayerContainer>();
+
         Collider2D collider = spawnEntrance.GetComponent<Collider2D>();
         Vector2 spawnPosition = GetSpawnOffset(collider);
         playerContainer.transform.position = new Vector3(spawnPosition.x, spawnPosition.y, _player.position.z);
@@ -69,45 +68,35 @@ public class _SceneManager : MonoBehaviour
         _GameManager.AcceptPlayerInput();
     }
 
-    public void ResetPlayerTransitions()
-    {
-        PlayerContainer._playerContainer.transitioningLeft = false;
-        PlayerContainer._playerContainer.transitioningRight = false;
-    }
-
     private Vector2 GetSpawnOffset(Collider2D _collider)
     {
         float _xCoordinate = _collider.bounds.min.y;
         float _yCoordinate;
-        if (spawnEntrance.doorDirection == AreaLoader.Direction.LEFT)
+        switch (spawnEntrance.doorDirection)
         {
-            _yCoordinate = _collider.bounds.max.x + 10;
+            case AreaLoader.Direction.LEFT:
+                _yCoordinate = _collider.bounds.max.x + 10;
+                break;
+            case AreaLoader.Direction.RIGHT:
+                _yCoordinate = _collider.bounds.min.x - 10;
+                break;
+            case AreaLoader.Direction.UP:
+                _yCoordinate = _collider.bounds.center.x;
+                _xCoordinate = _collider.bounds.min.y - 10;
+                break;
+            case AreaLoader.Direction.DOWN:
+                _yCoordinate = spawnEntrance.specificSpawn.position.x;
+                _xCoordinate = spawnEntrance.specificSpawn.position.y;
+                break;
+            case AreaLoader.Direction.CENTER:
+                _yCoordinate = _collider.bounds.center.x;
+                _xCoordinate = _collider.bounds.min.y;
+                break;
+            default:
+                _yCoordinate = 0;
+                break;
         }
-        else if (spawnEntrance.doorDirection == AreaLoader.Direction.RIGHT)
-        {
-            _yCoordinate = _collider.bounds.min.x - 10;
-        }
-        else if (spawnEntrance.doorDirection == AreaLoader.Direction.UP)
-        {
-            _yCoordinate = _collider.bounds.center.x;
-            _xCoordinate = _collider.bounds.min.y - 10;
-        }
-        else if (spawnEntrance.doorDirection == AreaLoader.Direction.DOWN)
-        {
-            //_colliderXOffset = _collider.bounds.center.x;
-            //_colliderYOffset = _collider.bounds.max.y;
-            _yCoordinate = spawnEntrance.specificSpawn.position.x;
-            _xCoordinate = spawnEntrance.specificSpawn.position.y;
-        }
-        else if (spawnEntrance.doorDirection == AreaLoader.Direction.CENTER)
-        {
-            _yCoordinate = _collider.bounds.center.x;
-            _xCoordinate = _collider.bounds.min.y;
-        }
-        else
-        {
-            _yCoordinate = 0;
-        }        
+   
         return new Vector2(_yCoordinate, _xCoordinate);
     }
 

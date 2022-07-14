@@ -109,7 +109,7 @@ public class HelmSplitterTriggerable : MeleeAttackTriggerable
     { 
         if (!player.controller.GetGrounded())
         {
-            player.rb.velocity = new Vector2(player.controller.dir, -80);
+            player.rb.velocity = new Vector2(player.controller.DirectionFaced, -80);
             if ((player.rb.constraints & RigidbodyConstraints2D.FreezePositionY) != RigidbodyConstraints2D.FreezePositionY)
             {
                 trailRenderer.emitting = true;

@@ -18,7 +18,7 @@ public class HazardZone : MonoBehaviour
         {
             PlayerContainer player = _colInfo.GetComponent<PlayerContainer>();
             player._DamagePlayer(1, true);
-            player.abilityManager.CancelAbilities();
+            player.PlayerAbilityController.CancelAbilities();
             player.rb.velocity = Vector2.zero;
             hazardController._RespawnAfterHitStop(player);
 

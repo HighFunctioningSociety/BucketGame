@@ -19,14 +19,14 @@ public class DashAbility : MonoBehaviour
 
     private PlayerContainer player;
     private CoolDownManager coolDownManager;
-    private AbilityManager abilityManager;
+    private AbilityController abilityManager;
     public EnemyScan Stinger;
     
     public void Start()
     {
         player = GetComponentInParent<PlayerContainer>();
         coolDownManager = GetComponentInParent<CoolDownManager>();
-        abilityManager = GetComponentInParent<AbilityManager>();
+        abilityManager = GetComponentInParent<AbilityController>();
     }
 
     public void FixedUpdate()
@@ -52,19 +52,14 @@ public class DashAbility : MonoBehaviour
         if (dashTime > 0)
         {
             dashTime -= Time.fixedDeltaTime;
-            SetVelocity(direction);
+            abilityManager.UnfreezeXConstraint();
+            player.rb.velocity = new Vector2(direction, 0) * dashSpeed;
             StingerScan();
         }
         else
         {
             DecideStingerExecution();
         }
-    }
-
-    private void SetVelocity(float direction)
-    {
-        //abilityManager.UnfreezeXConstraint();
-        player.rb.velocity = new Vector2 (direction, 0) * dashSpeed;
     }
 
     private void StingerScan()
@@ -105,17 +100,18 @@ public class DashAbility : MonoBehaviour
         }
     }
 
-    public void CallDash(bool dash)
+    public void StartDashing(bool dash)
     {
         if (dash == true && coolDown < 0 && coolDownManager.coolDownComplete && canDash)
         {
-            audioSource.Play();
-            canDash = false;
-            direction = player.controller.dir;
+            //player.playerStats.curMovementDivider++;
+            direction = player.controller.DirectionFaced;
             dashTime = startDashTime;
             coolDown = dashCoolDown;
-            player.playerStats.curMovementDivider++;
+            audioSource.Play();
+            canDash = false;
         }
+
         Inputs.dash = false;
     }
 

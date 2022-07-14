@@ -5,202 +5,146 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-    [SerializeField] private LayerMask whatIsGround; // A mask determining what is ground to the character
+    [SerializeField] private LayerMask _whatIsGround; // A mask determining what is ground to the character
     [HideInInspector] public bool wasGrounded;
     [HideInInspector] public bool wasJumping;
     [HideInInspector] public PlayerContainer player;
     [HideInInspector] public Collider2D boxCollider;
-    public float dir = 1;
-    public float extraHeight;
-    public bool killHorizontalInput;
-    public bool grounded;            // Whether or not the player is grounded.
-    public bool falling;               // Controls if the animation is falling is playing. True if rb.velocity.y < 0
-    public bool isOnSlope;
+    public float DirectionFaced = 1;
+    public float BoxcastHeight = 0.4f;
+    public bool KillHorizontalInput;
+    private bool _grounded;            // Whether or not the player is grounded.
+    private bool _falling;               // Controls if the animation is falling is playing. True if rb.velocity.y < 0
     private Rigidbody2D _rb;
     private Vector3 _velocity = Vector3.zero;
 
-    private Vector2 _slopeNormalPerp;
-    [SerializeField]
-    private float _slopeDownAngle;
-
-    private float _activeGravityScale;
-
-
-
 
     [HideInInspector]
-    public float _move; // pass value to animatePlayer
+    public float MoveSpeed; // pass value to animatePlayer
 
-    [Header("Events")]
-    [Space]
+    public delegate void OnLand();
+    public delegate void OnFall();
 
-    public UnityEvent OnLandEvent;
-    public UnityEvent OnFallingEvent;
+    public OnLand LandEvent;
+    public OnFall FallEvent;
 
     private void Awake()
     {
         player = GetComponent<PlayerContainer>();
         boxCollider = GetComponent<BoxCollider2D>();
         _rb = player.rb;
-
-        if (OnLandEvent == null)
-            OnLandEvent = new UnityEvent();
-
-        if (OnFallingEvent == null)
-            OnFallingEvent = new UnityEvent();
     }
 
     private void FixedUpdate()
     {
-        RaycastHit2D raycastHit = DrawBoxCast();
+        RaycastHit2D raycastHit = DrawBoxcast();
         IsGrounded(raycastHit);
-        CheckSlope(raycastHit);
         IsFalling();
+        DrawDebugRays(raycastHit);
     }
     
     public bool GetGrounded()
     {
-        return grounded;
+        return _grounded;
     }
 
     public bool GetFalling()
     {
-        return falling;
+        return _falling;
     }
 
     public void IsGrounded(RaycastHit2D raycastHit)
     {
-        wasGrounded = grounded;
-        grounded = false;
-        isOnSlope = false;
+        wasGrounded = _grounded;
+        _grounded = false;
 
-        if (raycastHit.collider != null)// && (_rb.velocity.y < 0.01f))
+        if (raycastHit.collider != null && _rb.velocity.y < 0.01f)
         {
             SetGrounded();
         }
-
-        DrawDebugRayLines(raycastHit);
     }
 
     private void SetGrounded()
     {
         wasJumping = false;
-        grounded = true;
-        falling = false;
+        _grounded = true;
+        _falling = false;
         player.RefreshMovement();
         if (!wasGrounded)
         {
-            OnLandEvent.Invoke();
+            LandEvent.Invoke();
         }
     }
 
-    private void CheckSlope(RaycastHit2D raycastHit)
+    private RaycastHit2D DrawBoxcast()
     {
-        SlopeCheckVertical(raycastHit);
-        SlopeCheckHorizontal(raycastHit);
+        Vector3 colliderOrigin = new Vector3(boxCollider.bounds.center.x, boxCollider.bounds.min.y + BoxcastHeight, boxCollider.bounds.center.z);
+        Vector3 boxcastSize = new Vector3(boxCollider.bounds.size.x, BoxcastHeight, boxCollider.bounds.size.z);
+        return Physics2D.BoxCast(colliderOrigin, boxcastSize, 0f, Vector2.down, BoxcastHeight, _whatIsGround);
     }
 
-    private void SlopeCheckHorizontal(RaycastHit2D raycastHit)
-    {
-
-    }
-
-    public void SetGravityScale()
-    {
-
-    }
-
-    private RaycastHit2D DrawBoxCast()
-    {
-        Vector3 origin = new Vector3(boxCollider.bounds.center.x, boxCollider.bounds.min.y + extraHeight, boxCollider.bounds.center.z);
-        Vector3 size = new Vector3(boxCollider.bounds.size.x, extraHeight, boxCollider.bounds.size.z);
-        return Physics2D.BoxCast(origin, size, 0f, Vector2.down, extraHeight, whatIsGround);
-    }
-    private void SlopeCheckVertical(RaycastHit2D raycastHit)
-    {
-        if (raycastHit)
-        {
-            _slopeNormalPerp = Vector2.Perpendicular(raycastHit.normal).normalized;
-            _slopeDownAngle = grounded ? Vector2.Angle(raycastHit.normal, Vector2.up) : 0;
-            isOnSlope = (_slopeDownAngle > 0.1f || _slopeDownAngle < -0.1f);
-        }
-    }
-
-    private void DrawDebugRayLines(RaycastHit2D raycastHit)
+    private void DrawDebugRays(RaycastHit2D raycastHit)
     {
         Color rayColor;
         if (raycastHit.collider != null) 
             rayColor = Color.green;
         else 
             rayColor = Color.red;
-        Debug.DrawRay(new Vector3(boxCollider.bounds.center.x, boxCollider.bounds.min.y) + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (extraHeight), rayColor);
-        Debug.DrawRay(new Vector3(boxCollider.bounds.center.x, boxCollider.bounds.min.y) - new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (extraHeight), rayColor);
-        Debug.DrawRay(raycastHit.point, _slopeNormalPerp, Color.red);
-        Debug.DrawRay(raycastHit.point, raycastHit.normal, Color.green);
+
+        Debug.DrawRay(new Vector3(boxCollider.bounds.center.x, boxCollider.bounds.min.y) + new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (BoxcastHeight), rayColor);
+        Debug.DrawRay(new Vector3(boxCollider.bounds.center.x, boxCollider.bounds.min.y) - new Vector3(boxCollider.bounds.extents.x, 0), Vector2.down * (BoxcastHeight), rayColor);
     }
 
     private void IsFalling()
     {
-        if (_rb.velocity.y < 0.01 && !grounded)
+        if (_rb.velocity.y < 0.01 && !_grounded)
         {
-            falling = true;
-            OnFallingEvent.Invoke();
+            _falling = true;
+            FallEvent.Invoke();
         }
     }
 
-    public void Move(float xInput, bool jump, bool jumpHeld)
+    public void Move(float xInput)
     {
-        _move = xInput * player.playerStats.curSpeed;
-        float _jumpForce = player.playerStats.jumpForce;
-        float _movementSmoothing = player.playerStats.movementSmoothing;
-        float _shortHopSubtraction = player.playerStats.shortHopSubtraction;
-        _rb.gravityScale = player.playerStats.defaultGravity;
-
-        // Move the character by finding the target velocity
-        Vector3 targetVelocity = new Vector3(); 
+        player.rb.gravityScale = player.playerStats.defaultGravity;
+        MoveSpeed = xInput * player.playerStats.curSpeed;
+        float movementSmoothing = player.playerStats.movementSmoothing;
 
         if (Inputs.Horizontal != 0)
-            dir = Inputs.Horizontal;
-
-        // Character is on a slope
-        if (isOnSlope && grounded)
-        {
-            targetVelocity.Set(-_move * 10f * _slopeNormalPerp.x, -_move * _rb.velocity.y * _slopeNormalPerp.y, 0);
-            _rb.gravityScale = 0;
-        }
-
-        // Character is on the ground or in the air
-        else
-        {
-            targetVelocity.Set(_move * 10f, _rb.velocity.y, 0);
-        }
+            DirectionFaced = Inputs.Horizontal;
+        
+        // Move the character by finding the target velocity
+        Vector3 targetVelocity = new Vector2(MoveSpeed * 10f, _rb.velocity.y);
 
         // And then smoothing it out and applying it to the character
-        if (!killHorizontalInput)
-        {
-            _rb.velocity = Vector3.SmoothDamp(_rb.velocity, targetVelocity, ref _velocity, _movementSmoothing);
-        }
+        if (!KillHorizontalInput)
+            _rb.velocity = Vector3.SmoothDamp(_rb.velocity, targetVelocity, ref _velocity, movementSmoothing);
+    }
 
-        //____________JUMP______________
-        if (grounded && jumpHeld && jump)
+    public void Jump(bool jump, bool jumpHeld)
+    {
+        float jumpforce = player.playerStats.jumpForce;
+        float shorthopSubtract = player.playerStats.shortHopSubtraction;
+
+        if (_grounded && jumpHeld && jump)
         {
             // Add a vertical force to the player.
-            grounded = false;
-            falling = false;
+            _grounded = false;
+            _falling = false;
             wasJumping = true;
-            _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            _rb.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
         }
 
         // peak of jump achieved, add a gravity multiplier to falling
-        if (falling)
+        if (_rb.velocity.y <= 0)
         {
-            _rb.gravityScale = player.playerStats.defaultGravity * 1.3f;
+            player.rb.gravityScale = player.playerStats.defaultGravity * 1.3f;
         }
 
         // jump button released before the peak of the jump is achieved, immediately start descent 
-        else if ((_rb.velocity.y > 0.1 && !jumpHeld || !wasJumping) && grounded == false)
+        else if ((_rb.velocity.y > 0.1 && !jumpHeld) && _grounded == false)
         {
-            _rb.AddForce(Vector2.up * -_shortHopSubtraction, ForceMode2D.Impulse);
+            _rb.AddForce(Vector2.up * -shorthopSubtract, ForceMode2D.Impulse);
         }
     }
 }

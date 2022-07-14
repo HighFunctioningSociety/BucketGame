@@ -142,11 +142,11 @@ public class DebugManager : MonoBehaviour
         meter.text = "(" + playerStats.curSpirit.ToString() + "/" + playerStats.maxSpirit.ToString() + ")";
         cooldown.text = _player.coolDownManager.coolDownComplete.ToString();
         input.text = _player.currentControlType.ToString();
-        canJump.text = _player.abilityManager.canJumpCancelAttack.ToString();
-        jumpWasCanceled.text = _player.abilityManager.wasJumpCanceled.ToString();
-        freezeMovement.text = _player.abilityManager.freezeMovement.ToString();
-        slowMovement.text = _player.abilityManager.slowMovement.ToString();
-        resetOnLanding.text = _player.abilityManager.resetCoolDownOnLanding.ToString();
+        canJump.text = _player.PlayerAbilityController.canJumpCancelAttack.ToString();
+        jumpWasCanceled.text = _player.PlayerAbilityController.wasJumpCanceled.ToString();
+        freezeMovement.text = _player.PlayerAbilityController.freezeMovement.ToString();
+        slowMovement.text = _player.PlayerAbilityController.slowMovement.ToString();
+        resetOnLanding.text = _player.PlayerAbilityController.resetCoolDownOnLanding.ToString();
         
         currentScene.text = _GameManager.PrintSceneInfo();
     }

@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: player_shoot
-  serializedVersion: 6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -51,6 +51,7 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+      isIntCurve: 0
     pptrCurveMapping:
     - {fileID: 21300000, guid: dce2df1ecd378514581eee238eff6f89, type: 3}
     - {fileID: 21300000, guid: c0fa056b699907941b399e4ac2a9e536, type: 3}
@@ -92,13 +93,6 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0
-    functionName: FreezeYVelocity
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0
     functionName: SetDrag
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -114,13 +108,6 @@ AnimationClip:
     messageOptions: 0
   - time: 0.33333334
     functionName: SetDrag
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.41666666
-    functionName: UnfreezeYVelocity
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
