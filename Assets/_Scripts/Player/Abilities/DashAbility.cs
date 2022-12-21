@@ -29,7 +29,7 @@ public class DashAbility : MonoBehaviour
         abilityManager = GetComponentInParent<AbilityController>();
     }
 
-    public void FixedUpdate()
+    public void DashLoop()
     {
         dashTime -= Time.fixedDeltaTime;
         DashExecute();
@@ -41,7 +41,7 @@ public class DashAbility : MonoBehaviour
 
     public void Update()
     {
-        if (player.controller.GetGrounded())
+        if (player.PlayerController.GetGrounded())
         {
             canDash = true;
         }
@@ -54,6 +54,7 @@ public class DashAbility : MonoBehaviour
             dashTime -= Time.fixedDeltaTime;
             abilityManager.UnfreezeXConstraint();
             player.rb.velocity = new Vector2(direction, 0) * dashSpeed;
+            player.rb.gravityScale = 0;
             StingerScan();
         }
         else
@@ -105,7 +106,7 @@ public class DashAbility : MonoBehaviour
         if (dash == true && coolDown < 0 && coolDownManager.coolDownComplete && canDash)
         {
             //player.playerStats.curMovementDivider++;
-            direction = player.controller.DirectionFaced;
+            direction = player.PlayerController.DirectionFaced;
             dashTime = startDashTime;
             coolDown = dashCoolDown;
             audioSource.Play();
@@ -119,5 +120,10 @@ public class DashAbility : MonoBehaviour
     public void RefreshDash()
     {
         canDash = true;
+        enemyFound = false;
+        startStinger = false;
+        stinging = false;
+        dashTime = 0;
+        coolDown = 0;
     }
 }

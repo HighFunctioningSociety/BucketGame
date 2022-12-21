@@ -28,4 +28,4 @@ MonoBehaviour:
   movementSmoothing: 0.08
   movementDivider: 5
   _curHealth: 5
-  _curSpirit: 2
+  _curSpirit: 0

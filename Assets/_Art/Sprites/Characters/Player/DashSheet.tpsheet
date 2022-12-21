@@ -1,0 +1,17 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:d2089fe650b9770804804548742597a3:671c944c04f118190fef50a6c67b553d:5db786cae24b0fb55d8455109fd42d71$
+#
+:format=40300
+:texture=DashSheet.png
+:size=8192x2048
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+
+dash1;0;253;2336;1795; 0.49101027;0.15431755000000003; 0;0;0;0
+dash2;2336;253;2336;1795; 0.49101027;0.15431755000000003; 0;0;0;0

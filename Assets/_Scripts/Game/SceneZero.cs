@@ -9,23 +9,18 @@ public class SceneZero : MonoBehaviour
 
     private void Awake()
     {
-        string path = Application.persistentDataPath + "/gameState.bin";
-        if (!File.Exists(path))
+        if (!File.Exists(Constants.Paths.SavePath))
         {
-            SaveSystem.NewGame(playerPrefab.GetComponent<PlayerContainer>());
-            GameState data = SaveSystem.LoadGame();
-            _GameManager.currentScene = (Loader.Scene)System.Enum.Parse(typeof(Loader.Scene), data.currentSpawnScene);
+            SaveSystem.NewGame();
         }
-        else
-        {
-            GameState data = SaveSystem.LoadGame();
-            _GameManager.currentScene = (Loader.Scene)System.Enum.Parse(typeof(Loader.Scene), data.currentSpawnScene);
-        }
+
+        GameState data = SaveSystem.LoadGame();
+        _GameManager.CurrentScene = (SceneDirectory.Scene)System.Enum.Parse(typeof(SceneDirectory.Scene), data.currentSpawnScene);
     }
 
     private void Start()
     {
         _GameManager.GetPlayer(playerPrefab);
-        Loader.Load(_GameManager.currentScene);
+        Loader.Load(_GameManager.CurrentScene);
     }
 }

@@ -20,18 +20,17 @@ public class DirectionalLoader : AreaLoader
             {
                 return;
             }
-            PlayerContainer player = _colInfo.GetComponent<PlayerContainer>();
-            LoadScene(player);
+            LoadScene();
         }
     }
 
-    protected override void LoadScene(PlayerContainer player)
+    protected override void LoadScene()
     {
-        ForcePlayerMovement(player);
-        player.currentControlType = PlayerContainer.CONTROLSTATE.RELINQUISHED;
-        StartCoroutine(FadeToNextScene(player));
+        _UIManager.UIManager.MapController.UpdateMap(sceneToLoad);
+        ForcePlayerMovement(_GameManager.PlayerContainer);
+        _GameManager.PlayerContainer.CurrentControlType = PlayerContainer.CONTROLSTATE.RELINQUISHED;
+        StartCoroutine(FadeToNextScene());
     }
-
 
     private void ForcePlayerMovement(PlayerContainer player)
     {

@@ -24,8 +24,8 @@ public class PlayerAnimator : MonoBehaviour
         player = GetComponent<PlayerContainer>();
         dashAbility = player.dashAbility;
 
-        player.controller.LandEvent += OnLanding;
-        player.controller.FallEvent += OnFalling;
+        player.PlayerController.LandEvent += OnLanding;
+        player.PlayerController.FallEvent += OnFalling;
     }
 
     public void PlayerAnimationLoop()
@@ -54,9 +54,9 @@ public class PlayerAnimator : MonoBehaviour
     {
         return ((player.coolDownManager.coolDownComplete || 
             CheckIfIdleOrWalking()) 
-            && player.currentState != PlayerContainer.PSTATE.HURT 
+            && player.CurrentState != PlayerContainer.PSTATE.HURT 
             && !player.dashAbility.stinging 
-            && player.currentControlType != PlayerContainer.CONTROLSTATE.RELINQUISHED);
+            && player.CurrentControlType != PlayerContainer.CONTROLSTATE.RELINQUISHED);
     }
 
     private void ForceMovement()
@@ -121,7 +121,7 @@ public class PlayerAnimator : MonoBehaviour
     {
         CheckForDashDirection();
 
-        if (dashAbility.dashTime > 0 && wasDashing == false && player.currentState != PlayerContainer.PSTATE.HURT)
+        if (dashAbility.dashTime > 0 && wasDashing == false && player.CurrentState != PlayerContainer.PSTATE.HURT)
         {
             Dash();
         }
@@ -136,11 +136,11 @@ public class PlayerAnimator : MonoBehaviour
 
     private void SetSpeed()
     {
-        if (player.currentControlType != PlayerContainer.CONTROLSTATE.RELINQUISHED && !PauseMenu.GamePaused)
+        if (player.CurrentControlType != PlayerContainer.CONTROLSTATE.RELINQUISHED && !PauseMenu.GamePaused)
         {
             Animator.SetFloat("Speed", Mathf.Abs(Inputs.Horizontal));
         }
-        else if (player.currentControlType == PlayerContainer.CONTROLSTATE.RELINQUISHED && !PauseMenu.GamePaused)
+        else if (player.CurrentControlType == PlayerContainer.CONTROLSTATE.RELINQUISHED && !PauseMenu.GamePaused)
         {
             bool forcedMovement = player.PlayerAnimationController._forceLeft || player.PlayerAnimationController._forceRight;
             Animator.SetFloat("Speed", forcedMovement ? 1 : 0);
@@ -149,7 +149,7 @@ public class PlayerAnimator : MonoBehaviour
 
     private void HurtAnimationManager()
     {
-        if (player.currentState == PlayerContainer.PSTATE.HURT)
+        if (player.CurrentState == PlayerContainer.PSTATE.HURT)
         {
             Hurt();
         }
@@ -167,7 +167,7 @@ public class PlayerAnimator : MonoBehaviour
         }
         else
         {
-            directionToUse = player.controller.DirectionFaced;
+            directionToUse = player.PlayerController.DirectionFaced;
         }
     }
 
@@ -202,7 +202,12 @@ public class PlayerAnimator : MonoBehaviour
     public void OnFalling()
     {
         Animator.SetBool("IsJumping", false);
-        Animator.SetBool("IsFalling", true);
+        Animator.SetBool("IsFalling", true); //Might be able to remove this
+    }
+
+    public void SetAnimationToIdle()
+    {
+        Animator.Play("player_idle");
     }
 
     public void CreateDust()

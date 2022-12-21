@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class DebugManager : MonoBehaviour
     public GameObject HeroInfo;
     public GameObject DebugCommands;
     public EnemyListManager EnemyList;
-    public Loader.Scene[] bannedScenes;
+    public SceneDirectory.Scene[] bannedScenes;
 
     [Header("Text")]
     public Text frameRate;
@@ -49,35 +50,16 @@ public class DebugManager : MonoBehaviour
 
     private void Start()
     {
-        int sceneIndex = 0;
-        string[] sceneNames = System.Enum.GetNames(typeof(Loader.Scene));
-        sceneOptions = new List<string>();
+        int currentSceneIndex = 0;
+        List<string> sceneNames = System.Enum.GetNames(typeof(SceneDirectory.Scene)).ToList();
+        List<string> bannedList = bannedScenes.Select(scene => scene.ToString()).ToList();
         sceneDropdown.ClearOptions();
-        
-        for (int i = 0; i < sceneNames.Length; i++)
-        {
-            bool addOption = true;
-            foreach (Loader.Scene scene in bannedScenes)
-            {
-                if (sceneNames[i] == scene.ToString())
-                {
-                    addOption = false;
-                }
-            }
-            
-            if (addOption)
-            {
-                sceneOptions.Add(sceneNames[i]);
-            }
 
-            if(_GameManager.currentScene.ToString() == sceneNames[i])
-            {
-                sceneIndex = i;
-            }
-        }
+        sceneOptions = sceneNames.Except(bannedList).ToList();
+        currentSceneIndex = sceneOptions.FindIndex(scene => scene == _GameManager.CurrentScene.ToString());
 
         sceneDropdown.AddOptions(sceneOptions);
-        sceneDropdown.value = sceneIndex;
+        sceneDropdown.value = currentSceneIndex;
         sceneDropdown.RefreshShownValue();
     }
 
@@ -88,7 +70,7 @@ public class DebugManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!_GameManager.firstUpdate)
+        if (!_GameManager.FirstUpdate)
         {
             SetEnemyDebugUI();
             if (_player == null)
@@ -136,12 +118,12 @@ public class DebugManager : MonoBehaviour
 
     private void PrintHeroInfo()
     {
-        heroState.text = _player.currentState.ToString();
+        heroState.text = _player.CurrentState.ToString();
         velocity.text = _player.rb.velocity.ToString();
         health.text = "(" + playerStats.curHealth.ToString() + "/" + playerStats.maxHealth.ToString() + ")";
         meter.text = "(" + playerStats.curSpirit.ToString() + "/" + playerStats.maxSpirit.ToString() + ")";
         cooldown.text = _player.coolDownManager.coolDownComplete.ToString();
-        input.text = _player.currentControlType.ToString();
+        input.text = _player.CurrentControlType.ToString();
         canJump.text = _player.PlayerAbilityController.canJumpCancelAttack.ToString();
         jumpWasCanceled.text = _player.PlayerAbilityController.wasJumpCanceled.ToString();
         freezeMovement.text = _player.PlayerAbilityController.freezeMovement.ToString();
@@ -153,7 +135,7 @@ public class DebugManager : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        _GameManager.KillPlayer(_player);
+        _GameManager.KillPlayer();
     }
 
     public void SetSpawn()
@@ -190,8 +172,8 @@ public class DebugManager : MonoBehaviour
 
         string sceneString = sceneOptions[index];
         _GameManager.debugSceneChange = true;
-        Loader.Scene sceneToLoad = (Loader.Scene)System.Enum.Parse(typeof(Loader.Scene), sceneString);
-        _GameManager.currentScene = sceneToLoad;
+        SceneDirectory.Scene sceneToLoad = (SceneDirectory.Scene)System.Enum.Parse(typeof(SceneDirectory.Scene), sceneString);
+        _GameManager.CurrentScene = sceneToLoad;
         StartCoroutine(FadeOut(sceneToLoad));
     }
 
@@ -224,7 +206,7 @@ public class DebugManager : MonoBehaviour
         infiniteSpirit = toggleValue;
     }
 
-    public IEnumerator FadeOut(Loader.Scene sceneToLoad)
+    public IEnumerator FadeOut(SceneDirectory.Scene sceneToLoad)
     {
         BlankerAnimator.blanker.FadeOut();
         while (BlankerAnimator.blanker.transitionInProgress)

@@ -48,7 +48,7 @@ public class MainMenuManager : MonoBehaviour
         }
         Debug.Log("I did it");
 
-        Loader.Load(Loader.Scene.SceneZero);
+        Loader.Load(SceneDirectory.Scene.SceneZero);
     }
 
     private void HideCursor()

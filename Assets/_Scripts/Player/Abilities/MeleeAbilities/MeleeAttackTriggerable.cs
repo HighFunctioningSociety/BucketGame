@@ -38,7 +38,7 @@ public abstract class MeleeAttackTriggerable : PlayerAttackTriggerable
         Vector2 hitPoint = collider.ClosestPoint(new Vector2(attackCollider.bounds.max.x, attackCollider.bounds.center.y));
         Quaternion hitRotation = new Quaternion(hitEffect.transform.rotation.x, hitEffect.transform.rotation.y, hitEffect.transform.rotation.z * Random.Range(-45, 45), hitEffect.transform.rotation.w);
         GameObject hitSpawn = Instantiate(hitEffect, hitPoint, hitRotation);
-        hitSpawn.transform.localScale = new Vector3(hitSpawn.transform.localScale.x * player.controller.DirectionFaced, hitSpawn.transform.localScale.y, hitSpawn.transform.localScale.z);
+        hitSpawn.transform.localScale = new Vector3(hitSpawn.transform.localScale.x * player.PlayerController.DirectionFaced, hitSpawn.transform.localScale.y, hitSpawn.transform.localScale.z);
     }
 }
 

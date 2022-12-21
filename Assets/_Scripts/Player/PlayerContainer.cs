@@ -4,11 +4,10 @@ using UnityEngine;
 public class PlayerContainer : MonoBehaviour
 {
     public static PlayerContainer _playerContainer;
-    public GameProgress gameProgress;
     public PlayerStats playerStats;
 
-    public PSTATE currentState;
-    public CONTROLSTATE currentControlType;
+    public PSTATE CurrentState;
+    public CONTROLSTATE CurrentControlType;
     public bool invul;
 
     public AbilityController PlayerAbilityController;
@@ -17,7 +16,7 @@ public class PlayerContainer : MonoBehaviour
     public DashAbility dashAbility;
     public PlayerAnimator PlayerAnimationController;
     public Rigidbody2D rb;
-    public CharacterController2D controller;
+    public CharacterController2D PlayerController;
     public PlayerRenderer pr;
     public GameObject damageEffect;
     public float JumpCancelMonitor;
@@ -60,7 +59,7 @@ public class PlayerContainer : MonoBehaviour
 
     private void Start()
     {
-        LoadGame();
+        //LoadGame();
         playerStats.Init();
         UpdateHealthUI();
 
@@ -89,6 +88,9 @@ public class PlayerContainer : MonoBehaviour
     /// </summary>
     public void PlayerUpdateLoop()
     {
+        // Handles all of the players collision
+        PlayerController.PlayerControllerLoop();
+
         // Handles all of the players animation, in desperate need of refactoring
         PlayerAnimationController.PlayerAnimationLoop();
 
@@ -97,11 +99,14 @@ public class PlayerContainer : MonoBehaviour
 
         // Handles player input
         PlayerStateLoop();
+
+        // Handles dashing, needs to be refactored to not be stupid
+        dashAbility.DashLoop();
     }
 
     public void PlayerStateLoop()
     {
-        switch (currentControlType)
+        switch (CurrentControlType)
         {
             case CONTROLSTATE.ACCEPT_INPUT:
                 AcceptInput();
@@ -115,7 +120,7 @@ public class PlayerContainer : MonoBehaviour
 
     private void AcceptInput()
     {
-        switch (currentState)
+        switch (CurrentState)
         {
             case PSTATE.NORMAL:
                 PStateNormal();
@@ -152,12 +157,12 @@ public class PlayerContainer : MonoBehaviour
 
         if (Inputs.dash == true)
         {
-            currentState = PSTATE.DASH;
+            CurrentState = PSTATE.DASH;
             dashAbility.StartDashing(Inputs.dash);
         }
 
-        controller.Move(horizontalMove * Time.fixedDeltaTime);
-        controller.Jump(jump, jumpHeld);
+        PlayerController.Move(horizontalMove * Time.fixedDeltaTime);
+        PlayerController.Jump(jump, jumpHeld);
 
         Inputs.jump = false;
     }
@@ -167,9 +172,9 @@ public class PlayerContainer : MonoBehaviour
         bool jump = Inputs.jump;
         bool jumpHeld = Inputs.jumpHeld;
      
-        if (dashAbility.dashTime < dashAbility.startDashTime * 0.4f && Inputs.jump && controller.GetGrounded())
+        if (dashAbility.dashTime < dashAbility.startDashTime * 0.4f && Inputs.jump && PlayerController.GetGrounded())
         {
-            currentState = PSTATE.NORMAL;
+            CurrentState = PSTATE.NORMAL;
             PlayerAbilityController.UnfreezeConstraints();
             dashAbility.dashTime = 0;
         }
@@ -180,17 +185,17 @@ public class PlayerContainer : MonoBehaviour
         }
         else if (dashAbility.dashTime <= 0)
         {
-            currentState = PSTATE.NORMAL;
+            CurrentState = PSTATE.NORMAL;
         }
 
-        controller.Jump(jump, jumpHeld);
+        PlayerController.Jump(jump, jumpHeld);
         Inputs.jump = false;
     }
 
 
     private void PStateAttack()
     {
-        if (Inputs.jump && controller.GetGrounded() && JumpCancelTime() && !PlayerAbilityController.wasJumpCanceled && PlayerAbilityController.canJumpCancelAttack)
+        if (Inputs.jump && PlayerController.GetGrounded() && JumpCancelTime() && !PlayerAbilityController.wasJumpCanceled && PlayerAbilityController.canJumpCancelAttack)
         {
             Inputs.SetAttackInputBufferTime(0.15f);
             PlayerAbilityController._TurnOffMovementModifier();
@@ -198,8 +203,8 @@ public class PlayerContainer : MonoBehaviour
             coolDownManager.ResetCoolDown();
             PlayerAnimationController.JumpCancelTrigger();
             Inputs.DisableAttack();
-            controller.Move(Inputs.Horizontal * Time.fixedDeltaTime);
-            controller.Jump(Inputs.jump, Inputs.jumpHeld);
+            PlayerController.Move(Inputs.Horizontal * Time.fixedDeltaTime);
+            PlayerController.Jump(Inputs.jump, Inputs.jumpHeld);
         } 
         else if (!PlayerAbilityController.freezeMovement)
         {
@@ -211,7 +216,7 @@ public class PlayerContainer : MonoBehaviour
         }
         else
         {
-            controller.Move(Inputs.Horizontal * Time.fixedDeltaTime);
+            PlayerController.Move(Inputs.Horizontal * Time.fixedDeltaTime);
         }
     }
 
@@ -235,13 +240,13 @@ public class PlayerContainer : MonoBehaviour
             jumpHeld = Inputs.jumpHeld;
         }
 
-        if (!controller.GetGrounded())
+        if (!PlayerController.GetGrounded())
         {
             horizontalMove = Inputs.Horizontal;
         }
 
-        controller.Move(horizontalMove * Time.fixedDeltaTime);
-        controller.Jump(jump, jumpHeld);
+        PlayerController.Move(horizontalMove * Time.fixedDeltaTime);
+        PlayerController.Jump(jump, jumpHeld);
     }
 
     private void UnfrozenJumpCancelManager()
@@ -264,8 +269,8 @@ public class PlayerContainer : MonoBehaviour
             jumpHeld = Inputs.jumpHeld;
         }
 
-        controller.Move(horizontalMove * Time.fixedDeltaTime);
-        controller.Jump(jump, jumpHeld);
+        PlayerController.Move(horizontalMove * Time.fixedDeltaTime);
+        PlayerController.Jump(jump, jumpHeld);
     }
 
 
@@ -291,7 +296,7 @@ public class PlayerContainer : MonoBehaviour
             HitStop._SimpleHitStop(0.3f);
             Rumbler.RumbleConstant(30, 30, 0.3f);
             stunTimeLeft = playerStats.stunTime;
-            currentState = PSTATE.HURT;
+            CurrentState = PSTATE.HURT;
             SubtractFromHealth(_damage);
             PlayerAbilityController.CancelAbilities();
             StartCoroutine(PlayDamageEffect(0.025f));
@@ -301,9 +306,9 @@ public class PlayerContainer : MonoBehaviour
         // If player runs out of health call the GameMaster to kill the player object
         if (playerStats.curHealth <= 0)
         {
-            currentState = PSTATE.RESPAWNING;
+            CurrentState = PSTATE.RESPAWNING;
             PlayerAbilityController.CancelAbilities();
-            _GameManager.KillPlayer(this);
+            _GameManager.KillPlayer();
         }
     }
 
@@ -342,7 +347,7 @@ public class PlayerContainer : MonoBehaviour
         stunTimeLeft -= Time.fixedDeltaTime;
 
         if (stunTimeLeft <= 0)
-            currentState = PSTATE.NORMAL;
+            CurrentState = PSTATE.NORMAL;
     }
 
     public void RefreshMovement()
@@ -413,17 +418,17 @@ public class PlayerContainer : MonoBehaviour
         invul = false;
         rb.drag = playerStats.defaultDrag;
         rb.gravityScale = playerStats.defaultGravity;
-        currentState = PSTATE.NORMAL;
+        CurrentState = PSTATE.NORMAL;
     }
 
     public void KillHorizontalInput()
     {
-        controller.KillHorizontalInput = true;
+        PlayerController.KillHorizontalInput = true;
     }
 
     public void ActivateHorizontalInput()
     {
-        controller.KillHorizontalInput = false;
+        PlayerController.KillHorizontalInput = false;
     }
 
     public static void RelinquishControl()
@@ -433,7 +438,7 @@ public class PlayerContainer : MonoBehaviour
 
     private void _RelinquishControl()
     {
-        currentControlType = CONTROLSTATE.RELINQUISHED;
+        CurrentControlType = CONTROLSTATE.RELINQUISHED;
     }
 
     public static void EnableControl()
@@ -443,7 +448,7 @@ public class PlayerContainer : MonoBehaviour
 
     private void _EnableControl()
     {
-        currentControlType = CONTROLSTATE.ACCEPT_INPUT;
+        CurrentControlType = CONTROLSTATE.ACCEPT_INPUT;
     }
 
     public void SetDrag(float dragVal)
@@ -451,19 +456,9 @@ public class PlayerContainer : MonoBehaviour
         rb.drag = dragVal;
     }
 
-    public void SaveGame()
-    {
-        _GameManager.SaveGameState(this);
-    }
-
-    public void LoadGame()
-    {
-        _GameManager.LoadGameState(this);
-    }
-
     private void OnDrawGizmos()
     {
-        switch (currentState)
+        switch (CurrentState)
         {
             case PSTATE.NORMAL:
                 stateColor = Color.green;

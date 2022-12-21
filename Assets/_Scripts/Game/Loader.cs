@@ -6,32 +6,9 @@ using UnityEngine.SceneManagement;
 
 public static class Loader
 {
-    public enum Scene
-    {
-        MainMenu,
-        SceneZero,
-        Loading,
-        TestEnvironment,
-        Station_1,
-        Station_2,
-        Station_3,
-        Station_4,
-        Station_5,
-        Station_BossRoom,
-        MineEntrance,
-        Winnar,
-        Town_HubArea,
-        Town_Shop,
-        ScampLordArena,
-        SewerEntrance,
-        Mine1,
-        Mine2,
-        Mine3,
-    }
-
     private static Action onLoaderCallback;
 
-    public static void Load(Scene scene)
+    public static void Load(SceneDirectory.Scene scene)
     {
         _GameManager.gm.SceneChangeEvent.Invoke();
 
@@ -40,7 +17,7 @@ public static class Loader
             SceneManager.LoadScene(scene.ToString());
         };
 
-        SceneManager.LoadScene(Scene.Loading.ToString());
+        SceneManager.LoadScene(SceneDirectory.Scene.Loading.ToString());
     }
 
     public static void LoaderCallback()

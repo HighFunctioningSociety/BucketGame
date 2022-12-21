@@ -86,7 +86,7 @@ public class DialogueManager : MonoBehaviour
         {
             StartCoroutine(MenuDisplayDelay());
             _UIManager.UIManager.DisableDialogueParent();
-            _GameManager.AcceptPlayerInput();
+            _GameManager.RelinquishPlayerInput(false);
         }
         else
         {

@@ -19,6 +19,9 @@ public class Inputs : MonoBehaviour
     public static bool attackHeld = false;
     public static bool specialAttack = false;
     public static bool killXInput = false;
+    public static bool map = false;
+    public static bool leftTrigger = false;
+    public static bool rightTrigger = false;
     public static float Horizontal { get; set; }
     public static float Vertical { get; set; }
 
@@ -32,6 +35,9 @@ public class Inputs : MonoBehaviour
 
     public delegate void OptionsCallback();
     public OptionsCallback onOptionsCallback;
+
+    public delegate void MapCallback();
+    public MapCallback OnMapCallback;
 
     private void Awake()
     {
@@ -75,12 +81,19 @@ public class Inputs : MonoBehaviour
         controls.Default.Options.performed += context => OptionsToggle();
 
         controls.Default.Inventory.performed += context => InventoryToggle();
+        controls.Default.Map.performed += context => OnMapCallback.Invoke();
 
-        controls.Default.Horizontal.performed += context => Horizontal = HorizontalRaw(context.ReadValue<float>());
+        controls.Default.Horizontal.performed += context => Horizontal = MapController.MapActive ? context.ReadValue<float>() : HorizontalRaw(context.ReadValue<float>());
         controls.Default.Horizontal.canceled += context => Horizontal = 0;
 
         controls.Default.Vertical.performed += context => Vertical = context.ReadValue<float>();
         controls.Default.Vertical.canceled += context => Vertical = 0;
+
+        controls.Default.LeftTrigger.performed += context => leftTrigger = true;
+        controls.Default.LeftTrigger.canceled += context => leftTrigger = false;
+
+        controls.Default.RightTrigger.performed += context => rightTrigger = true;
+        controls.Default.RightTrigger.canceled += context => rightTrigger = false;
     }
 
     private void Update()
@@ -88,7 +101,6 @@ public class Inputs : MonoBehaviour
         attackBuffer -= Time.deltaTime;
         dashBuffer -= Time.deltaTime;
         bool attackInputCooldownFinished = attackInputCooldownTime < Time.time;
-        
 
         if (attackBuffer <= 0 || !attackInputCooldownFinished)
         {

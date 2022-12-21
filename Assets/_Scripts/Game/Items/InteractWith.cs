@@ -56,7 +56,7 @@ public class InteractWith : MonoBehaviour
             return;
 
         PlayerContainer _player = playerCollider.GetComponent<PlayerContainer>();
-        if (Inputs.Vertical == 1 && !buttonDown && _player.controller.GetGrounded() && _player.currentState == PlayerContainer.PSTATE.NORMAL && _player.currentControlType == PlayerContainer.CONTROLSTATE.ACCEPT_INPUT)
+        if (Inputs.Vertical == 1 && !buttonDown && _player.PlayerController.GetGrounded() && _player.CurrentState == PlayerContainer.PSTATE.NORMAL && _player.CurrentControlType == PlayerContainer.CONTROLSTATE.ACCEPT_INPUT)
         {
             buttonDown = true;
             InteractWithInteractable();

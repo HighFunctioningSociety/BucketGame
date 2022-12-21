@@ -16,7 +16,7 @@ public class SpiritManager : MonoBehaviour
 
     private void Update()
     {
-        if (!_GameManager.firstUpdate)
+        if (!_GameManager.FirstUpdate)
         {
             currentSpirit = stats.curSpirit;
             UpdateSpiritUI();

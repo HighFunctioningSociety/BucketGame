@@ -4,27 +4,21 @@ using UnityEngine;
 
 public static class SaveSystem 
 {
-    public static void NewGame(PlayerContainer player)
+    public static void NewGame()
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/gameState.bin";
-        //Debug.Log(path);
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        GameState data = new NewState(player);
+        FileStream stream = new FileStream(Constants.Paths.SavePath, FileMode.Create);
+        GameState data = new NewState();
 
         formatter.Serialize(stream, data);
         stream.Close();
     }
 
-    public static void SaveGame(PlayerContainer player)
+    public static void SaveGame()
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/gameState.bin";
-        //Debug.Log(path);
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        GameState data = new GameState(player);
+        FileStream stream = new FileStream(Constants.Paths.SavePath, FileMode.Create);
+        GameState data = new GameState();
         
         formatter.Serialize(stream, data);
         stream.Close();
@@ -32,14 +26,14 @@ public static class SaveSystem
 
     public static GameState LoadGame()
     {
-        string path = Application.persistentDataPath + "/gameState.bin";
+        string path = Constants.Paths.SavePath;
 
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-
             GameState data = formatter.Deserialize(stream) as GameState;
+
             stream.Close();
 
             return data;
@@ -55,13 +49,15 @@ public static class SaveSystem
 [System.Serializable]
 public class GameState
 {
-    //Scene Info
+    [Header("Scene Info")]
+    [Space]
     public string currentScene;
-    public int currentSpawnIndex;
+    public int CurrentSpawnIndex;
     public string currentSpawnScene;
     public bool isRespawning = false;
 
-    //Player stats
+    [Header("Player Stats")]
+    [Space]
     public int MaxHealth = 5;
     public int HealthUpgrades = 0;
     public int CurHealth = 5;
@@ -69,80 +65,94 @@ public class GameState
     public int CurMeter = 0;
     public int WalletAmount = 0;
 
-    //Player progression
+    [Header("Bosses Defeated")]
+    [Space]
     public bool ScampLord = false;
     public bool Boss2 = false;
     public bool Boss3 = false;
 
-    //Environment States
+    [Header("Switch States")]
+    [Space]
     public bool[] SwitchStates;
+
+    [Header("Upgrade States")]
+    [Space]
     public bool[] UpgradeStates;
 
-    public GameState(PlayerContainer player)
+    [Header("Map Completion")]
+    [Space]
+    public bool Mine_0_Discovered = false;
+    public bool Mine_1_Discovered = false;
+    public bool Mine_2_Discovered = false;
+    public bool Mine_3_Discovered = false;
+    public bool Mine_4_Discovered = false;
+    public bool Mine_5_Discovered = false;
+    public bool ScampLordArena_Discovered = false;
+
+    public GameState()
     {
+        if (_GameManager.PlayerStats == null)
+            return;
+
         //Scene info
-        currentScene = _GameManager.currentScene.ToString();
+        currentScene = _GameManager.CurrentScene.ToString();
         currentSpawnScene = _GameManager.currentSpawnScene.ToString();
-        currentSpawnIndex = _GameManager.currentSpawnIndex;
+        CurrentSpawnIndex = _GameManager.currentSpawnIndex;
 
         //Player stats
-        MaxHealth = player.playerStats.maxHealth;
-        CurHealth = player.playerStats.curHealth;
-        HealthUpgrades = player.playerStats.healthUpgrades;
-        MaxMeter = player.playerStats.maxSpirit;
-        CurMeter = player.playerStats.curSpirit;
+        MaxHealth = _GameManager.PlayerStats.maxHealth;
+        CurHealth = _GameManager.PlayerStats.curHealth;
+        HealthUpgrades = _GameManager.PlayerStats.healthUpgrades;
+        MaxMeter = _GameManager.PlayerStats.maxSpirit;
+        CurMeter = _GameManager.PlayerStats.curSpirit;
 
         //Player inventory
         WalletAmount = Inventory.instance.walletAmount;
 
         //Player Progression
-        ScampLord = player.gameProgress.ScampLord;
+        ScampLord = _GameManager.gm.GameData.ScampLord;
 
         //Environment States
-        SwitchStates = new bool[player.gameProgress.switchStates.states.Length];
-        for (int i = 0; i < SwitchStates.Length; i++)
-        {
-            SwitchStates[i] = player.gameProgress.switchStates.states[i].state;
-        }
 
-        UpgradeStates = new bool[player.gameProgress.upgradeStates.states.Length];
-        for (int i = 0; i < SwitchStates.Length; i++)
-        {
-            UpgradeStates[i] = player.gameProgress.upgradeStates.states[i].state;
-        }
+        // Map Completion
+        Mine_0_Discovered = _GameManager.gm.GameData.Mine_0_Discovered;
+        Mine_1_Discovered = _GameManager.gm.GameData.Mine_1_Discovered;
+        Mine_2_Discovered = _GameManager.gm.GameData.Mine_2_Discovered;
+        Mine_3_Discovered = _GameManager.gm.GameData.Mine_3_Discovered;
+        Mine_4_Discovered = _GameManager.gm.GameData.Mine_4_Discovered;
+        Mine_5_Discovered = _GameManager.gm.GameData.Mine_5_Discovered;
+        ScampLordArena_Discovered = _GameManager.gm.GameData.ScampLordArena_Discovered;
     }
 }
 
 [System.Serializable]
 public class NewState : GameState
 {
-    public NewState(PlayerContainer player) : base(player)
+    public NewState()
     {
-        currentScene = Loader.Scene.Town_HubArea.ToString();
-        currentSpawnScene = Loader.Scene.Town_HubArea.ToString();
-        currentSpawnIndex = 0;
+        Debug.LogWarning("NEW SAVE CREATED"); 
+        currentScene = SceneDirectory.Scene.Town_HubArea.ToString();
+        currentSpawnScene = SceneDirectory.Scene.Town_HubArea.ToString();
+        CurrentSpawnIndex = 0;
 
-        MaxHealth = player.playerStats.defaultHealth;
-        CurHealth = player.playerStats.defaultHealth;
+        MaxHealth = Constants.Values.DefaultPlayerHealth;
+        CurHealth = Constants.Values.DefaultPlayerHealth;
         HealthUpgrades = 0;
-        MaxMeter = 3;
+        MaxMeter = Constants.Values.DefaultMaxMeter;
         CurMeter = 0;
 
         WalletAmount = 0;
 
         ScampLord = false;
 
-        SwitchStates = new bool[player.gameProgress.switchStates.states.Length];
-        for (int i = 0; i < SwitchStates.Length; i++)
-        {
-            SwitchStates[i] = false;
-        }
-
-        UpgradeStates = new bool[player.gameProgress.upgradeStates.states.Length];
-        for (int i = 0; i < SwitchStates.Length; i++)
-        {
-            UpgradeStates[i] = false;
-        }
+        //MAP DATA
+        Mine_0_Discovered = false;
+        Mine_1_Discovered = false;
+        Mine_2_Discovered = false;
+        Mine_3_Discovered = false;
+        Mine_4_Discovered = false;
+        Mine_5_Discovered = false;
+        ScampLordArena_Discovered = false;
     }
 }
 

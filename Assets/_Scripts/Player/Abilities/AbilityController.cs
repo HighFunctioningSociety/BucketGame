@@ -56,7 +56,7 @@ public class AbilityController : MonoBehaviour
         animatePlayer = GetComponent<PlayerAnimator>();
         animator = GetComponent<Animator>();
 
-        player.controller.LandEvent += OnLanding;
+        player.PlayerController.LandEvent += OnLanding;
     }
 
     public void AbilityUpdateLoop()
@@ -67,16 +67,16 @@ public class AbilityController : MonoBehaviour
             ResetMovementBools();
             UnfreezeConstraints();
 
-            if (player.currentState == PlayerContainer.PSTATE.ATTACK)
+            if (player.CurrentState == PlayerContainer.PSTATE.ATTACK)
             {
-                player.currentState = PlayerContainer.PSTATE.NORMAL;
+                player.CurrentState = PlayerContainer.PSTATE.NORMAL;
             }
             if (dashAbility.dashTime <= 0)
             {
                 SpiritBall();
                 GetAttack();
                 GetEquipmentInput();
-                if (!player.controller.GetGrounded() && coolDown.coolDownComplete)
+                if (!player.PlayerController.GetGrounded() && coolDown.coolDownComplete)
                 {
                     CallHelmSplitter();
                 }
@@ -93,7 +93,7 @@ public class AbilityController : MonoBehaviour
 
     private bool CanReturnToNormalState()
     {
-        return coolDown.coolDownComplete && !PauseMenu.GamePaused && player.currentControlType == PlayerContainer.CONTROLSTATE.ACCEPT_INPUT;
+        return coolDown.coolDownComplete && !PauseMenu.GamePaused && player.CurrentControlType == PlayerContainer.CONTROLSTATE.ACCEPT_INPUT;
     }
 
     private void ResetMovementBools()
@@ -103,7 +103,7 @@ public class AbilityController : MonoBehaviour
         mustCoolDown = false;
         resetCoolDownOnLanding = false;
         canJumpCancelAttack = false; 
-        if (player.controller.GetGrounded())
+        if (player.PlayerController.GetGrounded())
         {
             wasJumpCanceled = false;
         }
@@ -118,9 +118,9 @@ public class AbilityController : MonoBehaviour
             comboState = 0;
     }
 
-    public void _FreezeMovementOn()
+    public void FreezeMovement(bool freeze = true)
     {
-        freezeMovement = true;
+        freezeMovement = freeze;
     }
 
     public void _ActivateJumpCancel()
@@ -166,14 +166,14 @@ public class AbilityController : MonoBehaviour
 
     private void UseMeleeAttack(MeleeAttackTriggerable abilityObject)
     {
-        if(player.currentState == PlayerContainer.PSTATE.HURT)
+        if(player.CurrentState == PlayerContainer.PSTATE.HURT)
         {
             return;
         }
 
-        player.controller.wasJumping = false;
+        player.PlayerController.wasJumping = false;
         coolDown.SetNextCoolDown(abilityObject.ability.aBaseCoolDown);
-        player.currentState = PlayerContainer.PSTATE.ATTACK;
+        player.CurrentState = PlayerContainer.PSTATE.ATTACK;
         currentMeleeAttack = abilityObject;
         comboState += 1 % 3;
         player.playerStats.curMovementDivider--;
@@ -182,13 +182,13 @@ public class AbilityController : MonoBehaviour
 
     private void UseProjectileAttack(ProjectileAttackTriggerable abilityObject)
     {
-        if (player.currentState == PlayerContainer.PSTATE.HURT)
+        if (player.CurrentState == PlayerContainer.PSTATE.HURT)
         {
             return;
         }
 
         coolDown.SetNextCoolDown(abilityObject.ability.aBaseCoolDown);
-        player.currentState = PlayerContainer.PSTATE.ATTACK;
+        player.CurrentState = PlayerContainer.PSTATE.ATTACK;
         currentProjectileAttack = abilityObject;
         abilityObject.ability.TriggerAbility();
     }
@@ -214,7 +214,7 @@ public class AbilityController : MonoBehaviour
                 UseMeleeAttack(slash_1);
                 comboTimeLeft = comboTime;
                 slowMovement = true;
-                if (player.controller.GetGrounded())
+                if (player.PlayerController.GetGrounded())
                     canJumpCancelAttack = true;
             }
         }
@@ -227,7 +227,7 @@ public class AbilityController : MonoBehaviour
                 UseMeleeAttack(slash_2); 
                 comboTimeLeft = comboTime;
                 slowMovement = true;
-                if (player.controller.GetGrounded())
+                if (player.PlayerController.GetGrounded())
                     canJumpCancelAttack = true;
             }
         }
@@ -239,12 +239,12 @@ public class AbilityController : MonoBehaviour
             {
                 UseMeleeAttack(slash_3);
                 slowMovement = true;
-                if (player.controller.GetGrounded())
+                if (player.PlayerController.GetGrounded())
                     canJumpCancelAttack = true;
             }
         }
 
-        if (Inputs.attack && (Inputs.Vertical < 0) && !player.controller.GetGrounded())
+        if (Inputs.attack && (Inputs.Vertical < 0) && !player.PlayerController.GetGrounded())
         {
             UseMeleeAttack(plunge);
         }
@@ -254,10 +254,10 @@ public class AbilityController : MonoBehaviour
         {
             UseMeleeAttack(slashUp);
             freezeMovement = true;
-            if (player.controller.GetGrounded())
+            if (player.PlayerController.GetGrounded())
                 canJumpCancelAttack = true;
             
-            if (!player.controller.GetGrounded())
+            if (!player.PlayerController.GetGrounded())
                 resetCoolDownOnLanding = true;
         }
     }
@@ -322,17 +322,17 @@ public class AbilityController : MonoBehaviour
         {
             UnfreezeConstraints();
             coolDown.ResetCoolDown();
-            StartCoroutine(VaultGravity());
             animator.SetTrigger("Vault");
-            player.rb.AddForce(new Vector2(70 * player.controller.DirectionFaced, 150), ForceMode2D.Impulse);
+            player.rb.AddForce(Vector2.down * 12, ForceMode2D.Impulse);
+            player.rb.AddForce(new Vector2(70 * player.PlayerController.DirectionFaced, 170), ForceMode2D.Impulse);
         }
     }
 
     private IEnumerator VaultGravity()
     {
-        //player.rb.gravityScale = player.playerStats.defaultGravity * 1.5f;
+        player.rb.gravityScale = player.playerStats.defaultGravity * 1.5f;
         yield return new WaitForSeconds(0.5f);
-        //player.rb.gravityScale = player.playerStats.defaultGravity;
+        player.rb.gravityScale = player.playerStats.defaultGravity;
     }
 
     public void ExecuteStingerSpecial()
@@ -361,15 +361,17 @@ public class AbilityController : MonoBehaviour
     public void CancelAbilities()
     {
         coolDown.ResetCoolDown();
+
         player.ActivateHorizontalInput();
+        player.dashAbility.RefreshDash();
+
         helmSplitter.DisableCollider();
         helmSplitter.helmSplitterActive = false;
         helmSplitter.trailRenderer.emitting = false;
-        dashAbility.enemyFound = false;
-        dashAbility.startStinger = false;
-        dashAbility.stinging = false;
-        dashAbility.dashTime = 0;
-        dashAbility.coolDown = 0;
+
+        comboTimeLeft = 0;
+        comboState = 0;
+
         UnfreezeConstraints();
     }
 

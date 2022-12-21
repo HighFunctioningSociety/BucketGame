@@ -19,12 +19,12 @@ public class _SceneManager : MonoBehaviour
         _GameManager.GetSceneManager(this);
         BlankerAnimator.blanker.FadeIn();
 
-        if (!_GameManager.firstUpdate)
+        if (!_GameManager.FirstUpdate)
         {
             playerContainer = _GameManager.GivePlayer().GetComponent<PlayerContainer>();
         }
 
-        if (!_GameManager.respawningPlayer && !_GameManager.firstUpdate && !_GameManager.debugSceneChange)
+        if (!_GameManager.respawningPlayer && !_GameManager.FirstUpdate && !_GameManager.debugSceneChange)
         {
             FindCorrectEntrance();
             MoveToEntrance();
@@ -65,7 +65,7 @@ public class _SceneManager : MonoBehaviour
         Vector2 spawnPosition = GetSpawnOffset(collider);
         playerContainer.transform.position = new Vector3(spawnPosition.x, spawnPosition.y, _player.position.z);
 
-        _GameManager.AcceptPlayerInput();
+        _GameManager.RelinquishPlayerInput(false);
     }
 
     private Vector2 GetSpawnOffset(Collider2D _collider)

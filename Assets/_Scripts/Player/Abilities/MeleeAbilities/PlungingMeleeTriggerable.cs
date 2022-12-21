@@ -42,7 +42,7 @@ public class PlungingMeleeTriggerable : MeleeAttackTriggerable
 
     public override void DrawHurtBox()
     {
-        if (player.controller.GetGrounded()){
+        if (player.PlayerController.GetGrounded()){
             PlungingLandReaction();
         }
 

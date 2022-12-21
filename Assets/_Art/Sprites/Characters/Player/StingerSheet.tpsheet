@@ -1,0 +1,21 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:bd37dd37d198d68443ece813ac410c15:7a5e3d6450580e302ca44cb75bb12a27:98b418f72ce014f2b4589164f6ddc1b2$
+#
+:format=40300
+:texture=StingerSheet.png
+:size=8192x8192
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+
+stinger1;0;6392;4000;1800; 0.29925;0.13888888888888884; 0;0;0;0
+stinger2;4000;6392;4000;1800; 0.29925;0.13888888888888884; 0;0;0;0
+stinger3;0;4592;4000;1800; 0.29925;0.13888888888888884; 0;0;0;0
+stingerEnd2;4000;4592;4000;1800; 0.29925;0.13888888888888884; 0;0;0;0
+stingerEnd3;0;2792;4000;1800; 0.29925;0.13888888888888884; 0;0;0;0
+stingerStartup;4000;2792;4000;1800; 0.29925;0.13888888888888884; 0;0;0;0

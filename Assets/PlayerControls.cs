@@ -143,6 +143,33 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": ""AxisDeadzone(min=0.2)"",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Map"",
+                    ""type"": ""Button"",
+                    ""id"": ""96548ff4-e90c-404b-8c5d-33095ea5c876"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Left Trigger"",
+                    ""type"": ""Button"",
+                    ""id"": ""76f42b76-372f-4a82-8298-862c2cce0b0e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Right Trigger"",
+                    ""type"": ""Button"",
+                    ""id"": ""57e4bd49-86e4-4e8c-b993-5e5ab209a504"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -286,6 +313,39 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b565fad0-3dcc-41db-aca0-db214e0c4f11"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Map"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e5e33f8-5676-4194-9f00-989c4ae848c2"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Left Trigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""80dc757a-d74c-4d9d-ae0c-c1ac26c08575"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right Trigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -825,6 +885,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Default_Vertical = m_Default.FindAction("Vertical", throwIfNotFound: true);
         m_Default_Horizontal = m_Default.FindAction("Horizontal", throwIfNotFound: true);
         m_Default_Inventory = m_Default.FindAction("Inventory", throwIfNotFound: true);
+        m_Default_Map = m_Default.FindAction("Map", throwIfNotFound: true);
+        m_Default_LeftTrigger = m_Default.FindAction("Left Trigger", throwIfNotFound: true);
+        m_Default_RightTrigger = m_Default.FindAction("Right Trigger", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -909,6 +972,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_Vertical;
     private readonly InputAction m_Default_Horizontal;
     private readonly InputAction m_Default_Inventory;
+    private readonly InputAction m_Default_Map;
+    private readonly InputAction m_Default_LeftTrigger;
+    private readonly InputAction m_Default_RightTrigger;
     public struct DefaultActions
     {
         private @PlayerControls m_Wrapper;
@@ -926,6 +992,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Vertical => m_Wrapper.m_Default_Vertical;
         public InputAction @Horizontal => m_Wrapper.m_Default_Horizontal;
         public InputAction @Inventory => m_Wrapper.m_Default_Inventory;
+        public InputAction @Map => m_Wrapper.m_Default_Map;
+        public InputAction @LeftTrigger => m_Wrapper.m_Default_LeftTrigger;
+        public InputAction @RightTrigger => m_Wrapper.m_Default_RightTrigger;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -974,6 +1043,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Inventory.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnInventory;
                 @Inventory.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnInventory;
                 @Inventory.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnInventory;
+                @Map.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMap;
+                @Map.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMap;
+                @Map.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnMap;
+                @LeftTrigger.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftTrigger;
+                @LeftTrigger.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftTrigger;
+                @LeftTrigger.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftTrigger;
+                @RightTrigger.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightTrigger;
+                @RightTrigger.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightTrigger;
+                @RightTrigger.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightTrigger;
             }
             m_Wrapper.m_DefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -1017,6 +1095,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Inventory.started += instance.OnInventory;
                 @Inventory.performed += instance.OnInventory;
                 @Inventory.canceled += instance.OnInventory;
+                @Map.started += instance.OnMap;
+                @Map.performed += instance.OnMap;
+                @Map.canceled += instance.OnMap;
+                @LeftTrigger.started += instance.OnLeftTrigger;
+                @LeftTrigger.performed += instance.OnLeftTrigger;
+                @LeftTrigger.canceled += instance.OnLeftTrigger;
+                @RightTrigger.started += instance.OnRightTrigger;
+                @RightTrigger.performed += instance.OnRightTrigger;
+                @RightTrigger.canceled += instance.OnRightTrigger;
             }
         }
     }
@@ -1141,6 +1228,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnVertical(InputAction.CallbackContext context);
         void OnHorizontal(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
+        void OnMap(InputAction.CallbackContext context);
+        void OnLeftTrigger(InputAction.CallbackContext context);
+        void OnRightTrigger(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

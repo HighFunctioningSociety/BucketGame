@@ -313,12 +313,13 @@ SpriteRenderer:
   m_SortingLayerID: 1909403727
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 07d33dd3cf5718f46b4ada11418e719c, type: 3}
+  m_Sprite: {fileID: -8522404245814828009, guid: 252b044c6da943b40b7ef37676f6a0d9,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 24, y: 14.003906}
+  m_Size: {x: 24, y: 14}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -336,20 +337,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d510084e8475b45b27069fcc59c3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameProgress: {fileID: 11400000, guid: 3be961e3dea423c46b61359f866991f4, type: 2}
   playerStats: {fileID: 11400000, guid: db1e159fddd445e4a8a557eb8baad979, type: 2}
-  currentState: 0
-  currentControlType: 0
+  CurrentState: 0
+  CurrentControlType: 0
   invul: 0
-  transitioningLeft: 0
-  transitioningRight: 0
-  abilityManager: {fileID: 6943591668738768700}
+  PlayerAbilityController: {fileID: 6943591668738768700}
   equipmentManager: {fileID: 5975400533838691856}
   coolDownManager: {fileID: 989754974583131046}
   dashAbility: {fileID: 6329818829024786291}
-  animatePlayer: {fileID: 1670338105}
+  PlayerAnimationController: {fileID: 1670338105}
   rb: {fileID: 50234244976465450}
-  controller: {fileID: 168473779}
+  PlayerController: {fileID: 168473779}
   pr: {fileID: 1687386574605854693}
   damageEffect: {fileID: 9019403140729793102}
   JumpCancelMonitor: 0
@@ -415,7 +413,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 50234244976465454}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a30167c90d5c3842870d609b989e215, type: 3}
+  m_Script: {fileID: 11500000, guid: 73295897f53beb445a6581d402f6cd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slash_1: {fileID: 4035469040615054254}
@@ -436,7 +434,7 @@ MonoBehaviour:
   comboTime: 0.6
   comboTimeLeft: 0
   comboState: 0
-  currentEquipmentAbility: {fileID: 1029731315851573061}
+  currentEquipmentAbility: {fileID: 0}
   currentMeleeAttack: {fileID: 0}
   currentProjectileAttack: {fileID: 0}
 --- !u!114 &168473779
@@ -451,75 +449,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc101ee45d377b04486c97bbedb10bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whatIsGround:
+  _whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   wasGrounded: 0
   wasJumping: 0
   player: {fileID: 168473781}
   boxCollider: {fileID: 3175066372328710832}
-  dir: 1
-  extraHeight: 1
-  killHorizontalInput: 0
-  grounded: 0
-  falling: 0
   isOnSlope: 0
-  _slopeDownAngle: 0
-  _move: 0
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1670338105}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: OnLanding
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 584946381403682009}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: OnEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6943591668738768700}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: OnLanding
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnFallingEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1670338105}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: OnFalling
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  canWalkOnSlope: 0
+  DirectionFaced: 1
+  BoxcastHeight: 1
+  KillHorizontalInput: 0
+  _grounded: 0
+  slopeCheckDistance: 1
+  maxSlopeAngle: 50
+  noFriction: {fileID: 6200000, guid: c2ea38bca72924f4985ba0e1f1a5fb63, type: 2}
+  fullFriction: {fileID: 6200000, guid: 2e9f39bca60f2b847b42077df30ec63d, type: 2}
+  slopeDownAngle: 0
+  slopeSideAngle: 0
+  lastSlopeAngle: 0
+  MoveSpeed: 0
 --- !u!114 &1670338105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,6 +484,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dust: {fileID: 1025298404}
   coolDown: {fileID: 989754974583131046}
+  Animator: {fileID: 50234244976465449}
   speed: 0
 --- !u!114 &1687386574605854693
 MonoBehaviour:
@@ -605,9 +556,9 @@ BoxCollider2D:
   m_Offset: {x: 0.13018769, y: 5.2104187}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.57, y: 0.0095}
-    oldSize: {x: 24, y: 14.003906}
-    newSize: {x: 24, y: 14.003906}
+    pivot: {x: 0.57375, y: 0.01285714}
+    oldSize: {x: 24, y: 14}
+    newSize: {x: 24, y: 14}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -8153,14 +8104,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.6906625, y: 3.9423015}
-      - {x: -3.534186, y: 4.5144496}
-      - {x: -6.763126, y: -1.7459675}
-      - {x: -1.6286795, y: -1.681863}
-      - {x: 2.2871659, y: -1.219029}
-      - {x: 5.428146, y: 0.36979008}
-      - {x: 5.868701, y: 1.5497174}
-      - {x: 4.8772364, y: 2.590895}
+    - - {x: 1.4446006, y: 4.9343257}
+      - {x: -5.5380745, y: 6.2008915}
+      - {x: -2.477582, y: 2.3610117}
+      - {x: -0.8549012, y: -1.880268}
+      - {x: 4.628343, y: -1.3777528}
+      - {x: 7.094746, y: -0.38414836}
+      - {x: 7.47578, y: 0.83546036}
+      - {x: 5.393088, y: 3.0472255}
   m_UseDelaunayMesh: 0
 --- !u!1 &5217034363310324335
 GameObject:

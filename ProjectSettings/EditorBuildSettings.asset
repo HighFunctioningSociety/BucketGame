@@ -15,19 +15,22 @@ EditorBuildSettings:
     path: Assets/_Scenes/Loading.unity
     guid: f1ab67b34c4ce6e4b8398c4553c3dfb4
   - enabled: 1
+    path: Assets/_Scenes/Town_0.unity
+    guid: 9b0f0c8f91116d44895caef9ff4a6218
+  - enabled: 1
     path: Assets/_Scenes/Town_HubArea.unity
     guid: f178bb10f15113b4abe7a9d1f3996cb4
   - enabled: 1
     path: Assets/_Scenes/Town_Shop.unity
     guid: 6442083032c1d2b4b9131943055edc00
   - enabled: 1
-    path: Assets/_Scenes/MineEntrance.unity
-    guid: 057852c6a993e244a8a4a89f1b885bd0
+    path: Assets/_Scenes/Mine_0.unity
+    guid: d2c64f8b47a23e74193b73eebdf08fd2
   - enabled: 1
-    path: Assets/_Scenes/Mine1.unity
+    path: Assets/_Scenes/Mine_1.unity
     guid: 7cdb38d0a030e35489abf4e2e4d7ded7
   - enabled: 1
-    path: Assets/_Scenes/Mine2.unity
+    path: Assets/_Scenes/Mine_2.unity
     guid: 6498cbc04906a934180d1ca4eb7ad56a
   - enabled: 1
     path: Assets/_Scenes/SewerEntrance.unity

@@ -6,7 +6,7 @@ public class SpawnPoint : TriggerableEvent
 {
     public AudioSource audioSource;
     public int spawnIndex;
-    public Loader.Scene spawnScene;
+    public SceneDirectory.Scene spawnScene;
     public Transform particlePrefab;
 
     public override void TriggerEvent()
@@ -23,26 +23,29 @@ public class SpawnPoint : TriggerableEvent
 
     private void Rest(PlayerContainer _player)
     {
+        if (PauseMenu.GamePaused || MapController.MapActive)
+            return;
+
+        _GameManager.ResetScene();
         audioSource.Play();
         EnableRestingMenu(_player);
         RestoreHealth(_player);
-        RecordGame(_player);
-        _GameManager.ResetScene();
+        RecordGame();
         SpawnParticles();
     }
 
     private void EnableRestingMenu(PlayerContainer _player)
     {
         _player.rb.velocity = Vector2.zero;
-        _player.currentControlType = PlayerContainer.CONTROLSTATE.RELINQUISHED;
+        _player.CurrentControlType = PlayerContainer.CONTROLSTATE.RELINQUISHED;
         _UIManager.UIManager._EnableRestingMenu();
     }
 
-    private void RecordGame(PlayerContainer _player)
+    private void RecordGame()
     {
         _GameManager.currentSpawnIndex = spawnIndex;
         _GameManager.currentSpawnScene = spawnScene;
-        SaveSystem.SaveGame(_player);
+        SaveSystem.SaveGame();
         _GameManager.PrintSceneInfo();
     }
 

@@ -9,7 +9,13 @@ tpsheetFileNames:
 - Assets/_Art/Sprites/Characters/Ghost/ghostWalk.tpsheet
 - Assets/_Art/Sprites/Characters/Ghost/GhostWalk.tpsheet
 - Assets/_Art/Sprites/Characters/Ghost/Spike.tpsheet
-- Assets/_Art/Sprites/Characters/Player/darkerWalk.tpsheet
+- Assets/_Art/Sprites/Characters/Player/DashSheet.tpsheet
+- Assets/_Art/Sprites/Characters/Player/IdleSheet.tpsheet
+- Assets/_Art/Sprites/Characters/Player/JumpSheet.tpsheet
+- Assets/_Art/Sprites/Characters/Player/SlashSeriesSheet.tpsheet
+- Assets/_Art/Sprites/Characters/Player/StingerSheet.tpsheet
+- Assets/_Art/Sprites/Characters/Player/WalkSheet.tpsheet
+- Assets/_Art/Sprites/Characters/Player/walkSheet.tpsheet
 - Assets/_Art/Sprites/Characters/SilverBug/BugWalk.tpsheet
 - Assets/_Art/Sprites/Environment/CaveAssets/CaveTiles/CaveTiles.tpsheet
 - Assets/_Materials/Textures/TwinkleMaterials/TwinkleSheet.tpsheet
@@ -23,12 +29,24 @@ textureFileNames:
 - Assets/_Art/Sprites/Characters/Ghost/GhostWalk.png
 - Assets/_Art/Sprites/Characters/Ghost/GhostWalk.png
 - Assets/_Art/Sprites/Characters/Ghost/Spike.png
+- Assets/_Art/Sprites/Characters/Player/DashSheet.png
+- Assets/_Art/Sprites/Characters/Player/IdleSheet.png
+- Assets/_Art/Sprites/Characters/Player/JumpSheet.png
+- Assets/_Art/Sprites/Characters/Player/SlashSeriesSheet.png
+- Assets/_Art/Sprites/Characters/Player/StingerSheet.png
+- Assets/_Art/Sprites/Characters/Player/darkerWalk.png
 - Assets/_Art/Sprites/Characters/Player/darkerWalk.png
 - Assets/_Art/Sprites/Characters/SilverBug/BugWalk.png
 - Assets/_Art/Sprites/Environment/CaveAssets/CaveTiles/CaveTiles.png
 - Assets/_Materials/Textures/TwinkleMaterials/TwinkleSheet.png
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
 normalmapFileNames:
+- 
+- 
+- 
+- 
+- 
+- 
 - 
 - 
 - 

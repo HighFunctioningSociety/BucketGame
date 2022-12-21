@@ -64,7 +64,6 @@ public class JumpScript : MonoBehaviour
 
     private void PlayerDestination()
     {
-        Debug.LogWarning("<color=green> you </color>");
         spawnShockwave = true;
         noise = Random.Range(-20f, 20f);
         destination = enemy.TargetObject.position;
@@ -72,7 +71,6 @@ public class JumpScript : MonoBehaviour
 
     private void SpecificDestination()
     {
-        Debug.LogWarning("<color=green> fuck </color>");
         noise = 0;
         int index = 0;
         float maxDistance = 0;

@@ -132,7 +132,7 @@
             <key>datafile</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>darkerWalk.tpsheet</filename>
+                <filename>IdleSheet.tpsheet</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -149,7 +149,7 @@
             <string></string>
         </struct>
         <key>autoAliasEnabled</key>
-        <true/>
+        <false/>
         <key>trimSpriteNames</key>
         <false/>
         <key>prependSmartFolderName</key>
@@ -181,51 +181,35 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../../../../../../../Desktop/Photoshop Files/DarkerWalk/1.png</key>
-            <key type="filename">../../../../../../../../Desktop/Photoshop Files/DarkerWalk/10.png</key>
-            <key type="filename">../../../../../../../../Desktop/Photoshop Files/DarkerWalk/11.png</key>
-            <key type="filename">../../../../../../../../Desktop/Photoshop Files/DarkerWalk/12.png</key>
-            <key type="filename">../../../../../../../../Desktop/Photoshop Files/DarkerWalk/13.png</key>
-            <key type="filename">../../../../../../../../Desktop/Photoshop Files/DarkerWalk/14.png</key>
-            <key type="filename">../../../../../../../../Desktop/Photoshop Files/DarkerWalk/2.png</key>
-            <key type="filename">../../../../../../../../Desktop/Photoshop Files/DarkerWalk/3.png</key>
-            <key type="filename">../../../../../../../../Desktop/Photoshop Files/DarkerWalk/4.png</key>
-            <key type="filename">../../../../../../../../Desktop/Photoshop Files/DarkerWalk/5.png</key>
-            <key type="filename">../../../../../../../../Desktop/Photoshop Files/DarkerWalk/6.png</key>
-            <key type="filename">../../../../../../../../Desktop/Photoshop Files/DarkerWalk/7.png</key>
-            <key type="filename">../../../../../../../../Desktop/Photoshop Files/DarkerWalk/8.png</key>
-            <key type="filename">../../../../../../../../Desktop/Photoshop Files/DarkerWalk/9.png</key>
+            <key type="filename">Idle3.png</key>
+            <key type="filename">Idle4.png</key>
+            <key type="filename">Idle5.png</key>
+            <key type="filename">Idle6.png</key>
+            <key type="filename">idle1.png</key>
+            <key type="filename">idle2.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.616154,0.996667</point_f>
+                <point_f>0.57375,0.987143</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>325,300,650,600</rect>
+                <rect>600,350,1200,700</rect>
                 <key>scale9Paddings</key>
-                <rect>325,300,650,600</rect>
+                <rect>600,350,1200,700</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>../../../../../../../../Desktop/Photoshop Files/DarkerWalk/1.png</filename>
-            <filename>../../../../../../../../Desktop/Photoshop Files/DarkerWalk/10.png</filename>
-            <filename>../../../../../../../../Desktop/Photoshop Files/DarkerWalk/11.png</filename>
-            <filename>../../../../../../../../Desktop/Photoshop Files/DarkerWalk/12.png</filename>
-            <filename>../../../../../../../../Desktop/Photoshop Files/DarkerWalk/13.png</filename>
-            <filename>../../../../../../../../Desktop/Photoshop Files/DarkerWalk/14.png</filename>
-            <filename>../../../../../../../../Desktop/Photoshop Files/DarkerWalk/2.png</filename>
-            <filename>../../../../../../../../Desktop/Photoshop Files/DarkerWalk/3.png</filename>
-            <filename>../../../../../../../../Desktop/Photoshop Files/DarkerWalk/4.png</filename>
-            <filename>../../../../../../../../Desktop/Photoshop Files/DarkerWalk/5.png</filename>
-            <filename>../../../../../../../../Desktop/Photoshop Files/DarkerWalk/6.png</filename>
-            <filename>../../../../../../../../Desktop/Photoshop Files/DarkerWalk/7.png</filename>
-            <filename>../../../../../../../../Desktop/Photoshop Files/DarkerWalk/8.png</filename>
-            <filename>../../../../../../../../Desktop/Photoshop Files/DarkerWalk/9.png</filename>
+            <filename>Idle3.png</filename>
+            <filename>Idle4.png</filename>
+            <filename>Idle5.png</filename>
+            <filename>Idle6.png</filename>
+            <filename>idle1.png</filename>
+            <filename>idle2.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

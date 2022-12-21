@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class AreaLoader : MonoBehaviour
 {
     public int DoorID;
-    public Loader.Scene sceneToLoad;
+    public SceneDirectory.Scene sceneToLoad;
     public Direction doorDirection;
     public Collider2D loaderCollider;
     public Transform specificSpawn;
@@ -19,22 +19,22 @@ public abstract class AreaLoader : MonoBehaviour
         CENTER,
     }
 
-    protected abstract void LoadScene(PlayerContainer player);
+    protected abstract void LoadScene();
 
-    public IEnumerator FadeToNextScene(PlayerContainer player)
+    public IEnumerator FadeToNextScene()
     {
         BlankerAnimator.blanker.FadeOut();
         while (BlankerAnimator.blanker.transitionInProgress)
         {
             yield return null;
         }
-        player.SaveGame();
+        SaveSystem.SaveGame();
         Loader.Load(sceneToLoad);
     }
 
     protected bool VerifyNextScene()
     {
-        if (sceneToLoad != Loader.Scene.MainMenu || sceneToLoad != Loader.Scene.SceneZero || sceneToLoad != Loader.Scene.Loading)
+        if (sceneToLoad != SceneDirectory.Scene.MainMenu || sceneToLoad != SceneDirectory.Scene.SceneZero || sceneToLoad != SceneDirectory.Scene.Loading)
         {
             return true;
         }
@@ -46,7 +46,7 @@ public abstract class AreaLoader : MonoBehaviour
 
     protected void SetScene()
     {
-        _GameManager.currentScene = sceneToLoad;
+        _GameManager.CurrentScene = sceneToLoad;
         _GameManager.DoorID = DoorID;
     }
 }

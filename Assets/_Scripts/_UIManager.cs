@@ -9,6 +9,7 @@ using UnityEditor;
 public class _UIManager : MonoBehaviour
 {
     public static _UIManager UIManager;
+    public MapController MapController;
     public EventSystem eventSystem;
     public GameObject menus;
     public GameObject healthUIObject;
@@ -51,7 +52,7 @@ public class _UIManager : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (!_GameManager.firstUpdate && !menusActivated)
+        if (!_GameManager.FirstUpdate && !menusActivated)
         {
             menus.SetActive(true);
             playerHUD.SetActive(true);
@@ -177,7 +178,7 @@ public class _UIManager : MonoBehaviour
     public void _ActivatePlayerControl()
     {
         PlayerContainer _player = _GameManager.GivePlayer().GetComponent<PlayerContainer>();
-        _player.currentControlType = PlayerContainer.CONTROLSTATE.ACCEPT_INPUT;
+        _player.CurrentControlType = PlayerContainer.CONTROLSTATE.ACCEPT_INPUT;
     }
 
     public void _SelectEquipment(string equipmentName)

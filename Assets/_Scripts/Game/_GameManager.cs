@@ -7,21 +7,27 @@ using UnityEngine;
 public class _GameManager : MonoBehaviour
 {
     public static _GameManager gm;
-    public static Loader.Scene currentScene = Loader.Scene.Station_1;
-    public static Loader.Scene currentSpawnScene = Loader.Scene.Station_1;
+    public static SceneDirectory.Scene CurrentScene = SceneDirectory.Scene.Station_1;
+    public static SceneDirectory.Scene currentSpawnScene = SceneDirectory.Scene.Station_1;
     public static int currentSpawnIndex = 0;
     public static int DoorID = 0;
     public static bool respawningPlayer = false;
-    public static bool firstUpdate = true;
+    public static bool FirstUpdate = true;
     public static bool waitForSceneManager = false;
     public static bool debugSceneChange = false;
 
-    [HideInInspector] public GameObject player;
+    public GameState GameData;
+
+    [Header ("Player References")]
+    public static GameObject Player;
+    public static PlayerContainer PlayerContainer;
+    public static PlayerStats PlayerStats;
+
     public _SceneManager sceneManager;
     public DropManager dropManager;
     public Transform spawnPrefab;
     public Transform deathPrefab;
-    public int spawnDelay = 2;
+    public int SpawnDelay = 2;
 
     public bool isStopped = false;
     public float hitStopDuration = 0.1f;
@@ -41,11 +47,6 @@ public class _GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player");
-        }
-
         if(SceneChangeEvent == null)
         {
             SceneChangeEvent = new UnityEvent();
@@ -60,18 +61,13 @@ public class _GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (firstUpdate && sceneManager != null)
+        if (FirstUpdate && sceneManager != null)
         {
             if (sceneManager.entrancePoints.Length != 0)
             {
-                GameState data = SaveSystem.LoadGame();
-                currentSpawnScene = (Loader.Scene)System.Enum.Parse(typeof(Loader.Scene), data.currentSpawnScene);
-                currentScene = (Loader.Scene)System.Enum.Parse(typeof(Loader.Scene), data.currentScene);
-                currentSpawnIndex = data.currentSpawnIndex;
-        
-                player.GetComponent<PlayerContainer>().transform.position = sceneManager.spawnPoints[currentSpawnIndex].position;
+                LoadGameInfo();
                 
-                firstUpdate = false;
+                FirstUpdate = false;
             }
         }
     }
@@ -82,9 +78,11 @@ public class _GameManager : MonoBehaviour
         gm._GetPlayer(player);
     }
 
-    private void _GetPlayer(GameObject _player)
+    private void _GetPlayer(GameObject player)
     {
-        player = _player;
+        Player = player;
+        PlayerContainer = Player.GetComponent<PlayerContainer>();
+        PlayerStats = PlayerContainer.playerStats;
     }
 
     public static GameObject GivePlayer()
@@ -94,7 +92,7 @@ public class _GameManager : MonoBehaviour
 
     public GameObject _GivePlayer()
     {
-        return player;
+        return Player;
     }
 
     public static void PrepForMenu()
@@ -104,7 +102,7 @@ public class _GameManager : MonoBehaviour
 
     private void _PrepForMenu()
     {
-        Destroy(player);
+        Destroy(Player);
     }
 
     public static void GetSceneManager(_SceneManager sceneManager)
@@ -124,7 +122,7 @@ public class _GameManager : MonoBehaviour
 
     private void _MovePlayerToEntrance()
     {
-        sceneManager._MoveToEntrance(player.transform);
+        sceneManager._MoveToEntrance(Player.transform);
     }
 
     public static void ResetScene()
@@ -174,41 +172,24 @@ public class _GameManager : MonoBehaviour
         sceneManager._ResetAllObjects();
     }
 
-    public static void RelinquishPlayerInput()
+    public static void RelinquishPlayerInput(bool relinquish = true)
     {
-        gm._RelinquishPlayerInput();
+            PlayerContainer.CurrentControlType = relinquish ? PlayerContainer.CONTROLSTATE.RELINQUISHED : PlayerContainer.CurrentControlType = PlayerContainer.CONTROLSTATE.ACCEPT_INPUT;
     }
 
-    private void _RelinquishPlayerInput()
-    {
-        PlayerContainer _player = player.GetComponent<PlayerContainer>();
-        _player.currentControlType = PlayerContainer.CONTROLSTATE.RELINQUISHED;
-    }
-
-    public static void AcceptPlayerInput()
-    {
-        gm._AcceptPlayerInput();
-    }
-
-    private void _AcceptPlayerInput()
-    {
-        PlayerContainer _player = player.GetComponent<PlayerContainer>();
-        _player.currentControlType = PlayerContainer.CONTROLSTATE.ACCEPT_INPUT;
-    }
-
-    public IEnumerator _RespawnPlayer(PlayerContainer _player)
+    public IEnumerator _RespawnPlayer()
     {
         while (waitForSceneManager == true)
         {
             yield return null;
         }
         ResetScene();
-        _player.transform.position = sceneManager.spawnPoints[currentSpawnIndex].position;
-        yield return new WaitForSeconds(spawnDelay);
+        Player.transform.position = sceneManager.spawnPoints[currentSpawnIndex].position;
+        yield return new WaitForSeconds(SpawnDelay);
         PlayerContainer.StopCoroutines();
-        _player.SetHealth(_player.playerStats.maxHealth);
-        _player.currentControlType = PlayerContainer.CONTROLSTATE.ACCEPT_INPUT;
-        _player.currentState = PlayerContainer.PSTATE.NORMAL;
+        PlayerContainer.SetHealth(PlayerStats.maxHealth);
+        PlayerContainer.CurrentControlType = PlayerContainer.CONTROLSTATE.ACCEPT_INPUT;
+        PlayerContainer.CurrentState = PlayerContainer.PSTATE.NORMAL;
         respawningPlayer = false;
 
         Transform particles = Instantiate(spawnPrefab, sceneManager.spawnPoints[currentSpawnIndex].position, sceneManager.spawnPoints[currentSpawnIndex].rotation);
@@ -225,28 +206,28 @@ public class _GameManager : MonoBehaviour
         Loader.Load(currentSpawnScene);
     }
 
-    public static void KillPlayer(PlayerContainer player)
+    public static void KillPlayer()
     {
-        gm._KillPlayer(player);
+        gm._KillPlayer();
     }
 
-    private void _KillPlayer(PlayerContainer _player)
+    private void _KillPlayer()
     {
-        _player.rb.velocity = Vector2.zero;
-        _player.currentControlType = PlayerContainer.CONTROLSTATE.RELINQUISHED;
-        _player.playerStats.curHealth = _player.playerStats.maxHealth;
-        _player.playerStats.curSpirit = 0;
+        PlayerContainer.rb.velocity = Vector2.zero;
+        PlayerContainer.CurrentControlType = PlayerContainer.CONTROLSTATE.RELINQUISHED;
+        PlayerContainer.playerStats.curHealth = PlayerStats.maxHealth;
+        PlayerContainer.playerStats.curSpirit = 0;
 
-        SaveSystem.SaveGame(_player);
+        SaveSystem.SaveGame();
 
-        if (currentScene != currentSpawnScene && respawningPlayer == false)
+        if (CurrentScene != currentSpawnScene && respawningPlayer == false)
         {
             respawningPlayer = true;
             waitForSceneManager = true;
-            currentScene = currentSpawnScene;
+            CurrentScene = currentSpawnScene;
             StartCoroutine(RespawnFadeToScene());
         }
-        gm.StartCoroutine(gm._RespawnPlayer(_player));
+        gm.StartCoroutine(gm._RespawnPlayer());
     }
 
     public static void KillEnemy(EnemyContainer enemy)
@@ -263,60 +244,43 @@ public class _GameManager : MonoBehaviour
         Transform deathPrefab = Instantiate(_enemy.enemyPrefabDead, _enemy.transform.position, _enemy.transform.rotation);
         Transform deathParticles = Instantiate(_enemy.enemyParticlesDead, _enemy.transform.position, _enemy.transform.rotation);
         deathPrefab.GetComponent<Rigidbody2D>().AddForce(_enemy.RigidBody.velocity * 2, ForceMode2D.Impulse); // right now applying the enemies walk velocity instead of knockback (possibly fixed)
-        GameObject.Destroy(deathPrefab.gameObject, 50f);
-        GameObject.Destroy(deathParticles.gameObject, 10f);
+        Destroy(deathPrefab.gameObject, 50f);
+        Destroy(deathParticles.gameObject, 10f);
     }
 
     public static void SpawnChestContents(ChestController _chest)
     {
-        gm._SpawnChestContents(_chest);
+        gm.dropManager.DropChestContents(_chest);
     }
 
-    public void _SpawnChestContents(ChestController _chest)
+    private void LoadGameInfo()
     {
-        dropManager.DropChestContents(_chest);
-    }
+        GameData = SaveSystem.LoadGame();
+        currentSpawnIndex = GameData.CurrentSpawnIndex;
+        PlayerStats.maxHealth = GameData.MaxHealth;
+        PlayerStats.curHealth = GameData.CurHealth;
+        PlayerStats.maxSpirit = GameData.MaxMeter;
+        PlayerStats.curSpirit = GameData.CurMeter;
+        PlayerStats.healthUpgrades = GameData.HealthUpgrades;
+        Player.transform.position = sceneManager.spawnPoints[currentSpawnIndex].position;
 
-    public static void SaveGameState(PlayerContainer player)
-    {
-        gm._SaveGameState(player);
-    }
+        _UIManager.UIManager.MapController.LoadMapData(GameData);
+        Inventory.instance.walletAmount = GameData.WalletAmount;
 
-    private void _SaveGameState(PlayerContainer _player)
-    {
-        SaveSystem.SaveGame(_player);
-    }
-
-    public static void LoadGameState(PlayerContainer player)
-    {
-        gm._LoadGameState(player);
-    }
-
-    private void _LoadGameState(PlayerContainer _player)
-    {
-        GameState data = SaveSystem.LoadGame();
-        _player.playerStats.maxHealth = data.MaxHealth;
-        _player.playerStats.curHealth = data.CurHealth;
-        _player.playerStats.maxSpirit = data.MaxMeter;
-        _player.playerStats.curSpirit = data.CurMeter;
-        _player.playerStats.healthUpgrades = data.HealthUpgrades;
-        _player.gameProgress.switchStates.SetBools(data.SwitchStates);
-        _player.gameProgress.upgradeStates.SetBools(data.UpgradeStates);
-        Inventory.instance.walletAmount = data.WalletAmount;
-
-        if (firstUpdate)
-        {
-            currentScene = (Loader.Scene)System.Enum.Parse(typeof(Loader.Scene), data.currentSpawnScene);
+        // Parse the save data to get the current scene
+        try 
+        { 
+            CurrentScene = (SceneDirectory.Scene)System.Enum.Parse(typeof(SceneDirectory.Scene), FirstUpdate ? GameData.currentSpawnScene : GameData.currentScene);
         }
-        else
+        catch
         {
-            currentScene = (Loader.Scene)System.Enum.Parse(typeof(Loader.Scene), data.currentScene);
+            CurrentScene = Constants.Scenes.OnErrorScene;
         }
     }
 
     public static string PrintSceneInfo()
     {
-        return("(" + currentScene
+        return("(" + CurrentScene
             + ", " + currentSpawnScene 
             + " " + currentSpawnIndex + ")");
     }

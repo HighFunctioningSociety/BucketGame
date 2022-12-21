@@ -52,11 +52,10 @@ public class DoorAreaLoader : AreaLoader
         }
     }
 
-
     private void InteractWithDoor()
     {
         PlayerContainer _player = playerCollider.GetComponent<PlayerContainer>();
-        if (Inputs.Vertical == 1 && !buttonDown && _player.controller.GetGrounded())
+        if (Inputs.Vertical == 1 && !buttonDown && _player.PlayerController.GetGrounded())
         {
             buttonDown = true;
             if (VerifyNextScene())
@@ -67,15 +66,16 @@ public class DoorAreaLoader : AreaLoader
             {
                 return;
             }
-            LoadScene(_player);
+            LoadScene();
         }
     }
 
-    protected override void LoadScene(PlayerContainer player)
+    protected override void LoadScene()
     {
+        _UIManager.UIManager.MapController.UpdateMap(sceneToLoad);
         _GameManager.RelinquishPlayerInput();
         Inputs.DisableHorizontal();
         PlayerContainer.KillVelocity();
-        StartCoroutine(FadeToNextScene(player));
+        StartCoroutine(FadeToNextScene());
     }
 }

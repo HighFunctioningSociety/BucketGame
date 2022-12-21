@@ -45,7 +45,7 @@ public class PauseMenu : MonoBehaviour
         Inputs.supressJump = false;
     }
 
-    void Pause()
+    public void Pause()
     {
 #if UNITY_EDITOR
         debugMenuUI.SetActive(false);
@@ -65,10 +65,10 @@ public class PauseMenu : MonoBehaviour
     public void LoadMenu()
     {
         _GameManager.PrepForMenu();
-        Loader.Load(Loader.Scene.MainMenu);
+        Loader.Load(SceneDirectory.Scene.MainMenu);
         cameraBrain.MainMenuPosition();
         _UIManager.UIManager.ResetMenus();
-        _GameManager.firstUpdate = true;
+        _GameManager.FirstUpdate = true;
         Resume();
     }
 
