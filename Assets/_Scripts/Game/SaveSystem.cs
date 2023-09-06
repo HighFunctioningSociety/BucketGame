@@ -51,10 +51,10 @@ public class GameState
 {
     [Header("Scene Info")]
     [Space]
-    public string currentScene;
+    public string CurrentScene;
     public int CurrentSpawnIndex;
-    public string currentSpawnScene;
-    public bool isRespawning = false;
+    public string CurrentSpawnScene;
+    public bool IsRespawning = false;
 
     [Header("Player Stats")]
     [Space]
@@ -95,8 +95,8 @@ public class GameState
             return;
 
         //Scene info
-        currentScene = _GameManager.CurrentScene.ToString();
-        currentSpawnScene = _GameManager.currentSpawnScene.ToString();
+        CurrentScene = _GameManager.CurrentScene.ToString();
+        CurrentSpawnScene = _GameManager.currentSpawnScene.ToString();
         CurrentSpawnIndex = _GameManager.currentSpawnIndex;
 
         //Player stats
@@ -131,8 +131,8 @@ public class NewState : GameState
     public NewState()
     {
         Debug.LogWarning("NEW SAVE CREATED"); 
-        currentScene = SceneDirectory.Scene.Town_HubArea.ToString();
-        currentSpawnScene = SceneDirectory.Scene.Town_HubArea.ToString();
+        CurrentScene = SceneDirectory.Scene.Town_HubArea.ToString();
+        CurrentSpawnScene = SceneDirectory.Scene.Town_HubArea.ToString();
         CurrentSpawnIndex = 0;
 
         MaxHealth = Constants.Values.DefaultPlayerHealth;

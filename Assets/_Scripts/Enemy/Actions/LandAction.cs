@@ -21,7 +21,7 @@ public class LandAction : Actions
 
         if(_enemy.StateTimeElapsed < 3f)
         {
-            _fallPrefab.transform.position = new Vector2(Mathf.Clamp(_enemy.TargetObject.position.x, _enemy.boundLeft.transform.position.x, _enemy.boundRight.transform.position.x), _enemy.boundLeft.position.y);
+            _fallPrefab.transform.position = new Vector2(Mathf.Clamp(_enemy.TargetObject.position.x, _enemy.BoundLeft.transform.position.x, _enemy.BoundRight.transform.position.x), _enemy.BoundLeft.position.y);
         }
 
         if(_enemy.StateTimeElapsed > 2.7f)

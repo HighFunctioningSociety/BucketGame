@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPoint : TriggerableEvent
+public class SpawnPoint : Interactable
 {
     public AudioSource audioSource;
     public int spawnIndex;
     public SceneDirectory.Scene spawnScene;
     public Transform particlePrefab;
 
-    public override void TriggerEvent()
+    public override void Interact()
     {
         InteractWithSpawnPoint();
     }
@@ -56,7 +56,7 @@ public class SpawnPoint : TriggerableEvent
 
     private void SpawnParticles()
     {
-        Transform particles = Instantiate(particlePrefab, this.transform.position, this.transform.rotation);
+        Transform particles = Instantiate(particlePrefab, transform.position, transform.rotation);
         Destroy(particles.gameObject, 3f);
     }
 }

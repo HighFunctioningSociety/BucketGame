@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 3779449754562780513}
   - component: {fileID: 3811558333154096793}
   - component: {fileID: 6441171309676460697}
-  - component: {fileID: 8792812472385657426}
+  - component: {fileID: 2860261738184906715}
   m_Layer: 9
   m_Name: Piercer
   m_TagString: Untagged
@@ -328,29 +328,26 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: c2e52d07efb52794ab55a079b1ecc159, type: 2}
   defaultState: {fileID: 11400000, guid: c2e52d07efb52794ab55a079b1ecc159, type: 2}
   aggroState: {fileID: 11400000, guid: 64a721b2cf5ae544e8e59bec80fc46d7, type: 2}
-  remainState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+  RemainState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
   StateTimeElapsed: 0
   IdleTimeElapsed: 0
   AttacksDoneInState: 0
+  EnemyPrefabDead: {fileID: 7012221780441401678, guid: 033ad7930181c564785ba61ba536c188,
+    type: 3}
+  EnemyParticlesDead: {fileID: 7416014848361221603, guid: 33732d0ee8076f04d84ed6c1b6e0b129,
+    type: 3}
+  UnfreezeConstraintsOnReset: 0
+  AINotActiveOnStart: 0
+  groundCheck: {fileID: 0}
+  BoundLeft: {fileID: 0}
+  BoundRight: {fileID: 0}
+  Invul: 0
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 256
   ObstacleLayer:
     serializedVersion: 2
     m_Bits: 1024
-  enemyPrefabDead: {fileID: 7012221780441401678, guid: 033ad7930181c564785ba61ba536c188,
-    type: 3}
-  enemyParticlesDead: {fileID: 1468090071482942586, guid: 0be59bf9033eecf46a0daf9dc941bef2,
-    type: 3}
-  UnfreezeConstraintsOnReset: 0
-  AINotActiveOnStart: 0
-  blockPointAttacked: 0
-  patrolDirection: 0
-  groundCheck: {fileID: 0}
-  boundLeft: {fileID: 0}
-  boundRight: {fileID: 0}
-  Invul: 0
-  Triggers: {fileID: 0}
   FullscreenAttackTiming: 0
   HurtTimeRemaining: 0
   AggroTimeRemaining: 0
@@ -359,6 +356,7 @@ MonoBehaviour:
   Animator: {fileID: 0}
   RigidBody: {fileID: 0}
   EnemyCollider: {fileID: 0}
+  PatrolDirection: 0
   Direction: 0
   Speed: 0
   CurrentPatrol: 0
@@ -366,10 +364,12 @@ MonoBehaviour:
   SpawnPosition: {x: 0, y: 0, z: 0}
   StartingPosition: {x: 0, y: 0, z: 0}
   TargetPosition: {x: 0, y: 0, z: 0}
+  BlockPointAttacked: 0
   AbilityManager: {fileID: 0}
   LOS: {fileID: 0}
   Hurt: {fileID: 0}
   Reposition: {fileID: 0}
+  Triggers: {fileID: 0}
 --- !u!114 &2456945490091053588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,8 +478,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &8792812472385657426
-BoxCollider2D:
+--- !u!58 &2860261738184906715
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -491,19 +491,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.16952747, y: -0.6390759}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 15, y: 15}
-    newSize: {x: 15, y: 15}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.2011713, y: 0.9403054}
-  m_EdgeRadius: 0
+  m_Radius: 3.31
 --- !u!1 &1281970585729541028
 GameObject:
   m_ObjectHideFlags: 0

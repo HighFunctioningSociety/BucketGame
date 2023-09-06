@@ -102,7 +102,6 @@ public class CharacterController2D : MonoBehaviour
 
     private void SlopeCheck(RaycastHit2D raycastHit)
     {
-
         SlopeCheckHorizontal();
         SlopeCheckVertical(raycastHit);
     }
@@ -219,9 +218,6 @@ public class CharacterController2D : MonoBehaviour
         {
             _xInputIsZero = true;
         }
-        
-        // Move the character by finding the target velocity
-        
 
         // And then smoothing it out and applying it to the character
         if (!KillHorizontalInput)

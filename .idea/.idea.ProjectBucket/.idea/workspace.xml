@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="371e2582-4706-487c-abfa-eea1a45d02d7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Animation/Enemies/Ghost_animation/ghost_spikeDown.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Animation/Enemies/Ghost_animation/ghost_spikeDown.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Animation/Enemies/Ghost_animation/ghost_spikeUp.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Animation/Enemies/Ghost_animation/ghost_spikeUp.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Animation/Enemies/Piercer_animation/Piercer_SwoopStart.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Animation/Enemies/Piercer_animation/Piercer_SwoopStart.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Sprites/Characters/Piercer/Piercer_DivePrep3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Sprites/Characters/Piercer/Piercer_DivePrep3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/Balcony.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/Balcony.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/Balcony.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/Balcony.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/FencingRails.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/FencingRails.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/Quoins.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/Quoins.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/Quoins.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/Quoins.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/house4front.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/house4front.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/newspaper_ground.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/newspaper_ground.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/newspaper_ground2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/newspaper_ground2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/newspaper_ground3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/newspaper_ground3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/newspaper_ground4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/newspaper_ground4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/wall3.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Art/Sprites/Environment/TownAssets/wall3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Materials/BlackMistMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Materials/BlackMistMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefab/Enemy/Attacks/GhostSpike.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefab/Enemy/Attacks/GhostSpike.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefab/Enemy/Piercer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefab/Enemy/Piercer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefab/Game/SpawnPoint_.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefab/Game/SpawnPoint_.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefab/Game/_UI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefab/Game/_UI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefab/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefab/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Prefab/bladeProjectile.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Prefab/bladeProjectile.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/SewerEntrance.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/SewerEntrance.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Station_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Station_3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Station_4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Station_4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Station_5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Station_5.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Town_0.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Town_0.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Town_HubArea.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Town_HubArea.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scenes/Town_Shop.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scenes/Town_Shop.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_ScriptableObjects/States/BellBoss/Idle_Boss.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_ScriptableObjects/States/BellBoss/Idle_Boss.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Enemy/Abilities/EnemySwoopTriggerable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Enemy/Abilities/EnemySwoopTriggerable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Game/Items/InteractWith.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Game/Items/Interactable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Game/Items/InteractWith.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Game/Items/Interactable.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Game/SaveSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Game/SaveSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Game/SceneZero.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Game/SceneZero.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Game/SpawnPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Game/SpawnPoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Game/_GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Game/_GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/Player/CharacterController2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/Player/CharacterController2D.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Scripts/ThinPlatform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Scripts/ThinPlatform.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shaders/WaterBlurFinal.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shaders/WaterBlurFinal.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shaders/WaterBlurModified.shader" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Shaders/WaterBlurModified.shader.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Textures/reflection_surface.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Textures/reflection_surface.renderTexture" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2022.dwlt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2UwMRaO7cgVGqF1CppWDfKyU37e" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.C#&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Tristan\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Tristan\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Tristan\\AppData\\Local\\Symbols\\src&quot;
+    ]
+  }
+}</component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$USER_HOME$/Desktop/BucketGame/BucketGame.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Tristan\Desktop\BucketGame" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.1.10f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\Tristan\Documents\GitHub\ProjectBucket -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Tristan\Documents\GitHub\ProjectBucket" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.1.10f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\Tristan\Documents\GitHub\ProjectBucket -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Tristan\Documents\GitHub\ProjectBucket" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="371e2582-4706-487c-abfa-eea1a45d02d7" name="Changes" comment="" />
+      <created>1693846183413</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1693846183413</updated>
+      <workItem from="1693846192107" duration="89000" />
+      <workItem from="1693846291096" duration="2988000" />
+      <workItem from="1693960680959" duration="1378000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySwoopTriggerable : EnemyProximityTriggerable
@@ -15,8 +13,8 @@ public class EnemySwoopTriggerable : EnemyProximityTriggerable
 
     private void Start()
     {
-        enemyAbilityClone = Object.Instantiate(scriptableAbility);
-        Initialize(enemyAbilityClone, this.gameObject);
+        enemyAbilityClone = Instantiate(scriptableAbility);
+        Initialize(enemyAbilityClone, gameObject);
     }
 
     public override void Initialize(EnemyAbility selectedAbility, GameObject abilityObject)
@@ -25,11 +23,18 @@ public class EnemySwoopTriggerable : EnemyProximityTriggerable
     }
     public override void Trigger()
     {
-        enemy.Direction = Mathf.Sign(enemy.transform.position.x - enemy.TargetObject.position.x);
+        Vector3 enemyPosition = enemy.transform.position;
+        Vector3 targetObjectPosition = enemy.TargetObject.position;
+        
+        
+        enemy.StartingPosition = enemyPosition;
+        enemy.targetPosition = new Vector2(targetObjectPosition.x, targetObjectPosition.y);
+            
+        enemy.Direction = Mathf.Sign(enemyPosition.x - targetObjectPosition.x);
         enemy.Speed = Mathf.Abs(enemy.Direction);
-        enemy.StartingPosition = enemy.transform.position;
-        enemy.targetPosition = new Vector2(enemy.TargetObject.position.x, enemy.TargetObject.position.y);
+        
         enemy.RigidBody.velocity = Vector2.zero;
+        
         animator.Play(AnimationName);
     }
 }

@@ -6,11 +6,13 @@ using UnityEngine;
 public class State : ScriptableObject
 {
     public Actions OnStateEnterAction;
+    public Actions OnStateExitAction;
     public Actions[] actions;
     public Transition[] transitions;
     public bool uninterruptable;
     public bool hurtboxDisabled;
-    public bool isNeutralState;
+    public bool IsIdleState;
+    public bool IsAggroState;
     public Color sceneGizmoColor = Color.grey;
 
     // Start is called before the first frame update

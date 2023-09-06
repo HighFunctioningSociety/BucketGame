@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// ReSharper disable All
 
-public class InteractWith : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
     public LayerMask playerLayer;
     public bool playerInRange;
     public float rangeX, rangeY;
     public GameObject dpadIcon;
-    public TriggerableEvent interactable;
     private Collider2D playerCollider;
     private bool buttonDown;
 
@@ -29,14 +29,10 @@ public class InteractWith : MonoBehaviour
             buttonDown = true;
         }
     }
-    private void InteractWithInteractable()
-    {
-        interactable.TriggerEvent();
-    }
 
     private void DisplayIcon()
     {
-        playerCollider = Physics2D.OverlapBox(this.transform.position, new Vector2(rangeX, rangeY), 0, playerLayer);
+        playerCollider = Physics2D.OverlapBox(transform.position, new Vector2(rangeX, rangeY), 0, playerLayer);
         if (playerCollider != null)
         {
             playerInRange = true;
@@ -59,7 +55,7 @@ public class InteractWith : MonoBehaviour
         if (Inputs.Vertical == 1 && !buttonDown && _player.PlayerController.GetGrounded() && _player.CurrentState == PlayerContainer.PSTATE.NORMAL && _player.CurrentControlType == PlayerContainer.CONTROLSTATE.ACCEPT_INPUT)
         {
             buttonDown = true;
-            InteractWithInteractable();
+            Interact();
         }
     }
 
@@ -68,4 +64,6 @@ public class InteractWith : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(this.transform.position, new Vector2(rangeX, rangeY));
     }
+
+    public abstract void Interact();
 }

@@ -16,6 +16,6 @@ MonoBehaviour:
   aSound: {fileID: 0}
   globalCooldown: 7
   abilityCooldownTime: 0
-  rangeX: 10
+  rangeX: 41.15
   rangeY: 15
   ability: {fileID: 0}

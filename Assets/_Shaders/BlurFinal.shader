@@ -1,6 +1,6 @@
 // Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Custom/WaterBlur" {
+Shader "Custom/Blur" {
     Properties {
 	_blurSizeXY("BlurSizeXY", Range(0,10)) = 0
 }

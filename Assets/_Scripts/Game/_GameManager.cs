@@ -241,8 +241,8 @@ public class _GameManager : MonoBehaviour
     {
         dropManager.CalculateAndDropEnemyCoins(_enemy);
         _enemy.gameObject.SetActive(false);
-        Transform deathPrefab = Instantiate(_enemy.enemyPrefabDead, _enemy.transform.position, _enemy.transform.rotation);
-        Transform deathParticles = Instantiate(_enemy.enemyParticlesDead, _enemy.transform.position, _enemy.transform.rotation);
+        Transform deathPrefab = Instantiate(_enemy.EnemyPrefabDead, _enemy.transform.position, _enemy.transform.rotation);
+        Transform deathParticles = Instantiate(_enemy.EnemyParticlesDead, _enemy.transform.position, _enemy.transform.rotation);
         deathPrefab.GetComponent<Rigidbody2D>().AddForce(_enemy.RigidBody.velocity * 2, ForceMode2D.Impulse); // right now applying the enemies walk velocity instead of knockback (possibly fixed)
         Destroy(deathPrefab.gameObject, 50f);
         Destroy(deathParticles.gameObject, 10f);
@@ -270,7 +270,7 @@ public class _GameManager : MonoBehaviour
         // Parse the save data to get the current scene
         try 
         { 
-            CurrentScene = (SceneDirectory.Scene)System.Enum.Parse(typeof(SceneDirectory.Scene), FirstUpdate ? GameData.currentSpawnScene : GameData.currentScene);
+            CurrentScene = (SceneDirectory.Scene)System.Enum.Parse(typeof(SceneDirectory.Scene), FirstUpdate ? GameData.CurrentSpawnScene : GameData.CurrentScene);
         }
         catch
         {

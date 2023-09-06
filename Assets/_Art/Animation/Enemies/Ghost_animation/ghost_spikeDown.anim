@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ghost_spikeDown
-  serializedVersion: 6
+  serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
@@ -71,29 +71,8 @@ AnimationClip:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings:
-    - serializedVersion: 2
-      path: 0
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-    pptrCurveMapping:
-    - {fileID: 1262107462364471887, guid: 416de118978580848b2a438dfd3b4925, type: 3}
-    - {fileID: 1931622109320343044, guid: 416de118978580848b2a438dfd3b4925, type: 3}
-    - {fileID: 3944683645076567679, guid: 416de118978580848b2a438dfd3b4925, type: 3}
-    - {fileID: -6801646242660105569, guid: 416de118978580848b2a438dfd3b4925, type: 3}
-    - {fileID: -7093406012335192231, guid: 416de118978580848b2a438dfd3b4925, type: 3}
-    - {fileID: -3242970627715311641, guid: 416de118978580848b2a438dfd3b4925, type: 3}
-    - {fileID: 9152126395770202070, guid: 416de118978580848b2a438dfd3b4925, type: 3}
-    - {fileID: 2713082796611728532, guid: 416de118978580848b2a438dfd3b4925, type: 3}
-    - {fileID: -2422628779599204740, guid: 416de118978580848b2a438dfd3b4925, type: 3}
-    - {fileID: -8919038449795916890, guid: 416de118978580848b2a438dfd3b4925, type: 3}
-    - {fileID: 4884944096950199901, guid: 416de118978580848b2a438dfd3b4925, type: 3}
-    - {fileID: -1150035009318323650, guid: 416de118978580848b2a438dfd3b4925, type: 3}
-    - {fileID: -889264771643381409, guid: 416de118978580848b2a438dfd3b4925, type: 3}
-    - {fileID: -5844496777104571192, guid: 416de118978580848b2a438dfd3b4925, type: 3}
+    genericBindings: []
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

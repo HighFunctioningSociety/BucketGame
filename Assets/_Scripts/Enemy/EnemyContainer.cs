@@ -12,7 +12,7 @@ public class EnemyContainer : MonoBehaviour
     public State currentState;
     public State defaultState;
     public State aggroState;
-    public State remainState;
+    public State RemainState;
 
     [Space]
     [Header ("State information")]
@@ -22,15 +22,15 @@ public class EnemyContainer : MonoBehaviour
 
     [Space]
     [Header("Enemy Prefabs")]
-    public Transform enemyPrefabDead;
-    public Transform enemyParticlesDead;
+    public Transform EnemyPrefabDead;
+    public Transform EnemyParticlesDead;
 
     [Header("Other Values")]
     [Space]
     public bool UnfreezeConstraintsOnReset = false;
     public bool AINotActiveOnStart;
     public GroundCheck groundCheck;
-    public Transform boundLeft, boundRight;
+    public Transform BoundLeft, BoundRight;
     public bool Invul = false;
 
     [HideInInspector] public LayerMask PlayerLayer = Constants.Layers.Player;
@@ -54,7 +54,7 @@ public class EnemyContainer : MonoBehaviour
     [HideInInspector] public Vector3 SpawnPosition;
     [HideInInspector] public Vector3 StartingPosition;
     [HideInInspector] public Vector3 TargetPosition;
-    [HideInInspector] public bool blockPointAttacked = false;
+    [HideInInspector] public bool BlockPointAttacked = false;
 
     // Optional Components
     [HideInInspector] public EnemyAbilityManager AbilityManager;
@@ -73,9 +73,9 @@ public class EnemyContainer : MonoBehaviour
     {
         get { return TargetPosition; }
         set {
-            if (boundLeft != null && boundRight != null)
+            if (BoundLeft != null && BoundRight != null)
             {
-                value.x = Mathf.Clamp(value.x, boundLeft.position.x, boundRight.position.x);
+                value.x = Mathf.Clamp(value.x, BoundLeft.position.x, BoundRight.position.x);
             }
             value.z = 0;
             TargetPosition = value; 
@@ -128,23 +128,7 @@ public class EnemyContainer : MonoBehaviour
         IncrementIdleTime();
     }
     
-    private void IncrementStateTime()
-    {
-        StateTimeElapsed += Time.fixedDeltaTime;
-    }
-
-    private void IncrementIdleTime()
-    {
-        if (currentState.isNeutralState)
-        {
-            InIdle = true;
-            IdleTimeElapsed += Time.fixedDeltaTime;
-        }
-        else
-        {
-            InIdle = false;
-        }
-    }
+    
 
     public void SetUpAI()
     {
@@ -153,7 +137,9 @@ public class EnemyContainer : MonoBehaviour
         PatrolDirection = patrolDirectionValues[Random.Range(0, 1)];
         Hurt = GetComponent<HurtController>();
         SpawnPosition = transform.position;
+
         currentState = defaultState;
+
         curHealth = enemyStats.maxHealth;
         curArmor = enemyStats.armor;
         Invul = false;
@@ -168,7 +154,7 @@ public class EnemyContainer : MonoBehaviour
 
     public void TransitionToState(State nextState)
     {
-        if (nextState != remainState)
+        if (nextState != RemainState)
         {
             currentState = nextState;
             ResetStateTimers();
@@ -182,9 +168,27 @@ public class EnemyContainer : MonoBehaviour
         }
     }
 
+    private void IncrementStateTime()
+    {
+        StateTimeElapsed += Time.fixedDeltaTime;
+    }
+
+    private void IncrementIdleTime()
+    {
+        if (currentState.IsIdleState)
+        {
+            InIdle = true;
+            IdleTimeElapsed += Time.fixedDeltaTime;
+        }
+        else
+        {
+            InIdle = false;
+        }
+    }
+
     private void ResetStateTimers()
     {
-        if (!currentState.isNeutralState)
+        if (!currentState.IsIdleState)
             IdleTimeElapsed = 0;
         AttacksDoneInState = 0;
         StateTimeElapsed = 0;
@@ -251,7 +255,7 @@ public class EnemyContainer : MonoBehaviour
 
     public void ActivateBlockReaction()
     {
-        blockPointAttacked = true;
+        BlockPointAttacked = true;
     }
 
     IEnumerator Invulnerability()

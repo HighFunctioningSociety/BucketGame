@@ -15,7 +15,7 @@ public class SceneZero : MonoBehaviour
         }
 
         GameState data = SaveSystem.LoadGame();
-        _GameManager.CurrentScene = (SceneDirectory.Scene)System.Enum.Parse(typeof(SceneDirectory.Scene), data.currentSpawnScene);
+        _GameManager.CurrentScene = (SceneDirectory.Scene)System.Enum.Parse(typeof(SceneDirectory.Scene), data.CurrentSpawnScene);
     }
 
     private void Start()

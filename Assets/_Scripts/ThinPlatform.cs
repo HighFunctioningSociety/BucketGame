@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class ThinPlatform : MonoBehaviour
 {
-    private PlatformEffector2D effector;
-    private Collider2D platformCol;
-    private float platX;
-    private float platY;
-    private Vector2 platCenter;
-    private float defaultRotation;
-    public Collider2D[] colliders;
+    private PlatformEffector2D _effector;
+    private Collider2D _platformCollider;
+    private float _platX;
+    private float _platY;
+    private Vector2 _platCenter;
+    private float _defaultRotation;
+    private Collider2D[] _colliders;
 
     public LayerMask playerLayer;
 
     private void Start()
     {
-        platformCol = GetComponent<Collider2D>();
-        effector = GetComponent<PlatformEffector2D>();
-        defaultRotation = effector.rotationalOffset;
-        platX = platformCol.bounds.size.x;
-        platY = platformCol.bounds.size.y;
-        platCenter = platformCol.bounds.center;
+        _platformCollider = GetComponent<Collider2D>();
+        _effector = GetComponent<PlatformEffector2D>();
+        _defaultRotation = _effector.rotationalOffset;
+        _platX = _platformCollider.bounds.size.x;
+        _platY = _platformCollider.bounds.size.y;
+        _platCenter = _platformCollider.bounds.center;
     }
 
     void Update()
@@ -36,7 +36,7 @@ public class ThinPlatform : MonoBehaviour
             Inputs.supressJump = true;
             if (Inputs.confirm)
             {   
-                effector.rotationalOffset = 180f;
+                _effector.rotationalOffset = 180f;
             }
         }
         else
@@ -47,14 +47,13 @@ public class ThinPlatform : MonoBehaviour
 
     private void CheckForPlayer()
     {
-
         DropPlayer();
         
-        colliders = Physics2D.OverlapBoxAll(platCenter, new Vector2(platX, platY), 0f, playerLayer);
+        _colliders = Physics2D.OverlapBoxAll(_platCenter, new Vector2(_platX, _platY), 0f, playerLayer);
 
-        if (colliders.Length == 0)
+        if (_colliders.Length == 0)
         {
-            effector.rotationalOffset = defaultRotation;
+            _effector.rotationalOffset = _defaultRotation;
         }
     }
 

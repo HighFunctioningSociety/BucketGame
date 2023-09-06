@@ -48,12 +48,17 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
+  whatIsSlope:
+    serializedVersion: 2
+    m_Bits: 0
   WasGrounded: 0
   Grounded: 0
   EdgeLeft: 0
   EdgeRight: 0
   RightEdgeAlreadyFound: 0
   LeftEdgeAlreadyFound: 0
+  _extraLength: 0.4
+  _extraWidth: 0.05
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -180,29 +185,26 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 8db2ee4abda209e4a9b0b8eb8b284367, type: 2}
   defaultState: {fileID: 11400000, guid: 8db2ee4abda209e4a9b0b8eb8b284367, type: 2}
   aggroState: {fileID: 11400000, guid: b9316f8b9b612e841b405b3326938c88, type: 2}
-  remainState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+  RemainState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
   StateTimeElapsed: 0
   IdleTimeElapsed: 0
   AttacksDoneInState: 0
+  EnemyPrefabDead: {fileID: 7012221780441401678, guid: 033ad7930181c564785ba61ba536c188,
+    type: 3}
+  EnemyParticlesDead: {fileID: 7416014848361221603, guid: 33732d0ee8076f04d84ed6c1b6e0b129,
+    type: 3}
+  UnfreezeConstraintsOnReset: 0
+  AINotActiveOnStart: 0
+  groundCheck: {fileID: 8412213558075361184}
+  BoundLeft: {fileID: 0}
+  BoundRight: {fileID: 0}
+  Invul: 0
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 256
   ObstacleLayer:
     serializedVersion: 2
     m_Bits: 1024
-  enemyPrefabDead: {fileID: 7012221780441401678, guid: 033ad7930181c564785ba61ba536c188,
-    type: 3}
-  enemyParticlesDead: {fileID: 1468090071482942586, guid: 0be59bf9033eecf46a0daf9dc941bef2,
-    type: 3}
-  UnfreezeConstraintsOnReset: 0
-  AINotActiveOnStart: 0
-  blockPointAttacked: 0
-  patrolDirection: 1
-  groundCheck: {fileID: 8412213558075361184}
-  boundLeft: {fileID: 0}
-  boundRight: {fileID: 0}
-  Invul: 0
-  Triggers: {fileID: 0}
   FullscreenAttackTiming: 0
   HurtTimeRemaining: 0
   AggroTimeRemaining: 0
@@ -211,6 +213,7 @@ MonoBehaviour:
   Animator: {fileID: 0}
   RigidBody: {fileID: 0}
   EnemyCollider: {fileID: 0}
+  PatrolDirection: 0
   Direction: 0
   Speed: 0
   CurrentPatrol: 0
@@ -218,10 +221,12 @@ MonoBehaviour:
   SpawnPosition: {x: 0, y: 0, z: 0}
   StartingPosition: {x: 0, y: 0, z: 0}
   TargetPosition: {x: 0, y: 0, z: 0}
+  BlockPointAttacked: 0
   AbilityManager: {fileID: 0}
   LOS: {fileID: 0}
   Hurt: {fileID: 0}
   Reposition: {fileID: 0}
+  Triggers: {fileID: 0}
 --- !u!114 &900263963304717588
 MonoBehaviour:
   m_ObjectHideFlags: 0
