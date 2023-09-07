@@ -11,13 +11,10 @@ public class EnemyContainer : MonoBehaviour
     [Header("Enemy State Objects")]
     public State currentState;
     public State defaultState;
-    public State aggroState;
-    public State RemainState;
 
     [Space]
     [Header ("State information")]
     public float StateTimeElapsed = 0;
-    public float IdleTimeElapsed = 0;
     public int AttacksDoneInState = 0;
 
     [Space]
@@ -53,7 +50,7 @@ public class EnemyContainer : MonoBehaviour
     [HideInInspector] public Transform TargetObject;
     [HideInInspector] public Vector3 SpawnPosition;
     [HideInInspector] public Vector3 StartingPosition;
-    [HideInInspector] public Vector3 TargetPosition;
+    
     [HideInInspector] public bool BlockPointAttacked = false;
 
     // Optional Components
@@ -69,30 +66,32 @@ public class EnemyContainer : MonoBehaviour
     private Material _matDefault;
     private SpriteRenderer _spriteRenderer;
 
-    public Vector3 targetPosition
+    private Vector3 _targetPosition;
+
+    public Vector3 TargetPosition
     {
-        get { return TargetPosition; }
+        get { return _targetPosition; }
         set {
             if (BoundLeft != null && BoundRight != null)
             {
                 value.x = Mathf.Clamp(value.x, BoundLeft.position.x, BoundRight.position.x);
             }
             value.z = 0;
-            TargetPosition = value; 
+            _targetPosition = value; 
         }
     }
 
-    private int _curHealth;
-    public int curHealth
+    private int _currentHealth;
+    public int CurrentHealth
     {
-        get { return _curHealth; }
-        set { _curHealth = Mathf.Clamp(value, 0, enemyStats.maxHealth); }
+        get { return _currentHealth; }
+        set { _currentHealth = Mathf.Clamp(value, 0, enemyStats.maxHealth); }
     }
-    private float _curArmor;
-    public float curArmor
+    private float _currentArmor;
+    public float CurrentArmor
     {
-        get { return _curArmor; }
-        set { _curArmor = Mathf.Clamp(value, 0, enemyStats.armor); }
+        get { return _currentArmor; }
+        set { _currentArmor = Mathf.Clamp(value, 0, enemyStats.armor); }
     }
 
     private void Awake()
@@ -125,7 +124,6 @@ public class EnemyContainer : MonoBehaviour
         }
         currentState.UpdateState(this);
         IncrementStateTime();
-        IncrementIdleTime();
     }
     
     
@@ -140,8 +138,8 @@ public class EnemyContainer : MonoBehaviour
 
         currentState = defaultState;
 
-        curHealth = enemyStats.maxHealth;
-        curArmor = enemyStats.armor;
+        CurrentHealth = enemyStats.maxHealth;
+        CurrentArmor = enemyStats.armor;
         Invul = false;
         RigidBody.velocity = Vector2.zero;
         if (_spriteRenderer != null)
@@ -154,7 +152,7 @@ public class EnemyContainer : MonoBehaviour
 
     public void TransitionToState(State nextState)
     {
-        if (nextState != RemainState)
+        if (nextState != currentState)
         {
             currentState = nextState;
             ResetStateTimers();
@@ -162,10 +160,16 @@ public class EnemyContainer : MonoBehaviour
             CalculateFullscreenAttackTiming();
         }
 
-        if (nextState == aggroState)
+        if (nextState.IsAggroState)
         {
-            AggroTimeRemaining = enemyStats.aggroTime;
+            AggroTimeRemaining = currentState.TimeToRemainInState;
         }
+    }
+
+    private void ActivateStateEnterAction()
+    {
+        if (currentState.OnStateEnterAction != null)
+            currentState.OnStateEnterAction.Act(this);
     }
 
     private void IncrementStateTime()
@@ -173,31 +177,10 @@ public class EnemyContainer : MonoBehaviour
         StateTimeElapsed += Time.fixedDeltaTime;
     }
 
-    private void IncrementIdleTime()
-    {
-        if (currentState.IsIdleState)
-        {
-            InIdle = true;
-            IdleTimeElapsed += Time.fixedDeltaTime;
-        }
-        else
-        {
-            InIdle = false;
-        }
-    }
-
     private void ResetStateTimers()
     {
-        if (!currentState.IsIdleState)
-            IdleTimeElapsed = 0;
         AttacksDoneInState = 0;
         StateTimeElapsed = 0;
-    }
-
-    private void ActivateStateEnterAction()
-    {
-        if (currentState.OnStateEnterAction != null)
-            currentState.OnStateEnterAction.Act(this);
     }
 
     private void CalculateFullscreenAttackTiming()
@@ -216,13 +199,13 @@ public class EnemyContainer : MonoBehaviour
     {
         if (Invul != true || bypassInvul == true)
         {
-            curHealth -= _damage;
+            CurrentHealth -= _damage;
             StopAllCoroutines();
             StartCoroutine(Invulnerability());
             StartCoroutine(DamageFlash());
         }
 
-        if (curHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             _GameManager.KillEnemy(this);
             Rumbler.RumbleConstant(30, 30, 0.1f);
@@ -243,11 +226,11 @@ public class EnemyContainer : MonoBehaviour
     public void KnockBack(float _knockBackX, float _knockBackY, Vector3 _playerPosition)
     {
         // reduce current velocity based on armor
-        RigidBody.velocity *= curArmor;
+        RigidBody.velocity *= CurrentArmor;
 
         // Calculate Knockback
-        float knockBackX = _knockBackX * RigidBody.mass * (1 - curArmor) * Mathf.Sign(EnemyCollider.bounds.center.x - _playerPosition.x);
-        float knockBackY = -_knockBackY * RigidBody.mass * (1 - curArmor);
+        float knockBackX = _knockBackX * RigidBody.mass * (1 - CurrentArmor) * Mathf.Sign(EnemyCollider.bounds.center.x - _playerPosition.x);
+        float knockBackY = -_knockBackY * RigidBody.mass * (1 - CurrentArmor);
 
         // Apply knockback
         RigidBody.AddForce(new Vector2(knockBackX, -knockBackY), ForceMode2D.Impulse);

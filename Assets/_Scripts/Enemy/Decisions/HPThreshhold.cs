@@ -17,7 +17,7 @@ public class HPThreshhold : Decision
     private bool CheckHealth(EnemyContainer _enemy)
     {
         bool triggerUsed = _enemy.Triggers.GetTriggerValue(triggerIndex);
-        bool hpThreshholdReached = ((float)_enemy.curHealth / (float)_enemy.enemyStats.maxHealth <= healthThreshhold);
+        bool hpThreshholdReached = ((float)_enemy.CurrentHealth / (float)_enemy.enemyStats.maxHealth <= healthThreshhold);
 
         if (hpThreshholdReached && !triggerUsed) 
             _enemy.Triggers.FlipTrigger(triggerIndex);

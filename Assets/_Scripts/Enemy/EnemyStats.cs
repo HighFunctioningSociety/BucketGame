@@ -16,13 +16,10 @@ public class EnemyStats : ScriptableObject
 
     [Space]
     [Header ("Enemy State Variables")]
-    public float idleTime = 0;
     public float fullscreenTimingMin = 0, fullscreenTimingMax = 0;
     public float repositionMinDistance = 0, repositionMaxDistance = 0;
     public float repositionCooldown = 0;
     public float aggroRangeX = 0, aggroRangeY = 0;
-    public float aggroTime = 10;
-    public float hurtStunTime = 0.1f;
 
     [Space]
     [Header ("Misc.")]

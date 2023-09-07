@@ -7,12 +7,12 @@ public class IdleTimerEnd : Decision
 {
     public override bool Decide(EnemyContainer enemy)
     {
-        bool TimeOver = CheckTimer(enemy);
-        return TimeOver;
+        bool TimeToRemainInStateReached = CheckTimer(enemy);
+        return TimeToRemainInStateReached;
     }
     
     private bool CheckTimer(EnemyContainer enemy)
     {
-        return enemy.IdleTimeElapsed >= enemy.enemyStats.idleTime;
+        return enemy.StateTimeElapsed >= enemy.currentState.TimeToRemainInState;
     }
 }

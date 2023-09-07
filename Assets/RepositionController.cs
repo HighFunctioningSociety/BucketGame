@@ -9,7 +9,7 @@ public class RepositionController : MonoBehaviour
     public void InitiateReposition()
     {
         Enemy.AbilityManager.nextRepositionTime = Enemy.enemyStats.repositionCooldown + Time.time;
-        Enemy.targetPosition = GenerateTargetPosition();
+        Enemy.TargetPosition = GenerateTargetPosition();
     }
 
     public Vector2 GenerateTargetPosition()

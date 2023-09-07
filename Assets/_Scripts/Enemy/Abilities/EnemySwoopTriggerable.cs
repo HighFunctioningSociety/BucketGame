@@ -28,7 +28,7 @@ public class EnemySwoopTriggerable : EnemyProximityTriggerable
         
         
         enemy.StartingPosition = enemyPosition;
-        enemy.targetPosition = new Vector2(targetObjectPosition.x, targetObjectPosition.y);
+        enemy.TargetPosition = new Vector2(targetObjectPosition.x, targetObjectPosition.y);
             
         enemy.Direction = Mathf.Sign(enemyPosition.x - targetObjectPosition.x);
         enemy.Speed = Mathf.Abs(enemy.Direction);

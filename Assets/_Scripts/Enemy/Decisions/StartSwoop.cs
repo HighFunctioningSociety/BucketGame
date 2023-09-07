@@ -17,7 +17,7 @@ public class StartSwoop : Decision
         {
             _enemy.Direction = Mathf.Sign(_enemy.transform.position.x - _enemy.TargetObject.position.x);
             _enemy.Speed = Mathf.Abs(_enemy.Direction);
-            _enemy.targetPosition = new Vector2(_enemy.TargetObject.position.x - (30 * _enemy.Direction), _enemy.TargetObject.position.y + 2.5f);
+            _enemy.TargetPosition = new Vector2(_enemy.TargetObject.position.x - (30 * _enemy.Direction), _enemy.TargetObject.position.y + 2.5f);
             _enemy.StartingPosition = _enemy.transform.position;
             _enemy.RigidBody.velocity = Vector2.zero;
             _enemy.Animator.SetTrigger("Dive");

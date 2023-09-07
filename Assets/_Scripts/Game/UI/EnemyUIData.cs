@@ -41,7 +41,7 @@ public class EnemyUIData: MonoBehaviour
 
     private void SetHealth()
     {
-        HealthText.text =  string.Format("{0} / {1}", enemyObject.curHealth, enemyObject.enemyStats.maxHealth);
+        HealthText.text =  string.Format("{0} / {1}", enemyObject.CurrentHealth, enemyObject.enemyStats.maxHealth);
     }
     private void SetActice()
     {

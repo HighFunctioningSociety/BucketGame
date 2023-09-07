@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyStateMachine : MonoBehaviour
 {
+    [Header("Essential Enemy Information")]
+    public EnemyContainer Enemy;
+
+    [Space]
     [Header("Enemy State Objects")]
     public State CurrentState;
     public State DefaultState;
@@ -13,13 +17,18 @@ public class EnemyStateMachine : MonoBehaviour
     [Space]
     [Header("State information")]
     public float StateTimeElapsed = 0;
-    public float IdleTimeElapsed = 0;
     public int AttacksDoneInState = 0;
 
-    [HideInInspector] public float FullscreenAttackTiming;
-    [HideInInspector] public float HurtTimeRemaining;
-    [HideInInspector] public float AggroTimeRemaining;
+    [Space]
+    [Header("State Count Down")]
+    public float StateCountDown = 0;
 
+
+    public void FixedUpdate()
+    {
+        CurrentState.UpdateState(Enemy);
+        IncrementStateTime();   
+    }
 
     public void TransitionToState(State nextState)
     {
@@ -27,13 +36,8 @@ public class EnemyStateMachine : MonoBehaviour
         {
             CurrentState = nextState;
             ResetStateTimers();
-            //ActivateStateEnterAction();
-            //CalculateFullscreenAttackTiming();
-        }
-
-        if (nextState.IsAggroState)
-        {
-            //AggroTimeRemaining = enemyStats.aggroTime;
+            ActivateStateEnterAction();
+            CalculateFullscreenAttackTiming();
         }
     }
 
@@ -42,20 +46,28 @@ public class EnemyStateMachine : MonoBehaviour
         StateTimeElapsed += Time.fixedDeltaTime;
     }
 
-    private void IncrementIdleTime()
-    {
-        if (CurrentState.IsIdleState)
-        {
-            IdleTimeElapsed += Time.fixedDeltaTime;
-        }
-    }
 
     private void ResetStateTimers()
     {
-        if (!CurrentState.IsIdleState)
-            IdleTimeElapsed = 0;
         AttacksDoneInState = 0;
         StateTimeElapsed = 0;
     }
 
+    private void ActivateStateEnterAction()
+    {
+        if (CurrentState.OnStateEnterAction != null)
+            CurrentState.OnStateEnterAction.Act(Enemy);
+    }
+
+    private void CalculateFullscreenAttackTiming()
+    {
+        //if (enemyStats.fullscreenTimingMax == 0)
+        //{
+        //    FullscreenAttackTiming = 0;
+        //}
+        //else
+        //{
+        //    FullscreenAttackTiming = Random.Range(enemyStats.fullscreenTimingMin, enemyStats.fullscreenTimingMax);
+        //}
+    }
 }

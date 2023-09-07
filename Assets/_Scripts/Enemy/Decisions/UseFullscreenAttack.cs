@@ -24,7 +24,7 @@ public class UseFullscreenAttack: Decision
             EnemyTriggerable[] useableAbilities = new EnemyTriggerable[fullscreenAbilityList.Length];
             int i = 0;
 
-            if (_enemy.IdleTimeElapsed > _enemy.FullscreenAttackTiming)
+            if ((_enemy.StateTimeElapsed > _enemy.FullscreenAttackTiming) && _enemy.currentState.IsIdleState)
             {
                 //abilities that can be used regardless of player distance
                 foreach (EnemyTriggerable ability in fullscreenAbilityList)

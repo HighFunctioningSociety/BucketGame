@@ -31,7 +31,7 @@ public class StopChasing : Decision
         }
         else
         {
-            enemy.AggroTimeRemaining = enemy.enemyStats.aggroTime;
+            enemy.AggroTimeRemaining = enemy.currentState.TimeToRemainInState;
         }
 
         return false;
