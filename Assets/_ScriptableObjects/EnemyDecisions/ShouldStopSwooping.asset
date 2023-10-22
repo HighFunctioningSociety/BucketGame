@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b57e268d0d673bd42a951d9d157fb35f, type: 3}
-  m_Name: PiercerSwoopAnimationChange
+  m_Script: {fileID: 11500000, guid: cd393e9e7a80e664e9e3be5755d4c26d, type: 3}
+  m_Name: ShouldStopSwooping
   m_EditorClassIdentifier: 
-  animationName: Piercer_SwoopStart

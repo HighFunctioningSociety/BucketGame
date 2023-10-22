@@ -8,19 +8,19 @@ public class HPThreshhold : Decision
     public float healthThreshhold;
     public int triggerIndex;
 
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool TimeOver = CheckHealth(enemy);
+        bool TimeOver = CheckHealth(stateMachine);
         return TimeOver;
     }
 
-    private bool CheckHealth(EnemyContainer _enemy)
+    private bool CheckHealth(EnemyStateMachine stateMachine)
     {
-        bool triggerUsed = _enemy.Triggers.GetTriggerValue(triggerIndex);
-        bool hpThreshholdReached = ((float)_enemy.CurrentHealth / (float)_enemy.enemyStats.maxHealth <= healthThreshhold);
+        bool triggerUsed = stateMachine.Enemy.Triggers.GetTriggerValue(triggerIndex);
+        bool hpThreshholdReached = ((float)stateMachine.Enemy.CurrentHealth / (float)stateMachine.Enemy.EnemyStats.maxHealth <= healthThreshhold);
 
         if (hpThreshholdReached && !triggerUsed) 
-            _enemy.Triggers.FlipTrigger(triggerIndex);
+            stateMachine.Enemy.Triggers.FlipTrigger(triggerIndex);
 
         return hpThreshholdReached && !triggerUsed;
     }

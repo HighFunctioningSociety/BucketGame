@@ -6,20 +6,20 @@ using UnityEngine;
 public class RetreatAction : Actions
 {
     public string AnimationName;
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        Retreat(enemy);
+        Retreat(stateMachine);
     }
 
-    private void Retreat(EnemyContainer _enemy)
+    private void Retreat(EnemyStateMachine stateMachine)
     {
-        if (!_enemy.Triggers.retreated )
+        if (!stateMachine.Enemy.Triggers.retreated )
         {
             Debug.Log("Retreat");
-            _enemy.AbilityManager.globalCooldownComplete = false;
-            _enemy.AbilityManager.nextReadyTime = Time.time + 1.5f;
-            _enemy.Triggers.retreated = true;
-            _enemy.Animator.Play(AnimationName);
+            stateMachine.Enemy.AbilityManager.globalCooldownComplete = false;
+            stateMachine.Enemy.AbilityManager.nextReadyTime = Time.time + 1.5f;
+            stateMachine.Enemy.Triggers.retreated = true;
+            stateMachine.Enemy.Animator.Play(AnimationName);
         }
     }
 }

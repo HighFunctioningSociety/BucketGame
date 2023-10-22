@@ -78,8 +78,8 @@ public class EnemyMeleeTriggerable : EnemyProximityTriggerable
 
     public void AddForceEvent()
     {
-        bool stopLeftMovement = Enemy.groundCheck.EdgeLeft && -Enemy.transform.localScale.x < 0;
-        bool stopRightMovement = Enemy.groundCheck.EdgeRight && -Enemy.transform.localScale.x > 0;
+        bool stopLeftMovement = Enemy.GroundCheck.EdgeLeft && -Enemy.transform.localScale.x < 0;
+        bool stopRightMovement = Enemy.GroundCheck.EdgeRight && -Enemy.transform.localScale.x > 0;
         bool dontMove = stopLeftMovement || stopRightMovement;
         if (!dontMove)
             RB.AddForce(new Vector2(MoveForceX * -Enemy.transform.localScale.x, moveForceY) * RB.mass, ForceMode2D.Impulse);

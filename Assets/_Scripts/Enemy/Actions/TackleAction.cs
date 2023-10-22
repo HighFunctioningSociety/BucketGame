@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "PluggableAI/Actions/Tackle")]
 public class TackleAction : Actions
 {
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        Tackle(enemy);
+        Tackle(stateMachine);
     }
 
-    public void Tackle(EnemyContainer _enemy)
+    public void Tackle(EnemyStateMachine stateMachine)
     {
-        _enemy.RigidBody.velocity = new Vector2(70 * -1 * _enemy.Direction, 0);
+        stateMachine.Enemy.RigidBody.velocity = new Vector2(70 * -1 * stateMachine.Enemy.Direction, 0);
     }
 }

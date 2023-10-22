@@ -6,13 +6,13 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "PluggableAI/Decisions/InIdleAnimation")]
 public class InIdleAnimation : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool isIdlePlaying = IsIdlePlaying(enemy);
+        bool isIdlePlaying = IsIdlePlaying(stateMachine);
         return isIdlePlaying;
     }
-    private bool IsIdlePlaying(EnemyContainer _enemy)
+    private bool IsIdlePlaying(EnemyStateMachine stateMachine)
     {
-        return _enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
+        return stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
     }
 }

@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class HurtController : MonoBehaviour
 {
+    public EnemyStateMachine StateMachine;
     public EnemyContainer Enemy;
     public State HurtState;
     public Decision[] HurtDecisions;
@@ -17,7 +19,7 @@ public class HurtController : MonoBehaviour
 
         foreach (Decision condition in HurtDecisions)
         {
-            if (condition.Decide(Enemy) == false)
+            if (condition.Decide(StateMachine) == false)
                 meetsConditions = false;
         }
 
@@ -26,9 +28,9 @@ public class HurtController : MonoBehaviour
 
     public void EnterHurtState()
     {
-        if (CheckHurtConditions() && !Enemy.currentState.uninterruptable)
+        if (CheckHurtConditions() && !StateMachine.CurrentState.uninterruptable)
         {
-            Enemy.currentState = HurtState;
+            StateMachine.CurrentState = HurtState;
             Enemy.StopMomentum();
             Enemy.ResetAnimationTriggers();
             Enemy.UnfreezeConstraints();
@@ -37,7 +39,7 @@ public class HurtController : MonoBehaviour
 
             if (Enemy.LOS != null)
             {
-                Enemy.LOS.LOSCount = 0;
+                Enemy.LOS.LOSHitCount = 0;
             }
         }
     }
@@ -49,5 +51,4 @@ public class HurtController : MonoBehaviour
             Enemy.Animator.SetTrigger("Hurt");
         }
     }
-
 }

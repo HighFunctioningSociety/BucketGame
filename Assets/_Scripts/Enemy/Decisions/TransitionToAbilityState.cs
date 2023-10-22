@@ -5,50 +5,50 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "PluggableAI/Decisions/TransitionToAbilityState")]
 public class TransitionToAbilityState : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool abilityIsAvailable = CanUseAbility(enemy);
+        bool abilityIsAvailable = CanUseAbility(stateMachine);
         return abilityIsAvailable;
     }
 
-    private bool CanUseAbility(EnemyContainer _enemy)
+    private bool CanUseAbility(EnemyStateMachine stateMachine)
     {
-        if (_enemy.AbilityManager.globalCooldownComplete)
+        if (stateMachine.Enemy.AbilityManager.globalCooldownComplete)
         {  
-            CheckProximityAbilities(_enemy);
-            CheckFullScreenAbilities(_enemy);
-            CheckMovementAbilities(_enemy);
-            int abilityCount = _enemy.AbilityManager.useableAbilities.Count;
+            CheckProximityAbilities(stateMachine);
+            CheckFullScreenAbilities(stateMachine);
+            CheckMovementAbilities(stateMachine);
+            int abilityCount = stateMachine.Enemy.AbilityManager.useableAbilities.Count;
             if (abilityCount != 0)
             {
                 int j = Random.Range(0, abilityCount);
-                _enemy.AbilityManager.abilityToUse = _enemy.AbilityManager.useableAbilities[j];
+                stateMachine.Enemy.AbilityManager.abilityToUse = stateMachine.Enemy.AbilityManager.useableAbilities[j];
                 return true;
             }
         }
         return false;
     }
 
-    private void CheckProximityAbilities(EnemyContainer _enemy)
+    private void CheckProximityAbilities(EnemyStateMachine stateMachine)
     {
-        EnemyProximityTriggerable[] proximityAbilityList = _enemy.AbilityManager.proximityAbilityList;
+        EnemyProximityTriggerable[] proximityAbilityList = stateMachine.Enemy.AbilityManager.proximityAbilityList;
         if (proximityAbilityList.Length == 0)
             return;
 
         foreach (EnemyProximityTriggerable ability in proximityAbilityList)
         {
             Vector2 range = new Vector2(ability.rangeX, ability.rangeY);
-            Collider2D checkForPlayer = Physics2D.OverlapBox(ability.transform.position, range, 0, _enemy.PlayerLayer);
+            Collider2D checkForPlayer = Physics2D.OverlapBox(ability.transform.position, range, 0, Constants.Layers.Player);
             if (checkForPlayer != null && ability.abilityCooldown)
             {
-                _enemy.AbilityManager.useableAbilities.Add(ability);
+                stateMachine.Enemy.AbilityManager.useableAbilities.Add(ability);
             }
         }
     }
 
-    private void CheckFullScreenAbilities(EnemyContainer _enemy)
+    private void CheckFullScreenAbilities(EnemyStateMachine stateMachine)
     {
-        EnemyTriggerable[] fullscreenAbilityList = _enemy.AbilityManager.fullscreenAbilityList;
+        EnemyTriggerable[] fullscreenAbilityList = stateMachine.Enemy.AbilityManager.fullscreenAbilityList;
         if (fullscreenAbilityList.Length == 0)
             return;
 
@@ -56,14 +56,14 @@ public class TransitionToAbilityState : Decision
         {
             if (ability.abilityCooldown)
             {
-                _enemy.AbilityManager.useableAbilities.Add(ability);
+                stateMachine.Enemy.AbilityManager.useableAbilities.Add(ability);
             }
         }
     }
 
-    private void CheckMovementAbilities(EnemyContainer _enemy)
+    private void CheckMovementAbilities(EnemyStateMachine stateMachine)
     {
-        EnemyMoveTriggerable[] movementAbilityList = _enemy.AbilityManager.movementAbilityList;
+        EnemyMoveTriggerable[] movementAbilityList = stateMachine.Enemy.AbilityManager.movementAbilityList;
         if (movementAbilityList.Length == 0)
             return;
 
@@ -71,7 +71,7 @@ public class TransitionToAbilityState : Decision
         {
             if (ability.abilityCooldown)
             {
-                _enemy.AbilityManager.useableAbilities.Add(ability);
+                stateMachine.Enemy.AbilityManager.useableAbilities.Add(ability);
             }
         }
     }

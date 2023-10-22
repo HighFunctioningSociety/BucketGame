@@ -5,14 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/IdleTimerEnd")]
 public class IdleTimerEnd : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine enemy)
     {
         bool TimeToRemainInStateReached = CheckTimer(enemy);
         return TimeToRemainInStateReached;
     }
     
-    private bool CheckTimer(EnemyContainer enemy)
+    private bool CheckTimer(EnemyStateMachine enemy)
     {
-        return enemy.StateTimeElapsed >= enemy.currentState.TimeToRemainInState;
+        return enemy.StateTimeElapsed >= enemy.CurrentState.TimeToRemainInState;
     }
 }

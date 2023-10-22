@@ -80,7 +80,7 @@ public class GroundCheck : MonoBehaviour
 
     public void OnLanding()
     {
-        _enemy.RigidBody.gravityScale = _enemy.enemyStats.defaultGravity;
+        _enemy.RigidBody.gravityScale = _enemy.EnemyStats.defaultGravity;
         _enemy.StopMomentum();
     }
 
@@ -121,7 +121,7 @@ public class GroundCheck : MonoBehaviour
     private void HasBecomeGrounded()
     {
         OnLandEvent.Invoke();
-        if (_enemy.enemyStats.isHeavy)
+        if (_enemy.EnemyStats.isHeavy)
         {
             SimpleCameraShake._CameraShake(0.3f, 0.2f);
         }

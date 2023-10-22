@@ -5,15 +5,15 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "PluggableAI/Actions/Move")]
 public class MoveAction : Actions
 {
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        Move(enemy);
+        Move(stateMachine);
     }
 
-    private void Move(EnemyContainer _enemy)
+    private void Move(EnemyStateMachine stateMachine)
     {
-        _enemy.Direction = _enemy.PatrolDirection * -1;
-        _enemy.Speed = Mathf.Abs(_enemy.Direction);
-        _enemy.transform.position = Vector2.MoveTowards(_enemy.transform.position, new Vector2 (_enemy.transform.position.x + (1000 * _enemy.PatrolDirection), _enemy.transform.position.y), _enemy.enemyStats.speed * Time.fixedDeltaTime);
+        stateMachine.Enemy.Direction = stateMachine.Enemy.PatrolDirection * -1;
+        stateMachine.Enemy.Speed = Mathf.Abs(stateMachine.Enemy.Direction);
+        stateMachine.transform.position = Vector2.MoveTowards(stateMachine.transform.position, new Vector2 (stateMachine.transform.position.x + (1000 * stateMachine.Enemy.PatrolDirection), stateMachine.transform.position.y), stateMachine.Enemy.EnemyStats.speed * Time.fixedDeltaTime);
     }
 }

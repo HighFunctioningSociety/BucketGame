@@ -5,17 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/StopReposition")]
 public class StopReposition : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool shouldStopRepostion = CheckPathToTarget(enemy);
+        bool shouldStopRepostion = CheckPathToTarget(stateMachine);
         return shouldStopRepostion;
     }
-    private bool CheckPathToTarget(EnemyContainer _enemy)
+    private bool CheckPathToTarget(EnemyStateMachine stateMachine)
     {
-        if (_enemy.groundCheck.EdgeRight && _enemy.Direction < 0 || _enemy.groundCheck.EdgeLeft && _enemy.Direction > 0 || Mathf.Abs(_enemy.TargetPosition.x - _enemy.transform.position.x) < 1)
+        if (stateMachine.Enemy.GroundCheck.EdgeRight && stateMachine.Enemy.Direction < 0 || stateMachine.Enemy.GroundCheck.EdgeLeft && stateMachine.Enemy.Direction > 0 || Mathf.Abs(stateMachine.Enemy.TargetPosition.x - stateMachine.transform.position.x) < 1)
         {
-            _enemy.Direction = Mathf.Sign(_enemy.transform.position.x - _enemy.TargetObject.position.x);
-            _enemy.Speed = 0;
+            stateMachine.Enemy.Direction = Mathf.Sign(stateMachine.transform.position.x - stateMachine.Enemy.TargetObject.position.x);
+            stateMachine.Enemy.Speed = 0;
             return true;
         }
         else

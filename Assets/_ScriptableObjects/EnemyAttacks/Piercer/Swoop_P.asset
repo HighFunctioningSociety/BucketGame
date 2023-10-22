@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aName: Piercer_SwoopStart
   aSound: {fileID: 0}
-  globalCooldown: 7
+  globalCooldown: 20
   abilityCooldownTime: 0
-  rangeX: 41.15
+  rangeX: 20
   rangeY: 15
   ability: {fileID: 0}

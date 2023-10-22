@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/IdleTimerStart")]
 public class IdleTimerStart : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool shouldIdle = ReadyToIdle(enemy);
+        bool shouldIdle = ReadyToIdle(stateMachine);
         return shouldIdle;
     }
 
-    private bool ReadyToIdle(EnemyContainer enemy)
+    private bool ReadyToIdle(EnemyStateMachine stateMachine)
     {
         //Vector2 patrolTarget = new Vector2(enemy.patrolPoints[enemy.currentPatrol].position.x, enemy.transform.position.y);
 
@@ -26,7 +26,7 @@ public class IdleTimerStart : Decision
         return false;
     }
 
-    private void ChangePatrolPoint(EnemyContainer enemy)
+    private void ChangePatrolPoint(EnemyStateMachine stateMachine)
     {
         //enemy.currentPatrol = (enemy.currentPatrol + 1) % (enemy.patrolPoints.Length);
     }

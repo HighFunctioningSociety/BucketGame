@@ -6,14 +6,14 @@ using UnityEngine;
 public class TimeInStateGreaterThan : Decision
 {
     public float time;
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool isStateTimeGreaterThan = CheckStateTime(enemy);
+        bool isStateTimeGreaterThan = CheckStateTime(stateMachine);
         return isStateTimeGreaterThan;
     }
 
-    private bool CheckStateTime(EnemyContainer _enemy)
+    private bool CheckStateTime(EnemyStateMachine stateMachine)
     {
-        return (_enemy.StateTimeElapsed > time);
+        return (stateMachine.StateTimeElapsed > time);
     }
 }

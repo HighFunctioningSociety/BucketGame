@@ -12,13 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25e53e4dee9eaa40b3a3b4179903693, type: 3}
   m_Name: Hurt_FlySwoop
   m_EditorClassIdentifier: 
-  OnStateEnterAction: {fileID: 0}
-  actions: []
+  OnStateEnterActions: []
+  OnStateExitActions: []
+  actions:
+  - {fileID: 11400000, guid: 091fc3508828c084cb8f28efe236ea77, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: 9fd92896269c4f14f866e53fbb09a1bb, type: 2}
     trueState: {fileID: 11400000, guid: 64a721b2cf5ae544e8e59bec80fc46d7, type: 2}
-    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+    falseState: {fileID: 11400000}
   uninterruptable: 0
   hurtboxDisabled: 0
-  isNeutralState: 0
+  IsIdleState: 0
+  IsAggroState: 0
+  TimeToRemainInState: 0.5
   sceneGizmoColor: {r: 1, g: 0.63693386, b: 0, a: 1}

@@ -5,15 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/StopAttacking")]
 public class StopAttacking : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool stopAttacking = EnteredIdleAnimation(enemy);
+        bool stopAttacking = EnteredIdleAnimation(stateMachine);
         return stopAttacking;
     }
 
-    private bool EnteredIdleAnimation(EnemyContainer _enemy)
+    private bool EnteredIdleAnimation(EnemyStateMachine stateMachine)
     {
-        return _enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && _enemy.InIdle == false && _enemy.StateTimeElapsed > 0.1f;
+        return stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Idle") && stateMachine.Enemy.InIdle == false && stateMachine.StateTimeElapsed > 0.1f;
     }
 }
 

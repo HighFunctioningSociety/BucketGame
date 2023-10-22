@@ -5,14 +5,14 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "PluggableAI/Decisions/GCDIncomplete")]
 public class GDCIncomplete : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool stillOnCooldown = CheckGCD(enemy);
+        bool stillOnCooldown = CheckGCD(stateMachine);
         return stillOnCooldown;
     }
 
-    private bool CheckGCD(EnemyContainer _enemy)
+    private bool CheckGCD(EnemyStateMachine stateMachine)
     {
-        return !_enemy.AbilityManager.globalCooldownComplete;
+        return !stateMachine.Enemy.AbilityManager.globalCooldownComplete;
     }
 }

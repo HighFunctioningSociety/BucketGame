@@ -5,14 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/StopLanding")]
 public class StopLanding : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool grounded = CheckGroundAndIdle(enemy);
+        bool grounded = CheckGroundAndIdle(stateMachine);
         return grounded;
     }
 
-    private bool CheckGroundAndIdle(EnemyContainer _enemy)
+    private bool CheckGroundAndIdle(EnemyStateMachine stateMachine)
     {
-        return _enemy.groundCheck.Grounded && _enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
+        return stateMachine.Enemy.GroundCheck.Grounded && stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("Idle");
     }
 }

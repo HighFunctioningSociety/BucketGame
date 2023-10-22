@@ -5,14 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Actions/Hurt")]
 public class HurtAction : Actions
 {
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        Hurt(enemy);
+        Hurt(stateMachine);
     }
 
-    private void Hurt(EnemyContainer _enemy)
+    private void Hurt(EnemyStateMachine stateMachine)
     {
-        _enemy.Direction = 0;
-        _enemy.Speed = 0;
+        stateMachine.Enemy.Direction = 0;
+        stateMachine.Enemy.Speed = 0;
     }
 }

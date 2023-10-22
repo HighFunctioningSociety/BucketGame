@@ -233,17 +233,17 @@ public class _GameManager : MonoBehaviour
     public static void KillEnemy(EnemyContainer enemy)
     {
         SimpleCameraShake._CameraShake(0.2f, 0.2f);
-        HitStop._SimpleHitStop(0.1f);
+        HitStopController._SimpleHitStop(0.1f);
         gm._KillEnemy(enemy);
     }
 
-    public void _KillEnemy(EnemyContainer _enemy)
+    public void _KillEnemy(EnemyContainer enemy)
     {
-        dropManager.CalculateAndDropEnemyCoins(_enemy);
-        _enemy.gameObject.SetActive(false);
-        Transform deathPrefab = Instantiate(_enemy.EnemyPrefabDead, _enemy.transform.position, _enemy.transform.rotation);
-        Transform deathParticles = Instantiate(_enemy.EnemyParticlesDead, _enemy.transform.position, _enemy.transform.rotation);
-        deathPrefab.GetComponent<Rigidbody2D>().AddForce(_enemy.RigidBody.velocity * 2, ForceMode2D.Impulse); // right now applying the enemies walk velocity instead of knockback (possibly fixed)
+        dropManager.CalculateAndDropEnemyCoins(enemy);
+        enemy.gameObject.SetActive(false);
+        Transform deathPrefab = Instantiate(enemy.EnemyPrefabDead, enemy.transform.position, enemy.transform.rotation);
+        Transform deathParticles = Instantiate(enemy.EnemyParticlesDead, enemy.transform.position, enemy.transform.rotation);
+        deathPrefab.GetComponent<Rigidbody2D>().AddForce(enemy.RigidBody.velocity * 2, ForceMode2D.Impulse); // right now applying the enemies walk velocity instead of knockback (possibly fixed)
         Destroy(deathPrefab.gameObject, 50f);
         Destroy(deathParticles.gameObject, 10f);
     }

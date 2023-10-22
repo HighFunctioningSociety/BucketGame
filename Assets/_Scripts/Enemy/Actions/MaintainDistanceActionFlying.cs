@@ -7,26 +7,26 @@ public class MaintainDistanceActionFlying : Actions
 {
     public float distanceX;
     public float distanceY;
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        MaintainDistance(enemy);
+        MaintainDistance(stateMachine);
     }
     
-    private void MaintainDistance(EnemyContainer _enemy)
+    private void MaintainDistance(EnemyStateMachine stateMachine)
     {
-        if (_enemy.TargetObject == null)
+        if (stateMachine.Enemy.TargetObject == null)
             return;
 
-        _enemy.Direction = Mathf.Sign(_enemy.transform.position.x - _enemy.TargetObject.position.x);
-        _enemy.Speed = Mathf.Abs(_enemy.Direction);
-        Vector2 newTarget = new Vector2(_enemy.TargetObject.position.x + (distanceX * _enemy.Direction), _enemy.TargetObject.position.y + 5 + (distanceY));
+        stateMachine.Enemy.Direction = Mathf.Sign(stateMachine.transform.position.x - stateMachine.Enemy.TargetObject.position.x);
+        stateMachine.Enemy.Speed = Mathf.Abs(stateMachine.Enemy.Direction);
+        Vector2 newTarget = new Vector2(stateMachine.Enemy.TargetObject.position.x + (distanceX * stateMachine.Enemy.Direction), stateMachine.Enemy.TargetObject.position.y + 5 + (distanceY));
 
-        if (Mathf.Abs(_enemy.transform.position.x - newTarget.x) < 1.5f && Mathf.Abs(_enemy.transform.position.y - newTarget.y) < 1.5f)
+        if (Mathf.Abs(stateMachine.transform.position.x - newTarget.x) < 1.5f && Mathf.Abs(stateMachine.transform.position.y - newTarget.y) < 1.5f)
             return;
 
-        Vector2 direction = new Vector2((newTarget.x - _enemy.transform.position.x), (newTarget.y - _enemy.transform.position.y));
+        Vector2 direction = new Vector2((newTarget.x - stateMachine.transform.position.x), (newTarget.y - stateMachine.transform.position.y));
         float directionMagnitude = Mathf.Sqrt(Mathf.Pow(direction.x, 2) + Mathf.Pow(direction.y, 2));
         Vector2 directionUnit = direction / directionMagnitude;
-        _enemy.RigidBody.AddForce(directionUnit * _enemy.enemyStats.speed, ForceMode2D.Impulse);
+        stateMachine.Enemy.RigidBody.AddForce(directionUnit * stateMachine.Enemy.EnemyStats.speed, ForceMode2D.Impulse);
     }
 }

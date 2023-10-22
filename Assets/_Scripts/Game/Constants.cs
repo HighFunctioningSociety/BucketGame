@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 namespace Constants
@@ -19,9 +20,9 @@ namespace Constants
     }
     public static class Layers
     {
-        public static readonly int Player = 8;//LayerMask.NameToLayer("Player");
-        public static readonly int Enemy = 9;//LayerMask.NameToLayer("Enemies");
-        public static readonly int Obstacles = 10;//LayerMask.NameToLayer("Obstacles");
+        public static readonly LayerMask Player = 1<<LayerMask.NameToLayer("Player"); 
+        public static readonly LayerMask Enemy = 1<<LayerMask.NameToLayer("Enemies");
+        public static readonly LayerMask Obstacles = 1<<LayerMask.NameToLayer("Obstacles"); 
     }
 
     public static class Values

@@ -7,17 +7,17 @@ public class RepositionDecision : Decision
 {
     [HideInInspector] public EnemyContainer enemy;
 
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool shouldReposition = ShouldTriggerReposition(enemy);
+        bool shouldReposition = ShouldTriggerReposition(stateMachine);
         return shouldReposition;
     }
 
-    private bool ShouldTriggerReposition(EnemyContainer _enemy)
+    private bool ShouldTriggerReposition(EnemyStateMachine stateMachine)
     {
-        if (_enemy.AbilityManager.repositionCooldownComplete)
+        if (stateMachine.Enemy.AbilityManager.repositionCooldownComplete)
         {
-            _enemy.Reposition.InitiateReposition();
+            stateMachine.Enemy.Reposition.InitiateReposition();
             Debug.Log("reposition");
             return true;
         }

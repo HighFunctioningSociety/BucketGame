@@ -5,14 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/GCDComplete")]
 public class GlobalCooldownComplete : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool cooldownComplete = CheckGlobalCooldown(enemy);
+        bool cooldownComplete = CheckGlobalCooldown(stateMachine);
         return cooldownComplete;
     }
 
-    private bool CheckGlobalCooldown(EnemyContainer _enemy)
+    private bool CheckGlobalCooldown(EnemyStateMachine stateMachine)
     {
-        return _enemy.AbilityManager.globalCooldownComplete;
+        return stateMachine.Enemy.AbilityManager.globalCooldownComplete;
     }
 }

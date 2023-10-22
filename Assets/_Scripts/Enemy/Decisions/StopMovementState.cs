@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/StopMovement")]
 public class StopMovementState : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool stopMovement = MovementTimeOver(enemy);
+        bool stopMovement = MovementTimeOver(stateMachine);
         return stopMovement;
     }
 
-    private bool MovementTimeOver(EnemyContainer _enemy)
+    private bool MovementTimeOver(EnemyStateMachine stateMachine)
     {
         //if (_enemy.stateTimeElapsed > _enemy.movementTiming)
             //return true;

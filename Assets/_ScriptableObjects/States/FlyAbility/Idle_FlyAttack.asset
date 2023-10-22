@@ -12,13 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25e53e4dee9eaa40b3a3b4179903693, type: 3}
   m_Name: Idle_FlyAttack
   m_EditorClassIdentifier: 
+  OnStateEnterActions: []
+  OnStateExitActions: []
   actions:
   - {fileID: 11400000, guid: 61a305094402d7441830bf40a0600300, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: 98f743e561fe95d4ba4fff94bbaeee1f, type: 2}
     trueState: {fileID: 11400000, guid: c8c447ddba8aba348937f3ba2faf7cfc, type: 2}
-    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+    falseState: {fileID: 11400000}
   uninterruptable: 0
   hurtboxDisabled: 0
-  isIdleState: 1
+  IsIdleState: 1
+  IsAggroState: 0
+  TimeToRemainInState: 0
   sceneGizmoColor: {r: 0, g: 1, b: 0.8179538, a: 1}

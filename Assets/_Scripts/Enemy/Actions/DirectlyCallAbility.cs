@@ -7,17 +7,17 @@ public class DirectlyCallAbility : Actions
 {
     public int directCallIndex;
 
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        UseAbility(enemy);
+        UseAbility(stateMachine);
     }
 
-    private void UseAbility(EnemyContainer _enemy)
+    private void UseAbility(EnemyStateMachine stateMachine)
     {
-        if (!_enemy.AbilityManager.abilityAlreadyActivated)
+        if (!stateMachine.Enemy.AbilityManager.abilityAlreadyActivated)
         {
-            _enemy.AbilityManager.abilityAlreadyActivated = true;
-            _enemy.AbilityManager.UseAbility(_enemy.AbilityManager.directCallAbilityList[directCallIndex]);
+            stateMachine.Enemy.AbilityManager.abilityAlreadyActivated = true;
+            stateMachine.Enemy.AbilityManager.UseAbility(stateMachine.Enemy.AbilityManager.directCallAbilityList[directCallIndex]);
         }
     }
 }

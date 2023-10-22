@@ -5,18 +5,18 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "PluggableAI/Actions/Ability")]
 public class AbilityAction : Actions
 {
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        UseAbility(enemy);
+        UseAbility(stateMachine);
     }
 
-    private void UseAbility(EnemyContainer _enemy)
+    private void UseAbility(EnemyStateMachine stateMachine)
     {
-        if (!_enemy.AbilityManager.abilityAlreadyActivated)
+        if (!stateMachine.Enemy.AbilityManager.abilityAlreadyActivated)
         {
-            EnemyTriggerable abilityToUse = _enemy.AbilityManager.abilityToUse;
-            _enemy.AbilityManager.abilityAlreadyActivated = true;            
-            _enemy.AbilityManager.UseAbility(abilityToUse);
+            EnemyTriggerable abilityToUse = stateMachine.Enemy.AbilityManager.abilityToUse;
+            stateMachine.Enemy.AbilityManager.abilityAlreadyActivated = true;            
+            stateMachine.Enemy.AbilityManager.UseAbility(abilityToUse);
         }
     }
 }

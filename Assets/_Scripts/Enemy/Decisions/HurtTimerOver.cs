@@ -5,14 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/HurtTimeOver")]
 public class HurtTimerOver : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool hurtOver = CheckHurtTime(enemy);
+        bool hurtOver = CheckHurtTime(stateMachine);
         return hurtOver;
     }
 
-    private bool CheckHurtTime(EnemyContainer _enemy)
+    private bool CheckHurtTime(EnemyStateMachine stateMachine)
     {
-        return (_enemy.HurtTimeRemaining <= 0);
+        return (stateMachine.StateTimeElapsed >= stateMachine.CurrentState.TimeToRemainInState);
     }
 }

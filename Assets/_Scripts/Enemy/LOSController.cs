@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class LOSController : MonoBehaviour
 {
 
     public float LOSLength;
-    public float LOSCount;
+    public float LOSHitCount;
 
     private Bounds _enemyBounds;
     private EnemyContainer _enemyContainer;
@@ -17,11 +18,16 @@ public class LOSController : MonoBehaviour
         _enemyBounds = _enemyContainer.EnemyCollider.bounds;
     }
 
+    private void Update()
+    {
+        //DrawLineOfSight();
+    }
+
     public RaycastHit2D GenerateLOSRaycast()
     {
         Vector3 xBoundsExtents = (_enemyContainer.Direction == 1 ? -new Vector3(_enemyBounds.extents.x, 0) : new Vector3(_enemyBounds.extents.x, 0));
         Vector2 directionalVector = (_enemyContainer.Direction == 1 ? Vector2.left : Vector2.right);
-        return Physics2D.Raycast(_enemyBounds.center + xBoundsExtents, directionalVector, 1f, _enemyContainer.ObstacleLayer);
+        return Physics2D.Raycast(_enemyBounds.center + xBoundsExtents, directionalVector, 1f, Constants.Layers.Obstacles);
     }
 
     public bool CheckLineOfSight()
@@ -29,12 +35,12 @@ public class LOSController : MonoBehaviour
         RaycastHit2D raycastLOS = GenerateLOSRaycast();
         if (raycastLOS.collider != null)
         {
-            LOSCount++;
+            LOSHitCount++;
             return true;
         }
         else
         {
-            LOSCount = 0;
+            LOSHitCount = 0;
             return false;
         }
     }

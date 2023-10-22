@@ -8,13 +8,13 @@ public class RepositionController : MonoBehaviour
 
     public void InitiateReposition()
     {
-        Enemy.AbilityManager.nextRepositionTime = Enemy.enemyStats.repositionCooldown + Time.time;
+        Enemy.AbilityManager.nextRepositionTime = Enemy.EnemyStats.repositionCooldown + Time.time;
         Enemy.TargetPosition = GenerateTargetPosition();
     }
 
     public Vector2 GenerateTargetPosition()
     {
-        float randRangeX = Random.Range(Enemy.enemyStats.repositionMinDistance, Enemy.enemyStats.repositionMaxDistance);
+        float randRangeX = Random.Range(Enemy.EnemyStats.repositionMinDistance, Enemy.EnemyStats.repositionMaxDistance);
         int randSign = RandomSignGenerator();
         Debug.Log(randSign + "reposition sign");
         randRangeX *= randSign;

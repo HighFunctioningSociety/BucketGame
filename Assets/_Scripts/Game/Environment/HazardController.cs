@@ -29,7 +29,7 @@ public class HazardController : MonoBehaviour
 
     private IEnumerator RespawnAfterHitStop(PlayerContainer _player)
     {
-        while (HitStop.hitStopActive == true)
+        while (HitStopController.hitStopActive == true)
         {
             yield return null;
         }

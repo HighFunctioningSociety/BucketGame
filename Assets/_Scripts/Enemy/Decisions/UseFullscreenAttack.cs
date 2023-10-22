@@ -5,26 +5,26 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/UseFullscreenAttack")]
 public class UseFullscreenAttack: Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool timerDone = CheckTimer(enemy);
+        bool timerDone = CheckTimer(stateMachine);
         return timerDone;
     }
 
-    public bool CheckTimer(EnemyContainer _enemy)
+    public bool CheckTimer(EnemyStateMachine stateMachine)
     {
-        if (_enemy.AbilityManager.fullscreenAbilityList.Length == 0)
+        if (stateMachine.Enemy.AbilityManager.fullscreenAbilityList.Length == 0)
         {
             return false;
         }
 
-        if (_enemy.AbilityManager.globalCooldownComplete)
+        if (stateMachine.Enemy.AbilityManager.globalCooldownComplete)
         {
-            EnemyTriggerable[] fullscreenAbilityList = _enemy.AbilityManager.fullscreenAbilityList;
+            EnemyTriggerable[] fullscreenAbilityList = stateMachine.Enemy.AbilityManager.fullscreenAbilityList;
             EnemyTriggerable[] useableAbilities = new EnemyTriggerable[fullscreenAbilityList.Length];
             int i = 0;
 
-            if ((_enemy.StateTimeElapsed > _enemy.FullscreenAttackTiming) && _enemy.currentState.IsIdleState)
+            if ((stateMachine.StateTimeElapsed > stateMachine.Enemy.FullscreenAttackTiming) && stateMachine.CurrentState.IsIdleState)
             {
                 //abilities that can be used regardless of player distance
                 foreach (EnemyTriggerable ability in fullscreenAbilityList)
@@ -36,7 +36,7 @@ public class UseFullscreenAttack: Decision
             
                 int j = Random.Range(0, i);
 
-                _enemy.AbilityManager.abilityToUse = useableAbilities[j];
+                stateMachine.Enemy.AbilityManager.abilityToUse = useableAbilities[j];
                 return true;
             }
         }

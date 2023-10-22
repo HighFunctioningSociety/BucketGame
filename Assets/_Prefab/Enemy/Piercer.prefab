@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806709649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.1, y: -27.76, z: 0}
+  m_LocalPosition: {x: -38.5, y: -23.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -225,9 +225,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8193678983595514884}
   - component: {fileID: 1261374521761033330}
+  - component: {fileID: -175136814837062773}
+  - component: {fileID: 6158887970312768012}
   - component: {fileID: 656287384455860099}
   - component: {fileID: 2456945490091053588}
-  - component: {fileID: 6158887970312768012}
   - component: {fileID: 5813591733424192129}
   - component: {fileID: 3779449754562780513}
   - component: {fileID: 3811558333154096793}
@@ -311,6 +312,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-175136814837062773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077748080692642092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89b995a5ebddef4458a9bc8175715cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 656287384455860099}
+  CurrentState: {fileID: 11400000, guid: c2e52d07efb52794ab55a079b1ecc159, type: 2}
+  DefaultState: {fileID: 11400000, guid: c2e52d07efb52794ab55a079b1ecc159, type: 2}
+  StateTimeElapsed: 0
+  AttacksDoneInState: 0
+  StateCountDown: 0
+  StateSphereRadius: 5
+  Hurt: {fileID: 6158887970312768012}
+--- !u!114 &6158887970312768012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077748080692642092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d31917e8b15d88443986aed4fc473cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StateMachine: {fileID: -175136814837062773}
+  Enemy: {fileID: 656287384455860099}
+  HurtState: {fileID: 11400000, guid: d6c3ea754d0f11f40822fd44c2842413, type: 2}
+  HurtDecisions: []
 --- !u!114 &656287384455860099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,32 +361,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aiActive: 0
-  enemyStats: {fileID: 11400000, guid: 3b4d15f5a6ad6424abbc0a5831290b24, type: 2}
-  currentState: {fileID: 11400000, guid: c2e52d07efb52794ab55a079b1ecc159, type: 2}
-  defaultState: {fileID: 11400000, guid: c2e52d07efb52794ab55a079b1ecc159, type: 2}
-  aggroState: {fileID: 11400000, guid: 64a721b2cf5ae544e8e59bec80fc46d7, type: 2}
-  RemainState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
-  StateTimeElapsed: 0
-  IdleTimeElapsed: 0
-  AttacksDoneInState: 0
+  EnemyStats: {fileID: 11400000, guid: 3b4d15f5a6ad6424abbc0a5831290b24, type: 2}
+  StoredPositions: []
   EnemyPrefabDead: {fileID: 7012221780441401678, guid: 033ad7930181c564785ba61ba536c188,
     type: 3}
   EnemyParticlesDead: {fileID: 7416014848361221603, guid: 33732d0ee8076f04d84ed6c1b6e0b129,
     type: 3}
   UnfreezeConstraintsOnReset: 0
   AINotActiveOnStart: 0
-  groundCheck: {fileID: 0}
+  GroundCheck: {fileID: 0}
   BoundLeft: {fileID: 0}
   BoundRight: {fileID: 0}
   Invul: 0
-  PlayerLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  ObstacleLayer:
-    serializedVersion: 2
-    m_Bits: 1024
   FullscreenAttackTiming: 0
-  HurtTimeRemaining: 0
   AggroTimeRemaining: 0
   WasHurt: 0
   InIdle: 0
@@ -363,11 +387,9 @@ MonoBehaviour:
   TargetObject: {fileID: 0}
   SpawnPosition: {x: 0, y: 0, z: 0}
   StartingPosition: {x: 0, y: 0, z: 0}
-  TargetPosition: {x: 0, y: 0, z: 0}
   BlockPointAttacked: 0
   AbilityManager: {fileID: 0}
   LOS: {fileID: 0}
-  Hurt: {fileID: 0}
   Reposition: {fileID: 0}
   Triggers: {fileID: 0}
 --- !u!114 &2456945490091053588
@@ -395,22 +417,8 @@ MonoBehaviour:
   nextReadyTime: 0
   nextRepositionTime: 0
   animator: {fileID: 0}
-  enemy: {fileID: 656287384455860099}
---- !u!114 &6158887970312768012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1077748080692642092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d31917e8b15d88443986aed4fc473cc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemy: {fileID: 656287384455860099}
-  HurtState: {fileID: 11400000, guid: d6c3ea754d0f11f40822fd44c2842413, type: 2}
-  HurtDecisions: []
+  Enemy: {fileID: 0}
+  StateMachine: {fileID: 0}
 --- !u!114 &5813591733424192129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,8 +431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2572adf3a95d674ca45f42ed65d0545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LOSLength: 0
-  LOSCount: 0
+  LOSLength: 10
+  LOSHitCount: 0
 --- !u!114 &3779449754562780513
 MonoBehaviour:
   m_ObjectHideFlags: 0

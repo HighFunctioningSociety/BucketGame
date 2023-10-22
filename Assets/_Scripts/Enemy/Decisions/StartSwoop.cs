@@ -5,24 +5,28 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/StartTackle")]
 public class StartSwoop : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool shouldTackle = TargetInLineOfSight(enemy);
+        bool shouldTackle = TargetInLineOfSight(stateMachine);
         return shouldTackle;
     }
 
-    private bool TargetInLineOfSight(EnemyContainer _enemy)
+    private bool TargetInLineOfSight(EnemyStateMachine stateMachine)
     {
-        if (_enemy.LOS.CheckLineOfSight() == true && _enemy.LOS.LOSCount >= 25 && _enemy.AbilityManager.globalCooldownComplete) 
+        if (stateMachine.Enemy.LOS.CheckLineOfSight() == true && stateMachine.Enemy.LOS.LOSHitCount >= 25 && stateMachine.Enemy.AbilityManager.globalCooldownComplete) 
         {
-            _enemy.Direction = Mathf.Sign(_enemy.transform.position.x - _enemy.TargetObject.position.x);
-            _enemy.Speed = Mathf.Abs(_enemy.Direction);
-            _enemy.TargetPosition = new Vector2(_enemy.TargetObject.position.x - (30 * _enemy.Direction), _enemy.TargetObject.position.y + 2.5f);
-            _enemy.StartingPosition = _enemy.transform.position;
-            _enemy.RigidBody.velocity = Vector2.zero;
-            _enemy.Animator.SetTrigger("Dive");
+            stateMachine.Enemy.Direction = Mathf.Sign(stateMachine.transform.position.x - stateMachine.Enemy.TargetObject.position.x);
+            stateMachine.Enemy.Speed = Mathf.Abs(stateMachine.Enemy.Direction);
+            stateMachine.Enemy.TargetPosition = new Vector2(stateMachine.Enemy.TargetObject.position.x - (30 * stateMachine.Enemy.Direction), stateMachine.Enemy.TargetObject.position.y + 2.5f);
+            stateMachine.Enemy.StartingPosition = stateMachine.transform.position;
+            stateMachine.Enemy.RigidBody.velocity = Vector2.zero;
+
+            //TODO: why am I calling this here???
+            stateMachine.Enemy.Animator.SetTrigger("Dive");
+
             return true;
         }
+
         return false;
     }
 }

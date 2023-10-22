@@ -5,7 +5,7 @@ using UnityEngine;
 public class CollisionTrigger : MonoBehaviour
 {
     private PlayerContainer player;
-    private EnemyContainer enemy;
+    private EnemyStateMachine enemy;
     private int damage = 1;
 
     private void Start()
@@ -15,31 +15,23 @@ public class CollisionTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D _colInfo)
     {
-        if ((enemy = _colInfo.GetComponent<EnemyContainer>()) || (enemy = _colInfo.GetComponentInParent<EnemyContainer>()))
+        if ((enemy = _colInfo.GetComponent<EnemyStateMachine>()) || (enemy = _colInfo.GetComponentInParent<EnemyStateMachine>()))
         {
-            if (enemy.currentState.hurtboxDisabled)
-            {
+            if (enemy.CurrentState.hurtboxDisabled)
                 return;
-            }
-            else
-            {
-                DefaultCollision();
-            }
+            
+            DefaultCollision();
         }
     }
 
     private void OnTriggerStay2D(Collider2D _colInfo)
     {
-        if ((enemy = _colInfo.GetComponent<EnemyContainer>()) || (enemy = _colInfo.GetComponentInParent<EnemyContainer>()))
+        if ((enemy = _colInfo.GetComponent<EnemyStateMachine>()) || (enemy = _colInfo.GetComponentInParent<EnemyStateMachine>()))
         {
-            if (enemy.currentState.hurtboxDisabled)
-            {
+            if (enemy.CurrentState.hurtboxDisabled)
                 return;
-            }
-            else
-            {
-                DefaultCollision();
-            }
+
+            DefaultCollision();
         }
     }
 

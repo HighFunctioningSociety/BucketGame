@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu (menuName = "PluggableAI/State")]
 public class State : ScriptableObject
 {
+    [FormerlySerializedAs("OnStateEnterAction")]
     [Space]
     [Header("State Actions")]
-    public Actions OnStateEnterAction;
-    public Actions OnStateExitAction;
+    public Actions[] OnStateEnterActions;
+    public Actions[] OnStateExitActions;
     public Actions[] actions;
 
     [Space]
@@ -30,46 +32,59 @@ public class State : ScriptableObject
     public Color sceneGizmoColor = Color.grey;
 
     // Called the frame the state is entered
-    public void OnStateEnter(EnemyContainer enemy)
+    public void OnStateEnter(EnemyStateMachine stateMachine)
     {
-        OnStateEnterAction.Act(enemy);
-    }
-
-    // Start is called before the first frame update
-    public void UpdateState(EnemyContainer enemy)
-    {
-        DoActions(enemy);
-        CheckTransitions(enemy);
-    }
-
-    // Called the frame the state exits
-    public void OnStateExit(EnemyContainer enemy)
-    {
-        OnStateExitAction.Act(enemy);
-    }
-
-    // Update is called once per frame
-    private void DoActions(EnemyContainer enemy)
-    {
-        for (int i = 0; i < actions.Length; i++)
+        if (OnStateEnterActions.Length > 0)
         {
-            actions[i].Act(enemy);
+            foreach (var action in OnStateEnterActions)
+            {
+                action.Act(stateMachine);
+            }
         }
     }
 
-    private void CheckTransitions(EnemyContainer enemy)
+    // Start is called before the first frame update
+    public void UpdateState(EnemyStateMachine stateMachine)
+    {
+        Debug.LogWarning(("IM UPDATING"));
+        DoActions(stateMachine);
+        CheckTransitions(stateMachine);
+    }
+
+    // Called the frame the state exits
+    public void OnStateExit(EnemyStateMachine stateMachine)
+    {
+        if (OnStateExitActions.Length > 0)
+        {
+            foreach (var action in OnStateExitActions)
+            {
+                action.Act(stateMachine);
+            }
+        }
+    }
+
+    // Update is called once per frame
+    private void DoActions(EnemyStateMachine stateMachine)
+    {
+        for (int i = 0; i < actions.Length; i++)
+        {
+            actions[i].Act(stateMachine);
+        }
+    }
+
+    private void CheckTransitions(EnemyStateMachine stateMachine)
     {
         for (int i = 0; i < transitions.Length; i++)
         {
-            bool decisionSucceeded = transitions[i].decision.Decide(enemy);
+            bool decisionSucceeded = transitions[i].decision.Decide(stateMachine);
 
             if (decisionSucceeded)
             {
-                enemy.TransitionToState(transitions[i].trueState);
+                stateMachine.TransitionToState(transitions[i].trueState);
             }
             else
             {
-                enemy.TransitionToState(transitions[i].falseState);
+                stateMachine.TransitionToState(transitions[i].falseState);
             }
         }
     }

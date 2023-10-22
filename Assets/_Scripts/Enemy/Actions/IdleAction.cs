@@ -5,14 +5,14 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "PluggableAI/Actions/Idle")]
 public class IdleAction : Actions
 {
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        Idle(enemy);
+        Idle(stateMachine);
     }
 
-    private void Idle(EnemyContainer _enemy)
+    private void Idle(EnemyStateMachine stateMachine)
     {
-        _enemy.Direction = 0;
-        _enemy.Speed = 0;
+        stateMachine.Enemy.Direction = 0;
+        stateMachine.Enemy.Speed = 0;
     }
 }

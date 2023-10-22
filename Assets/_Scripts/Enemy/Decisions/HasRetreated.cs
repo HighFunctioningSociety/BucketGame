@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class HasRetreated : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        return RetreatFinished(enemy);
+        return RetreatFinished(stateMachine);
     }
 
-    private bool RetreatFinished(EnemyContainer _enemy)
+    private bool RetreatFinished(EnemyStateMachine stateMachine)
     {
-        bool gcdComplete = _enemy.AbilityManager.globalCooldownComplete;
-        bool hasRetreated = _enemy.Triggers.retreated;
+        bool gcdComplete = stateMachine.Enemy.AbilityManager.globalCooldownComplete;
+        bool hasRetreated = stateMachine.Enemy.Triggers.retreated;
         return gcdComplete && hasRetreated;
     }
 }

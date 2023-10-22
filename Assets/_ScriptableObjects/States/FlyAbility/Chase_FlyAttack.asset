@@ -12,16 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25e53e4dee9eaa40b3a3b4179903693, type: 3}
   m_Name: Chase_FlyAttack
   m_EditorClassIdentifier: 
+  OnStateEnterActions: []
+  OnStateExitActions: []
   actions:
   - {fileID: 11400000, guid: 82656c1133bc86f40a48cdb4573660eb, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: 2200d8d2fca37b74696ec84bac3fb0cc, type: 2}
     trueState: {fileID: 11400000, guid: 4e8c25d14d3d7fe498d5b513db7cc5ea, type: 2}
-    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+    falseState: {fileID: 11400000}
   - decision: {fileID: 11400000, guid: 98f743e561fe95d4ba4fff94bbaeee1f, type: 2}
     trueState: {fileID: 11400000, guid: 4117cb1cfdc033c43a3bb630d94cc7cd, type: 2}
-    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+    falseState: {fileID: 11400000}
   uninterruptable: 0
   hurtboxDisabled: 0
-  isNeutralState: 0
+  IsIdleState: 0
+  IsAggroState: 1
+  TimeToRemainInState: 0
   sceneGizmoColor: {r: 1, g: 0, b: 0, a: 1}

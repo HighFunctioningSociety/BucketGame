@@ -5,18 +5,18 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "PluggableAI/Actions/Reposition")]
 public class Reposition : Actions
 {
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        MoveToTargetPosition(enemy);
+        MoveToTargetPosition(stateMachine);
     }
 
-    private void MoveToTargetPosition(EnemyContainer _enemy)
+    private void MoveToTargetPosition(EnemyStateMachine stateMachine)
     {
-        if (_enemy.TargetObject == null)
+        if (stateMachine.Enemy.TargetObject == null)
             return;
 
-        _enemy.Direction = Mathf.Sign(_enemy.transform.position.x - _enemy.TargetPosition.x);
-        _enemy.Speed = Mathf.Abs(_enemy.Direction);
-        _enemy.transform.position = Vector2.MoveTowards(_enemy.transform.position, _enemy.TargetPosition, _enemy.enemyStats.speed * 1f * Time.fixedDeltaTime);
+        stateMachine.Enemy.Direction = Mathf.Sign(stateMachine.transform.position.x - stateMachine.Enemy.TargetPosition.x);
+        stateMachine.Enemy.Speed = Mathf.Abs(stateMachine.Enemy.Direction);
+        stateMachine.transform.position = Vector2.MoveTowards(stateMachine.transform.position, stateMachine.Enemy.TargetPosition, stateMachine.Enemy.EnemyStats.speed * 1f * Time.fixedDeltaTime);
     }
 }

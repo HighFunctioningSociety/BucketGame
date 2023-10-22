@@ -6,14 +6,14 @@ using UnityEngine;
 public class AnimationChangeDecision : Decision
 {
     public string animationName;
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool hasAnimationChanged = CheckAnimationName(enemy);
+        bool hasAnimationChanged = CheckAnimationName(stateMachine);
         return hasAnimationChanged;
     }
 
-    private bool CheckAnimationName(EnemyContainer _enemy)
+    private bool CheckAnimationName(EnemyStateMachine stateMachine)
     {
-        return (_enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName(animationName) == false) && _enemy.StateTimeElapsed > 0.5f;
+        return (stateMachine.Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName(animationName) == false) && stateMachine.StateTimeElapsed > 0.5f;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyAbilityManager : MonoBehaviour
 {
@@ -17,11 +18,13 @@ public class EnemyAbilityManager : MonoBehaviour
     [HideInInspector] public float nextReadyTime;
     [HideInInspector] public float nextRepositionTime;
     [HideInInspector] public Animator animator;
-    [HideInInspector] public EnemyContainer enemy;
+    [HideInInspector] public EnemyContainer Enemy;
+    [HideInInspector] public EnemyStateMachine StateMachine;
 
     private void Start()
     {
-        enemy = GetComponent<EnemyContainer>();
+        Enemy = GetComponent<EnemyContainer>();
+        StateMachine = GetComponent<EnemyStateMachine>();
     }
 
     private void Update()
@@ -98,9 +101,9 @@ public class EnemyAbilityManager : MonoBehaviour
     {
         if (globalCooldownComplete)
         {
-            enemy.AttacksDoneInState++;
-            enemy.Direction = 0;
-            enemy.Speed = 0;
+            StateMachine.AttacksDoneInState++;
+            Enemy.Direction = 0;
+            Enemy.Speed = 0;
             ApplyCooldown(ability);
             Debug.Log(ability.scriptableAbility.aName);
             ability.enemyAbilityClone.TriggerAbility();
@@ -121,12 +124,12 @@ public class EnemyAbilityManager : MonoBehaviour
 
     public void ZeroOutDirection()
     {
-        enemy.Direction = 0;
+        Enemy.Direction = 0;
     }
 
     public void ZeroOutSpeed()
     {
-        enemy.Speed = 0;
+        Enemy.Speed = 0;
     }
 
     private void OnDrawGizmos()

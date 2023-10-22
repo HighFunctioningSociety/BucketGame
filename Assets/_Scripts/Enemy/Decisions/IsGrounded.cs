@@ -5,14 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/IsGrounded")]
 public class IsGrounded : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool grounded = CheckForGround(enemy);
+        bool grounded = CheckForGround(stateMachine);
         return grounded;
     }
 
-    private bool CheckForGround(EnemyContainer enemy)
+    private bool CheckForGround(EnemyStateMachine stateMachine)
     {
-        return enemy.groundCheck.Grounded;
+        return stateMachine.Enemy.GroundCheck.Grounded;
     }
 }

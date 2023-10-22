@@ -5,20 +5,20 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "PluggableAI/Actions/ResetBellBossTriggers")]
 public class ResetBellBossTriggers : Actions
 {
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        ResetAnimationTriggers(enemy);
+        ResetAnimationTriggers(stateMachine);
     }
 
-    private void ResetAnimationTriggers(EnemyContainer _enemy)
+    private void ResetAnimationTriggers(EnemyStateMachine stateMachine)
     {
-        if (_enemy.StateTimeElapsed < 0.05f)
+        if (stateMachine.StateTimeElapsed < 0.05f)
         {
-            _enemy.Animator.ResetTrigger("Blast");
-            _enemy.Animator.ResetTrigger("Jump");
-            _enemy.Animator.ResetTrigger("LowPunch");
-            _enemy.Animator.ResetTrigger("HighPunch");
-            _enemy.Animator.ResetTrigger("Hurt");
+            stateMachine.Enemy.Animator.ResetTrigger("Blast");
+            stateMachine.Enemy.Animator.ResetTrigger("Jump");
+            stateMachine.Enemy.Animator.ResetTrigger("LowPunch");
+            stateMachine.Enemy.Animator.ResetTrigger("HighPunch");
+            stateMachine.Enemy.Animator.ResetTrigger("Hurt");
         }
     }
 }

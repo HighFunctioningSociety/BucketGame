@@ -12,13 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25e53e4dee9eaa40b3a3b4179903693, type: 3}
   m_Name: UseAbility_FlyAttack
   m_EditorClassIdentifier: 
+  OnStateEnterActions: []
+  OnStateExitActions: []
   actions:
   - {fileID: 11400000, guid: f9917c0eef5655545854cbfd1e7c3f4e, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: 5a863c80bdd3f1244b3cfd15e8bb50bb, type: 2}
     trueState: {fileID: 11400000, guid: c03a3d30d8290cc4da057d4b9865948d, type: 2}
-    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
-  uninterruptable: 0
+    falseState: {fileID: 11400000}
+  uninterruptable: 1
   hurtboxDisabled: 0
-  isNeutralState: 0
+  IsIdleState: 0
+  IsAggroState: 0
+  TimeToRemainInState: 0
   sceneGizmoColor: {r: 0.8818798, g: 0, b: 1, a: 1}

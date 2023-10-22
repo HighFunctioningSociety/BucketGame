@@ -34129,6 +34129,12 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1725205456}
     m_Modifications:
+    - target: {fileID: 656287384455860099, guid: f780737fdcd0c3f449fbf9625b7c9072,
+        type: 3}
+      propertyPath: EnemyStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b4d15f5a6ad6424abbc0a5831290b24,
+        type: 2}
     - target: {fileID: 1077748080692642092, guid: f780737fdcd0c3f449fbf9625b7c9072,
         type: 3}
       propertyPath: m_Name
@@ -34142,12 +34148,12 @@ PrefabInstance:
     - target: {fileID: 8193678983595514884, guid: f780737fdcd0c3f449fbf9625b7c9072,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -92.9135
+      value: -106.4
       objectReference: {fileID: 0}
     - target: {fileID: 8193678983595514884, guid: f780737fdcd0c3f449fbf9625b7c9072,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.1
+      value: -11.5
       objectReference: {fileID: 0}
     - target: {fileID: 8193678983595514884, guid: f780737fdcd0c3f449fbf9625b7c9072,
         type: 3}

@@ -5,19 +5,19 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/StopTackle")]
 public class StopSwoop : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool shouldStopTackling = CheckTackleTarget(enemy);
+        bool shouldStopTackling = CheckTackleTarget(stateMachine);
         return shouldStopTackling;
     }
 
-    private bool CheckTackleTarget(EnemyContainer _enemy)
+    private bool CheckTackleTarget(EnemyStateMachine stateMachine)
     {
-        if (_enemy.StateTimeElapsed > 3f || (_enemy.transform.position.y >= _enemy.StartingPosition.y && _enemy.StateTimeElapsed > 0.1f) || _enemy.LOS.CheckRaycastObstacleCollision())
+        if (Vector3.Distance(stateMachine.Enemy.TargetPosition, stateMachine.transform.position) < 0.1f || stateMachine.Enemy.LOS.CheckRaycastObstacleCollision())
         {
-            _enemy.StopMomentum();
-            _enemy.AbilityManager.SetCooldown(1f);
-            _enemy.Animator.SetTrigger("DiveEnd");
+            stateMachine.Enemy.StopMomentum();
+            stateMachine.Enemy.AbilityManager.SetCooldown(1f);
+            stateMachine.Enemy.Animator.SetTrigger("DiveEnd");
             return true;
         }
         return false;

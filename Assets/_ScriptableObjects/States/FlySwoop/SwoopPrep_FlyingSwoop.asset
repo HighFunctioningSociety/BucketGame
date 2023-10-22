@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25e53e4dee9eaa40b3a3b4179903693, type: 3}
   m_Name: SwoopPrep_FlyingSwoop
   m_EditorClassIdentifier: 
-  OnStateEnterAction: {fileID: 0}
-  actions:
-  - {fileID: 11400000, guid: f9917c0eef5655545854cbfd1e7c3f4e, type: 2}
+  OnStateEnterAction: {fileID: 11400000, guid: 2eef50812b7b21b47b7f2f0b0d60811c, type: 2}
+  OnStateExitAction: {fileID: 0}
+  actions: []
   transitions:
   - decision: {fileID: 11400000, guid: 0ab98572f0ac2284fa823a59fbc80f47, type: 2}
     trueState: {fileID: 11400000, guid: f456d88ec3dd82342b3075818395645b, type: 2}
-    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+    falseState: {fileID: 11400000}
   uninterruptable: 0
   hurtboxDisabled: 0
-  isNeutralState: 0
+  IsIdleState: 0
+  IsAggroState: 0
+  TimeToRemainInState: 0
   sceneGizmoColor: {r: 0, g: 0.1321423, b: 1, a: 1}

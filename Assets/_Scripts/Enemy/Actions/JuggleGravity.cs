@@ -5,20 +5,20 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Actions/JuggleGravity")]
 public class JuggleGravity : Actions
 {
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine enemy)
     {
         ChangeGravity(enemy);
     }
 
-    private void ChangeGravity(EnemyContainer enemy)
-    {   if (enemy.RigidBody.velocity.y < 0)
+    private void ChangeGravity(EnemyStateMachine stateMachine)
+    {   if (stateMachine.Enemy.RigidBody.velocity.y < 0)
         {
-            float newGravity = Mathf.Clamp(enemy.enemyStats.defaultGravity - 7 + enemy.StateTimeElapsed, 1, enemy.enemyStats.defaultGravity);
-            enemy.RigidBody.gravityScale = newGravity;
+            float newGravity = Mathf.Clamp(stateMachine.Enemy.EnemyStats.defaultGravity - 7 + stateMachine.StateTimeElapsed, 1, stateMachine.Enemy.EnemyStats.defaultGravity);
+            stateMachine.Enemy.RigidBody.gravityScale = newGravity;
         }
         else
         {
-            enemy.RigidBody.gravityScale = enemy.enemyStats.defaultGravity;
+            stateMachine.Enemy.RigidBody.gravityScale = stateMachine.Enemy.EnemyStats.defaultGravity;
         }
     }
 }

@@ -5,13 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Actions/Test")]
 public class ActionTest : Actions
 {
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        DoThing(enemy);
+        DoThing(stateMachine);
     }
 
-    private void DoThing(EnemyContainer enemy)
+    private void DoThing(EnemyStateMachine stateMachine)
     {
-        enemy.transform.position += new Vector3 (100,0);
+        stateMachine.transform.position += new Vector3 (100,0);
     }
 }

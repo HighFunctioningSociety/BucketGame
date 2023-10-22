@@ -17,8 +17,8 @@ public class DropManager : MonoBehaviour
 
     public void CalculateAndDropEnemyCoins(EnemyContainer _enemy)
     {
-        int minCurrency = _enemy.enemyStats.currencyDroppedMin;
-        int maxCurrency = _enemy.enemyStats.currencyDroppedMax;
+        int minCurrency = _enemy.EnemyStats.currencyDroppedMin;
+        int maxCurrency = _enemy.EnemyStats.currencyDroppedMax;
         int amountToDrop = CalculateDroppedValue(minCurrency, maxCurrency);
         Debug.Log("Amount of coins to generate: " + amountToDrop);
 

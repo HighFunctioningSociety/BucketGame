@@ -7,15 +7,15 @@ public class AttackedXTimes : Decision
 {
     public int numberOfAttacks;
 
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool doneAttacking = HasAttackedXTimes(enemy);
+        bool doneAttacking = HasAttackedXTimes(stateMachine);
         return doneAttacking;
     }
 
-    private bool HasAttackedXTimes(EnemyContainer _enemy)
+    private bool HasAttackedXTimes(EnemyStateMachine stateMachine)
     {
-        if (_enemy.AttacksDoneInState < numberOfAttacks)
+        if (stateMachine.AttacksDoneInState < numberOfAttacks)
         {
             return false;
         }

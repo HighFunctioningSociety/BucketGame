@@ -5,29 +5,31 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/CheckForPlayer")]
 public class CheckForPlayer : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool playerFound = ScanForPlayer(enemy);
+        bool playerFound = ScanForPlayer(stateMachine);
         return playerFound;
     }
 
-    private bool ScanForPlayer(EnemyContainer enemy)
+    private bool ScanForPlayer(EnemyStateMachine stateMachine)
     {
-        float aggroX = enemy.enemyStats.aggroRangeX;
-        float aggroY = enemy.enemyStats.aggroRangeY;
-        Vector2 center = enemy.transform.position;
+        float aggroX = stateMachine.Enemy.EnemyStats.aggroRangeX;
+        float aggroY = stateMachine.Enemy.EnemyStats.aggroRangeY;
+        Vector2 center = stateMachine.transform.position;
         Vector2 aggroRange = new Vector2(aggroX, aggroY);
 
-        Collider2D playerObj = Physics2D.OverlapBox(center, aggroRange, 0, enemy.PlayerLayer);
-
+        Collider2D playerObj = Physics2D.OverlapBox(center, aggroRange, 0, Constants.Layers.Player);
+        
         if (playerObj != null)
         {
-            enemy.TargetObject = playerObj.GetComponent<Transform>();
+            stateMachine.Enemy.TargetObject = playerObj.GetComponent<Transform>();
+            Debug.LogWarning("shit sucks");
             return true;
         }
         else
         {
-            enemy.TargetObject = null;
+            stateMachine.Enemy.TargetObject = null;
+            Debug.LogWarning("shit confusing");
             return false;
         }
     }

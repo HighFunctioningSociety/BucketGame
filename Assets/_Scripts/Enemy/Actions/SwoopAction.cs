@@ -5,20 +5,35 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Actions/Swoop")]
 public class SwoopAction : Actions
 {
-    public override void Act(EnemyContainer enemy)
+    
+    [Tooltip("Position we want to hit")]
+    public Vector3 targetPos;
+	
+    [Tooltip("Horizontal speed, in units/sec")]
+    public float speed = 50;
+	
+    [Tooltip("How high the arc should be, in units")]
+    public float arcHeight = 20;
+    
+    
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        Swoop(enemy);
+        Swoop(stateMachine);
     }
 
-    private void Swoop(EnemyContainer _enemy)
+    private void Swoop(EnemyStateMachine stateMachine)
     {
-        float horizontalSwoopSpeed = 50f;
-        float virticalOffset = 5f;
-        float yDifference = Mathf.Abs(_enemy.TargetPosition.y - _enemy.transform.position.y);
-        float xDifference = Mathf.Sign(_enemy.transform.position.x - _enemy.TargetPosition.x);
-        float yForceCalculation = xDifference * _enemy.Direction * - (virticalOffset + Mathf.Pow(yDifference/3f, 2));
-        float xForceCalculation = _enemy.Speed * _enemy.Direction * -horizontalSwoopSpeed;
+        float startingPositionX = stateMachine.transform.position.x;
+        float targetPositionX = targetPos.x + (5 * Mathf.Sign(targetPos.x - stateMachine.transform.position.x ));
+        float dist = targetPositionX - startingPositionX;
+        float nextX = Mathf.MoveTowards(stateMachine.transform.position.x, targetPositionX, stateMachine.Enemy.Direction * -speed * Time.deltaTime);
+        float baseY = Mathf.Lerp(stateMachine.Enemy.StoredPositions.y, targetPos.y, (nextX - startingPositionX) / dist);
+        float arc = arcHeight * (nextX - startingPositionX) * (nextX - targetPositionX) / (-0.25f * dist * dist);
 
-        _enemy.RigidBody.velocity = new Vector2(xForceCalculation, yForceCalculation); 
+        stateMachine.Enemy.TargetPosition = new Vector3(targetPositionX, stateMachine.transform.position.y);
+        
+        Vector3 nextPos = new Vector3(nextX, baseY - arc, stateMachine.transform.position.z);
+
+        stateMachine.transform.position = nextPos;
     }
 }

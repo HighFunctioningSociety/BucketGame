@@ -5,12 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Actions/Patrol")]
 public class PatrolAction : Actions
 {
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        Patrol(enemy);
+        Patrol(stateMachine);
     }
 
-    private void Patrol(EnemyContainer enemy)
+    private void Patrol(EnemyStateMachine stateMachine)
     {
         //if (enemy.patrolPoints.Length == 0)
         //return;

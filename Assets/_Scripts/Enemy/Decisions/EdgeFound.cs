@@ -5,24 +5,24 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "PluggableAI/Decisions/EdgeFound")]
 public class EdgeFound : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool edgeFound = CheckForEdge(enemy);
+        bool edgeFound = CheckForEdge(stateMachine);
         return edgeFound;
     }
 
-    private bool CheckForEdge(EnemyContainer _enemy)
+    private bool CheckForEdge(EnemyStateMachine stateMachine)
     {
-        if (_enemy.groundCheck.EdgeLeft  && _enemy.PatrolDirection == -1)
+        if (stateMachine.Enemy.GroundCheck.EdgeLeft  && stateMachine.Enemy.PatrolDirection == -1)
         {
-            _enemy.groundCheck.LeftEdgeAlreadyFound = true;
-            _enemy.PatrolDirection *= -1;
+            stateMachine.Enemy.GroundCheck.LeftEdgeAlreadyFound = true;
+            stateMachine.Enemy.PatrolDirection *= -1;
             return true;
         }
-        else if (_enemy.groundCheck.EdgeRight && _enemy.PatrolDirection == 1)
+        else if (stateMachine.Enemy.GroundCheck.EdgeRight && stateMachine.Enemy.PatrolDirection == 1)
         {
-            _enemy.groundCheck.RightEdgeAlreadyFound = true;
-            _enemy.PatrolDirection *= -1;
+            stateMachine.Enemy.GroundCheck.RightEdgeAlreadyFound = true;
+            stateMachine.Enemy.PatrolDirection *= -1;
             return true;
         }
         return false;

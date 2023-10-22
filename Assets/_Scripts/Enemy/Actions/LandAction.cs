@@ -7,30 +7,30 @@ public class LandAction : Actions
     public GameObject fallPrefab;
     private GameObject _fallPrefab;
 
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        Land(enemy);
+        Land(stateMachine);
     }
 
-    public void Land(EnemyContainer _enemy)
+    public void Land(EnemyStateMachine stateMachine)
     {
-        if (_fallPrefab == null && _enemy.StateTimeElapsed < 1f)
+        if (_fallPrefab == null && stateMachine.StateTimeElapsed < 1f)
         {
-            _fallPrefab = Instantiate(fallPrefab, new Vector2(_enemy.TargetObject.position.x, -9.097368f), fallPrefab.transform.rotation);
+            _fallPrefab = Instantiate(fallPrefab, new Vector2(stateMachine.Enemy.TargetObject.position.x, -9.097368f), fallPrefab.transform.rotation);
         }
 
-        if(_enemy.StateTimeElapsed < 3f)
+        if(stateMachine.StateTimeElapsed < 3f)
         {
-            _fallPrefab.transform.position = new Vector2(Mathf.Clamp(_enemy.TargetObject.position.x, _enemy.BoundLeft.transform.position.x, _enemy.BoundRight.transform.position.x), _enemy.BoundLeft.position.y);
+            _fallPrefab.transform.position = new Vector2(Mathf.Clamp(stateMachine.Enemy.TargetObject.position.x, stateMachine.Enemy.BoundLeft.transform.position.x, stateMachine.Enemy.BoundRight.transform.position.x), stateMachine.Enemy.BoundLeft.position.y);
         }
 
-        if(_enemy.StateTimeElapsed > 2.7f)
+        if(stateMachine.StateTimeElapsed > 2.7f)
         {
             if (_fallPrefab.gameObject != null)
-                _enemy.transform.position = new Vector3(_fallPrefab.transform.position.x, _enemy.transform.position.y, _enemy.transform.position.z);
-            _enemy.RigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-            _enemy.RigidBody.velocity = Vector2.down * 180;
-            _enemy.AbilityManager.nextReadyTime = Time.time + 1f;
+                stateMachine.transform.position = new Vector3(_fallPrefab.transform.position.x, stateMachine.transform.position.y, stateMachine.transform.position.z);
+            stateMachine.Enemy.RigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            stateMachine.Enemy.RigidBody.velocity = Vector2.down * 180;
+            stateMachine.Enemy.AbilityManager.nextReadyTime = Time.time + 1f;
         }
     }
 }

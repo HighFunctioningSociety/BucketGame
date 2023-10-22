@@ -5,14 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/NotInNeutralState")]
 public class NotInNeutralState : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
-        bool isStateNeutral = CheckIfStateIsNeutral(enemy);
+        bool isStateNeutral = CheckIfStateIsNeutral(stateMachine);
         return isStateNeutral;
     }
 
-    private bool CheckIfStateIsNeutral(EnemyContainer _enemy)
+    private bool CheckIfStateIsNeutral(EnemyStateMachine stateMachine)
     {
-        return _enemy.InIdle == false;
+        return stateMachine.Enemy.InIdle == false;
     }
 }

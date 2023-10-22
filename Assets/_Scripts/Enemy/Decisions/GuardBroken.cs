@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "PluggableAI/Decisions/GuardBroken")]
 public class GuardBroken : Decision
 {
-    public override bool Decide(EnemyContainer enemy)
+    public override bool Decide(EnemyStateMachine stateMachine)
     {
         bool guardBroken = false;//IsGuardBroken(enemy);
         return guardBroken;

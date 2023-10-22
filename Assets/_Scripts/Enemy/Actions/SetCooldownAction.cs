@@ -6,13 +6,13 @@ using UnityEngine;
 public class SetCooldownAction : Actions
 {
     public float cooldownValue;
-    public override void Act(EnemyContainer enemy)
+    public override void Act(EnemyStateMachine stateMachine)
     {
-        ApplyCooldown(enemy);
+        ApplyCooldown(stateMachine);
     }
 
-    private void ApplyCooldown(EnemyContainer _enemy)
+    private void ApplyCooldown(EnemyStateMachine stateMachine)
     {
-        _enemy.AbilityManager.SetCooldown(cooldownValue);
+        stateMachine.Enemy.AbilityManager.SetCooldown(cooldownValue);
     }
 }

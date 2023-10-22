@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 145843be1fd38c547a30a3629cbbfb26, type: 3}
   m_Name: Swoop
   m_EditorClassIdentifier: 
-  animationName: SwoopPrep_Piercer
+  targetPos: {x: 0, y: 0, z: 0}
+  speed: 50
+  arcHeight: 50

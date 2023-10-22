@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e25e53e4dee9eaa40b3a3b4179903693, type: 3}
   m_Name: Swoop_FlySwoop
   m_EditorClassIdentifier: 
-  OnStateEnterAction: {fileID: 0}
+  OnStateEnterActions:
+  - {fileID: 11400000, guid: 2eef50812b7b21b47b7f2f0b0d60811c, type: 2}
+  - {fileID: 11400000, guid: f9917c0eef5655545854cbfd1e7c3f4e, type: 2}
+  - {fileID: 11400000, guid: f9917c0eef5655545854cbfd1e7c3f4e, type: 2}
+  OnStateExitActions: []
   actions:
   - {fileID: 11400000, guid: 516504475e9ec634a941da5e5c72d64a, type: 2}
   transitions:
   - decision: {fileID: 11400000, guid: 2be4721adf7b85c468aac631b306c97b, type: 2}
     trueState: {fileID: 11400000, guid: f946ddcba8400c84d816f7ce72f3ba11, type: 2}
-    falseState: {fileID: 11400000, guid: 1f3c12239b901f446a1a98d3f8ba1285, type: 2}
+    falseState: {fileID: 11400000}
   uninterruptable: 0
   hurtboxDisabled: 0
-  isNeutralState: 0
+  IsIdleState: 0
+  IsAggroState: 0
+  TimeToRemainInState: 0
   sceneGizmoColor: {r: 0.766181, g: 0, b: 1, a: 1}

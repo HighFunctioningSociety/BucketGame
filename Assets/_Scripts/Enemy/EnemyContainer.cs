@@ -1,21 +1,42 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyContainer : MonoBehaviour
 {
     public bool aiActive;
 
-    public EnemyStats enemyStats;
+    public EnemyStats EnemyStats;
+    
+    private Vector3 _targetPosition;
+    public Vector3 TargetPosition
+    {
+        get { return _targetPosition; }
+        set {
+            if (BoundLeft != null && BoundRight != null)
+            {
+                value.x = Mathf.Clamp(value.x, BoundLeft.position.x, BoundRight.position.x);
+            }
+            value.z = 0;
+            _targetPosition = value; 
+        }
+    }
 
-    [Space]
-    [Header("Enemy State Objects")]
-    public State currentState;
-    public State defaultState;
+    public Vector3 StoredPositions = new Vector3(0, 0, 0);
 
-    [Space]
-    [Header ("State information")]
-    public float StateTimeElapsed = 0;
-    public int AttacksDoneInState = 0;
+    private int _currentHealth;
+    public int CurrentHealth
+    {
+        get { return _currentHealth; }
+        set { _currentHealth = Mathf.Clamp(value, 0, EnemyStats.maxHealth); }
+    }
+    
+    private float _currentArmor;
+    public float CurrentArmor
+    {
+        get { return _currentArmor; }
+        set { _currentArmor = Mathf.Clamp(value, 0, EnemyStats.armor); }
+    }
 
     [Space]
     [Header("Enemy Prefabs")]
@@ -26,15 +47,11 @@ public class EnemyContainer : MonoBehaviour
     [Space]
     public bool UnfreezeConstraintsOnReset = false;
     public bool AINotActiveOnStart;
-    public GroundCheck groundCheck;
+    public GroundCheck GroundCheck;
     public Transform BoundLeft, BoundRight;
     public bool Invul = false;
 
-    [HideInInspector] public LayerMask PlayerLayer = Constants.Layers.Player;
-    [HideInInspector] public LayerMask ObstacleLayer = Constants.Layers.Obstacles;
-
     [HideInInspector] public float FullscreenAttackTiming;
-    [HideInInspector] public float HurtTimeRemaining;
     [HideInInspector] public float AggroTimeRemaining;
     [HideInInspector] public bool WasHurt;
     [HideInInspector] public bool InIdle;
@@ -56,7 +73,6 @@ public class EnemyContainer : MonoBehaviour
     // Optional Components
     [HideInInspector] public EnemyAbilityManager AbilityManager;
     [HideInInspector] public LOSController LOS;
-    [HideInInspector] public HurtController Hurt;
     [HideInInspector] public RepositionController Reposition;
     [HideInInspector] public BossTriggers Triggers;
 
@@ -66,33 +82,6 @@ public class EnemyContainer : MonoBehaviour
     private Material _matDefault;
     private SpriteRenderer _spriteRenderer;
 
-    private Vector3 _targetPosition;
-
-    public Vector3 TargetPosition
-    {
-        get { return _targetPosition; }
-        set {
-            if (BoundLeft != null && BoundRight != null)
-            {
-                value.x = Mathf.Clamp(value.x, BoundLeft.position.x, BoundRight.position.x);
-            }
-            value.z = 0;
-            _targetPosition = value; 
-        }
-    }
-
-    private int _currentHealth;
-    public int CurrentHealth
-    {
-        get { return _currentHealth; }
-        set { _currentHealth = Mathf.Clamp(value, 0, enemyStats.maxHealth); }
-    }
-    private float _currentArmor;
-    public float CurrentArmor
-    {
-        get { return _currentArmor; }
-        set { _currentArmor = Mathf.Clamp(value, 0, enemyStats.armor); }
-    }
 
     private void Awake()
     {
@@ -122,24 +111,18 @@ public class EnemyContainer : MonoBehaviour
         {
             FindPlayer();
         }
-        currentState.UpdateState(this);
-        IncrementStateTime();
     }
-    
-    
 
     public void SetUpAI()
     {
         CurrentPatrol = 0;
         int[] patrolDirectionValues = new int[] { -1, 1 };
         PatrolDirection = patrolDirectionValues[Random.Range(0, 1)];
-        Hurt = GetComponent<HurtController>();
+ 
         SpawnPosition = transform.position;
 
-        currentState = defaultState;
-
-        CurrentHealth = enemyStats.maxHealth;
-        CurrentArmor = enemyStats.armor;
+        CurrentHealth = EnemyStats.maxHealth;
+        CurrentArmor = EnemyStats.armor;
         Invul = false;
         RigidBody.velocity = Vector2.zero;
         if (_spriteRenderer != null)
@@ -150,48 +133,16 @@ public class EnemyContainer : MonoBehaviour
         aiActive = (AINotActiveOnStart ?  false : true);
     }
 
-    public void TransitionToState(State nextState)
-    {
-        if (nextState != currentState)
-        {
-            currentState = nextState;
-            ResetStateTimers();
-            ActivateStateEnterAction();
-            CalculateFullscreenAttackTiming();
-        }
-
-        if (nextState.IsAggroState)
-        {
-            AggroTimeRemaining = currentState.TimeToRemainInState;
-        }
-    }
-
-    private void ActivateStateEnterAction()
-    {
-        if (currentState.OnStateEnterAction != null)
-            currentState.OnStateEnterAction.Act(this);
-    }
-
-    private void IncrementStateTime()
-    {
-        StateTimeElapsed += Time.fixedDeltaTime;
-    }
-
-    private void ResetStateTimers()
-    {
-        AttacksDoneInState = 0;
-        StateTimeElapsed = 0;
-    }
 
     private void CalculateFullscreenAttackTiming()
     {
-        if (enemyStats.fullscreenTimingMax == 0) 
+        if (EnemyStats.fullscreenTimingMax == 0) 
         {
             FullscreenAttackTiming = 0;
         }
         else 
         {
-            FullscreenAttackTiming = Random.Range(enemyStats.fullscreenTimingMin, enemyStats.fullscreenTimingMax); 
+            FullscreenAttackTiming = Random.Range(EnemyStats.fullscreenTimingMin, EnemyStats.fullscreenTimingMax); 
         }
     }
 
@@ -303,19 +254,5 @@ public class EnemyContainer : MonoBehaviour
             if (parameter.type == AnimatorControllerParameterType.Trigger)
                 Animator.ResetTrigger(parameter.name);
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (currentState != null)
-        {
-            //State Color
-            Gizmos.color = currentState.sceneGizmoColor;
-            Gizmos.DrawWireSphere(GetComponent<Collider2D>().bounds.center, enemyStats.stateSphereRadius);
-        }
-
-        //Aggro Range
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireCube(GetComponent<Collider2D>().bounds.center, new Vector3(enemyStats.aggroRangeX, enemyStats.aggroRangeY, 0));
     }
 }
