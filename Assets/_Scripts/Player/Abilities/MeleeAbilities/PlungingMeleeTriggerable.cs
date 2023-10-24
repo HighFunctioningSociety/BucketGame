@@ -76,15 +76,16 @@ public class PlungingMeleeTriggerable : MeleeAttackTriggerable
         {
             DrawHitEffect(enemy);
 
+            
             HitReactor hitReactor = enemy.GetComponent<HitReactor>();
             if (hitReactor != null)
                 hitReactor.ReactToHit();
 
-            EnemyContainer _enemy = enemy.GetComponent<EnemyContainer>();
-            if (_enemy == null)
+            EnemyContainer enemyContainer = enemy.GetComponent<EnemyContainer>();
+            if (enemyContainer == null)
             {
-                _enemy = enemy.GetComponentInParent<EnemyContainer>();
-                if (_enemy == null)
+                enemyContainer = enemy.GetComponentInParent<EnemyContainer>();
+                if (enemyContainer == null)
                 {
                     return;
                 }
@@ -100,14 +101,16 @@ public class PlungingMeleeTriggerable : MeleeAttackTriggerable
             {
                 Rumbler.RumbleConstant(rumbleLow, rumbleHigh, rumbleDurration);
             }
-
-            if (_enemy.Hurt != null)
+            
+            enemyContainer.KnockBack(0f, -knockBackY, player.rb.transform.position);
+            enemyContainer.TakeDamage(damage, false);
+            
+            EnemyStateMachine enemyStateMachine = enemy.GetComponent<EnemyStateMachine>();
+            
+            if (enemyStateMachine.Hurt != null)
             {
-                _enemy.Hurt.EnterHurtState();
+                enemyStateMachine.Hurt.EnterHurtState();
             }
-
-            _enemy.KnockBack(0f, -knockBackY, player.rb.transform.position);
-            _enemy.TakeDamage(damage, false);
             
             player.playerStats.curSpiritProgression += meterProgression;
         }

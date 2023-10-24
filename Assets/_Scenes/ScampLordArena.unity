@@ -35224,9 +35224,19 @@ PrefabInstance:
       objectReference: {fileID: 1663321667}
     - target: {fileID: 1718304561740417175, guid: e8f457616d9d90b4c9fb702a972b1660,
         type: 3}
+      propertyPath: BoundLeft
+      value: 
+      objectReference: {fileID: 1407374780}
+    - target: {fileID: 1718304561740417175, guid: e8f457616d9d90b4c9fb702a972b1660,
+        type: 3}
       propertyPath: boundLeft
       value: 
       objectReference: {fileID: 1782436325}
+    - target: {fileID: 1718304561740417175, guid: e8f457616d9d90b4c9fb702a972b1660,
+        type: 3}
+      propertyPath: BoundRight
+      value: 
+      objectReference: {fileID: 930395246}
     - target: {fileID: 1718304561740417175, guid: e8f457616d9d90b4c9fb702a972b1660,
         type: 3}
       propertyPath: boundRight

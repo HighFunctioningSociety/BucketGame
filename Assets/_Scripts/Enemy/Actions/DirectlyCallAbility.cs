@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "PluggableAI/Actions/DirectlyCallAbility")]
-public class DirectlyCallAbility : Actions
+public class DirectlyCallAbility : Action
 {
     public int directCallIndex;
 

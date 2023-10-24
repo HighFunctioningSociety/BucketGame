@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Actions : ScriptableObject
+public abstract class Action : ScriptableObject
 {
     public abstract void Act (EnemyStateMachine stateMachine);
 }

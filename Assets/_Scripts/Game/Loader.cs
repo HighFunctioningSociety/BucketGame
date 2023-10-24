@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public static class Loader
 {
-    private static Action onLoaderCallback;
+    private static System.Action onLoaderCallback;
 
     public static void Load(SceneDirectory.Scene scene)
     {

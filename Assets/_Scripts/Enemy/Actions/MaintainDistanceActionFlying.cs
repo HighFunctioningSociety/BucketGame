@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu (menuName = "PluggableAI/Actions/MaintainDistanceFlying")]
-public class MaintainDistanceActionFlying : Actions
+public class MaintainDistanceActionFlying : Action
 {
     public float distanceX;
     public float distanceY;

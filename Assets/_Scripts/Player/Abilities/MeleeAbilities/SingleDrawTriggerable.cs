@@ -11,6 +11,8 @@ public class SingleDrawTriggerable : MeleeAttackTriggerable
     [HideInInspector] public float moveForceX, moveForceY;
     [HideInInspector] public float meterProgression = 0;
     [HideInInspector] public float hitStop;
+    private float airKnockBackX = -10;
+    private float airKnockBackY = 42;
 
     private void Awake()
     {
@@ -107,30 +109,31 @@ public class SingleDrawTriggerable : MeleeAttackTriggerable
 
     private void EnemyHitCalculations()
     {
-        foreach (Collider2D enemy in hitEnemies)
+        foreach (Collider2D _colInfo in hitEnemies)
         {
-            DrawHitEffect(enemy);
-            HitReactor hitReactor = enemy.GetComponent<HitReactor>();
+            DrawHitEffect(_colInfo);
+            HitReactor hitReactor = _colInfo.GetComponent<HitReactor>();
             if (hitReactor != null)
                 hitReactor.ReactToHit();
 
-
-            EnemyContainer _enemy = enemy.GetComponent<EnemyContainer>();
-            if (CheckForNull(_enemy) == true)
-                _enemy = enemy.GetComponentInParent<EnemyContainer>();
-            if (CheckForNull(_enemy) == true)
+            EnemyContainer enemyContainer = _colInfo.GetComponent<EnemyContainer>();
+            if (CheckForNull(enemyContainer) == true)
+                enemyContainer = _colInfo.GetComponentInParent<EnemyContainer>();
+            if (CheckForNull(enemyContainer) == true)
                 return;
 
             ApplyHitstop(hitStop, enNum);
             ApplyControllerRumble();
 
-            if (_enemy.Hurt != null)
+            EnemyStateMachine enemyStateMachine = _colInfo.GetComponent<EnemyStateMachine>();
+            
+            if (enemyStateMachine.Hurt != null)
             {
-                _enemy.Hurt.EnterHurtState();
+                enemyStateMachine.Hurt.EnterHurtState();
             }
 
-            ApplyKnockBack(_enemy);
-            _enemy.TakeDamage(damage, false);
+            ApplyKnockBack(enemyContainer);
+            enemyContainer.TakeDamage(damage, false);
             player.playerStats.curSpiritProgression += meterProgression;
         }
     }
@@ -148,18 +151,18 @@ public class SingleDrawTriggerable : MeleeAttackTriggerable
         }
     }
 
-    private void ApplyKnockBack(EnemyContainer _enemy)
+    private void ApplyKnockBack(EnemyContainer enemyContainer)
     {
-        float knockBackTotalX = knockBackX, knockBackTotalY = knockBackY;
-        if (_enemy.groundCheck != null)
+        float knockBackTotalX = knockBackX;
+        float knockBackTotalY = knockBackY;
+
+        if (enemyContainer.GroundCheck != null && !enemyContainer.GroundCheck.Grounded)
         {
-            if (!_enemy.groundCheck.Grounded)
-            {
-                knockBackTotalY += 42;
-                knockBackTotalX -= 10;
-            }
+            knockBackTotalX -= airKnockBackX;
+            knockBackTotalY += airKnockBackY;
         }
-        _enemy.KnockBack(knockBackTotalX, knockBackTotalY, player.rb.transform.position);
+
+        enemyContainer.KnockBack(knockBackTotalX, knockBackTotalY, player.rb.transform.position);
     }
 
     private void ApplyHitstop(float _hitstop, int _enemiesHit)

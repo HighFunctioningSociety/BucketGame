@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "PluggableAI/Actions/Patrol")]
-public class PatrolAction : Actions
+public class PatrolAction : Action
 {
     public override void Act(EnemyStateMachine stateMachine)
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "PluggableAI/Actions/JuggleGravity")]
-public class JuggleGravity : Actions
+public class JuggleGravity : Action
 {
     public override void Act(EnemyStateMachine enemy)
     {

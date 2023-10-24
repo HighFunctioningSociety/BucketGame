@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "PluggableAI/Actions/DiagonalFloat")]
-public class DiagonalFloatAction : Actions
+public class DiagonalFloatAction : Action
 {
     public override void Act(EnemyStateMachine stateMachine)
     {

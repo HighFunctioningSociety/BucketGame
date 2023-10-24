@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "PluggableAI/Actions/StorePosition")]
-public class StorePositionAction : Actions
+public class StorePositionAction : Action
 {
     public override void Act(EnemyStateMachine stateMachine)
     {

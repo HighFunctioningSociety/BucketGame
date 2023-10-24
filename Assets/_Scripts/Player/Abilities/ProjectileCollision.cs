@@ -29,9 +29,10 @@ public class ProjectileCollision : MonoBehaviour
 
         if (_enemy != null)
         {
-            if (shouldHurtEnemy && _enemy.Hurt != null)
+            EnemyStateMachine enemyStateMachine = _colInfo.GetComponent<EnemyStateMachine>();
+            if (shouldHurtEnemy && enemyStateMachine.Hurt != null)
             {
-                _enemy.Hurt.EnterHurtState();
+                enemyStateMachine.Hurt.EnterHurtState();
             }
 
             if (createHitEffect)

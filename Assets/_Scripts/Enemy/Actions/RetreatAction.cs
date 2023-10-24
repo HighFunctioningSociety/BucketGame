@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "PluggableAI/Actions/Retreat")]
-public class RetreatAction : Actions
+public class RetreatAction : Action
 {
     public string AnimationName;
     public override void Act(EnemyStateMachine stateMachine)

@@ -42,10 +42,10 @@ public class UpSlashTriggerable : MeleeAttackTriggerable
         
         foreach (Collider2D enemy in hitEnemies)
         {
-            EnemyContainer _enemy = enemy.GetComponent<EnemyContainer>();
+            EnemyStateMachine _enemy = enemy.GetComponent<EnemyStateMachine>();
             if (_enemy == null)
             {
-                _enemy = enemy.GetComponentInParent<EnemyContainer>();
+                _enemy = enemy.GetComponentInParent<EnemyStateMachine>();
                 if (_enemy == null)
                 {
                     return;
@@ -60,9 +60,9 @@ public class UpSlashTriggerable : MeleeAttackTriggerable
             }
 
             float knockBackTotalX = knockBackX, knockBackTotalY = knockBackY;
-            if (_enemy.groundCheck != null)
+            if (_enemy.Enemy.GroundCheck != null)
             {
-                if (!_enemy.groundCheck.Grounded == false)
+                if (!_enemy.Enemy.GroundCheck.Grounded == false)
                 {
                     knockBackTotalY += 25;
                     knockBackTotalX -= 5;
@@ -74,8 +74,8 @@ public class UpSlashTriggerable : MeleeAttackTriggerable
                 _enemy.Hurt.EnterHurtState();
             }
 
-            _enemy.KnockBack(knockBackTotalX, knockBackTotalY, player.rb.transform.position);
-            _enemy.TakeDamage(damage, false);
+            _enemy.Enemy.KnockBack(knockBackTotalX, knockBackTotalY, player.rb.transform.position);
+            _enemy.Enemy.TakeDamage(damage, false);
             DrawHitEffect(enemy);
             player.playerStats.curSpiritProgression += meterProgression;
         }

@@ -48,15 +48,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0698403dd01150f49bdbf2f902dcf951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Animator: {fileID: 0}
-  TriggerName: 
-  Damage: 0
-  CoolDown: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  triggerName: 
+  damage: 0
+  ability: {fileID: 11400000, guid: eae4e087f0849d34ab24fa8b0a8611bc, type: 2}
   audioSource: {fileID: 408882904699431436}
-  RumbleDurration: 0
-  RumbleLow: 0
-  RumbleHigh: 0
+  rumbleDurration: 0
+  rumbleLow: 0
+  rumbleHigh: 0
   impactAudioScource: {fileID: 0}
   attackCollider: {fileID: 8269875729702024670}
   hitEffect: {fileID: 7859254732662437956, guid: f26e2ffc36d642f4397e149c6b947f16,
@@ -106,22 +106,21 @@ MonoBehaviour:
   hitEnemies: []
   hitObstacles: []
   hitBlockers: []
-  numberOfEnemies: 0
+  enNum: 0
   obNum: 0
   blockNum: 0
   subHit: {fileID: 11400000, guid: c6e69ddc950a1bf44a24126c46e64551, type: 2}
   subHitCollider: {fileID: 6484577609492932527}
   trailRenderer: {fileID: 7275803988695127205}
   particles: {fileID: 5975915023482474540}
-  KnockBackX: 0
-  KnockBackY: 0
-  MoveForceX: 0
-  MoveForceY: 0
-  MeterProgression: 0
-  HitStop: 0
-  SubHitDamage: 0
-  SubHitHitStop: 0
-  HelmSplitterActive: 0
+  meterProgression: 0
+  knockBackY: 0
+  knockBackX: 0
+  moveForceY: 0
+  hitStop: 0
+  subHitDamage: 0
+  subHitHitStop: 0
+  helmSplitterActive: 0
 --- !u!60 &8269875729702024670
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -632,15 +631,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e249f8e533b08b468cdd2b2f40152d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Animator: {fileID: 0}
-  TriggerName: slash_1
-  Damage: 100
-  CoolDown: 0.27
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  triggerName: 
+  damage: 0
+  ability: {fileID: 11400000, guid: 9a2c380ac023a304db13ae70c6d4d541, type: 2}
   audioSource: {fileID: 4436050241073789343}
-  RumbleDurration: 0.03
-  RumbleLow: 0.1
-  RumbleHigh: 0.1
+  rumbleDurration: 0
+  rumbleLow: 0
+  rumbleHigh: 0
   impactAudioScource: {fileID: 1008113557429564384}
   attackCollider: {fileID: 1746405937633719062}
   hitEffect: {fileID: 8174434252830279677, guid: 9fa9fb72cd26ee24cab6e84afca67015,
@@ -690,15 +689,9 @@ MonoBehaviour:
   hitEnemies: []
   hitObstacles: []
   hitBlockers: []
-  numberOfEnemies: 0
+  enNum: 0
   obNum: 0
   blockNum: 0
-  KnockBackX: 20
-  KnockBackY: 0
-  MoveForceX: 0
-  MoveForceY: 0
-  MeterProgression: 20
-  HitStop: 0.005
   switchLayer:
     useTriggers: 0
     useLayerMask: 1
@@ -715,6 +708,12 @@ MonoBehaviour:
     maxNormalAngle: 0
   switchNum: 0
   hitSwitches: []
+  knockBackX: 0
+  knockBackY: 0
+  moveForceX: 0
+  moveForceY: 0
+  meterProgression: 0
+  hitStop: 0
 --- !u!60 &1746405937633719062
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1070,11 +1069,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bc2469962d4bc74db5a0b2bd86feaca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Animator: {fileID: 0}
-  TriggerName: 
-  Damage: 0
-  CoolDown: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  triggerName: 
+  damage: 0
+  ability: {fileID: 11400000, guid: ff33fd2f1c4491045bcfbbcce9abf9a5, type: 2}
   audioSource: {fileID: 0}
   speed: 0
   knockBack: 0
@@ -1134,15 +1133,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e249f8e533b08b468cdd2b2f40152d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Animator: {fileID: 0}
-  TriggerName: 
-  Damage: 0
-  CoolDown: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  triggerName: 
+  damage: 0
+  ability: {fileID: 11400000, guid: 4e195c475f3685b4e90d693bf22000fb, type: 2}
   audioSource: {fileID: 4926247166064796732}
-  RumbleDurration: 0
-  RumbleLow: 0
-  RumbleHigh: 0
+  rumbleDurration: 0
+  rumbleLow: 0
+  rumbleHigh: 0
   impactAudioScource: {fileID: 1008113557429564384}
   attackCollider: {fileID: 8608735806172705229}
   hitEffect: {fileID: 7859254732662437956, guid: f26e2ffc36d642f4397e149c6b947f16,
@@ -1192,15 +1191,9 @@ MonoBehaviour:
   hitEnemies: []
   hitObstacles: []
   hitBlockers: []
-  numberOfEnemies: 0
+  enNum: 0
   obNum: 0
   blockNum: 0
-  KnockBackX: 0
-  KnockBackY: 0
-  MoveForceX: 0
-  MoveForceY: 0
-  MeterProgression: 0
-  HitStop: 0
   switchLayer:
     useTriggers: 0
     useLayerMask: 1
@@ -1217,6 +1210,12 @@ MonoBehaviour:
     maxNormalAngle: 0
   switchNum: 0
   hitSwitches: []
+  knockBackX: 0
+  knockBackY: 0
+  moveForceX: 0
+  moveForceY: 0
+  meterProgression: 0
+  hitStop: 0
 --- !u!60 &8608735806172705229
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1671,15 +1670,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e249f8e533b08b468cdd2b2f40152d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Animator: {fileID: 0}
-  TriggerName: 
-  Damage: 0
-  CoolDown: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  triggerName: 
+  damage: 0
+  ability: {fileID: 11400000, guid: 0f628cb29b06eb84ab368d75a29df6c9, type: 2}
   audioSource: {fileID: 569683704851659940}
-  RumbleDurration: 0
-  RumbleLow: 0
-  RumbleHigh: 0
+  rumbleDurration: 0
+  rumbleLow: 0
+  rumbleHigh: 0
   impactAudioScource: {fileID: 1008113557429564384}
   attackCollider: {fileID: 3177183515822930130}
   hitEffect: {fileID: 8174434252830279677, guid: 9fa9fb72cd26ee24cab6e84afca67015,
@@ -1729,15 +1728,9 @@ MonoBehaviour:
   hitEnemies: []
   hitObstacles: []
   hitBlockers: []
-  numberOfEnemies: 0
+  enNum: 0
   obNum: 0
   blockNum: 0
-  KnockBackX: 0
-  KnockBackY: 0
-  MoveForceX: 0
-  MoveForceY: 0
-  MeterProgression: 0
-  HitStop: 0
   switchLayer:
     useTriggers: 0
     useLayerMask: 1
@@ -1754,6 +1747,12 @@ MonoBehaviour:
     maxNormalAngle: 0
   switchNum: 0
   hitSwitches: []
+  knockBackX: 0
+  knockBackY: 0
+  moveForceX: 0
+  moveForceY: 0
+  meterProgression: 0
+  hitStop: 0
 --- !u!60 &3177183515822930130
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1960,15 +1959,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e249f8e533b08b468cdd2b2f40152d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Animator: {fileID: 0}
-  TriggerName: 
-  Damage: 0
-  CoolDown: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  triggerName: 
+  damage: 0
+  ability: {fileID: 11400000, guid: 9038db973fb4a664db6ea0759f3b9bea, type: 2}
   audioSource: {fileID: 7212350452567106563}
-  RumbleDurration: 0
-  RumbleLow: 0
-  RumbleHigh: 0
+  rumbleDurration: 0
+  rumbleLow: 0
+  rumbleHigh: 0
   impactAudioScource: {fileID: 1008113557429564384}
   attackCollider: {fileID: 2460421636082354747}
   hitEffect: {fileID: 7859254732662437956, guid: f26e2ffc36d642f4397e149c6b947f16,
@@ -2018,15 +2017,9 @@ MonoBehaviour:
   hitEnemies: []
   hitObstacles: []
   hitBlockers: []
-  numberOfEnemies: 0
+  enNum: 0
   obNum: 0
   blockNum: 0
-  KnockBackX: 0
-  KnockBackY: 0
-  MoveForceX: 0
-  MoveForceY: 0
-  MeterProgression: 0
-  HitStop: 0
   switchLayer:
     useTriggers: 0
     useLayerMask: 1
@@ -2043,6 +2036,12 @@ MonoBehaviour:
     maxNormalAngle: 0
   switchNum: 0
   hitSwitches: []
+  knockBackX: 0
+  knockBackY: 0
+  moveForceX: 0
+  moveForceY: 0
+  meterProgression: 0
+  hitStop: 0
 --- !u!60 &2460421636082354747
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2351,15 +2350,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaf7ef00630186d41be17a4cc77343de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Animator: {fileID: 0}
-  TriggerName: 
-  Damage: 0
-  CoolDown: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  triggerName: 
+  damage: 0
+  ability: {fileID: 11400000, guid: 24e8f36b043af4c4c9ae86e6671134da, type: 2}
   audioSource: {fileID: 1756818696605160748}
-  RumbleDurration: 0
-  RumbleLow: 0
-  RumbleHigh: 0
+  rumbleDurration: 0
+  rumbleLow: 0
+  rumbleHigh: 0
   impactAudioScource: {fileID: 1008113557429564384}
   attackCollider: {fileID: 4229551463196165823}
   hitEffect: {fileID: 7859254732662437956, guid: f26e2ffc36d642f4397e149c6b947f16,
@@ -2409,16 +2408,14 @@ MonoBehaviour:
   hitEnemies: []
   hitObstacles: []
   hitBlockers: []
-  numberOfEnemies: 0
+  enNum: 0
   obNum: 0
   blockNum: 0
-  KnockBackX: 0
-  KnockBackY: 0
-  MoveForceX: 0
-  MoveForceY: 0
-  MeterProgression: 0
-  HitStop: 0
+  meterProgression: 0
+  knockBackY: 0
+  moveForceY: 0
   bounce: 0
+  hitStop: 0
 --- !u!60 &4229551463196165823
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7999,15 +7996,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e249f8e533b08b468cdd2b2f40152d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Animator: {fileID: 0}
-  TriggerName: 
-  Damage: 0
-  CoolDown: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  triggerName: 
+  damage: 0
+  ability: {fileID: 11400000, guid: 9a2c380ac023a304db13ae70c6d4d541, type: 2}
   audioSource: {fileID: 4436050241073789343}
-  RumbleDurration: 0
-  RumbleLow: 0
-  RumbleHigh: 0
+  rumbleDurration: 0
+  rumbleLow: 0
+  rumbleHigh: 0
   impactAudioScource: {fileID: 1008113557429564384}
   attackCollider: {fileID: 3541578885599355185}
   hitEffect: {fileID: 7859254732662437956, guid: f26e2ffc36d642f4397e149c6b947f16,
@@ -8057,15 +8054,9 @@ MonoBehaviour:
   hitEnemies: []
   hitObstacles: []
   hitBlockers: []
-  numberOfEnemies: 0
+  enNum: 0
   obNum: 0
   blockNum: 0
-  KnockBackX: 0
-  KnockBackY: 0
-  MoveForceX: 0
-  MoveForceY: 0
-  MeterProgression: 0
-  HitStop: 0
   switchLayer:
     useTriggers: 0
     useLayerMask: 1
@@ -8082,6 +8073,12 @@ MonoBehaviour:
     maxNormalAngle: 0
   switchNum: 0
   hitSwitches: []
+  knockBackX: 0
+  knockBackY: 0
+  moveForceX: 0
+  moveForceY: 0
+  meterProgression: 0
+  hitStop: 0
 --- !u!60 &3541578885599355185
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8375,15 +8372,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e249f8e533b08b468cdd2b2f40152d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Animator: {fileID: 0}
-  TriggerName: 
-  Damage: 0
-  CoolDown: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  triggerName: 
+  damage: 0
+  ability: {fileID: 11400000, guid: e6872fdc84f2a8144bc55ebe70948e7f, type: 2}
   audioSource: {fileID: 4281970432283546500}
-  RumbleDurration: 0
-  RumbleLow: 0
-  RumbleHigh: 0
+  rumbleDurration: 0
+  rumbleLow: 0
+  rumbleHigh: 0
   impactAudioScource: {fileID: 1008113557429564384}
   attackCollider: {fileID: 2645621039201428404}
   hitEffect: {fileID: 8174434252830279677, guid: 9fa9fb72cd26ee24cab6e84afca67015,
@@ -8433,15 +8430,9 @@ MonoBehaviour:
   hitEnemies: []
   hitObstacles: []
   hitBlockers: []
-  numberOfEnemies: 0
+  enNum: 0
   obNum: 0
   blockNum: 0
-  KnockBackX: 0
-  KnockBackY: 0
-  MoveForceX: 0
-  MoveForceY: 0
-  MeterProgression: 0
-  HitStop: 0
   switchLayer:
     useTriggers: 0
     useLayerMask: 1
@@ -8458,6 +8449,12 @@ MonoBehaviour:
     maxNormalAngle: 0
   switchNum: 0
   hitSwitches: []
+  knockBackX: 0
+  knockBackY: 0
+  moveForceX: 0
+  moveForceY: 0
+  meterProgression: 0
+  hitStop: 0
 --- !u!60 &2645621039201428404
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -8583,15 +8580,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d8a0ac1dbc30934885f5734c2eb2263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Animator: {fileID: 0}
-  TriggerName: 
-  Damage: 0
-  CoolDown: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  triggerName: 
+  damage: 0
+  ability: {fileID: 11400000, guid: aae1b00482427014bb18faaea58cf459, type: 2}
   audioSource: {fileID: 4721940963624772638}
-  RumbleDurration: 0
-  RumbleLow: 0
-  RumbleHigh: 0
+  rumbleDurration: 0
+  rumbleLow: 0
+  rumbleHigh: 0
   impactAudioScource: {fileID: 1008113557429564384}
   attackCollider: {fileID: 2234194266798058277}
   hitEffect: {fileID: 7859254732662437956, guid: f26e2ffc36d642f4397e149c6b947f16,
@@ -8641,15 +8638,15 @@ MonoBehaviour:
   hitEnemies: []
   hitObstacles: []
   hitBlockers: []
-  numberOfEnemies: 0
+  enNum: 0
   obNum: 0
   blockNum: 0
-  KnockBackX: 0
-  KnockBackY: 0
-  MoveForceX: 0
-  MoveForceY: 0
-  MeterProgression: 0
-  HitStop: 0
+  knockBackX: 0
+  knockBackY: 0
+  moveForceX: 0
+  moveForceY: 0
+  meterProgression: 0
+  hitStop: 0
 --- !u!60 &2234194266798058277
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -9165,15 +9162,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e249f8e533b08b468cdd2b2f40152d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Animator: {fileID: 0}
-  TriggerName: 
-  Damage: 0
-  CoolDown: 0
+  player: {fileID: 0}
+  animator: {fileID: 0}
+  triggerName: 
+  damage: 0
+  ability: {fileID: 11400000, guid: 9038db973fb4a664db6ea0759f3b9bea, type: 2}
   audioSource: {fileID: 7212350452567106563}
-  RumbleDurration: 0
-  RumbleLow: 0
-  RumbleHigh: 0
+  rumbleDurration: 0
+  rumbleLow: 0
+  rumbleHigh: 0
   impactAudioScource: {fileID: 1008113557429564384}
   attackCollider: {fileID: 345203684510412286}
   hitEffect: {fileID: 7481961701538960599, guid: 3223616327809514f8e51d5b5a5e962c,
@@ -9223,15 +9220,9 @@ MonoBehaviour:
   hitEnemies: []
   hitObstacles: []
   hitBlockers: []
-  numberOfEnemies: 0
+  enNum: 0
   obNum: 0
   blockNum: 0
-  KnockBackX: 0
-  KnockBackY: 0
-  MoveForceX: 0
-  MoveForceY: 0
-  MeterProgression: 0
-  HitStop: 0
   switchLayer:
     useTriggers: 0
     useLayerMask: 1
@@ -9248,6 +9239,12 @@ MonoBehaviour:
     maxNormalAngle: 0
   switchNum: 0
   hitSwitches: []
+  knockBackX: 0
+  knockBackY: 0
+  moveForceX: 0
+  moveForceY: 0
+  meterProgression: 0
+  hitStop: 0
 --- !u!60 &345203684510412286
 PolygonCollider2D:
   m_ObjectHideFlags: 0

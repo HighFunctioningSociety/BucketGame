@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu (menuName = "PluggableAI/Actions/Ability")]
-public class AbilityAction : Actions
+public class AbilityAction : Action
 {
     public override void Act(EnemyStateMachine stateMachine)
     {

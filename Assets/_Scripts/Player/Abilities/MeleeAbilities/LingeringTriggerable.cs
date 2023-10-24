@@ -49,37 +49,44 @@ public class LingeringTriggerable : MeleeAttackTriggerable
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            EnemyContainer _enemy = enemy.GetComponent<EnemyContainer>();
-            if (_enemy == null) return;
-
-            if (hitStop > 0)
+            // Check if the enemy hurt state is present, if so put the enemy in the hurt state
+            EnemyStateMachine enemyStateMachine = enemy.GetComponent<EnemyStateMachine>();
+            
+            if (enemyStateMachine == null && enemyStateMachine.Hurt != null)
             {
-                SimpleCameraShake._CameraShake(0.1f, 0.05f);
-                HitStop._SimpleHitStop(hitStop);
+                enemyStateMachine.Hurt.EnterHurtState();
             }
-
-            if (rumbleDurration > 0)
-            {
-                Rumbler.RumbleConstant(rumbleLow, rumbleHigh, rumbleDurration);
-            }
-
+                
+            // Check for the enemy container and affect it accordingly
+            EnemyContainer enemyContainer = enemy.GetComponent<EnemyContainer>();
+            
             float knockBackTotalX = knockBackX, knockBackTotalY = knockBackY;
-            if (_enemy.groundCheck != null)
+            if (enemyContainer.GroundCheck != null)
             {
-                if (!_enemy.groundCheck.Grounded == false)
+                if (!enemyContainer.GroundCheck.Grounded == false)
                 {
                     knockBackTotalY += 25;
                     knockBackTotalX -= 5;
                 }
             }
 
-            if (_enemy.Hurt != null)
+            enemyContainer.KnockBack(knockBackTotalX, knockBackTotalY, player.rb.transform.position);
+            enemyContainer.TakeDamage(damage, false);
+            
+            // Trigger hit stop
+            if (hitStop > 0)
             {
-                _enemy.Hurt.EnterHurtState();
+                SimpleCameraShake._CameraShake(0.1f, 0.05f);
+                HitStop._SimpleHitStop(hitStop);
             }
 
-            _enemy.KnockBack(knockBackTotalX, knockBackTotalY, player.rb.transform.position);
-            _enemy.TakeDamage(damage, false);
+            // Trigger rumble
+            if (rumbleDurration > 0)
+            {
+                Rumbler.RumbleConstant(rumbleLow, rumbleHigh, rumbleDurration);
+            }
+            
+            // Increase players meter
             player.playerStats.curSpiritProgression += meterProgression;
         }
     }

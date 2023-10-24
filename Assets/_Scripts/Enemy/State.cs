@@ -9,9 +9,9 @@ public class State : ScriptableObject
     [FormerlySerializedAs("OnStateEnterAction")]
     [Space]
     [Header("State Actions")]
-    public Actions[] OnStateEnterActions;
-    public Actions[] OnStateExitActions;
-    public Actions[] actions;
+    public List<Action> OnStateEnterActions = new List<Action>();
+    public List<Action> OnStateExitActions = new List<Action>();
+    public List<Action> actions = new List<Action>();
 
     [Space]
     [Header("Transition List")]
@@ -34,7 +34,7 @@ public class State : ScriptableObject
     // Called the frame the state is entered
     public void OnStateEnter(EnemyStateMachine stateMachine)
     {
-        if (OnStateEnterActions.Length > 0)
+        if (OnStateEnterActions.Count > 0)
         {
             foreach (var action in OnStateEnterActions)
             {
@@ -54,7 +54,7 @@ public class State : ScriptableObject
     // Called the frame the state exits
     public void OnStateExit(EnemyStateMachine stateMachine)
     {
-        if (OnStateExitActions.Length > 0)
+        if (OnStateExitActions.Count > 0)
         {
             foreach (var action in OnStateExitActions)
             {
@@ -66,7 +66,7 @@ public class State : ScriptableObject
     // Update is called once per frame
     private void DoActions(EnemyStateMachine stateMachine)
     {
-        for (int i = 0; i < actions.Length; i++)
+        for (int i = 0; i < actions.Count; i++)
         {
             actions[i].Act(stateMachine);
         }

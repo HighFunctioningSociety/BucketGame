@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "PluggableAI/Actions/SetCooldown")]
-public class SetCooldownAction : Actions
+public class SetCooldownAction : Action
 {
     public float cooldownValue;
     public override void Act(EnemyStateMachine stateMachine)

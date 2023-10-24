@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "PluggableAI/Actions/Swoop")]
-public class SwoopAction : Actions
+public class SwoopAction : Action
 {
     
     [Tooltip("Position we want to hit")]

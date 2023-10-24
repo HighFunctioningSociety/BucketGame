@@ -57,10 +57,10 @@ public class HelmSplitterTriggerable : MeleeAttackTriggerable
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            EnemyContainer _enemy = enemy.GetComponent<EnemyContainer>();
+            EnemyStateMachine _enemy = enemy.GetComponent<EnemyStateMachine>();
             if (_enemy == null)
             {
-                _enemy = enemy.GetComponentInParent<EnemyContainer>();
+                _enemy = enemy.GetComponentInParent<EnemyStateMachine>();
                 if (_enemy == null)
                 {
                     return;
@@ -68,11 +68,11 @@ public class HelmSplitterTriggerable : MeleeAttackTriggerable
             }
             if (_enemy.Hurt != null)
                 _enemy.Hurt.EnterHurtState();
-            if (_enemy.enemyStats.armor != 1)
-                _enemy.RigidBody.velocity = Vector2.down * 100;
-            if (_enemy.Invul == false)
+            if (_enemy.Enemy.EnemyStats.armor != 1)
+                _enemy.Enemy.RigidBody.velocity = Vector2.down * 100;
+            if (_enemy.Enemy.Invul == false)
                 DrawHitEffect(enemy);
-            _enemy.TakeDamage(subHitDamage, false);
+            _enemy.Enemy.TakeDamage(subHitDamage, false);
         }
 
         ApplyHitstop(subHitHitStop, enNum);
@@ -90,15 +90,19 @@ public class HelmSplitterTriggerable : MeleeAttackTriggerable
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            EnemyContainer _enemy = enemy.GetComponent<EnemyContainer>();
-            if (CheckForNull(_enemy))
-                _enemy = enemy.GetComponentInParent<EnemyContainer>();
-            if (CheckForNull(_enemy) == true)
-                return;
+            EnemyStateMachine _enemy = enemy.GetComponent<EnemyStateMachine>();
+            if (_enemy == null)
+            {
+                _enemy = enemy.GetComponentInParent<EnemyStateMachine>();
+                if (_enemy == null)
+                {
+                    return;
+                }
+            }
 
             _enemy.Hurt.EnterHurtState();
-            _enemy.KnockBack(knockBackX, knockBackY, player.rb.transform.position);
-            _enemy.TakeDamage(damage, true);
+            _enemy.Enemy.KnockBack(knockBackX, knockBackY, player.rb.transform.position);
+            _enemy.Enemy.TakeDamage(damage, true);
             DrawHitEffect(enemy);
         }
 

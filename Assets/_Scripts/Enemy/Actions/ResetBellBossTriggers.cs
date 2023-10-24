@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu (menuName = "PluggableAI/Actions/ResetBellBossTriggers")]
-public class ResetBellBossTriggers : Actions
+public class ResetBellBossTriggers : Action
 {
     public override void Act(EnemyStateMachine stateMachine)
     {

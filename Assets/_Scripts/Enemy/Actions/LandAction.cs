@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(menuName ="PluggableAI/Actions/Land")]
-public class LandAction : Actions
+public class LandAction : Action
 {
     public GameObject fallPrefab;
     private GameObject _fallPrefab;
